@@ -1,0 +1,831 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-08-27",
+  "zone": "pelv",
+  "syndromes": [
+    {
+      "id": "pelv.uro.dysuria",
+      "zone": "pelv",
+      "name": "Боль и резь при мочеиспускании",
+      "priority": 1,
+      "aka": [
+        "больно писать",
+        "режет при мочеиспускании",
+        "жжение при мочеиспускании"
+      ],
+      "feelings": [
+        "Режет и жжёт",
+        "Частые позывы малыми порциями",
+        "Боль над лобком",
+        "Боль в промежности"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "urine",
+        "fever",
+        "tapback",
+        "stream",
+        "bloodurine",
+        "vagdischarge",
+        "scrotum",
+        "period",
+        "contact",
+        "immuno",
+        "progress",
+        "guarding",
+        "radleg",
+        "restless",
+        "smoke",
+        "weight"
+      ],
+      "candidates": [
+        {
+          "condition": "cystitis",
+          "base": 9,
+          "weights": {
+            "urine_burn": 6,
+            "fever_no": 4,
+            "dur_d13": 3,
+            "bloodurine_withpain": 3,
+            "onset_fast": 2,
+            "fever_high": -4,
+            "tapback_yes": -3,
+            "stream_weak": -2
+          }
+        },
+        {
+          "condition": "urethritis",
+          "base": 5,
+          "weights": {
+            "contact_yes": 5,
+            "vagdischarge_purulent": 4,
+            "fever_no": 3,
+            "urine_burn": 3,
+            "tapback_yes": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "vaginitis",
+          "base": 4,
+          "weights": {
+            "vagdischarge_curd": 6,
+            "vagdischarge_grey": 5,
+            "vagdischarge_purulent": 3,
+            "fever_no": 3,
+            "tapback_yes": -3,
+            "fever_high": -3,
+            "bloodurine_painless": -3
+          }
+        },
+        {
+          "condition": "pyelonephritis.acute",
+          "base": 4,
+          "weights": {
+            "tapback_yes": 6,
+            "fever_high": 6,
+            "fever_mid": 3,
+            "guarding_soft": 1,
+            "progress_worse": 2,
+            "fever_no": -5,
+            "tapback_no": -3
+          }
+        },
+        {
+          "condition": "prostatitis",
+          "base": 4,
+          "weights": {
+            "stream_weak": 4,
+            "urine_retention": 4,
+            "fever_mid": 2,
+            "dur_mon": 2,
+            "contact_yes": 1
+          }
+        },
+        {
+          "condition": "bph",
+          "base": 3,
+          "weights": {
+            "stream_weak": 6,
+            "urine_retention": 4,
+            "dur_mon": 4,
+            "onset_gradual": 3,
+            "fever_high": -3,
+            "onset_sudden": -3,
+            "urine_burn": -2
+          }
+        },
+        {
+          "condition": "renal.colic",
+          "base": 3,
+          "weights": {
+            "radleg_groin": 6,
+            "restless_restless": 4,
+            "tapback_yes": 3,
+            "bloodurine_withpain": 3,
+            "stream_weak": -2
+          }
+        },
+        {
+          "condition": "pid",
+          "base": 2,
+          "weights": {
+            "vagdischarge_purulent": 4,
+            "fever_mid": 3,
+            "dur_d47": 2,
+            "urine_burn": -1,
+            "stream_weak": -3
+          }
+        },
+        {
+          "condition": "epididymitis",
+          "base": 2,
+          "weights": {
+            "scrotum_gradual": 6,
+            "fever_mid": 3,
+            "contact_yes": 2,
+            "scrotum_no": -4
+          }
+        },
+        {
+          "condition": "bladder.cancer",
+          "base": 1,
+          "weights": {
+            "bloodurine_painless": 6,
+            "smoke_both": 4,
+            "dur_mon": 3,
+            "urine_burn": -2,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "prostate.cancer",
+          "base": 1,
+          "weights": {
+            "stream_weak": 3,
+            "bloodurine_painless": 4,
+            "dur_mon": 3,
+            "weight_yes": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Резь при мочеиспускании вместе с высокой температурой и болью в пояснице",
+        "Невозможность помочиться при наличии позывов",
+        "Кровь в моче без боли",
+        "Резь при мочеиспускании во время беременности"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "pelv.uro.blood",
+      "zone": "pelv",
+      "name": "Кровь в моче",
+      "priority": 1,
+      "aka": [
+        "моча с кровью",
+        "красная моча",
+        "кровь при мочеиспускании"
+      ],
+      "feelings": [
+        "Моча розовая или красная",
+        "Кровь только в конце",
+        "Сгустки",
+        "Цвет мясных помоев"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "bloodurine",
+        "urine",
+        "fever",
+        "tapback",
+        "radleg",
+        "restless",
+        "smoke",
+        "weight",
+        "edema",
+        "hbp",
+        "trauma",
+        "progress",
+        "stream",
+        "contact"
+      ],
+      "candidates": [
+        {
+          "condition": "cystitis",
+          "base": 7,
+          "weights": {
+            "bloodurine_withpain": 6,
+            "urine_burn": 5,
+            "fever_no": 3,
+            "dur_d13": 3,
+            "bloodurine_painless": -4,
+            "weight_yes": -3,
+            "tapback_yes": -2
+          }
+        },
+        {
+          "condition": "renal.colic",
+          "base": 6,
+          "weights": {
+            "radleg_groin": 6,
+            "restless_restless": 5,
+            "tapback_yes": 4,
+            "onset_fast": 2,
+            "bloodurine_painless": -3,
+            "restless_still": -3
+          }
+        },
+        {
+          "condition": "pyelonephritis.acute",
+          "base": 4,
+          "weights": {
+            "tapback_yes": 5,
+            "fever_high": 5,
+            "urine_burn": 3,
+            "fever_no": -4
+          }
+        },
+        {
+          "condition": "glomerulonephritis",
+          "base": 3,
+          "weights": {
+            "bloodurine_meat": 6,
+            "edema_face": 5,
+            "hbp_high": 4,
+            "dur_w12": 2,
+            "bloodurine_withpain": -3,
+            "restless_restless": -3,
+            "radleg_groin": -3
+          }
+        },
+        {
+          "condition": "bladder.cancer",
+          "base": 3,
+          "weights": {
+            "bloodurine_painless": 6,
+            "bloodurine_clots": 4,
+            "smoke_both": 5,
+            "dur_mon": 3,
+            "weight_yes": 2,
+            "bloodurine_withpain": -3,
+            "bloodurine_meat": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "bph",
+          "base": 3,
+          "weights": {
+            "stream_weak": 6,
+            "dur_mon": 3,
+            "onset_gradual": 3,
+            "restless_restless": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "kidney.cancer",
+          "base": 2,
+          "weights": {
+            "bloodurine_painless": 5,
+            "weight_yes": 4,
+            "smoke_both": 3,
+            "dur_mon": 3,
+            "tapback_yes": 2,
+            "bloodurine_withpain": -2
+          }
+        },
+        {
+          "condition": "prostate.cancer",
+          "base": 2,
+          "weights": {
+            "bloodurine_painless": 4,
+            "stream_weak": 4,
+            "weight_yes": 3,
+            "dur_mon": 3
+          }
+        },
+        {
+          "condition": "urethritis",
+          "base": 2,
+          "weights": {
+            "contact_yes": 5,
+            "urine_burn": 3,
+            "fever_no": 3,
+            "bloodurine_clots": -3
+          }
+        },
+        {
+          "condition": "rib.fracture",
+          "base": 1,
+          "weights": {
+            "trauma_yes": 5,
+            "tapback_yes": 3,
+            "trauma_no": -5
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Кровь в моче без боли и без температуры — даже если появилась один раз и прошла",
+        "Кровь в моче со сгустками",
+        "Кровь в моче вместе с отёками лица и повышением давления",
+        "Кровь в моче с высокой температурой и ознобом"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "pelv.gyn.pain",
+      "zone": "pelv",
+      "name": "Боль внизу живота у женщин",
+      "priority": 1,
+      "aka": [
+        "болит низ живота у женщины",
+        "тянет придатки",
+        "боль в яичниках"
+      ],
+      "feelings": [
+        "Тянет и ноет",
+        "Схватывает",
+        "Резко с одной стороны",
+        "Боль при близости"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "period",
+        "pregnant",
+        "vagdischarge",
+        "fever",
+        "urine",
+        "guarding",
+        "restless",
+        "progress",
+        "bowel",
+        "weight",
+        "contact",
+        "stoolrel",
+        "migration",
+        "jolt",
+        "appetite",
+        "radleg",
+        "tapback"
+      ],
+      "candidates": [
+        {
+          "condition": "ectopic.pregnancy",
+          "base": 5,
+          "weights": {
+            "period_delay": 6,
+            "pregnant_early": 6,
+            "onset_sudden": 3,
+            "vagdischarge_bloody": 4,
+            "restless_restless": 2,
+            "period_none": -5,
+            "period_now": -3,
+            "pregnant_no": -3
+          }
+        },
+        {
+          "condition": "pid",
+          "base": 6,
+          "weights": {
+            "vagdischarge_purulent": 5,
+            "fever_mid": 4,
+            "contact_yes": 3,
+            "dur_d47": 3,
+            "onset_gradual": 3,
+            "onset_sudden": -3,
+            "period_delay": -2
+          }
+        },
+        {
+          "condition": "endometriosis",
+          "base": 5,
+          "weights": {
+            "period_now": 6,
+            "dur_mon": 5,
+            "fever_no": 3,
+            "progress_same": 2,
+            "fever_high": -4,
+            "onset_sudden": -3,
+            "period_delay": -3
+          }
+        },
+        {
+          "condition": "ovarian.cyst",
+          "base": 5,
+          "weights": {
+            "onset_sudden": 5,
+            "period_mid": 5,
+            "dur_hours": 3,
+            "fever_no": 2,
+            "dur_mon": -2
+          }
+        },
+        {
+          "condition": "cystitis",
+          "base": 4,
+          "weights": {
+            "urine_burn": 6,
+            "fever_no": 3,
+            "dur_d13": 2,
+            "vagdischarge_purulent": -2,
+            "guarding_board": -4
+          }
+        },
+        {
+          "condition": "vaginitis",
+          "base": 4,
+          "weights": {
+            "vagdischarge_curd": 6,
+            "vagdischarge_grey": 5,
+            "fever_no": 3,
+            "fever_high": -3,
+            "guarding_board": -4
+          }
+        },
+        {
+          "condition": "ovarian.torsion",
+          "base": 3,
+          "weights": {
+            "onset_sudden": 6,
+            "restless_restless": 4,
+            "dur_hours": 3,
+            "progress_wave": 2,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "miscarriage",
+          "base": 3,
+          "weights": {
+            "pregnant_early": 6,
+            "vagdischarge_bloody": 6,
+            "period_delay": 3,
+            "pregnant_no": -5,
+            "vagdischarge_no": -3
+          }
+        },
+        {
+          "condition": "ibs",
+          "base": 3,
+          "weights": {
+            "stoolrel_better": 6,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "vagdischarge_purulent": -3,
+            "period_delay": -2
+          }
+        },
+        {
+          "condition": "appendicitis.acute",
+          "base": 3,
+          "weights": {
+            "migration_yes": 6,
+            "jolt_yes": 4,
+            "appetite_down": 3,
+            "fever_low": 2,
+            "dur_mon": -5
+          },
+          "stop": [
+            "surgery_appendix"
+          ]
+        },
+        {
+          "condition": "pregnancy.early",
+          "base": 2,
+          "weights": {
+            "period_delay": 5,
+            "pregnant_early": 5,
+            "fever_no": 3,
+            "vagdischarge_bloody": -2
+          }
+        },
+        {
+          "condition": "renal.colic",
+          "base": 2,
+          "weights": {
+            "radleg_groin": 6,
+            "restless_restless": 4,
+            "tapback_yes": 4,
+            "vagdischarge_purulent": -3
+          }
+        },
+        {
+          "condition": "diverticulitis",
+          "base": 1,
+          "weights": {
+            "fever_mid": 4,
+            "fever_high": 3,
+            "bowel_hard": 3,
+            "guarding_tender": 2,
+            "period_now": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль внизу живота при задержке менструации",
+        "Боль или кровянистые выделения при известной беременности",
+        "Внезапная очень сильная боль с одной стороны",
+        "Боль с высокой температурой и напряжённым животом",
+        "Боль с дурнотой, бледностью и холодным потом"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "pelv.gyn.pregnancy",
+      "zone": "pelv",
+      "name": "Боль и кровотечение при беременности",
+      "priority": 1,
+      "aka": [
+        "кровит при беременности",
+        "болит живот беременная",
+        "угроза"
+      ],
+      "feelings": [
+        "Мажущие выделения",
+        "Обильное кровотечение",
+        "Схваткообразная боль",
+        "Живот твёрдый и не расслабляется"
+      ],
+      "questions": [
+        "pregnant",
+        "dur",
+        "onset",
+        "vagdischarge",
+        "guarding",
+        "hbp",
+        "edema",
+        "vision",
+        "radleg",
+        "vomitwhat",
+        "thirst",
+        "fever",
+        "progress",
+        "auto",
+        "weight",
+        "urine",
+        "tapback",
+        "migration",
+        "jolt"
+      ],
+      "candidates": [
+        {
+          "condition": "miscarriage",
+          "base": 6,
+          "weights": {
+            "pregnant_early": 6,
+            "vagdischarge_bloody": 6,
+            "onset_gradual": 2,
+            "progress_worse": 2,
+            "pregnant_late": -3,
+            "vagdischarge_no": -4
+          }
+        },
+        {
+          "condition": "ectopic.pregnancy",
+          "base": 5,
+          "weights": {
+            "pregnant_early": 5,
+            "onset_sudden": 4,
+            "vagdischarge_bloody": 4,
+            "auto_yes": 4,
+            "guarding_tender": 3,
+            "pregnant_late": -6
+          }
+        },
+        {
+          "condition": "preeclampsia",
+          "base": 4,
+          "weights": {
+            "pregnant_late": 6,
+            "hbp_high": 6,
+            "edema_face": 5,
+            "vision_blur": 4,
+            "radleg_front": 3,
+            "pregnant_early": -5,
+            "hbp_normal": -4
+          }
+        },
+        {
+          "condition": "placental.abruption",
+          "base": 3,
+          "weights": {
+            "pregnant_late": 6,
+            "guarding_board": 6,
+            "onset_sudden": 4,
+            "auto_yes": 3,
+            "vagdischarge_bloody": 3,
+            "pregnant_early": -6
+          }
+        },
+        {
+          "condition": "hyperemesis",
+          "base": 3,
+          "weights": {
+            "pregnant_early": 5,
+            "vomitwhat_food": 5,
+            "vomitwhat_bile": 4,
+            "thirst_yes": 3,
+            "weight_yes": 3,
+            "vagdischarge_bloody": -3,
+            "pregnant_late": -3
+          }
+        },
+        {
+          "condition": "cystitis",
+          "base": 3,
+          "weights": {
+            "urine_burn": 6,
+            "fever_no": 2,
+            "vagdischarge_bloody": -3,
+            "guarding_board": -4
+          }
+        },
+        {
+          "condition": "pyelonephritis.acute",
+          "base": 2,
+          "weights": {
+            "fever_high": 6,
+            "tapback_yes": 5,
+            "vomitwhat_food": 2,
+            "fever_no": -4
+          }
+        },
+        {
+          "condition": "appendicitis.acute",
+          "base": 2,
+          "weights": {
+            "migration_yes": 6,
+            "jolt_yes": 3,
+            "guarding_tender": 3,
+            "vagdischarge_bloody": -3
+          },
+          "stop": [
+            "surgery_appendix"
+          ]
+        }
+      ],
+      "notSearchedHere": [
+        "Любая боль или кровотечение при беременности разбирают в роддоме, а не по справочнику",
+        "Обильное кровотечение, твёрдый живот, изменение или прекращение шевелений",
+        "Высокое давление с головной болью, мельканием мушек и болью под ложечкой после двадцатой недели",
+        "Рвота, из-за которой невозможно пить"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "pelv.andr.testis",
+      "zone": "pelv",
+      "name": "Боль и изменения в мошонке",
+      "priority": 1,
+      "aka": [
+        "болит яичко",
+        "опухло яичко",
+        "боль в мошонке"
+      ],
+      "feelings": [
+        "Внезапная сильная боль",
+        "Нарастало день-два",
+        "Безболезненное увеличение",
+        "Тянет к вечеру"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "scrotum",
+        "fever",
+        "urine",
+        "vomitwhat",
+        "trauma",
+        "contact",
+        "side",
+        "progress",
+        "weight",
+        "bulge",
+        "radleg",
+        "restless",
+        "tapback"
+      ],
+      "candidates": [
+        {
+          "condition": "testicular.torsion",
+          "base": 6,
+          "weights": {
+            "scrotum_suddenpain": 6,
+            "onset_sudden": 6,
+            "vomitwhat_food": 3,
+            "dur_hours": 4,
+            "fever_no": 2,
+            "scrotum_gradual": -5,
+            "scrotum_painless": -5,
+            "dur_mon": -6,
+            "onset_gradual": -5
+          }
+        },
+        {
+          "condition": "epididymitis",
+          "base": 6,
+          "weights": {
+            "scrotum_gradual": 6,
+            "fever_mid": 4,
+            "urine_burn": 4,
+            "contact_yes": 3,
+            "dur_d13": 3,
+            "scrotum_suddenpain": -4,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "varicocele",
+          "base": 4,
+          "weights": {
+            "scrotum_veins": 6,
+            "side_one": 3,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "scrotum_suddenpain": -5,
+            "fever_high": -3,
+            "onset_sudden": -4
+          }
+        },
+        {
+          "condition": "hydrocele",
+          "base": 4,
+          "weights": {
+            "scrotum_painless": 6,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "progress_same": 2,
+            "scrotum_suddenpain": -5,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "inguinal.hernia",
+          "base": 3,
+          "weights": {
+            "bulge_soft": 6,
+            "dur_mon": 3,
+            "scrotum_painless": 2,
+            "bulge_no": -4
+          }
+        },
+        {
+          "condition": "strangulated.hernia",
+          "base": 2,
+          "weights": {
+            "bulge_stuck": 6,
+            "vomitwhat_food": 3,
+            "onset_sudden": 3,
+            "bulge_no": -5
+          }
+        },
+        {
+          "condition": "rib.fracture",
+          "base": 1,
+          "weights": {
+            "trauma_yes": 4,
+            "trauma_no": -5
+          }
+        },
+        {
+          "condition": "renal.colic",
+          "base": 2,
+          "weights": {
+            "radleg_groin": 6,
+            "restless_restless": 4,
+            "tapback_yes": 4,
+            "scrotum_no": 2,
+            "scrotum_painless": -3
+          }
+        },
+        {
+          "condition": "urethritis",
+          "base": 2,
+          "weights": {
+            "contact_yes": 5,
+            "urine_burn": 4,
+            "fever_no": 2,
+            "scrotum_suddenpain": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Внезапная сильная боль в мошонке — яичко удаётся сохранить только в первые часы",
+        "Боль в мошонке с тошнотой и рвотой",
+        "Боль в мошонке у подростка ночью или после нагрузки",
+        "Быстро нарастающий отёк с покраснением и высокой температурой"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    }
+  ]
+}

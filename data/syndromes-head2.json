@@ -1,0 +1,1632 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-08-27",
+  "zone": "head",
+  "syndromes": [
+    {
+      "id": "head.pain.temple",
+      "zone": "head",
+      "name": "Боль в висках",
+      "priority": 2,
+      "aka": [
+        "болит висок",
+        "давит в висках",
+        "пульсирует в виске"
+      ],
+      "feelings": [
+        "Давит с двух сторон",
+        "Пульсирует в одном виске",
+        "Больно дотронуться до виска",
+        "Ноет при жевании"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "side",
+        "photo",
+        "chewpain",
+        "move",
+        "jawopen",
+        "attacks",
+        "aura",
+        "progress",
+        "vision",
+        "fever",
+        "painkillers",
+        "eyered",
+        "focal",
+        "runny",
+        "morning"
+      ],
+      "candidates": [
+        {
+          "condition": "tension.headache",
+          "base": 8,
+          "weights": {
+            "side_both": 4,
+            "photo_no": 4,
+            "onset_gradual": 3,
+            "attacks_repeat": 2,
+            "chewpain_yes": -3,
+            "aura_yes": -4,
+            "focal_yes": -4
+          }
+        },
+        {
+          "condition": "migraine",
+          "base": 6,
+          "weights": {
+            "photo_yes": 5,
+            "aura_yes": 5,
+            "side_one": 3,
+            "attacks_repeat": 4,
+            "dur_hours": 2,
+            "chewpain_yes": -2,
+            "focal_yes": -2
+          }
+        },
+        {
+          "condition": "tmj.dysfunction",
+          "base": 5,
+          "weights": {
+            "jawopen_click": 6,
+            "chewpain_yes": 4,
+            "move_press": 3,
+            "dur_mon": 2,
+            "aura_yes": -3,
+            "photo_yes": -2
+          }
+        },
+        {
+          "condition": "cervicogenic.headache",
+          "base": 4,
+          "weights": {
+            "move_turn": 5,
+            "side_one": 3,
+            "dur_mon": 2,
+            "aura_yes": -3
+          }
+        },
+        {
+          "condition": "medication.overuse.headache",
+          "base": 4,
+          "weights": {
+            "painkillers_often": 6,
+            "dur_mon": 4,
+            "side_both": 2,
+            "painkillers_rare": -3
+          }
+        },
+        {
+          "condition": "giant.cell.arteritis",
+          "base": 3,
+          "weights": {
+            "chewpain_yes": 6,
+            "move_press": 4,
+            "attacks_first": 3,
+            "progress_worse": 3,
+            "vision_loss": 4,
+            "attacks_repeat": -3,
+            "aura_yes": -2
+          }
+        },
+        {
+          "condition": "cluster.headache",
+          "base": 2,
+          "weights": {
+            "eyered_yes": 6,
+            "side_one": 3,
+            "dur_hours": 3,
+            "attacks_repeat": 2,
+            "eyered_no": -3
+          }
+        },
+        {
+          "condition": "sinusitis.acute",
+          "base": 2,
+          "weights": {
+            "runny_yes": 5,
+            "fever_mid": 3,
+            "move_press": 2,
+            "runny_no": -3
+          }
+        },
+        {
+          "condition": "brain.tumor",
+          "base": 1,
+          "weights": {
+            "progress_worse": 5,
+            "focal_yes": 5,
+            "morning_yes": 4,
+            "dur_mon": 2,
+            "attacks_repeat": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Новая боль в виске после пятидесяти лет, особенно с болью при жевании",
+        "Любое нарушение зрения на фоне боли в виске",
+        "Боль вместе со слабостью в конечностях или нарушением речи"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.pain.sinus",
+      "zone": "head",
+      "name": "Боль во лбу и переносице",
+      "priority": 2,
+      "aka": [
+        "болит лоб",
+        "давит переносицу",
+        "гайморит"
+      ],
+      "feelings": [
+        "Распирает при наклоне вперёд",
+        "Давит над бровями",
+        "Тяжесть в переносице",
+        "Пульсирует"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "runny",
+        "smell",
+        "fever",
+        "move",
+        "progress",
+        "blocked",
+        "photo",
+        "vision",
+        "swell",
+        "focal",
+        "drops",
+        "aura",
+        "attacks",
+        "eyered",
+        "vomit",
+        "morning"
+      ],
+      "candidates": [
+        {
+          "condition": "sinusitis.acute",
+          "base": 9,
+          "weights": {
+            "runny_yes": 6,
+            "smell_lost": 5,
+            "move_press": 3,
+            "fever_mid": 3,
+            "dur_d47": 3,
+            "dur_w12": 2,
+            "runny_no": -4,
+            "focal_yes": -4,
+            "photo_yes": -2
+          }
+        },
+        {
+          "condition": "arvi",
+          "base": 6,
+          "weights": {
+            "runny_yes": 5,
+            "dur_d13": 4,
+            "fever_low": 2,
+            "progress_better": 3,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "tension.headache",
+          "base": 5,
+          "weights": {
+            "runny_no": 4,
+            "photo_no": 3,
+            "onset_gradual": 3,
+            "smell_lost": -3,
+            "fever_mid": -2
+          }
+        },
+        {
+          "condition": "migraine",
+          "base": 4,
+          "weights": {
+            "photo_yes": 5,
+            "aura_yes": 4,
+            "attacks_repeat": 3,
+            "runny_no": 2,
+            "smell_lost": -2
+          }
+        },
+        {
+          "condition": "nasal.polyps",
+          "base": 3,
+          "weights": {
+            "smell_lost": 6,
+            "blocked_both": 4,
+            "dur_mon": 5,
+            "drops_long": 2,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "allergic.pharyngitis",
+          "base": 3,
+          "weights": {
+            "runny_yes": 4,
+            "fever_no": 3,
+            "progress_wave": 3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "glaucoma.acute",
+          "base": 1,
+          "weights": {
+            "vision_blur": 6,
+            "eyered_yes": 5,
+            "vomit_yes": 3,
+            "onset_fast": 2,
+            "runny_yes": -3
+          }
+        },
+        {
+          "condition": "brain.tumor",
+          "base": 1,
+          "weights": {
+            "progress_worse": 5,
+            "morning_yes": 4,
+            "focal_yes": 5,
+            "dur_mon": 2,
+            "runny_yes": -3
+          }
+        },
+        {
+          "condition": "cerebral.venous.thrombosis",
+          "base": 1,
+          "weights": {
+            "progress_worse": 4,
+            "focal_yes": 4,
+            "morning_yes": 3,
+            "dur_d47": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Отёк и покраснение вокруг глаза, выпячивание глазного яблока, двоение",
+        "Сильная головная боль со спутанностью на фоне синусита",
+        "Заложенность строго с одной стороны с кровянистыми выделениями"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.dizzy.faint",
+      "zone": "head",
+      "name": "Дурнота и предобморочное состояние",
+      "priority": 2,
+      "aka": [
+        "темнеет в глазах",
+        "чуть не упал",
+        "падаю в обморок"
+      ],
+      "feelings": [
+        "Темнеет в глазах при вставании",
+        "Дурнота и холодный пот",
+        "Проваливаюсь",
+        "Терял сознание"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "faint",
+        "position",
+        "rhythm",
+        "auto",
+        "dysp",
+        "tired",
+        "temperature",
+        "thirst",
+        "bowel",
+        "focal",
+        "hbp",
+        "attacks",
+        "mood",
+        "newmeds",
+        "bruise",
+        "progress",
+        "vomit",
+        "fever"
+      ],
+      "candidates": [
+        {
+          "condition": "vasovagal.syncope",
+          "base": 7,
+          "weights": {
+            "faint_warn": 6,
+            "position_stand": 4,
+            "auto_yes": 3,
+            "attacks_repeat": 2,
+            "faint_load": -5,
+            "faint_sudden": -4,
+            "rhythm_chaotic": -3
+          }
+        },
+        {
+          "condition": "orthostatic.hypotension",
+          "base": 6,
+          "weights": {
+            "position_stand": 6,
+            "newmeds_yes": 3,
+            "thirst_yes": 2,
+            "faint_warn": 3,
+            "faint_load": -4,
+            "position_yes": -2
+          }
+        },
+        {
+          "condition": "anemia",
+          "base": 5,
+          "weights": {
+            "tired_strong": 4,
+            "position_stand": 3,
+            "temperature_cold": 3,
+            "dysp_yes": 3,
+            "bowel_blood": 5,
+            "onset_gradual": 3,
+            "faint_load": -2
+          }
+        },
+        {
+          "condition": "hypoglycemia",
+          "base": 4,
+          "weights": {
+            "auto_yes": 5,
+            "attacks_repeat": 3,
+            "progress_better": 3,
+            "thirst_no": 1,
+            "faint_load": -2
+          }
+        },
+        {
+          "condition": "panic.attack",
+          "base": 4,
+          "weights": {
+            "mood_anx": 6,
+            "attacks_repeat": 3,
+            "dysp_yes": 3,
+            "faint_none": 3,
+            "faint_sudden": -3,
+            "faint_load": -4
+          }
+        },
+        {
+          "condition": "atrial.fibrillation",
+          "base": 3,
+          "weights": {
+            "rhythm_chaotic": 6,
+            "dysp_yes": 3,
+            "faint_sudden": 3,
+            "rhythm_even": -3
+          }
+        },
+        {
+          "condition": "cardiac.syncope",
+          "base": 2,
+          "weights": {
+            "faint_load": 6,
+            "faint_sudden": 6,
+            "rhythm_chaotic": 3,
+            "dysp_yes": 2,
+            "faint_warn": -5,
+            "position_stand": -3,
+            "mood_anx": -3
+          }
+        },
+        {
+          "condition": "gastroenteritis.acute",
+          "base": 2,
+          "weights": {
+            "bowel_loose": 5,
+            "vomit_yes": 4,
+            "thirst_yes": 3,
+            "dur_d13": 3,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "leukemia",
+          "base": 1,
+          "weights": {
+            "bruise_yes": 6,
+            "tired_strong": 4,
+            "fever_mid": 3,
+            "bruise_no": -2
+          }
+        },
+        {
+          "condition": "stroke.ischemic",
+          "base": 1,
+          "weights": {
+            "focal_yes": 6,
+            "onset_sudden": 4,
+            "faint_sudden": 2,
+            "focal_no": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Обморок без предвестников, во время нагрузки или в положении лёжа",
+        "Обморок у человека с известной болезнью сердца",
+        "Обморок с травмой головы",
+        "Внезапно умиравшие в молодом возрасте родственники"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.face.pain",
+      "zone": "head",
+      "name": "Боль в лице",
+      "priority": 3,
+      "aka": [
+        "болит лицо",
+        "стреляет в щеку",
+        "болит скула"
+      ],
+      "feelings": [
+        "Прострелы как удар током",
+        "Ноет в щеке",
+        "Жжёт полосой",
+        "Давит под глазом"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "side",
+        "attacks",
+        "move",
+        "chewpain",
+        "jawopen",
+        "runny",
+        "rash",
+        "toothtrig",
+        "forehead",
+        "focal",
+        "progress",
+        "fever",
+        "gums",
+        "mouth"
+      ],
+      "candidates": [
+        {
+          "condition": "trigeminal.neuralgia",
+          "base": 7,
+          "weights": {
+            "attacks_seconds": 6,
+            "side_one": 4,
+            "attacks_repeat": 3,
+            "move_press": 2,
+            "attacks_hours": -3,
+            "runny_yes": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "sinusitis.acute",
+          "base": 6,
+          "weights": {
+            "runny_yes": 6,
+            "move_press": 4,
+            "fever_mid": 3,
+            "dur_d47": 3,
+            "runny_no": -3,
+            "attacks_seconds": -4
+          }
+        },
+        {
+          "condition": "tmj.dysfunction",
+          "base": 5,
+          "weights": {
+            "jawopen_click": 6,
+            "chewpain_yes": 5,
+            "move_press": 3,
+            "dur_mon": 2,
+            "attacks_seconds": -3
+          }
+        },
+        {
+          "condition": "dental.pulpitis",
+          "base": 5,
+          "weights": {
+            "toothtrig_cold": 6,
+            "toothtrig_bite": 5,
+            "side_one": 3,
+            "runny_no": 2,
+            "attacks_seconds": -3
+          }
+        },
+        {
+          "condition": "herpes.zoster",
+          "base": 3,
+          "weights": {
+            "rash_spots": 6,
+            "side_one": 4,
+            "dur_d13": 3,
+            "attacks_seconds": -2,
+            "runny_yes": -3
+          }
+        },
+        {
+          "condition": "bells.palsy",
+          "base": 3,
+          "weights": {
+            "forehead_affected": 6,
+            "onset_fast": 3,
+            "side_one": 3,
+            "attacks_seconds": -3
+          }
+        },
+        {
+          "condition": "giant.cell.arteritis",
+          "base": 2,
+          "weights": {
+            "chewpain_yes": 6,
+            "move_press": 3,
+            "progress_worse": 3,
+            "attacks_repeat": -2
+          }
+        },
+        {
+          "condition": "stroke.ischemic",
+          "base": 1,
+          "weights": {
+            "forehead_spared": 6,
+            "focal_yes": 6,
+            "onset_sudden": 4,
+            "attacks_seconds": -4
+          }
+        },
+        {
+          "condition": "pericoronitis",
+          "base": 2,
+          "weights": {
+            "gums_swollen": 6,
+            "chewpain_yes": 3,
+            "fever_mid": 3,
+            "mouth_hard": 4,
+            "attacks_seconds": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Внезапно перекосило лицо",
+        "Отёк лица с температурой и невозможностью открыть рот",
+        "Впервые возникшая боль в лице после пятидесяти с болью при жевании"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.jaw",
+      "zone": "head",
+      "name": "Боль в челюсти и при жевании",
+      "priority": 3,
+      "aka": [
+        "болит челюсть",
+        "щёлкает челюсть",
+        "больно жевать"
+      ],
+      "feelings": [
+        "Щёлкает при открывании",
+        "Ноет перед ухом",
+        "Больно жевать",
+        "Не открывается рот"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "jawopen",
+        "chewpain",
+        "mouth",
+        "move",
+        "side",
+        "fever",
+        "gums",
+        "toothtrig",
+        "ear",
+        "auto",
+        "dysp",
+        "swell",
+        "progress",
+        "contact"
+      ],
+      "candidates": [
+        {
+          "condition": "tmj.dysfunction",
+          "base": 8,
+          "weights": {
+            "jawopen_click": 6,
+            "jawopen_stuck": 5,
+            "chewpain_yes": 4,
+            "move_press": 3,
+            "dur_mon": 3,
+            "ear_yes": 3,
+            "fever_high": -4,
+            "auto_yes": -5,
+            "gums_swollen": -3
+          }
+        },
+        {
+          "condition": "dental.pulpitis",
+          "base": 5,
+          "weights": {
+            "toothtrig_cold": 6,
+            "toothtrig_bite": 5,
+            "side_one": 3,
+            "jawopen_click": -3
+          }
+        },
+        {
+          "condition": "pericoronitis",
+          "base": 4,
+          "weights": {
+            "gums_swollen": 6,
+            "mouth_hard": 4,
+            "fever_mid": 3,
+            "side_one": 3,
+            "jawopen_click": -3
+          }
+        },
+        {
+          "condition": "periodontitis",
+          "base": 3,
+          "weights": {
+            "gums_bleed": 6,
+            "dur_mon": 4,
+            "fever_no": 2,
+            "jawopen_click": -3,
+            "toothtrig_cold": -2
+          }
+        },
+        {
+          "condition": "sialadenitis",
+          "base": 3,
+          "weights": {
+            "swell_side": 5,
+            "chewpain_yes": 4,
+            "side_one": 3,
+            "jawopen_click": -3
+          }
+        },
+        {
+          "condition": "giant.cell.arteritis",
+          "base": 2,
+          "weights": {
+            "chewpain_yes": 6,
+            "move_press": 3,
+            "progress_worse": 3,
+            "jawopen_click": -3
+          }
+        },
+        {
+          "condition": "myocardial.infarction",
+          "base": 1,
+          "weights": {
+            "auto_yes": 6,
+            "dysp_yes": 5,
+            "onset_fast": 3,
+            "move_press": -5,
+            "jawopen_click": -5,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "ludwig.angina",
+          "base": 1,
+          "weights": {
+            "swell_floor": 6,
+            "mouth_hard": 4,
+            "fever_high": 4,
+            "progress_worse": 3,
+            "jawopen_click": -4
+          }
+        },
+        {
+          "condition": "mumps",
+          "base": 2,
+          "weights": {
+            "swell_side": 5,
+            "ear_yes": 3,
+            "fever_mid": 3,
+            "contact_yes": 3,
+            "jawopen_click": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль в челюсти вместе с холодным потом, дурнотой и одышкой",
+        "Отёк под языком, дно рта приподнято, трудно дышать",
+        "Высокая температура с невозможностью открыть рот"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.tooth",
+      "zone": "head",
+      "name": "Зубная боль",
+      "priority": 2,
+      "aka": [
+        "болит зуб",
+        "ноет зуб",
+        "флюс"
+      ],
+      "feelings": [
+        "Ноет и пульсирует, хуже ночью",
+        "Больно накусывать",
+        "Стреляет от холодного",
+        "Опухла щека"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "toothtrig",
+        "gums",
+        "swell",
+        "fever",
+        "mouth",
+        "side",
+        "chewpain",
+        "progress",
+        "jawopen",
+        "saliva",
+        "runny",
+        "move",
+        "attacks",
+        "auto",
+        "dysp"
+      ],
+      "candidates": [
+        {
+          "condition": "dental.pulpitis",
+          "base": 9,
+          "weights": {
+            "toothtrig_cold": 6,
+            "toothtrig_bite": 5,
+            "side_one": 3,
+            "fever_no": 2,
+            "dur_d13": 2,
+            "gums_bleed": -2,
+            "jawopen_click": -3,
+            "fever_high": -2
+          }
+        },
+        {
+          "condition": "periodontitis",
+          "base": 5,
+          "weights": {
+            "gums_bleed": 6,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "toothtrig_cold": -3
+          }
+        },
+        {
+          "condition": "pericoronitis",
+          "base": 4,
+          "weights": {
+            "gums_swollen": 6,
+            "mouth_hard": 4,
+            "fever_mid": 3,
+            "toothtrig_cold": -3
+          }
+        },
+        {
+          "condition": "sinusitis.acute",
+          "base": 3,
+          "weights": {
+            "runny_yes": 5,
+            "move_press": 3,
+            "side_one": 2,
+            "toothtrig_bite": -2
+          }
+        },
+        {
+          "condition": "tmj.dysfunction",
+          "base": 3,
+          "weights": {
+            "jawopen_click": 6,
+            "chewpain_yes": 4,
+            "toothtrig_cold": -4
+          }
+        },
+        {
+          "condition": "trigeminal.neuralgia",
+          "base": 2,
+          "weights": {
+            "attacks_seconds": 6,
+            "side_one": 3,
+            "toothtrig_cold": -3,
+            "gums_swollen": -3
+          }
+        },
+        {
+          "condition": "ludwig.angina",
+          "base": 1,
+          "weights": {
+            "swell_floor": 6,
+            "mouth_hard": 4,
+            "fever_high": 4,
+            "saliva_hard": 4,
+            "progress_worse": 3
+          }
+        },
+        {
+          "condition": "myocardial.infarction",
+          "base": 1,
+          "weights": {
+            "auto_yes": 6,
+            "dysp_yes": 4,
+            "toothtrig_cold": -5,
+            "gums_bleed": -4,
+            "dur_mon": -5
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Отёк щеки или шеи с высокой температурой",
+        "Отёк под языком, трудно глотать слюну и дышать",
+        "Невозможность открыть рот"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.eye.pain",
+      "zone": "head",
+      "name": "Боль в глазу",
+      "priority": 2,
+      "aka": [
+        "болит глаз",
+        "режет глаз",
+        "давит на глаз"
+      ],
+      "feelings": [
+        "Ощущение соринки",
+        "Глубокая боль в глазу",
+        "Больно двигать глазом",
+        "Режет на свету"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "eyepain",
+        "eyered.where",
+        "eyedisch",
+        "lens",
+        "vision",
+        "photo",
+        "vomit",
+        "eyeside",
+        "trauma",
+        "floaters",
+        "progress",
+        "attacks",
+        "eyered"
+      ],
+      "candidates": [
+        {
+          "condition": "keratitis",
+          "base": 6,
+          "weights": {
+            "lens_yes": 6,
+            "eyepain_yes": 4,
+            "photo_yes": 4,
+            "eyedisch_watery": 3,
+            "trauma_yes": 3,
+            "eyeside_one": 3,
+            "eyepain_no": -4,
+            "eyepain_move": -3
+          }
+        },
+        {
+          "condition": "conjunctivitis",
+          "base": 6,
+          "weights": {
+            "eyered.where_diffuse": 6,
+            "eyedisch_sticky": 5,
+            "vision_no": 3,
+            "eyepain_no": 2,
+            "eyepain_yes": -3,
+            "vision_blur": -3,
+            "vomit_yes": -3
+          }
+        },
+        {
+          "condition": "dry.eye",
+          "base": 5,
+          "weights": {
+            "eyedisch_watery": 3,
+            "vision_no": 3,
+            "dur_mon": 4,
+            "eyepain_no": 3,
+            "photo_no": 2,
+            "eyepain_yes": -3,
+            "lens_yes": 1
+          }
+        },
+        {
+          "condition": "blepharitis",
+          "base": 4,
+          "weights": {
+            "eyered.where_lid": 6,
+            "eyedisch_sticky": 4,
+            "dur_mon": 3,
+            "vision_no": 2,
+            "vision_blur": -3
+          }
+        },
+        {
+          "condition": "uveitis",
+          "base": 3,
+          "weights": {
+            "eyered.where_ring": 6,
+            "photo_yes": 5,
+            "vision_blur": 4,
+            "eyepain_yes": 3,
+            "eyeside_one": 2,
+            "eyered.where_diffuse": -4,
+            "eyedisch_sticky": -3
+          }
+        },
+        {
+          "condition": "optic.neuritis",
+          "base": 3,
+          "weights": {
+            "eyepain_move": 6,
+            "vision_loss": 4,
+            "eyeside_one": 3,
+            "progress_worse": 2,
+            "eyered.where_diffuse": -3,
+            "eyedisch_sticky": -3
+          }
+        },
+        {
+          "condition": "glaucoma.acute",
+          "base": 2,
+          "weights": {
+            "eyepain_yes": 5,
+            "vision_blur": 5,
+            "vomit_yes": 5,
+            "eyered.where_ring": 4,
+            "onset_fast": 3,
+            "eyepain_no": -5,
+            "eyedisch_sticky": -3
+          }
+        },
+        {
+          "condition": "migraine",
+          "base": 2,
+          "weights": {
+            "photo_yes": 4,
+            "attacks_repeat": 4,
+            "dur_hours": 3,
+            "eyered.where_diffuse": -2,
+            "eyedisch_sticky": -3
+          }
+        },
+        {
+          "condition": "cluster.headache",
+          "base": 2,
+          "weights": {
+            "eyered_yes": 5,
+            "eyeside_one": 3,
+            "dur_hours": 3,
+            "attacks_repeat": 3,
+            "eyedisch_sticky": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Сильная боль в красном глазу с рвотой и радужными кругами вокруг ламп",
+        "Боль в глазу у носителя контактных линз",
+        "Снижение зрения на фоне боли",
+        "Травма глаза"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.eye.red",
+      "zone": "head",
+      "name": "Покраснение глаза",
+      "priority": 2,
+      "aka": [
+        "красный глаз",
+        "покраснел глаз",
+        "лопнул сосуд в глазу"
+      ],
+      "feelings": [
+        "Весь белок красный",
+        "Одно красное пятно",
+        "Красный с гноем",
+        "Красный вокруг радужки"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "eyered.where",
+        "eyedisch",
+        "eyepain",
+        "vision",
+        "photo",
+        "lens",
+        "eyeside",
+        "contact",
+        "bloodthin",
+        "hbp",
+        "vomit",
+        "itch",
+        "runny"
+      ],
+      "candidates": [
+        {
+          "condition": "conjunctivitis",
+          "base": 9,
+          "weights": {
+            "eyered.where_diffuse": 6,
+            "eyedisch_sticky": 5,
+            "contact_yes": 3,
+            "eyepain_no": 3,
+            "vision_no": 3,
+            "itch_some": 2,
+            "eyered.where_ring": -4,
+            "vision_blur": -4,
+            "vomit_yes": -4
+          }
+        },
+        {
+          "condition": "subconjunctival.hemorrhage",
+          "base": 5,
+          "weights": {
+            "eyered.where_patch": 6,
+            "eyepain_no": 4,
+            "vision_no": 4,
+            "bloodthin_yes": 3,
+            "hbp_high": 2,
+            "eyedisch_no": 3,
+            "eyedisch_sticky": -4,
+            "eyepain_yes": -4
+          }
+        },
+        {
+          "condition": "blepharitis",
+          "base": 4,
+          "weights": {
+            "eyered.where_lid": 6,
+            "eyedisch_sticky": 4,
+            "dur_mon": 3,
+            "itch_some": 3,
+            "vision_blur": -3
+          }
+        },
+        {
+          "condition": "dry.eye",
+          "base": 4,
+          "weights": {
+            "eyered.where_diffuse": 2,
+            "dur_mon": 4,
+            "eyepain_no": 3,
+            "eyedisch_watery": 2,
+            "eyedisch_sticky": -2
+          }
+        },
+        {
+          "condition": "keratitis",
+          "base": 3,
+          "weights": {
+            "lens_yes": 6,
+            "eyepain_yes": 4,
+            "photo_yes": 4,
+            "vision_blur": 3,
+            "eyepain_no": -4
+          }
+        },
+        {
+          "condition": "uveitis",
+          "base": 2,
+          "weights": {
+            "eyered.where_ring": 6,
+            "photo_yes": 5,
+            "vision_blur": 4,
+            "eyepain_yes": 3,
+            "eyered.where_diffuse": -4,
+            "eyered.where_patch": -4
+          }
+        },
+        {
+          "condition": "glaucoma.acute",
+          "base": 1,
+          "weights": {
+            "eyepain_yes": 5,
+            "vomit_yes": 6,
+            "vision_blur": 5,
+            "eyered.where_ring": 4,
+            "eyepain_no": -5
+          }
+        },
+        {
+          "condition": "allergic.pharyngitis",
+          "base": 3,
+          "weights": {
+            "itch_some": 5,
+            "itch_night": 3,
+            "runny_yes": 4,
+            "eyedisch_watery": 3,
+            "eyedisch_sticky": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Красный глаз вместе с сильной болью и снижением зрения",
+        "Красный глаз с рвотой",
+        "Покраснение у носителя контактных линз",
+        "Краснота сгущается кольцом вокруг радужки"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.ear.hearing",
+      "zone": "head",
+      "name": "Снижение слуха и шум в ухе",
+      "priority": 3,
+      "aka": [
+        "заложило ухо",
+        "плохо слышу",
+        "звенит в ушах"
+      ],
+      "feelings": [
+        "Заложило одно ухо",
+        "Слух снижается постепенно",
+        "Звенит и шумит",
+        "Слух пропал внезапно"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "tinnitus",
+        "hearing",
+        "side",
+        "discharge",
+        "runny",
+        "position",
+        "fever",
+        "tragus",
+        "progress",
+        "focal",
+        "attacks",
+        "swell"
+      ],
+      "candidates": [
+        {
+          "condition": "cerumen",
+          "base": 7,
+          "weights": {
+            "onset_sudden": 4,
+            "side_one": 4,
+            "discharge_no": 3,
+            "fever_no": 3,
+            "dur_d13": 3,
+            "focal_yes": -4,
+            "discharge_yes": -3,
+            "dur_mon": -2,
+            "tinnitus_one": -3,
+            "hearing_yes": -1
+          }
+        },
+        {
+          "condition": "eustachitis",
+          "base": 6,
+          "weights": {
+            "runny_yes": 5,
+            "side_one": 3,
+            "fever_no": 3,
+            "discharge_no": 2,
+            "dur_d13": 2,
+            "discharge_yes": -3
+          }
+        },
+        {
+          "condition": "presbycusis",
+          "base": 5,
+          "weights": {
+            "onset_gradual": 6,
+            "side_both": 5,
+            "tinnitus_both": 4,
+            "dur_mon": 4,
+            "onset_sudden": -5,
+            "side_one": -3,
+            "discharge_yes": -3
+          }
+        },
+        {
+          "condition": "otitis.media",
+          "base": 4,
+          "weights": {
+            "runny_yes": 4,
+            "fever_mid": 4,
+            "discharge_yes": 3,
+            "side_one": 3,
+            "dur_d13": 2,
+            "onset_gradual": -3
+          }
+        },
+        {
+          "condition": "sudden.hearing.loss",
+          "base": 5,
+          "weights": {
+            "onset_sudden": 6,
+            "side_one": 5,
+            "tinnitus_one": 5,
+            "fever_no": 2,
+            "discharge_no": 2,
+            "onset_gradual": -5,
+            "side_both": -4,
+            "discharge_yes": -3
+          }
+        },
+        {
+          "condition": "meniere",
+          "base": 3,
+          "weights": {
+            "tinnitus_one": 5,
+            "hearing_yes": 4,
+            "side_one": 3,
+            "position_no": 2,
+            "attacks_repeat": 3,
+            "side_both": -3
+          }
+        },
+        {
+          "condition": "otitis.externa",
+          "base": 3,
+          "weights": {
+            "tragus_yes": 6,
+            "discharge_yes": 4,
+            "fever_no": 2,
+            "tragus_no": -3,
+            "onset_gradual": -2
+          }
+        },
+        {
+          "condition": "mastoiditis",
+          "base": 1,
+          "weights": {
+            "swell_side": 6,
+            "fever_high": 5,
+            "discharge_yes": 3,
+            "progress_worse": 3,
+            "fever_no": -4
+          }
+        },
+        {
+          "condition": "stroke.ischemic",
+          "base": 1,
+          "weights": {
+            "focal_yes": 6,
+            "onset_sudden": 4,
+            "focal_no": -4,
+            "dur_mon": -5
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Слух пропал на одно ухо внезапно — помощь эффективна только в первые дни",
+        "Снижение слуха вместе с головокружением и слабостью в конечностях",
+        "Припухлость и болезненность кости за ухом с температурой"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.nose.block",
+      "zone": "head",
+      "name": "Заложенность носа и выделения",
+      "priority": 2,
+      "aka": [
+        "не дышит нос",
+        "заложен нос",
+        "насморк"
+      ],
+      "feelings": [
+        "Заложено с обеих сторон",
+        "Постоянно с одной стороны",
+        "Течёт из носа",
+        "Без капель дышать невозможно"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "blocked",
+        "runny",
+        "smell",
+        "drops",
+        "fever",
+        "itch",
+        "progress",
+        "move",
+        "snore",
+        "bloodurine",
+        "side",
+        "trauma",
+        "reflux",
+        "smoke",
+        "weight",
+        "nodes"
+      ],
+      "candidates": [
+        {
+          "condition": "arvi",
+          "base": 8,
+          "weights": {
+            "dur_d13": 5,
+            "fever_low": 3,
+            "blocked_alt": 3,
+            "progress_better": 4,
+            "drops_short": 2,
+            "dur_mon": -5,
+            "smell_lost": -1,
+            "drops_long": -3
+          }
+        },
+        {
+          "condition": "allergic.pharyngitis",
+          "base": 6,
+          "weights": {
+            "itch_some": 5,
+            "runny_yes": 4,
+            "fever_no": 4,
+            "progress_wave": 4,
+            "blocked_alt": 2,
+            "fever_high": -4,
+            "smell_lost": -1
+          }
+        },
+        {
+          "condition": "sinusitis.acute",
+          "base": 5,
+          "weights": {
+            "smell_lost": 4,
+            "move_press": 4,
+            "fever_mid": 3,
+            "dur_d47": 3,
+            "dur_w12": 3,
+            "dur_d13": -2
+          }
+        },
+        {
+          "condition": "rhinitis.medicamentosa",
+          "base": 4,
+          "weights": {
+            "drops_long": 6,
+            "blocked_both": 4,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "drops_no": -5,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "deviated.septum",
+          "base": 4,
+          "weights": {
+            "blocked_one": 6,
+            "dur_mon": 5,
+            "fever_no": 3,
+            "snore_snore": 3,
+            "trauma_yes": 3,
+            "blocked_alt": -3,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "nasal.polyps",
+          "base": 3,
+          "weights": {
+            "smell_lost": 6,
+            "blocked_both": 4,
+            "dur_mon": 5,
+            "drops_long": 2,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "postnasal.drip",
+          "base": 3,
+          "weights": {
+            "runny_yes": 4,
+            "dur_mon": 3,
+            "fever_no": 2,
+            "reflux_morn": 3
+          }
+        },
+        {
+          "condition": "oropharynx.cancer",
+          "base": 1,
+          "weights": {
+            "blocked_one": 5,
+            "dur_mon": 4,
+            "smoke_both": 4,
+            "weight_yes": 4,
+            "nodes_hard": 4,
+            "progress_worse": 3
+          }
+        },
+        {
+          "condition": "sinonasal.tumor",
+          "base": 1,
+          "weights": {
+            "blocked_one": 6,
+            "dur_mon": 5,
+            "smell_lost": 4,
+            "progress_worse": 4,
+            "side_one": 3,
+            "weight_yes": 2,
+            "blocked_alt": -4,
+            "dur_d13": -5,
+            "progress_better": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Нос заложен постоянно строго с одной стороны, есть кровянистые выделения",
+        "Отёк и покраснение вокруг глаза на фоне насморка",
+        "Полная потеря обоняния, не восстанавливающаяся месяцами"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.nose.bleed",
+      "zone": "head",
+      "name": "Носовое кровотечение",
+      "priority": 3,
+      "aka": [
+        "кровь из носа",
+        "идёт кровь носом"
+      ],
+      "feelings": [
+        "Течёт из одной ноздри",
+        "Часто повторяется",
+        "Обильное, трудно остановить",
+        "Кровь стекает в горло"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "side",
+        "hbp",
+        "bloodthin",
+        "bruise",
+        "trauma",
+        "drops",
+        "progress",
+        "immuno",
+        "fever",
+        "weight",
+        "blocked",
+        "runny",
+        "tired",
+        "smell",
+        "nodes",
+        "smoke"
+      ],
+      "candidates": [
+        {
+          "condition": "dry.irritation",
+          "base": 7,
+          "weights": {
+            "side_one": 4,
+            "bloodthin_no": 3,
+            "bruise_no": 3,
+            "hbp_normal": 2,
+            "drops_long": 3,
+            "bruise_yes": -4,
+            "bloodthin_yes": -2
+          }
+        },
+        {
+          "condition": "hypertension.crisis",
+          "base": 5,
+          "weights": {
+            "hbp_high": 6,
+            "onset_sudden": 3,
+            "hbp_normal": -5
+          }
+        },
+        {
+          "condition": "rhinitis.medicamentosa",
+          "base": 4,
+          "weights": {
+            "drops_long": 6,
+            "blocked_both": 3,
+            "dur_mon": 3,
+            "drops_no": -5
+          }
+        },
+        {
+          "condition": "arvi",
+          "base": 3,
+          "weights": {
+            "runny_yes": 4,
+            "dur_d13": 4,
+            "fever_low": 2,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "deviated.septum",
+          "base": 3,
+          "weights": {
+            "side_one": 5,
+            "blocked_one": 4,
+            "dur_mon": 3,
+            "trauma_yes": 3
+          }
+        },
+        {
+          "condition": "leukemia",
+          "base": 2,
+          "weights": {
+            "bruise_yes": 6,
+            "fever_mid": 3,
+            "tired_strong": 4,
+            "weight_yes": 3,
+            "bruise_no": -3
+          }
+        },
+        {
+          "condition": "nasal.polyps",
+          "base": 1,
+          "weights": {
+            "smell_lost": 5,
+            "blocked_both": 3,
+            "dur_mon": 4
+          }
+        },
+        {
+          "condition": "oropharynx.cancer",
+          "base": 1,
+          "weights": {
+            "blocked_one": 5,
+            "side_one": 3,
+            "dur_mon": 4,
+            "weight_yes": 4,
+            "nodes_hard": 4,
+            "smoke_both": 3
+          }
+        },
+        {
+          "condition": "sinonasal.tumor",
+          "base": 1,
+          "weights": {
+            "blocked_one": 6,
+            "side_one": 4,
+            "dur_mon": 4,
+            "progress_worse": 3,
+            "weight_yes": 2,
+            "dur_d13": -5
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Кровотечение не останавливается прижатием крыльев носа за пятнадцать минут",
+        "Кровотечение вместе с синяками от лёгких ударов и кровоточивостью дёсен",
+        "Обильное кровотечение у человека, принимающего разжижающие кровь препараты",
+        "Кровь стекает по задней стенке глотки и её приходится сглатывать"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    }
+  ]
+}

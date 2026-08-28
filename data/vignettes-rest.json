@@ -1,0 +1,175 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    { "id": "r01", "syndrome": "head.eye.red", "sex": "f", "age": 29,
+      "note": "Обычный конъюнктивит: краснота по всему белку, слипаются веки, зрение в норме",
+      "feel": 0, "answers": { "dur": "d13", "eyered.where": "diffuse", "eyedisch": "sticky", "eyepain": "no", "vision": "no", "lens": "no", "contact": "yes", "photo": "no", "bloodthin": "no", "hbp": "normal", "vomit": "no", "itch": "some", "eyeside": "both" },
+      "expectTop": "conjunctivitis", "expectAlarm": false,
+      "notExpect": ["glaucoma.acute", "uveitis"] },
+
+    { "id": "r02", "syndrome": "head.eye.red", "sex": "m", "age": 58,
+      "note": "Лопнувший сосуд: одно красное пятно, ничего не болит, зрение в норме",
+      "feel": 1, "answers": { "dur": "d13", "eyered.where": "patch", "eyedisch": "no", "eyepain": "no", "vision": "no", "bloodthin": "yes", "hbp": "high", "lens": "no", "photo": "no", "vomit": "no", "itch": "no", "eyeside": "one", "onset": "sudden" },
+      "expectTop": "subconjunctival.hemorrhage", "expectAlarm": false },
+
+    { "id": "r03", "syndrome": "head.eye.pain", "sex": "f", "age": 24,
+      "note": "Кератит у носителя линз: спала в линзах, светобоязнь",
+      "feel": 0, "answers": { "dur": "hours", "lens": "yes", "eyepain": "yes", "photo": "yes", "eyedisch": "watery", "eyeside": "one", "vision": "blur", "trauma": "no", "floaters": "no", "vomit": "no", "eyered.where": "diffuse" },
+      "expect": ["keratitis"], "expectAlarm": false },
+
+    { "id": "r04", "syndrome": "head.ear.hearing", "sex": "m", "age": 47,
+      "note": "Внезапная глухота на одно ухо — помощь эффективна только в первые дни",
+      "feel": 3, "answers": { "dur": "d13", "onset": "sudden", "side": "one", "tinnitus": "one", "hearing": "yes", "discharge": "no", "fever": "no", "runny": "no", "tragus": "no", "position": "no", "focal": "no", "progress": "same" },
+      "expectTop": "sudden.hearing.loss", "expectAlarm": false },
+
+    { "id": "r05", "syndrome": "head.ear.hearing", "sex": "m", "age": 72,
+      "note": "Возрастная тугоухость: оба уха, годами",
+      "feel": 2, "answers": { "dur": "mon", "onset": "gradual", "side": "both", "tinnitus": "both", "hearing": "yes", "discharge": "no", "fever": "no", "runny": "no", "tragus": "no", "focal": "no", "progress": "worse", "position": "no" },
+      "expectTop": "presbycusis", "expectAlarm": false },
+
+    { "id": "r06", "syndrome": "head.nose.block", "sex": "m", "age": 63,
+      "note": "Опухоль носа: одна сторона месяцами, обоняние пропало, нарастает",
+      "feel": 1, "answers": { "dur": "mon", "blocked": "one", "smell": "lost", "progress": "worse", "drops": "no", "fever": "no", "runny": "yes", "itch": "no", "weight": "yes", "side": "one", "snore": "snore", "move": "no", "smoke": "both", "nodes": "no" },
+      "expect": ["sinonasal.tumor"], "expectAlarm": true },
+
+    { "id": "r07", "syndrome": "head.nose.block", "sex": "f", "age": 31,
+      "note": "Обычная ОРВИ: три дня, идёт на поправку",
+      "feel": 0, "answers": { "dur": "d13", "blocked": "alt", "runny": "yes", "fever": "low", "progress": "better", "drops": "short", "smell": "no", "itch": "no", "move": "no", "weight": "no", "snore": "no", "side": "both", "smoke": "no", "nodes": "no" },
+      "expectTop": "arvi", "expectAlarm": false,
+      "notExpect": ["sinonasal.tumor", "nasal.polyps"] },
+
+    { "id": "r08", "syndrome": "head.dizzy.faint", "sex": "m", "age": 19,
+      "note": "Вазовагальный обморок: предвестники, стоя в душном помещении",
+      "feel": 0, "answers": { "faint": "warn", "position": "stand", "auto": "yes", "attacks": "repeat", "rhythm": "fastgrad", "dysp": "no", "focal": "no", "tired": "no", "thirst": "no", "bowel": "no", "temperature": "no", "hbp": "normal", "mood": "no", "bruise": "no", "newmeds": "no", "dur": "min" },
+      "expectTop": "vasovagal.syncope", "expectAlarm": false,
+      "notExpect": ["cardiac.syncope"] },
+
+    { "id": "r09", "syndrome": "head.dizzy.faint", "sex": "m", "age": 34,
+      "note": "Обморок во время нагрузки — сердечная причина, пока не доказано обратное",
+      "feel": 2, "answers": { "faint": "load", "position": "no", "rhythm": "unk", "auto": "no", "dysp": "yes", "focal": "no", "tired": "no", "thirst": "no", "bowel": "no", "temperature": "no", "hbp": "normal", "mood": "no", "bruise": "no", "newmeds": "no", "dur": "min", "attacks": "first" },
+      "expectTop": "cardiac.syncope", "expectAlarm": false },
+
+    { "id": "r10", "syndrome": "head.tooth", "sex": "m", "age": 33,
+      "note": "Пульпит: реагирует на холодное, ночью хуже",
+      "feel": 0, "answers": { "dur": "d13", "toothtrig": "cold", "gums": "no", "swell": "no", "fever": "no", "mouth": "free", "side": "one", "chewpain": "no", "jawopen": "no", "saliva": "ok", "progress": "worse", "runny": "no" },
+      "expectTop": "dental.pulpitis", "expectAlarm": false },
+
+    { "id": "r11", "syndrome": "abd.jaundice", "sex": "m", "age": 24,
+      "note": "Синдром Жильбера: желтизна при голодании, всё остальное в норме",
+      "feel": 0, "answers": { "dur": "mon", "yellow": "yes", "fever": "no", "weight": "no", "appetite": "no", "itch": "no", "bowel": "no", "tired": "no", "progress": "wave", "eatrel": "no", "guarding": "soft", "smoke": "no", "newmeds": "no" },
+      "expectTop": "gilbert", "expectAlarm": true,
+      "notExpect": ["pancreatic.cancer"] },
+
+    { "id": "r12", "syndrome": "abd.jaundice", "sex": "m", "age": 69,
+      "note": "Опухоль поджелудочной: безболезненная желтуха, зуд, похудел",
+      "feel": 1, "answers": { "dur": "w12", "yellow": "yes", "weight": "yes", "itch": "some", "progress": "worse", "appetite": "down", "fever": "no", "movebetter": "bend", "radleg": "front", "eatrel": "no", "guarding": "soft", "tired": "strong", "smoke": "both", "newmeds": "no", "bowel": "no" },
+      "expectTop": "pancreatic.cancer", "expectAlarm": true },
+
+    { "id": "r13", "syndrome": "abd.constip", "sex": "f", "age": 34,
+      "note": "Обычный функциональный запор — тревоги быть не должно",
+      "feel": 0, "answers": { "dur": "mon", "bowel": "hard", "bowelrhythm": "same", "gas": "yes", "weight": "no", "fever": "no", "guarding": "soft", "vomitwhat": "none", "painanal": "no", "temperature": "no", "newmeds": "no", "oncohist": "no", "progress": "same", "onset": "gradual" },
+      "expectTop": "constipation.functional", "expectAlarm": false,
+      "notExpect": ["colorectal.cancer", "bowel.obstruction"] },
+
+    { "id": "r14", "syndrome": "abd.constip", "sex": "m", "age": 67,
+      "note": "Опухоль кишки: ритм стула изменился, кровь, похудел",
+      "feel": 2, "answers": { "dur": "mon", "bowel": "alt", "bowelrhythm": "changed", "weight": "yes", "progress": "worse", "gas": "yes", "fever": "no", "painanal": "no", "guarding": "soft", "vomitwhat": "none", "temperature": "no", "newmeds": "no", "oncohist": "no", "onset": "gradual" },
+      "expectTop": "colorectal.cancer", "expectAlarm": true },
+
+    { "id": "r15", "syndrome": "abd.luq", "sex": "m", "age": 21,
+      "note": "Разрыв селезёнки после удара при мононуклеозе",
+      "feel": 2, "answers": { "dur": "hours", "onset": "sudden", "trauma": "yes", "auto": "yes", "guarding": "tender", "progress": "worse", "fever": "low", "eatrel": "no", "move": "no", "breath": "no", "restless": "restless", "vomitwhat": "none", "radleg": "no", "rash": "no", "dysp": "no", "nodes": "no", "appetite": "down", "tired": "strong" },
+      "expect": ["splenic.rupture"], "expectAlarm": true },
+
+    { "id": "r16", "syndrome": "abd.bloat", "sex": "f", "age": 29,
+      "note": "СРК: годами, легчает после стула, вес стабилен",
+      "feel": 0, "answers": { "dur": "mon", "stoolrel": "better", "bowel": "no", "gas": "yes", "weight": "no", "fever": "no", "guarding": "soft", "eatrel": "no", "vomitwhat": "none", "appetite": "no", "yellow": "no", "period": "now", "progress": "same", "swelltime": "evening" },
+      "expectTop": "ibs", "expectAlarm": false,
+      "notExpect": ["colorectal.cancer", "bowel.obstruction"] },
+
+    { "id": "r17", "syndrome": "pelv.uro.frequency", "sex": "m", "age": 69,
+      "note": "Аденома простаты: вялая струя, ночные подъёмы, годами",
+      "feel": 2, "answers": { "dur": "mon", "stream": "weak", "urine": "no", "thirst": "no", "fever": "no", "tapback": "no", "bloodurine": "unk", "weight": "no", "swelltime": "evening", "progress": "worse", "diabetes": "no", "onset": "gradual" },
+      "expectTop": "bph", "expectAlarm": false },
+
+    { "id": "r18", "syndrome": "pelv.uro.retention", "sex": "m", "age": 74,
+      "note": "Острая задержка мочи на фоне аденомы",
+      "feel": 0, "answers": { "dur": "hours", "onset": "fast", "urine": "retention", "stream": "weak", "saddle": "no", "legweak": "no", "fever": "no", "newmeds": "yes", "guarding": "soft", "radleg": "no", "trauma": "no", "immuno": "no", "oncohist": "no", "progress": "worse" },
+      "expectTop": "bph", "expectAlarm": true },
+
+    { "id": "r19", "syndrome": "pelv.gyn.cycle", "sex": "f", "age": 58,
+      "note": "Кровотечение после менопаузы — обязательное обследование",
+      "feel": 3, "answers": { "dur": "w12", "period": "none", "vagdischarge": "bloody", "weight": "yes", "temperature": "no", "tired": "some", "pregnant": "no", "mood": "no", "progress": "worse", "oncohist": "no", "contact": "no", "sweats": "no", "bruise": "no", "swelltime": "evening" },
+      "expectTop": "endometrial.cancer", "expectAlarm": true },
+
+    { "id": "r20", "syndrome": "pelv.gyn.discharge", "sex": "f", "age": 27,
+      "note": "Молочница после антибиотиков: творожистые выделения с зудом",
+      "feel": 0, "answers": { "dur": "d13", "vagdischarge": "curd", "itch": "night", "fever": "no", "contact": "no", "urine": "no", "abxrecent": "yes", "period": "now", "weight": "no", "progress": "same", "diabetes": "no", "oncohist": "no", "temperature": "no" },
+      "expectTop": "vaginitis", "expectAlarm": false,
+      "notExpect": ["cervical.cancer"] },
+
+    { "id": "r21", "syndrome": "pelv.groin.lump", "sex": "m", "age": 51,
+      "note": "Паховая грыжа: мягкая, вправляется лёжа",
+      "feel": 0, "answers": { "dur": "mon", "bulge": "soft", "nodes": "no", "fever": "no", "weight": "no", "sweats": "no", "contact": "no", "progress": "same", "gas": "yes", "vomitwhat": "none", "oncohist": "no", "skinchange": "no", "nodesmany": "unk", "onset": "gradual", "animals": "no", "urine": "no" },
+      "expectTop": "inguinal.hernia", "expectAlarm": false },
+
+    { "id": "r22", "syndrome": "pelv.anal.pain", "sex": "m", "age": 38,
+      "note": "Парапроктит: пульсирует, высокая температура, нарастает",
+      "feel": 1, "answers": { "dur": "d13", "onset": "fast", "painanal": "yes", "fever": "high", "swell": "side", "progress": "worse", "bowel": "no", "itch": "no", "weight": "no", "diabetes": "no", "immuno": "no", "animals": "no", "trauma": "no", "bloodurine": "unk" },
+      "expectTop": "perianal.abscess", "expectAlarm": false },
+
+    { "id": "r23", "syndrome": "skin.wound", "sex": "m", "age": 64,
+      "note": "Венозная язва: тёмная кожа голени, отёки к вечеру",
+      "feel": 1, "answers": { "dur": "mon", "skinchange": "dark", "swelltime": "evening", "footcold": "warm", "diabetes": "no", "fever": "no", "progress": "same", "moleedge": "even", "molechange": "same", "immuno": "no", "smoke": "one", "oncohist": "no", "itch": "some", "onset": "gradual" },
+      "expectTop": "venous.ulcer", "expectAlarm": false },
+
+    { "id": "r24", "syndrome": "skin.wound", "sex": "m", "age": 71,
+      "note": "Базалиома: перламутровый узелок на лице, кровит и не заживает",
+      "feel": 2, "answers": { "dur": "mon", "moleedge": "pearl", "molechange": "bleed", "skinchange": "no", "diabetes": "no", "fever": "no", "progress": "same", "footcold": "warm", "immuno": "no", "smoke": "no", "oncohist": "no", "itch": "no", "swelltime": "evening", "onset": "gradual" },
+      "expectTop": "bcc", "expectAlarm": false },
+
+    { "id": "r25", "syndrome": "skin.hair", "sex": "f", "age": 30,
+      "note": "Диффузное выпадение через три месяца после родов",
+      "feel": 0, "answers": { "dur": "w12", "onset": "fast", "symmetry": "both", "temperature": "no", "weight": "yes", "tired": "some", "period": "now", "progress": "better", "itch": "no", "skinchange": "no", "newmeds": "no", "mood": "no", "diabetes": "no", "bowel": "no", "fever": "no", "rash": "no" },
+      "expectTop": "telogen.effluvium", "expectAlarm": false },
+
+    { "id": "r26", "syndrome": "gen.sweats", "sex": "f", "age": 51,
+      "note": "Климакс: приливы жара, цикл сбился, вес стабилен",
+      "feel": 1, "answers": { "dur": "mon", "sweats": "yes", "temperature": "hot", "period": "delay", "weight": "no", "fever": "no", "nodes": "no", "cough": "no", "immuno": "no", "progress": "same", "mood": "low", "newmeds": "no", "symmetry": "both", "onset": "gradual", "nodesmany": "unk", "bruise": "no", "tired": "some" },
+      "expectTop": "menopause", "expectAlarm": false,
+      "notExpect": ["lymphoma", "tuberculosis.pulmonary"] },
+
+    { "id": "r27", "syndrome": "gen.sleep", "sex": "m", "age": 49,
+      "note": "Апноэ сна: близкие замечают остановки дыхания",
+      "feel": 2, "answers": { "dur": "mon", "snore": "yes", "tired": "strong", "mood": "no", "night": "no", "movebetter": "none", "temperature": "no", "weight": "no", "newmeds": "no", "urine": "no", "progress": "same", "symmetry": "both", "diabetes": "no", "onset": "gradual", "dysp": "no" },
+      "expectTop": "sleep.apnea", "expectAlarm": false },
+
+    { "id": "r28", "syndrome": "gen.sleep", "sex": "f", "age": 41,
+      "note": "Синдром беспокойных ног: легче при движении, мешает заснуть",
+      "feel": 3, "answers": { "dur": "mon", "movebetter": "move", "night": "yes", "symmetry": "both", "snore": "no", "mood": "no", "tired": "some", "temperature": "no", "weight": "no", "newmeds": "no", "urine": "no", "progress": "same", "diabetes": "no", "onset": "gradual", "dysp": "no" },
+      "expect": ["restless.legs"], "expectAlarm": false },
+
+    { "id": "r29", "syndrome": "gen.anxiety", "sex": "f", "age": 27,
+      "note": "Панические атаки: приступы минутами, повторяются, проходят сами",
+      "feel": 0, "answers": { "dur": "mon", "attacks": "repeat", "mood": "anx", "rhythm": "fastgrad", "progress": "better", "temperature": "no", "weight": "no", "dysp": "yes", "auto": "no", "tired": "some", "snore": "no", "newmeds": "no", "period": "now", "exertion": "rest", "onset": "sudden" },
+      "expectTop": "panic.attack", "expectAlarm": false,
+      "notExpect": ["myocardial.infarction", "pulmonary.embolism"] },
+
+    { "id": "r30", "syndrome": "gen.thirst", "sex": "m", "age": 47,
+      "note": "Впервые выявленный диабет: жажда, обильное мочеиспускание, похудел",
+      "feel": 3, "answers": { "dur": "w12", "thirst": "yes", "weight": "yes", "appetite": "up", "urine": "no", "tired": "strong", "temperature": "no", "newmeds": "no", "diabetes": "no", "swelltime": "evening", "progress": "worse", "mood": "no", "itch": "some", "onset": "gradual" },
+      "expectTop": "diabetes", "expectAlarm": true },
+
+    { "id": "r31", "syndrome": "chest.cough.blood", "sex": "m", "age": 34,
+      "note": "Обычный бронхит с прожилками крови после сильного кашля",
+      "feel": 0, "answers": { "dur": "d47", "sputum": "clear", "smoke": "no", "weight": "no", "sweats": "no", "fever": "low", "dysp": "no", "immobility": "no", "calfswell": "no", "immuno": "no", "progress": "better", "bloodthin": "no", "breath": "no", "onset": "gradual" },
+      "expectTop": "bronchitis.acute", "expectAlarm": false,
+      "notExpect": ["lung.cancer", "tuberculosis.pulmonary"] },
+
+    { "id": "r32", "syndrome": "chest.breast.pain", "sex": "f", "age": 31,
+      "note": "Мастопатия: обе железы, связано с циклом",
+      "feel": 0, "answers": { "dur": "mon", "period": "now", "side": "both", "lump": "diffuse", "nipple": "no", "fever": "no", "move": "no", "rash": "no", "progress": "same", "nodes": "no", "newmeds": "no", "trauma": "no", "sweats": "no", "weight": "no", "oncohist": "no" },
+      "expectTop": "mastopathy", "expectAlarm": false,
+      "notExpect": ["breast.cancer"] }
+  ]
+}

@@ -1,0 +1,348 @@
+<title>Задание на рендер фигур</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --ground:#EDF1F0; --surface:#FFFFFF; --surface-2:#F5F8F7;
+  --ink:#0F1F1C; --ink-2:#48605B; --ink-3:#7A8F8A;
+  --rule:#CFDAD7; --rule-soft:#E2EAE8;
+  --accent:#0D5851; --accent-soft:#DFEDEA;
+  --danger:#A02234; --danger-soft:#F8E6E8;
+  --warn:#875B0B; --warn-soft:#F6EEDD;
+  --ok:#2B6337; --ok-soft:#E4EFE5;
+  --shadow:0 1px 2px rgba(15,31,28,.05), 0 10px 28px -16px rgba(15,31,28,.22);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0A1211; --surface:#111A18; --surface-2:#16211F;
+    --ink:#E4ECE9; --ink-2:#9CB1AC; --ink-3:#6C817C;
+    --rule:#26332F; --rule-soft:#1B2724;
+    --accent:#5DBAAD; --accent-soft:#152B28;
+    --danger:#E4788A; --danger-soft:#2B1A1E;
+    --warn:#D3A44E; --warn-soft:#2A2214;
+    --ok:#6FBF7D; --ok-soft:#152318;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0A1211; --surface:#111A18; --surface-2:#16211F;
+  --ink:#E4ECE9; --ink-2:#9CB1AC; --ink-3:#6C817C;
+  --rule:#26332F; --rule-soft:#1B2724;
+  --accent:#5DBAAD; --accent-soft:#152B28;
+  --danger:#E4788A; --danger-soft:#2B1A1E;
+  --warn:#D3A44E; --warn-soft:#2A2214;
+  --ok:#6FBF7D; --ok-soft:#152318;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -16px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px; margin:0 auto; padding:0 24px 90px; display:grid}
+@media (min-width:1040px){.wrap{grid-template-columns:190px minmax(0,1fr); gap:52px; align-items:start}}
+
+.masthead{grid-column:1/-1; padding:66px 0 30px; border-bottom:1px solid var(--rule); margin-bottom:40px}
+.kicker{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin:0 0 18px}
+h1{font-family:Spectral,Georgia,serif; font-weight:700; font-size:clamp(2.3rem,5.6vw,3.5rem); line-height:1.04; letter-spacing:-.022em; margin:0 0 18px; text-wrap:balance; max-width:16ch}
+.standfirst{font-family:Spectral,Georgia,serif; font-size:clamp(1.05rem,2vw,1.22rem); line-height:1.55; color:var(--ink-2); max-width:64ch; margin:0 0 24px}
+.meta{display:flex; flex-wrap:wrap; gap:10px 24px; font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); text-transform:uppercase}
+
+nav.toc{display:none}
+@media (min-width:1040px){
+  nav.toc{display:block; position:sticky; top:30px}
+  nav.toc p{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); margin:0 0 14px}
+  nav.toc ol{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px}
+  nav.toc a{color:var(--ink-2); text-decoration:none; font-size:13.5px; line-height:1.35; display:block; border-left:2px solid var(--rule-soft); padding-left:12px; transition:color .16s,border-color .16s}
+  nav.toc a:hover,nav.toc a:focus-visible{color:var(--accent); border-left-color:var(--accent)}
+}
+main{min-width:0}
+section{margin:0 0 54px}
+section > .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); display:block; padding-bottom:10px; border-bottom:1px solid var(--rule); margin-bottom:24px}
+h2{font-family:Spectral,Georgia,serif; font-weight:600; font-size:clamp(1.5rem,3.1vw,2rem); line-height:1.16; letter-spacing:-.015em; margin:0 0 16px; text-wrap:balance; max-width:26ch}
+h3{font-size:1.02rem; font-weight:600; margin:30px 0 10px}
+p{margin:0 0 15px; max-width:68ch}
+ul,ol{max-width:68ch; padding-left:1.15em; margin:0 0 18px}
+li{margin-bottom:8px}
+li::marker{color:var(--ink-3)}
+code{font-family:"IBM Plex Mono",monospace; font-size:.85em; background:var(--surface-2); border:1px solid var(--rule-soft); padding:1px 5px; border-radius:3px}
+.lede{font-family:Spectral,Georgia,serif; font-size:1.14rem; line-height:1.55; color:var(--ink-2); max-width:62ch}
+a{color:var(--accent); text-underline-offset:2px}
+
+.verdict{background:var(--surface); border:1px solid var(--rule); border-left:4px solid var(--ink-3); padding:17px 21px; margin:0 0 18px; max-width:70ch}
+.verdict > .tag{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; display:block; margin-bottom:7px}
+.verdict p:last-child{margin-bottom:0}
+.verdict.ok{border-left-color:var(--ok); background:var(--ok-soft)} .verdict.ok .tag{color:var(--ok)}
+.verdict.warn{border-left-color:var(--warn); background:var(--warn-soft)} .verdict.warn .tag{color:var(--warn)}
+.verdict.stop{border-left-color:var(--danger); background:var(--danger-soft)} .verdict.stop .tag{color:var(--danger)}
+.verdict.note{border-left-color:var(--accent); background:var(--accent-soft)} .verdict.note .tag{color:var(--accent)}
+
+.tw{overflow-x:auto; margin:0 0 22px; border:1px solid var(--rule); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:540px; font-size:14.5px}
+th,td{text-align:left; padding:11px 15px; border-bottom:1px solid var(--rule-soft); vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); font-weight:500; background:var(--surface-2); border-bottom:1px solid var(--rule); white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td code{white-space:nowrap}
+
+.spec{list-style:none; padding:0; margin:0 0 22px; max-width:70ch; border-top:1px solid var(--rule)}
+.spec li{display:grid; grid-template-columns:150px 1fr; gap:18px; padding:13px 0; border-bottom:1px solid var(--rule-soft); margin:0; font-size:14.8px; line-height:1.55}
+@media (max-width:600px){.spec li{grid-template-columns:1fr; gap:4px}}
+.spec b{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); font-weight:500; padding-top:3px}
+
+.check{list-style:none; padding:0; margin:0 0 20px; max-width:70ch; border-top:1px solid var(--rule-soft)}
+.check li{display:grid; grid-template-columns:24px 1fr; gap:10px; padding:11px 0; border-bottom:1px solid var(--rule-soft); margin:0; font-size:14.8px; line-height:1.55}
+.check li::before{content:"□"; color:var(--accent); font-size:17px; line-height:1.3}
+
+.dont{list-style:none; padding:0; margin:0 0 20px; max-width:70ch}
+.dont li{display:grid; grid-template-columns:22px 1fr; gap:10px; padding:8px 0; margin:0; font-size:14.8px; line-height:1.55; color:var(--ink-2)}
+.dont li::before{content:"✕"; color:var(--danger); font-size:14px; line-height:1.5}
+
+.diagram{background:var(--surface); border:1px solid var(--rule); padding:22px; margin:0 0 22px; overflow-x:auto}
+.diagram svg{display:block; margin:0 auto; max-width:100%; height:auto}
+.cap{font-size:13px; color:var(--ink-3); text-align:center; margin-top:14px; line-height:1.5}
+
+footer{grid-column:1/-1; border-top:1px solid var(--rule); padding-top:24px; margin-top:14px; font-size:13.5px; color:var(--ink-3); line-height:1.6}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="kicker">Техническое задание · 3D · версия 1</p>
+  <h1>Задание на рендер фигур</h1>
+  <div class="meta">
+    <span>2 фигуры · 4 изображения</span>
+    <span>+ исходная модель</span>
+    <span>27 августа 2026</span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Разделы">
+  <p>Разделы</p>
+  <ol>
+    <li><a href="#task">Суть задачи</a></li>
+    <li><a href="#deliver">Что нужно на выходе</a></li>
+    <li><a href="#camera">Камера и кадр</a></li>
+    <li><a href="#pose">Поза и фигура</a></li>
+    <li><a href="#light">Свет и фон</a></li>
+    <li><a href="#tech">Технические параметры</a></li>
+    <li><a href="#license">Права на использование</a></li>
+    <li><a href="#dont">Чего делать не надо</a></li>
+    <li><a href="#accept">Приёмка</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="task">
+  <span class="eyebrow">Кратко</span>
+  <h2>Суть задачи</h2>
+
+  <p class="lede">Нужны две человеческие фигуры — мужская и женская — для интерактивного веб-интерфейса. Изображения статичные, но поверх них программно накладывается координатная сетка.</p>
+
+  <p>Отсюда главное требование, которое определяет всё остальное: <strong>это не художественный рендер, а измерительный инструмент.</strong> Координаты зон рассчитываются формулой от габарита фигуры. Если пропорции поедут или камера будет перспективной, сетка разъедется, и рендеры придётся переделывать.</p>
+
+  <p>Красота вторична, точность первична. При этом фигура должна быть узнаваемой и приятной — нужно тело, а не манекен из учебника.</p>
+
+  <div class="verdict note">
+    <span class="tag">Про масштабирование</span>
+    <p>Отдельные крупные планы не нужны. Берётся один рендер высокого разрешения на каждый ракурс, нужные области вырезаются из него программно. Достаточно четырёх изображений.</p>
+  </div>
+</section>
+
+<section id="deliver">
+  <span class="eyebrow">Состав работы</span>
+  <h2>Что нужно на выходе</h2>
+
+  <h3>Рендеры — четыре файла</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th>Файл</th><th>Что на нём</th></tr></thead>
+    <tbody>
+      <tr><td><code>male-front.png</code></td><td>Мужская фигура, вид строго спереди</td></tr>
+      <tr><td><code>male-back.png</code></td><td>Та же фигура, вид строго сзади</td></tr>
+      <tr><td><code>female-front.png</code></td><td>Женская фигура, вид строго спереди</td></tr>
+      <tr><td><code>female-back.png</code></td><td>Та же фигура, вид строго сзади</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Исходники — чтобы не оказаться в тупике</h3>
+  <ul>
+    <li><strong>Модель в формате glTF 2.0 (<code>.glb</code>)</strong> — открытый стандарт, читается любым движком. Понадобится, если позже захотим вращаемую модель в браузере.</li>
+    <li><strong>Рабочий файл проекта</strong> — <code>.blend</code>, <code>.duf</code> или что использовалось, вместе с текстурами. Нужен, чтобы можно было перерендерить в другом тоне кожи или поправить позу, не начиная с нуля.</li>
+  </ul>
+
+  <div class="verdict warn">
+    <span class="tag">Если позволяет бюджет — попросите сразу</span>
+    <p><strong>Два-три оттенка кожи</strong> для каждой фигуры. На стороне художника это смена материала и повторный рендер — минуты работы. Заказывать отдельно потом выйдет заметно дороже. Ресурс для всех, и человеку проще узнать себя в фигуре, похожей на него.</p>
+    <p>По той же причине полезен второй вариант телосложения — более полный. Но это уже не обязательно для первой версии.</p>
+  </div>
+</section>
+
+<section id="camera">
+  <span class="eyebrow">Самое важное</span>
+  <h2>Камера и кадр</h2>
+
+  <p>Три требования в этом разделе — критические. Если художник сделает всё остальное идеально, но ошибётся здесь, работу придётся переделывать.</p>
+
+  <ul class="spec">
+    <li><b>Проекция</b><span><strong>Ортографическая, не перспективная.</strong> При перспективной камере голова и стопы искажаются по-разному, и линейная привязка зон ломается. В Blender это Camera → Type → Orthographic.</span></li>
+    <li><b>Ракурс</b><span>Строго фронтально и строго сзади. Никакого поворота, наклона камеры, взгляда сверху или снизу. Фигура симметрична относительно вертикальной оси кадра.</span></li>
+    <li><b>Совпадение видов</b><span>Вид сзади снимается той же камерой — поворачивается модель, не камера. Любая точка тела должна оказаться на одной и той же высоте на обоих изображениях.</span></li>
+    <li><b>Кадрирование</b><span>Макушка касается верхней границы кадра, подошвы — нижней. Без полей сверху и снизу. Вертикальная осевая линия тела проходит ровно по центру кадра.</span></li>
+    <li><b>Одинаковый кадр</b><span>Мужская и женская фигуры кадрируются одинаково: макушка вверху, подошвы внизу, ось по центру. Разница в росте убирается масштабом.</span></li>
+  </ul>
+
+  <div class="diagram">
+    <svg viewBox="0 0 560 300" role="img" aria-label="Схема кадрирования: макушка у верхней границы, подошвы у нижней, ось по центру">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+        </marker>
+      </defs>
+      <rect x="180" y="20" width="200" height="260" fill="none" stroke="var(--rule)" stroke-width="1.5"/>
+      <line x1="280" y1="20" x2="280" y2="280" stroke="var(--accent)" stroke-width="1" stroke-dasharray="4 4" opacity=".7"/>
+      <ellipse cx="280" cy="42" rx="15" ry="19" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.3"/>
+      <path d="M280 62 L270 68 L270 76 L246 92 L240 150 L252 150 L258 110 L262 168 L258 240 L268 240 L276 172 L284 172 L292 240 L302 240 L298 168 L302 110 L308 150 L320 150 L314 92 L290 76 L290 68 Z"
+            fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.3" stroke-linejoin="round"/>
+      <rect x="258" y="240" width="18" height="40" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.3"/>
+      <rect x="284" y="240" width="18" height="40" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.3"/>
+      <line x1="150" y1="20" x2="176" y2="20" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar)"/>
+      <line x1="150" y1="280" x2="176" y2="280" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar)"/>
+      <text x="20" y="17" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-2)">макушка = верхний край</text>
+      <text x="20" y="284" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-2)">подошвы = нижний край</text>
+      <text x="392" y="152" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--accent)">ось тела = центр кадра</text>
+      <line x1="388" y1="148" x2="290" y2="148" stroke="var(--accent)" stroke-width="1" opacity=".5"/>
+    </svg>
+    <p class="cap">Такое кадрирование делает калибровку тривиальной: программе не нужно искать, где начинается фигура.</p>
+  </div>
+</section>
+
+<section id="pose">
+  <span class="eyebrow">Внешний вид</span>
+  <h2>Поза и фигура</h2>
+
+  <ul class="spec">
+    <li><b>Поза</b><span>Стоя прямо, руки опущены и отведены от корпуса примерно на 30–45 градусов, ладони раскрыты и повёрнуты вперёд. Ноги на ширине плеч. <strong>Не T-поза</strong> — руки должны быть внизу, но не прижаты к телу, чтобы зоны рук не перекрывали живот.</span></li>
+    <li><b>Одежда</b><span>Мужчина — только трусы. Женщина — трусы и простой топ или бюстгальтер. Нейтральный однотонный цвет: серый или белый. Без рисунков, надписей, логотипов, кружева.</span></li>
+    <li><b>Босиком</b><span>Обязательно. Обувь закрывает стопу и пятку, а по ним проходят границы зон.</span></li>
+    <li><b>Волосы</b><span>Короткие или убранные. Волосы не должны закрывать шею, плечи и уши — по ним тоже проходят границы зон. Для женской фигуры подойдёт короткая стрижка или собранные волосы.</span></li>
+    <li><b>Телосложение</b><span>Среднее, обычное. Не спортивное, не модельное, без выраженного рельефа мышц. Возраст на вид 30–40 лет.</span></li>
+    <li><b>Лицо</b><span>Спокойное, нейтральное выражение. Глаза открыты, смотрят прямо. Без улыбки, без макияжа, без украшений.</span></li>
+    <li><b>Симметрия</b><span>Вес распределён на обе ноги равномерно, плечи на одном уровне, голова не наклонена. Контрапост и любые «живые» позы не подходят.</span></li>
+  </ul>
+
+  <div class="verdict ok">
+    <span class="tag">Почему бельё, а не одежда</span>
+    <p>Координатная сетка привязывается к анатомическим ориентирам — рёберной дуге, ключицам, пупку, гребням таза. Одежда закрывает ровно их. Кроме того, любая одежда датируется и через два года будет выглядеть странно, а тело — нет.</p>
+  </div>
+</section>
+
+<section id="light">
+  <span class="eyebrow">Постановка</span>
+  <h2>Свет и фон</h2>
+
+  <ul class="spec">
+    <li><b>Фон</b><span>Полностью прозрачный, альфа-канал. Никакого фона, подложки, градиента и виньетки — изображение ложится на страницу сайта, у которой светлая и тёмная темы.</span></li>
+    <li><b>Тень на пол</b><span>Отсутствует. Фигура не отбрасывает тень никуда — она будет висеть в воздухе на странице.</span></li>
+    <li><b>Свет</b><span>Мягкий, рассеянный, равномерный. Достаточно объёма, чтобы тело читалось как объёмное, но без глубоких теней и провалов: тёмное пятно на боку человек примет за «что-то там есть».</span></li>
+    <li><b>Контровой свет</b><span>Не нужен. Драматичная подсветка контура выглядит эффектно и мешает читать форму.</span></li>
+    <li><b>Резкость</b><span>Вся фигура в фокусе от макушки до стоп. Никакого размытия глубины резкости.</span></li>
+  </ul>
+</section>
+
+<section id="tech">
+  <span class="eyebrow">Параметры файлов</span>
+  <h2>Технические параметры</h2>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>Параметр</th><th>Значение</th><th>Зачем именно так</th></tr></thead>
+    <tbody>
+      <tr><td>Формат</td><td><code>PNG-24</code> с альфа-каналом</td><td>Прозрачность и отсутствие потерь. Сжатие в веб-форматы сделаем сами.</td></tr>
+      <tr><td>Разрешение</td><td>не менее <code>2400 × 6000</code> px</td><td>Из этого мастера вырезаются крупные планы. Меньше — при увеличении живота картинка поплывёт.</td></tr>
+      <tr><td>Цветовое пространство</td><td><code>sRGB</code></td><td>Стандарт для веба. Adobe RGB и P3 дадут смещение цвета в браузере.</td></tr>
+      <tr><td>Глубина цвета</td><td>8 бит на канал достаточно</td><td>Больше не нужно, файл будет тяжелее без выигрыша.</td></tr>
+      <tr><td>Модель</td><td><code>.glb</code> (glTF 2.0)</td><td>Открытый формат, читается веб-движками. Запас на будущее.</td></tr>
+      <tr><td>Рабочий файл</td><td><code>.blend</code> / <code>.duf</code> / <code>.fbx</code> + текстуры</td><td>Чтобы перерендерить в другом тоне кожи, не заказывая работу заново.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Полезная мелочь, которая экономит время</h3>
+  <p>Если художнику не сложно — попросите указать в сопроводительном тексте координаты по вертикали (в пикселях) для нескольких ориентиров на фронтальном рендере: <strong>яремная вырезка</strong> (ямка между ключицами), <strong>нижний край рёберной дуги</strong>, <strong>пупок</strong>, <strong>гребни подвздошных костей</strong>. Это десять минут его работы и точная калибровка вместо подгонки на глаз с моей стороны.</p>
+</section>
+
+<section id="license">
+  <span class="eyebrow">Пункт, который забывают</span>
+  <h2>Права на использование</h2>
+
+  <div class="verdict stop">
+    <span class="tag">Обязательно уточнить письменно, до начала работы</span>
+    <p>Художники часто строят фигуру на покупной базовой модели — Genesis из DAZ, Character Creator и подобных. У таких моделей лицензия разрешает <strong>коммерческое использование рендеров</strong>, но нередко запрещает <strong>распространение самого меша</strong>.</p>
+    <p>Для нас это разные вещи: картинки мы показываем на сайте, а вот <code>.glb</code>, если когда-нибудь захотим вращаемую модель, придётся отдавать в браузер посетителя — то есть распространять.</p>
+  </div>
+
+  <p>Что попросить подтвердить в переписке, одним сообщением:</p>
+  <ol>
+    <li>Использована ли покупная базовая модель, и если да — какая</li>
+    <li>Разрешает ли её лицензия коммерческое использование рендеров на сайте</li>
+    <li>Разрешает ли она передавать <code>.glb</code> в браузер посетителя</li>
+    <li>Передаются ли вам права на результат работы без ограничений по сроку и числу показов</li>
+  </ol>
+
+  <p>Если по третьему пункту ответ отрицательный — ничего страшного для первой версии: мы работаем с картинками. Но знать об этом надо заранее, а не через год, когда решим делать вращение.</p>
+</section>
+
+<section id="dont">
+  <span class="eyebrow">Экономия</span>
+  <h2>Чего делать не надо</h2>
+
+  <p>Художник может добросовестно сделать лишнее и выставить за это счёт. Проще сказать заранее.</p>
+
+  <ul class="dont">
+    <li>Отдельные рендеры крупных планов — вырежем из мастера сами</li>
+    <li>Виды сбоку и в три четверти — не в первой версии</li>
+    <li>Анимация, риггинг, скелет — фигура полностью статична</li>
+    <li>Проработка внутренних органов, костей, мышечных слоёв — это отдельная задача и другой жанр иллюстрации</li>
+    <li>Детализация лица, зубов, глаз, пор кожи — фигура на экране будет высотой сантиметров десять</li>
+    <li>Фон, окружение, пол, отражения, подиум</li>
+    <li>Цветокоррекция «под красивое» — нужен ровный нейтральный тон</li>
+    <li>Обувь, часы, украшения, татуировки, шрамы, родинки</li>
+  </ul>
+</section>
+
+<section id="accept">
+  <span class="eyebrow">Проверка</span>
+  <h2>Приёмка</h2>
+
+  <p>Пройдите по списку, когда получите файлы. Первые три пункта — те, из-за которых работу пришлось бы переделывать.</p>
+
+  <ul class="check">
+    <li>Камера ортографическая: измерьте ширину плеч и ширину таза на глаз — при перспективе то, что ближе к камере, заметно крупнее</li>
+    <li>Макушка касается верхней границы кадра, подошвы — нижней, полей нет</li>
+    <li>Вид спереди и вид сзади: любая точка тела на одной высоте на обоих изображениях</li>
+    <li>Фон прозрачный: откройте файл на чёрной и на белой подложке — контур не должен светиться каймой</li>
+    <li>Тени на пол нет</li>
+    <li>Мужская и женская фигуры одинаково закадрированы и одного масштаба</li>
+    <li>Руки отведены от корпуса, не перекрывают живот и бока</li>
+    <li>Босиком, волосы не закрывают шею и плечи</li>
+    <li>Разрешение не меньше заявленного, файл в sRGB</li>
+    <li>Пришёл <code>.glb</code> и рабочий файл с текстурами</li>
+    <li>Вопросы по лицензии закрыты письменно</li>
+  </ul>
+
+  <div class="verdict note">
+    <span class="tag">Что происходит дальше</span>
+    <p>После получения файлов заполняются четыре числа калибровки — где на изображении макушка, подошвы, осевая линия и полуширина на уровне плеч. После этого все 52 участка сетки встают на место автоматически, формулой. Перерисовывать зоны руками не требуется — координатный слой написан именно под это.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Задание составлено для первой версии проекта. Виды сбоку и вращаемая модель в браузере — возможные следующие шаги, но на них ничего в текущей работе не завязано.</p>
+</footer>
+
+</main>
+</div>

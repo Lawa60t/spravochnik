@@ -1,0 +1,142 @@
+#!/usr/bin/env node
+/* Проверка целостности базы знаний.
+   Запуск: node validate.js
+   Ловит: битые ссылки, несуществующие вопросы и ответы, пустые обязательные поля,
+   отсутствие источников, разделы без красных флагов, упоминания лечения. */
+"use strict";
+const fs = require("fs");
+const path = require("path");
+const dir = path.join(__dirname, "..", "data");
+
+const read = f => JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"));
+const files = fs.readdirSync(dir);
+
+const questions = read("questions.json").questions;
+const redflags  = read("redflags.json");
+const conditions = files.filter(f => f.startsWith("conditions-"))
+  .flatMap(f => read(f).conditions);
+const syndromes = files.filter(f => f.startsWith("syndromes-") && f !== "syndromes-map.json")
+  .flatMap(f => read(f).syndromes);
+const map = read("syndromes-map.json");
+const anatomy = read("anatomy.json");
+
+const err = [], warn = [];
+const E = m => err.push(m);
+const W = m => warn.push(m);
+
+/* --- индексы --- */
+const qById = new Map(questions.map(q => [q.id, q]));
+const cById = new Map();
+conditions.forEach(c => {
+  if (cById.has(c.id)) E(`Дубль статьи: ${c.id}`);
+  cById.set(c.id, c);
+});
+
+/* --- статьи --- */
+const REQUIRED = ["id","name","icd","what","who","urgent","doctor","tests","sources","status","updated"];
+const TREATMENT = /(\d+\s?мг\b|дозиров|принимать по|таблетк[аи] .*раз в день|курс антибиотик|назначают препарат)/i;
+
+conditions.forEach(c => {
+  REQUIRED.forEach(f => { if (!c[f]) E(`${c.id}: нет обязательного поля «${f}»`); });
+  if (!c.sources || !c.sources.length) E(`${c.id}: нет источника`);
+  if (c.what && c.what.length < 40) W(`${c.id}: описание короче 40 символов`);
+  if (c.urgent && c.urgent.length < 20) W(`${c.id}: поле «когда неотложно» слишком короткое`);
+  const all = [c.what, c.who, c.urgent, c.doctor, c.tests].join(" ");
+  if (TREATMENT.test(all)) E(`${c.id}: похоже на упоминание лечения — проверить вручную`);
+  if (!["draft","compiled","reviewed","published"].includes(c.status))
+    E(`${c.id}: неизвестный статус «${c.status}»`);
+});
+
+/* --- разделы --- */
+syndromes.forEach(s => {
+  if (s.candidates.length < 5) E(`${s.id}: меньше пяти состояний в разделе`);
+  if (s.feelings.length < 2)   E(`${s.id}: меньше двух вариантов ощущения`);
+  if (!s.notSearchedHere || !s.notSearchedHere.length)
+    E(`${s.id}: не написано «что здесь не разбирают»`);
+
+  s.questions.forEach(qid => { if (!qById.has(qid)) E(`${s.id}: неизвестный вопрос «${qid}»`); });
+
+  let rf = 0;
+  s.candidates.forEach(cand => {
+    const c = cById.get(cand.condition);
+    if (!c) { E(`${s.id}: ссылка на несуществующую статью «${cand.condition}»`); return; }
+    if (c.redflag) rf++;
+    Object.keys(cand.weights || {}).forEach(k => {
+      const i = k.indexOf("_");
+      const qid = k.slice(0, i), oid = k.slice(i + 1);
+      const q = qById.get(qid);
+      if (!q) { E(`${s.id}/${cand.condition}: вес по неизвестному вопросу «${qid}»`); return; }
+      if (!q.options.some(o => o.id === oid))
+        E(`${s.id}/${cand.condition}: у вопроса «${qid}» нет варианта «${oid}»`);
+      if (oid === "unk") E(`${s.id}/${cand.condition}: вес на ответе «не знаю» — так нельзя`);
+      if (!s.questions.includes(qid))
+        W(`${s.id}/${cand.condition}: вес по вопросу «${qid}», которого нет в списке вопросов раздела`);
+    });
+  });
+  if (rf < 2) E(`${s.id}: меньше двух состояний «редко, но важно» (сейчас ${rf})`);
+});
+
+/* --- красные флаги --- */
+redflags.global.forEach(r => {
+  const conds = (r.when.all || r.when.any || []).concat(r.unless || []);
+  conds.forEach(c => {
+    Object.entries(c).forEach(([qid, vals]) => {
+      const q = qById.get(qid);
+      if (!q) { E(`redflag ${r.id}: неизвестный вопрос «${qid}»`); return; }
+      vals.forEach(v => { if (!q.options.some(o => o.id === v))
+        E(`redflag ${r.id}: у вопроса «${qid}» нет варианта «${v}»`); });
+    });
+  });
+});
+
+/* --- карта --- */
+const mapIds = new Set(map.syndromes.map(s => s.id));
+syndromes.forEach(s => { if (!mapIds.has(s.id)) W(`${s.id}: раздела нет в карте справочника`); });
+
+/* --- якоря --- */
+const mapAll = new Set(map.syndromes.map(s => s.id));
+let subCount = 0, anchorLinks = 0;
+const anchored = new Set();
+anatomy.zones.forEach(z => z.subzones.forEach(sz => {
+  subCount++;
+  if (!sz.noAnchor && !z.noAnchor && !sz.box) E(`якорь ${sz.id}: нет координат box`);
+  if (sz.box) {
+    const b = sz.box;
+    if (b.u0 >= b.u1 || b.v0 >= b.v1) E(`якорь ${sz.id}: перевёрнутый box`);
+    [b.u0, b.u1, b.v0, b.v1].forEach(n => { if (n < 0 || n > 1) E(`якорь ${sz.id}: координата вне 0..1`); });
+  }
+  sz.syndromes.forEach(id => {
+    anchorLinks++; anchored.add(id);
+    if (!mapAll.has(id)) E(`якорь ${sz.id}: ссылка на несуществующий раздел «${id}»`);
+  });
+}));
+map.syndromes.forEach(s => { if (!anchored.has(s.id)) E(`раздел ${s.id}: до него нельзя добраться — нет якоря`); });
+
+/* --- переиспользование --- */
+const usage = new Map();
+syndromes.forEach(s => s.candidates.forEach(c =>
+  usage.set(c.condition, (usage.get(c.condition) || 0) + 1)));
+const unused = conditions.filter(c => !usage.has(c.id));
+
+/* --- отчёт --- */
+const line = "─".repeat(58);
+console.log(line);
+console.log("БАЗА ЗНАНИЙ — ПРОВЕРКА");
+console.log(line);
+console.log(`Вопросов в общем пуле      ${questions.length}`);
+console.log(`Статей о состояниях        ${conditions.length}`);
+console.log(`  из них «редко, но важно» ${conditions.filter(c => c.redflag).length}`);
+console.log(`Разделов готово            ${syndromes.length} из ${map.syndromes.length}`);
+console.log(`Связей раздел → состояние  ${[...usage.values()].reduce((a, b) => a + b, 0)}`);
+console.log(`Правил красных флагов      ${redflags.global.length}`);
+console.log(`Якорей на модели тела      ${subCount} участков, ${anchorLinks} связей`);
+const reuse = [...usage.entries()].filter(([, n]) => n > 1).sort((a, b) => b[1] - a[1]);
+console.log(`Переиспользуется статей    ${reuse.length}`);
+if (reuse.length) console.log(`  чаще всего: ${reuse.slice(0, 5).map(([id, n]) => `${id} (${n})`).join(", ")}`);
+if (unused.length) console.log(`Написано, но не связано    ${unused.length}: ${unused.map(c => c.id).join(", ")}`);
+console.log(line);
+if (err.length)  { console.log(`ОШИБКИ (${err.length}):`);  err.forEach(e => console.log("  ✗ " + e)); }
+if (warn.length) { console.log(`ЗАМЕЧАНИЯ (${warn.length}):`); warn.forEach(w => console.log("  · " + w)); }
+if (!err.length) console.log("Ошибок нет.");
+console.log(line);
+process.exit(err.length ? 1 : 0);

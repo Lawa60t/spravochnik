@@ -1,0 +1,587 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "h01",
+      "syndrome": "head.pain.diffuse",
+      "sex": "f",
+      "age": 34,
+      "note": "Головная боль напряжения: сдавливает, света не боится, работает за экраном",
+      "feel": 0,
+      "answers": {
+        "dur": "d13",
+        "onset": "gradual",
+        "photo": "no",
+        "fever": "no",
+        "focal": "no",
+        "stiff": "yes",
+        "move": "press",
+        "trauma": "no",
+        "painkillers": "rare",
+        "morning": "no",
+        "tired": "some"
+      },
+      "expectTop": "tension.headache",
+      "expectAlarm": false,
+      "notExpect": [
+        "meningitis",
+        "brain.tumor",
+        "subarachnoid.hemorrhage"
+      ]
+    },
+    {
+      "id": "h02",
+      "syndrome": "head.pain.diffuse",
+      "sex": "f",
+      "age": 41,
+      "note": "Абузусная боль: ежедневно, обезболивающие больше 10 дней в месяц",
+      "feel": 1,
+      "answers": {
+        "dur": "mon",
+        "onset": "gradual",
+        "painkillers": "often",
+        "morning": "yes",
+        "progress": "same",
+        "fever": "no",
+        "focal": "no",
+        "photo": "no"
+      },
+      "expectTop": "medication.overuse.headache",
+      "expectAlarm": false
+    },
+    {
+      "id": "h03",
+      "syndrome": "head.pain.diffuse",
+      "sex": "m",
+      "age": 66,
+      "note": "Опухоль мозга: нарастает неделями, хуже утром, есть очаговые признаки",
+      "feel": 2,
+      "answers": {
+        "dur": "mon",
+        "onset": "gradual",
+        "progress": "worse",
+        "morning": "yes",
+        "focal": "yes",
+        "fever": "no",
+        "trauma": "no",
+        "painkillers": "rare"
+      },
+      "expect": [
+        "brain.tumor"
+      ],
+      "expectAlarm": true
+    },
+    {
+      "id": "h04",
+      "syndrome": "head.pain.diffuse",
+      "sex": "m",
+      "age": 29,
+      "note": "Угарный газ: плохо всем в помещении, температуры нет",
+      "feel": 3,
+      "answers": {
+        "dur": "hours",
+        "onset": "fast",
+        "cohab": "yes",
+        "fever": "no",
+        "runny": "no",
+        "focal": "no",
+        "photo": "no",
+        "trauma": "no"
+      },
+      "expect": [
+        "co.poisoning"
+      ],
+      "expectAlarm": true
+    },
+    {
+      "id": "h05",
+      "syndrome": "head.pain.diffuse",
+      "sex": "f",
+      "age": 22,
+      "note": "Менингит: температура, шея не гнётся, светобоязнь",
+      "feel": 2,
+      "answers": {
+        "dur": "hours",
+        "onset": "fast",
+        "fever": "high",
+        "stiff": "no",
+        "photo": "yes",
+        "focal": "no",
+        "trauma": "no"
+      },
+      "expect": [
+        "meningitis"
+      ],
+      "expectAlarm": true
+    },
+    {
+      "id": "h06",
+      "syndrome": "head.pain.onesided",
+      "sex": "f",
+      "age": 31,
+      "note": "Мигрень с аурой: приступы повторяются, светобоязнь",
+      "feel": 0,
+      "answers": {
+        "dur": "hours",
+        "photo": "yes",
+        "aura": "yes",
+        "attacks": "repeat",
+        "fever": "no",
+        "focal": "no",
+        "eyered": "no",
+        "chewpain": "no"
+      },
+      "expectTop": "migraine",
+      "expectAlarm": false,
+      "notExpect": [
+        "subarachnoid.hemorrhage",
+        "brain.tumor"
+      ]
+    },
+    {
+      "id": "h07",
+      "syndrome": "head.pain.onesided",
+      "sex": "m",
+      "age": 38,
+      "note": "Кластерная: вокруг глаза, глаз краснеет и слезится, сериями",
+      "feel": 1,
+      "answers": {
+        "dur": "hours",
+        "eyered": "yes",
+        "attacks": "repeat",
+        "photo": "no",
+        "aura": "no",
+        "fever": "no",
+        "focal": "no"
+      },
+      "expect": [
+        "cluster.headache"
+      ],
+      "expectAlarm": false
+    },
+    {
+      "id": "h08",
+      "syndrome": "head.pain.onesided",
+      "sex": "f",
+      "age": 72,
+      "note": "Гигантоклеточный артериит: новая боль в виске, больно жевать",
+      "feel": 3,
+      "answers": {
+        "dur": "w12",
+        "attacks": "first",
+        "chewpain": "yes",
+        "progress": "worse",
+        "aura": "no",
+        "eyered": "no",
+        "fever": "no"
+      },
+      "expect": [
+        "giant.cell.arteritis"
+      ],
+      "expectAlarm": true
+    },
+    {
+      "id": "h09",
+      "syndrome": "head.pain.onesided",
+      "sex": "m",
+      "age": 55,
+      "note": "Невралгия тройничного нерва: секундные прострелы от прикосновения",
+      "feel": 2,
+      "answers": {
+        "attacks": "seconds",
+        "dur": "w12",
+        "photo": "no",
+        "aura": "no",
+        "eyered": "no",
+        "fever": "no",
+        "focal": "no"
+      },
+      "expect": [
+        "trigeminal.neuralgia"
+      ],
+      "expectAlarm": false
+    },
+    {
+      "id": "h10",
+      "syndrome": "head.pain.occiput",
+      "sex": "m",
+      "age": 43,
+      "note": "Цервикогенная: из шеи, усиливается при повороте головы",
+      "feel": 0,
+      "answers": {
+        "dur": "mon",
+        "onset": "gradual",
+        "move": "turn",
+        "fever": "no",
+        "stiff": "yes",
+        "focal": "no",
+        "hbp": "normal",
+        "photo": "no"
+      },
+      "expect": [
+        "cervicogenic.headache",
+        "cervical.myofascial"
+      ],
+      "expectAlarm": false,
+      "notExpect": [
+        "meningitis",
+        "subarachnoid.hemorrhage"
+      ]
+    },
+    {
+      "id": "h11",
+      "syndrome": "head.pain.occiput",
+      "sex": "m",
+      "age": 58,
+      "note": "Затылок и высокое давление",
+      "feel": 1,
+      "answers": {
+        "dur": "hours",
+        "onset": "fast",
+        "hbp": "high",
+        "fever": "no",
+        "stiff": "yes",
+        "focal": "no",
+        "move": "no"
+      },
+      "expect": [
+        "hypertension.crisis"
+      ],
+      "expectAlarm": false
+    },
+    {
+      "id": "h12",
+      "syndrome": "head.pain.thunder",
+      "sex": "f",
+      "age": 49,
+      "note": "Субарахноидальное кровоизлияние: мгновенно, рвота, шея скована",
+      "feel": 0,
+      "answers": {
+        "onset": "sudden",
+        "dur": "hours",
+        "stiff": "no",
+        "vomit": "yes",
+        "photo": "yes",
+        "fever": "no",
+        "focal": "no",
+        "trauma": "no"
+      },
+      "expectTop": "subarachnoid.hemorrhage",
+      "expectAlarm": true
+    },
+    {
+      "id": "h13",
+      "syndrome": "head.pain.thunder",
+      "sex": "m",
+      "age": 67,
+      "note": "Инсульт: внезапно, есть очаговые признаки",
+      "feel": 0,
+      "answers": {
+        "onset": "sudden",
+        "dur": "hours",
+        "focal": "yes",
+        "hbp": "high",
+        "stiff": "yes",
+        "vomit": "no",
+        "trauma": "no"
+      },
+      "expectTop": "stroke.ischemic",
+      "expectAlarm": true
+    },
+    {
+      "id": "h14",
+      "syndrome": "head.dizzy.spin",
+      "sex": "f",
+      "age": 61,
+      "note": "ДППГ: кружится при повороте в кровати, секунды, слух в норме",
+      "feel": 0,
+      "answers": {
+        "position": "yes",
+        "attacks": "seconds",
+        "hearing": "no",
+        "focal": "no",
+        "dur": "d13",
+        "vomit": "no",
+        "tired": "no"
+      },
+      "expectTop": "bppv",
+      "expectAlarm": false,
+      "notExpect": [
+        "stroke.ischemic",
+        "meniere"
+      ]
+    },
+    {
+      "id": "h15",
+      "syndrome": "head.dizzy.spin",
+      "sex": "m",
+      "age": 47,
+      "note": "Болезнь Меньера: приступы часами вместе со снижением слуха",
+      "feel": 0,
+      "answers": {
+        "hearing": "yes",
+        "attacks": "hours",
+        "position": "no",
+        "focal": "no",
+        "dur": "mon",
+        "vomit": "yes"
+      },
+      "expectTop": "meniere",
+      "expectAlarm": false
+    },
+    {
+      "id": "h16",
+      "syndrome": "head.dizzy.spin",
+      "sex": "f",
+      "age": 26,
+      "note": "Анемия: дурнота при вставании, слабость, месяцами",
+      "feel": 3,
+      "answers": {
+        "position": "stand",
+        "tired": "strong",
+        "onset": "gradual",
+        "dur": "mon",
+        "hearing": "no",
+        "focal": "no",
+        "vomit": "no"
+      },
+      "expect": [
+        "anemia",
+        "orthostatic.hypotension"
+      ],
+      "expectAlarm": false
+    },
+    {
+      "id": "h17",
+      "syndrome": "head.dizzy.spin",
+      "sex": "m",
+      "age": 70,
+      "note": "Головокружение с очаговыми признаками — инсульт в стволе",
+      "feel": 2,
+      "answers": {
+        "onset": "sudden",
+        "focal": "yes",
+        "position": "no",
+        "hearing": "no",
+        "dur": "hours",
+        "vomit": "yes"
+      },
+      "expectTop": "stroke.ischemic",
+      "expectAlarm": true
+    },
+    {
+      "id": "h18",
+      "syndrome": "head.face.asym",
+      "sex": "m",
+      "age": 36,
+      "note": "Паралич Белла: лоб тоже не работает, очаговых признаков нет",
+      "feel": 0,
+      "answers": {
+        "onset": "fast",
+        "dur": "d13",
+        "forehead": "affected",
+        "focal": "no",
+        "trauma": "no",
+        "ear": "yes",
+        "fever": "no"
+      },
+      "expectTop": "bells.palsy",
+      "expectAlarm": false
+    },
+    {
+      "id": "h19",
+      "syndrome": "head.face.asym",
+      "sex": "f",
+      "age": 68,
+      "note": "Инсульт: лоб морщится нормально, есть слабость в руке",
+      "feel": 2,
+      "answers": {
+        "onset": "sudden",
+        "dur": "hours",
+        "forehead": "spared",
+        "focal": "yes",
+        "trauma": "no",
+        "fever": "no"
+      },
+      "expectTop": "stroke.ischemic",
+      "expectAlarm": true
+    },
+    {
+      "id": "h20",
+      "syndrome": "head.eye.vision",
+      "sex": "m",
+      "age": 59,
+      "note": "Отслойка сетчатки: вспышки, завеса, глаз не болит",
+      "feel": 1,
+      "answers": {
+        "onset": "fast",
+        "dur": "d13",
+        "eyeside": "one",
+        "eyepain": "no",
+        "eyered": "no",
+        "floaters": "yes",
+        "progress": "worse",
+        "focal": "no",
+        "vision": "loss"
+      },
+      "expect": [
+        "retinal.detachment"
+      ],
+      "expectAlarm": true
+    },
+    {
+      "id": "h21",
+      "syndrome": "head.eye.vision",
+      "sex": "f",
+      "age": 63,
+      "note": "Острая глаукома: боль в красном глазу, радужные круги, рвота",
+      "feel": 2,
+      "answers": {
+        "onset": "fast",
+        "eyeside": "one",
+        "eyepain": "yes",
+        "eyered": "yes",
+        "vision": "blur",
+        "vomit": "yes",
+        "floaters": "no",
+        "focal": "no"
+      },
+      "expect": [
+        "glaucoma.acute"
+      ],
+      "expectAlarm": true
+    },
+    {
+      "id": "h22",
+      "syndrome": "head.eye.vision",
+      "sex": "f",
+      "age": 30,
+      "note": "Неврит зрительного нерва: боль при движении глазом, зрение падает днями",
+      "feel": 2,
+      "answers": {
+        "onset": "gradual",
+        "dur": "d13",
+        "eyeside": "one",
+        "eyepain": "move",
+        "eyered": "no",
+        "floaters": "no",
+        "progress": "worse",
+        "focal": "no"
+      },
+      "expectTop": "optic.neuritis",
+      "expectAlarm": false
+    },
+    {
+      "id": "h23",
+      "syndrome": "head.eye.vision",
+      "sex": "m",
+      "age": 52,
+      "note": "Обычные мушки: давно, стабильно, глаз не болит, поле не выпадает",
+      "feel": 3,
+      "answers": {
+        "onset": "gradual",
+        "dur": "mon",
+        "eyeside": "one",
+        "eyepain": "no",
+        "eyered": "no",
+        "floaters": "yes",
+        "progress": "same",
+        "focal": "no",
+        "vision": "no"
+      },
+      "expect": [
+        "vitreous.floaters"
+      ],
+      "expectAlarm": false,
+      "notExpect": [
+        "retinal.artery.occlusion",
+        "stroke.ischemic"
+      ]
+    },
+    {
+      "id": "h24",
+      "syndrome": "head.ear.pain",
+      "sex": "m",
+      "age": 7,
+      "note": "Средний отит у ребёнка: после насморка, температура, слух снижен",
+      "feel": 0,
+      "answers": {
+        "dur": "d13",
+        "onset": "fast",
+        "fever": "mid",
+        "runny": "yes",
+        "hearing": "yes",
+        "tragus": "no",
+        "discharge": "no",
+        "side": "one",
+        "chewpain": "no"
+      },
+      "expectTop": "otitis.media",
+      "expectAlarm": false
+    },
+    {
+      "id": "h25",
+      "syndrome": "head.ear.pain",
+      "sex": "f",
+      "age": 24,
+      "note": "Наружный отит после бассейна: больно тянуть за ухо",
+      "feel": 3,
+      "answers": {
+        "dur": "d13",
+        "fever": "no",
+        "runny": "no",
+        "tragus": "yes",
+        "discharge": "yes",
+        "hearing": "yes",
+        "side": "one",
+        "chewpain": "no"
+      },
+      "expectTop": "otitis.externa",
+      "expectAlarm": false
+    },
+    {
+      "id": "h26",
+      "syndrome": "head.ear.pain",
+      "sex": "m",
+      "age": 5,
+      "note": "Мастоидит: припухлость за ухом, высокая температура, ухудшение",
+      "feel": 1,
+      "answers": {
+        "dur": "d47",
+        "fever": "high",
+        "swell": "side",
+        "discharge": "yes",
+        "progress": "worse",
+        "hearing": "yes",
+        "side": "one",
+        "tragus": "no"
+      },
+      "expect": [
+        "mastoiditis"
+      ],
+      "expectAlarm": true
+    },
+    {
+      "id": "h27",
+      "syndrome": "head.ear.pain",
+      "sex": "f",
+      "age": 39,
+      "note": "Дисфункция челюстного сустава у молодой женщины: боль при жевании НЕ должна поднимать тревогу",
+      "feel": 1,
+      "answers": {
+        "dur": "mon",
+        "fever": "no",
+        "chewpain": "yes",
+        "hearing": "no",
+        "tragus": "no",
+        "discharge": "no",
+        "runny": "no",
+        "side": "one"
+      },
+      "expect": [
+        "tmj.dysfunction"
+      ],
+      "expectAlarm": false
+    }
+  ]
+}

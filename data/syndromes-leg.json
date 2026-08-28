@@ -1,0 +1,1619 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-08-27",
+  "zone": "leg",
+  "syndromes": [
+    {
+      "id": "leg.hip",
+      "zone": "leg",
+      "name": "Боль в тазобедренном суставе",
+      "priority": 2,
+      "aka": [
+        "болит бедро",
+        "тазобедренный сустав",
+        "болит в паху при ходьбе"
+      ],
+      "feelings": [
+        "Болит в паху при ходьбе",
+        "Ноет сбоку бедра",
+        "Отдаёт в колено",
+        "Трудно надеть носок"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "walkpain",
+        "move",
+        "radleg",
+        "trauma",
+        "twist",
+        "fever",
+        "joint",
+        "stiffjoint",
+        "immuno",
+        "night",
+        "oncohist",
+        "progress",
+        "weight",
+        "bulge"
+      ],
+      "candidates": [
+        {
+          "condition": "hip.oa",
+          "base": 8,
+          "weights": {
+            "walkpain_stairs": 4,
+            "radleg_front": 3,
+            "dur_mon": 4,
+            "stiffjoint_short": 3,
+            "onset_gradual": 3,
+            "move_press": -3,
+            "joint_hotred": -5,
+            "onset_sudden": -3,
+            "fever_high": -4
+          }
+        },
+        {
+          "condition": "trochanteric.bursitis",
+          "base": 6,
+          "weights": {
+            "move_press": 6,
+            "night_yes": 3,
+            "walkpain_stairs": 2,
+            "joint_normal": 2,
+            "radleg_front": -2,
+            "joint_hotred": -4
+          }
+        },
+        {
+          "condition": "disc.herniation.lumbar",
+          "base": 4,
+          "weights": {
+            "radleg_below": 6,
+            "radleg_buttock": 3,
+            "move_turn": 2,
+            "onset_fast": 2,
+            "move_press": -2
+          }
+        },
+        {
+          "condition": "piriformis.syndrome",
+          "base": 3,
+          "weights": {
+            "radleg_buttock": 5,
+            "move_press": 3,
+            "dur_mon": 2,
+            "radleg_front": -3
+          }
+        },
+        {
+          "condition": "vertebral.fracture",
+          "base": 2,
+          "weights": {
+            "trauma_yes": 5,
+            "onset_sudden": 4,
+            "immuno_yes": 3,
+            "walkpain_always": 3,
+            "trauma_no": -3
+          }
+        },
+        {
+          "condition": "spine.metastases",
+          "base": 1,
+          "weights": {
+            "oncohist_yes": 6,
+            "night_yes": 5,
+            "weight_yes": 4,
+            "progress_worse": 4,
+            "walkpain_always": 2,
+            "dur_d13": -3
+          }
+        },
+        {
+          "condition": "septic.arthritis",
+          "base": 1,
+          "weights": {
+            "joint_hotred": 5,
+            "fever_high": 6,
+            "onset_fast": 3,
+            "immuno_yes": 4,
+            "walkpain_always": 3,
+            "fever_no": -4,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "inguinal.hernia",
+          "base": 2,
+          "weights": {
+            "bulge_soft": 6,
+            "radleg_front": 2,
+            "bulge_no": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Невозможно наступить на ногу после падения, особенно в пожилом возрасте",
+        "Сустав горячий, есть высокая температура",
+        "Боль в бедре ночью на фоне перенесённой опухоли"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "leg.knee.pain",
+      "zone": "leg",
+      "name": "Боль в колене",
+      "priority": 1,
+      "aka": [
+        "болит колено",
+        "колено ноет",
+        "хрустит колено"
+      ],
+      "feelings": [
+        "Болит при ходьбе по лестнице",
+        "Заклинивает",
+        "Ноет постоянно",
+        "Красное и горячее",
+        "Болит спереди вокруг чашечки"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "walkpain",
+        "twist",
+        "trauma",
+        "joint",
+        "lock",
+        "stiffjoint",
+        "symmetry",
+        "fever",
+        "immuno",
+        "move",
+        "progress",
+        "radleg"
+      ],
+      "candidates": [
+        {
+          "condition": "knee.oa",
+          "base": 8,
+          "weights": {
+            "walkpain_stairs": 5,
+            "dur_mon": 4,
+            "stiffjoint_short": 4,
+            "onset_gradual": 3,
+            "joint_swollen": 2,
+            "stiffjoint_long": -3,
+            "joint_hotred": -5,
+            "twist_twist": -3,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "meniscus.tear",
+          "base": 5,
+          "weights": {
+            "lock_yes": 6,
+            "twist_twist": 5,
+            "symmetry_one": 3,
+            "move_press": 3,
+            "onset_fast": 2,
+            "symmetry_both": -3,
+            "joint_hotred": -4
+          }
+        },
+        {
+          "condition": "patellofemoral",
+          "base": 5,
+          "weights": {
+            "walkpain_stairs": 4,
+            "joint_normal": 4,
+            "twist_load": 3,
+            "dur_mon": 2,
+            "lock_yes": -3,
+            "joint_hotred": -4,
+            "joint_swollen": -2
+          }
+        },
+        {
+          "condition": "acl.tear",
+          "base": 3,
+          "weights": {
+            "twist_twist": 6,
+            "lock_give": 5,
+            "joint_swollen": 4,
+            "onset_sudden": 4,
+            "trauma_yes": 3,
+            "dur_mon": -2,
+            "twist_none": -4
+          }
+        },
+        {
+          "condition": "prepatellar.bursitis",
+          "base": 3,
+          "weights": {
+            "joint_swollen": 5,
+            "move_press": 4,
+            "twist_load": 2,
+            "lock_yes": -3,
+            "walkpain_stairs": -1
+          }
+        },
+        {
+          "condition": "baker.cyst",
+          "base": 3,
+          "weights": {
+            "joint_swollen": 4,
+            "dur_mon": 3,
+            "lock_yes": 1,
+            "twist_twist": -2
+          }
+        },
+        {
+          "condition": "gout",
+          "base": 3,
+          "weights": {
+            "joint_hotred": 6,
+            "onset_sudden": 5,
+            "symmetry_one": 3,
+            "dur_d13": 3,
+            "joint_normal": -5,
+            "dur_mon": -4,
+            "twist_twist": -3
+          }
+        },
+        {
+          "condition": "rheumatoid.arthritis",
+          "base": 2,
+          "weights": {
+            "symmetry_both": 5,
+            "stiffjoint_long": 6,
+            "joint_swollen": 4,
+            "dur_mon": 3,
+            "twist_twist": -3
+          }
+        },
+        {
+          "condition": "septic.arthritis",
+          "base": 1,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_high": 6,
+            "onset_fast": 3,
+            "immuno_yes": 4,
+            "progress_worse": 3,
+            "joint_normal": -5,
+            "fever_no": -4,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "hip.oa",
+          "base": 2,
+          "weights": {
+            "radleg_front": 5,
+            "walkpain_stairs": 2,
+            "dur_mon": 3,
+            "joint_normal": 3,
+            "joint_swollen": -3,
+            "lock_yes": -3
+          }
+        },
+        {
+          "condition": "cellulitis",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_mid": 4,
+            "fever_high": 3,
+            "onset_fast": 3,
+            "trauma_yes": 2,
+            "progress_worse": 3,
+            "fever_no": -3,
+            "joint_normal": -4,
+            "dur_mon": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Колено красное, горячее, движения невозможны, есть температура",
+        "Колено распухло за час-два после травмы",
+        "Полностью заблокированное колено, которое не разгибается",
+        "Невозможность наступить на ногу"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "leg.knee.swell",
+      "zone": "leg",
+      "name": "Отёк колена",
+      "priority": 2,
+      "aka": [
+        "распухло колено",
+        "колено налилось"
+      ],
+      "feelings": [
+        "Распухло и горячее",
+        "Припухло без покраснения",
+        "Шарик под коленом сзади",
+        "Отекло сразу после травмы"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "joint",
+        "trauma",
+        "twist",
+        "fever",
+        "symmetry",
+        "stiffjoint",
+        "immuno",
+        "lock",
+        "move",
+        "progress",
+        "immobility"
+      ],
+      "candidates": [
+        {
+          "condition": "knee.oa",
+          "base": 6,
+          "weights": {
+            "joint_swollen": 4,
+            "dur_mon": 4,
+            "stiffjoint_short": 3,
+            "onset_gradual": 3,
+            "joint_hotred": -5,
+            "onset_sudden": -3,
+            "fever_high": -4
+          }
+        },
+        {
+          "condition": "baker.cyst",
+          "base": 5,
+          "weights": {
+            "joint_swollen": 4,
+            "dur_mon": 3,
+            "fever_no": 3,
+            "onset_gradual": 2,
+            "joint_hotred": -4
+          }
+        },
+        {
+          "condition": "gout",
+          "base": 4,
+          "weights": {
+            "joint_hotred": 6,
+            "onset_sudden": 5,
+            "symmetry_one": 3,
+            "joint_normal": -5,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "acl.tear",
+          "base": 4,
+          "weights": {
+            "twist_twist": 6,
+            "onset_sudden": 5,
+            "trauma_yes": 4,
+            "lock_give": 4,
+            "twist_none": -4,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "meniscus.tear",
+          "base": 4,
+          "weights": {
+            "twist_twist": 5,
+            "lock_yes": 5,
+            "move_press": 3,
+            "symmetry_one": 2,
+            "joint_hotred": -3
+          }
+        },
+        {
+          "condition": "prepatellar.bursitis",
+          "base": 4,
+          "weights": {
+            "joint_swollen": 4,
+            "move_press": 5,
+            "twist_load": 3,
+            "lock_yes": -3
+          }
+        },
+        {
+          "condition": "rheumatoid.arthritis",
+          "base": 3,
+          "weights": {
+            "symmetry_both": 5,
+            "stiffjoint_long": 6,
+            "dur_mon": 3,
+            "symmetry_one": -3,
+            "trauma_yes": -3
+          }
+        },
+        {
+          "condition": "septic.arthritis",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_high": 6,
+            "immuno_yes": 4,
+            "onset_fast": 3,
+            "progress_worse": 3,
+            "fever_no": -4,
+            "trauma_yes": -2
+          }
+        },
+        {
+          "condition": "cellulitis",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 4,
+            "fever_mid": 4,
+            "onset_fast": 3,
+            "trauma_yes": 2,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "dvt.leg",
+          "base": 1,
+          "weights": {
+            "symmetry_one": 4,
+            "immobility_yes": 6,
+            "onset_fast": 2,
+            "twist_twist": -3,
+            "joint_hotred": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Колено распухло за час-два после травмы",
+        "Колено горячее и красное с высокой температурой",
+        "Отёк колена вместе с отёком всей голени"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "leg.calf",
+      "zone": "leg",
+      "name": "Боль в икре",
+      "priority": 1,
+      "aka": [
+        "болит икра",
+        "тянет икру",
+        "судорога в икре"
+      ],
+      "feelings": [
+        "Тянет и распирает",
+        "Сводит судорогой",
+        "Болит при ходьбе",
+        "Плотная и горячая"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "swellside",
+        "immobility",
+        "walkpain",
+        "footcold",
+        "joint",
+        "fever",
+        "oncohist",
+        "twist",
+        "night",
+        "progress",
+        "diabetes",
+        "smoke",
+        "swelltime",
+        "move",
+        "radleg"
+      ],
+      "candidates": [
+        {
+          "condition": "dvt.leg",
+          "base": 5,
+          "weights": {
+            "swellside_one": 6,
+            "immobility_yes": 6,
+            "onset_fast": 3,
+            "oncohist_yes": 3,
+            "progress_worse": 2,
+            "swellside_both": -5,
+            "walkpain_distance": -2,
+            "twist_load": -2
+          }
+        },
+        {
+          "condition": "leg.cramps",
+          "base": 6,
+          "weights": {
+            "night_yes": 6,
+            "dur_mon": 3,
+            "swellside_both": 2,
+            "fever_no": 3,
+            "progress_wave": 3,
+            "swellside_one": -3,
+            "footcold_cold": -3,
+            "walkpain_distance": -2
+          }
+        },
+        {
+          "condition": "pad",
+          "base": 5,
+          "weights": {
+            "walkpain_distance": 6,
+            "footcold_cold": 5,
+            "smoke_both": 4,
+            "dur_mon": 3,
+            "diabetes_yes": 3,
+            "walkpain_no": -3,
+            "night_yes": -1,
+            "swellside_one": -2
+          }
+        },
+        {
+          "condition": "varicose.veins",
+          "base": 5,
+          "weights": {
+            "swellside_both": 4,
+            "swelltime_evening": 5,
+            "night_yes": 3,
+            "dur_mon": 4,
+            "footcold_cold": -3,
+            "walkpain_distance": -2
+          }
+        },
+        {
+          "condition": "superficial.thrombophlebitis",
+          "base": 3,
+          "weights": {
+            "joint_hotred": 5,
+            "swellside_one": 3,
+            "onset_fast": 3,
+            "fever_low": 2,
+            "swellside_both": -3
+          }
+        },
+        {
+          "condition": "achilles.tendinopathy",
+          "base": 3,
+          "weights": {
+            "twist_load": 5,
+            "move_press": 4,
+            "walkpain_first": 4,
+            "dur_w12": 2,
+            "swellside_one": -2
+          }
+        },
+        {
+          "condition": "baker.cyst",
+          "base": 3,
+          "weights": {
+            "onset_sudden": 3,
+            "swellside_one": 3,
+            "dur_mon": 2,
+            "walkpain_distance": -3
+          }
+        },
+        {
+          "condition": "cellulitis",
+          "base": 3,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_mid": 4,
+            "fever_high": 3,
+            "onset_fast": 3,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "erysipelas",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 5,
+            "fever_high": 5,
+            "onset_sudden": 4,
+            "fever_no": -4
+          }
+        },
+        {
+          "condition": "acute.limb.ischemia",
+          "base": 1,
+          "weights": {
+            "footcold_cold": 6,
+            "onset_sudden": 6,
+            "progress_worse": 4,
+            "walkpain_always": 3,
+            "footcold_warm": -5,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "disc.herniation.lumbar",
+          "base": 2,
+          "weights": {
+            "radleg_below": 6,
+            "night_no": 1,
+            "walkpain_distance": -2,
+            "swellside_one": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Одна голень отекла и болит, особенно после перелёта, операции или гипса",
+        "Стопа побледнела и похолодела, пальцы не двигаются",
+        "Голень горячая и красная с высокой температурой",
+        "Боль в икре вместе с одышкой или болью в груди"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "leg.swell",
+      "zone": "leg",
+      "name": "Отёки ног",
+      "priority": 1,
+      "aka": [
+        "отекают ноги",
+        "опухают щиколотки",
+        "остаётся след от носка"
+      ],
+      "feelings": [
+        "Отекают к вечеру",
+        "Отёк держится постоянно",
+        "Отекла одна нога",
+        "Отекают и ноги, и лицо"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "swellside",
+        "swelltime",
+        "dysp",
+        "immobility",
+        "oncohist",
+        "fever",
+        "joint",
+        "hbp",
+        "urine",
+        "yellow",
+        "progress",
+        "night",
+        "newmeds",
+        "bloodurine",
+        "temperature",
+        "tired",
+        "immuno"
+      ],
+      "candidates": [
+        {
+          "condition": "varicose.veins",
+          "base": 7,
+          "weights": {
+            "swellside_both": 4,
+            "swelltime_evening": 6,
+            "dur_mon": 4,
+            "night_yes": 2,
+            "swelltime_constant": -2,
+            "swelltime_morning": -4,
+            "dysp_yes": -3,
+            "dysp_no": 2
+          }
+        },
+        {
+          "condition": "heart.failure",
+          "base": 6,
+          "weights": {
+            "dysp_yes": 6,
+            "swellside_both": 4,
+            "swelltime_evening": 2,
+            "onset_gradual": 3,
+            "swellside_one": -4,
+            "swelltime_morning": -3,
+            "dysp_no": -5
+          }
+        },
+        {
+          "condition": "ckd",
+          "base": 4,
+          "weights": {
+            "swelltime_morning": 6,
+            "swellside_both": 4,
+            "urine_no": 1,
+            "hbp_high": 3,
+            "onset_gradual": 3,
+            "swellside_one": -4,
+            "swelltime_evening": -2
+          }
+        },
+        {
+          "condition": "dvt.leg",
+          "base": 4,
+          "weights": {
+            "swellside_one": 6,
+            "immobility_yes": 6,
+            "onset_fast": 4,
+            "oncohist_yes": 3,
+            "swelltime_constant": 3,
+            "swellside_both": -5,
+            "swelltime_morning": -3
+          }
+        },
+        {
+          "condition": "lymphedema",
+          "base": 3,
+          "weights": {
+            "swelltime_constant": 6,
+            "swellside_one": 4,
+            "oncohist_yes": 5,
+            "dur_mon": 4,
+            "swelltime_evening": -3,
+            "dysp_yes": -2
+          }
+        },
+        {
+          "condition": "cirrhosis",
+          "base": 2,
+          "weights": {
+            "yellow_yes": 6,
+            "swellside_both": 3,
+            "swelltime_constant": 2,
+            "dur_mon": 3,
+            "yellow_no": -2
+          }
+        },
+        {
+          "condition": "glomerulonephritis",
+          "base": 2,
+          "weights": {
+            "swelltime_morning": 6,
+            "hbp_high": 4,
+            "bloodurine_meat": 6,
+            "onset_fast": 2,
+            "swellside_one": -4
+          }
+        },
+        {
+          "condition": "cellulitis",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_mid": 4,
+            "swellside_one": 3,
+            "onset_fast": 3,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "hypothyroidism",
+          "base": 2,
+          "weights": {
+            "swelltime_morning": 4,
+            "swellside_both": 3,
+            "temperature_cold": 5,
+            "onset_gradual": 3,
+            "dysp_yes": -1
+          }
+        },
+        {
+          "condition": "anemia",
+          "base": 1,
+          "weights": {
+            "dysp_yes": 3,
+            "tired_strong": 4,
+            "onset_gradual": 2,
+            "swellside_one": -3
+          }
+        },
+        {
+          "condition": "septic.arthritis",
+          "base": 1,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_high": 6,
+            "immuno_yes": 4,
+            "onset_fast": 3,
+            "progress_worse": 3,
+            "joint_normal": -5,
+            "fever_no": -4,
+            "dur_mon": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Отекла только одна нога, особенно быстро",
+        "Отёки вместе с одышкой, невозможностью лежать, ночным удушьем",
+        "Отёки лица по утрам с повышением давления и изменением цвета мочи",
+        "Отёк с покраснением, жаром и температурой"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "leg.foot",
+      "zone": "leg",
+      "name": "Боль в стопе",
+      "priority": 2,
+      "aka": [
+        "болит стопа",
+        "болят пальцы ног",
+        "косточка на ноге"
+      ],
+      "feelings": [
+        "Болит подошва",
+        "Жжёт и немеет между пальцами",
+        "Косточка натирает",
+        "Сустав красный и горячий"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "walkpain",
+        "joint",
+        "move",
+        "twist",
+        "trauma",
+        "fever",
+        "diabetes",
+        "symmetry",
+        "numbwhere",
+        "footcold",
+        "progress",
+        "smoke",
+        "immuno",
+        "skinchange"
+      ],
+      "candidates": [
+        {
+          "condition": "plantar.fasciitis",
+          "base": 7,
+          "weights": {
+            "walkpain_first": 6,
+            "move_press": 4,
+            "dur_mon": 3,
+            "joint_normal": 3,
+            "joint_hotred": -5,
+            "walkpain_distance": -3,
+            "fever_high": -4
+          }
+        },
+        {
+          "condition": "morton.neuroma",
+          "base": 5,
+          "weights": {
+            "move_press": 4,
+            "dur_mon": 3,
+            "joint_normal": 3,
+            "walkpain_stairs": 1,
+            "joint_hotred": -4,
+            "walkpain_first": -2
+          }
+        },
+        {
+          "condition": "hallux.valgus",
+          "base": 5,
+          "weights": {
+            "move_press": 4,
+            "dur_mon": 4,
+            "joint_normal": 2,
+            "progress_worse": 2,
+            "joint_hotred": -3,
+            "onset_sudden": -4
+          }
+        },
+        {
+          "condition": "gout",
+          "base": 4,
+          "weights": {
+            "joint_hotred": 6,
+            "onset_sudden": 6,
+            "symmetry_one": 3,
+            "dur_d13": 3,
+            "joint_normal": -5,
+            "dur_mon": -4,
+            "walkpain_first": -3
+          }
+        },
+        {
+          "condition": "ankle.sprain",
+          "base": 4,
+          "weights": {
+            "twist_roll": 6,
+            "trauma_yes": 5,
+            "onset_sudden": 4,
+            "joint_swollen": 3,
+            "trauma_no": -4,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "diabetic.neuropathy",
+          "base": 3,
+          "weights": {
+            "diabetes_yes": 6,
+            "symmetry_both": 4,
+            "numbwhere_all": 3,
+            "onset_gradual": 3,
+            "dur_mon": 3,
+            "diabetes_no": -4,
+            "trauma_yes": -3
+          }
+        },
+        {
+          "condition": "ingrown.nail",
+          "base": 3,
+          "weights": {
+            "move_press": 4,
+            "joint_hotred": 3,
+            "symmetry_one": 3,
+            "dur_w12": 2,
+            "walkpain_first": -2
+          }
+        },
+        {
+          "condition": "achilles.tendinopathy",
+          "base": 3,
+          "weights": {
+            "walkpain_first": 4,
+            "move_press": 4,
+            "twist_load": 4,
+            "joint_hotred": -3
+          }
+        },
+        {
+          "condition": "pad",
+          "base": 2,
+          "weights": {
+            "walkpain_distance": 6,
+            "footcold_cold": 6,
+            "smoke_both": 4,
+            "diabetes_yes": 2,
+            "walkpain_first": -3
+          }
+        },
+        {
+          "condition": "diabetic.foot.ulcer",
+          "base": 1,
+          "weights": {
+            "diabetes_yes": 6,
+            "joint_hotred": 4,
+            "progress_worse": 4,
+            "numbwhere_all": 3,
+            "diabetes_no": -5
+          }
+        },
+        {
+          "condition": "septic.arthritis",
+          "base": 1,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_high": 6,
+            "immuno_yes": 4,
+            "fever_no": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Рана или язва на стопе при диабете",
+        "Сустав красный, горячий, есть температура",
+        "Стопа холодная и бледная, пальцы не двигаются",
+        "Невозможность наступить на ногу после травмы"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "leg.heel",
+      "zone": "leg",
+      "name": "Боль в пятке",
+      "priority": 2,
+      "aka": [
+        "болит пятка",
+        "пяточная шпора",
+        "больно наступать утром"
+      ],
+      "feelings": [
+        "Первые шаги утром резко болезненны",
+        "Болит сзади над пяткой",
+        "Ноет к вечеру",
+        "Болит при нажатии"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "walkpain",
+        "move",
+        "twist",
+        "trauma",
+        "joint",
+        "fever",
+        "stiffam",
+        "symmetry",
+        "progress",
+        "movebetter",
+        "diabetes",
+        "immuno"
+      ],
+      "candidates": [
+        {
+          "condition": "plantar.fasciitis",
+          "base": 9,
+          "weights": {
+            "walkpain_first": 6,
+            "move_press": 5,
+            "dur_mon": 3,
+            "joint_normal": 3,
+            "joint_hotred": -5,
+            "trauma_yes": -2,
+            "fever_high": -4
+          }
+        },
+        {
+          "condition": "achilles.tendinopathy",
+          "base": 6,
+          "weights": {
+            "move_press": 5,
+            "twist_load": 5,
+            "walkpain_first": 3,
+            "joint_swollen": 3,
+            "joint_hotred": -3,
+            "trauma_yes": -1
+          }
+        },
+        {
+          "condition": "axial.spondyloarthritis",
+          "base": 3,
+          "weights": {
+            "stiffam_long": 6,
+            "symmetry_both": 4,
+            "dur_mon": 4,
+            "movebetter_move": 4,
+            "stiffam_no": -4,
+            "trauma_yes": -3
+          }
+        },
+        {
+          "condition": "gout",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 6,
+            "onset_sudden": 5,
+            "symmetry_one": 2,
+            "joint_normal": -5,
+            "walkpain_first": -3
+          }
+        },
+        {
+          "condition": "ankle.sprain",
+          "base": 2,
+          "weights": {
+            "twist_roll": 6,
+            "trauma_yes": 5,
+            "onset_sudden": 3,
+            "trauma_no": -4
+          }
+        },
+        {
+          "condition": "rheumatoid.arthritis",
+          "base": 1,
+          "weights": {
+            "symmetry_both": 4,
+            "stiffam_long": 5,
+            "joint_swollen": 3,
+            "dur_mon": 3
+          }
+        },
+        {
+          "condition": "diabetic.neuropathy",
+          "base": 2,
+          "weights": {
+            "diabetes_yes": 6,
+            "symmetry_both": 3,
+            "dur_mon": 3,
+            "diabetes_no": -4,
+            "walkpain_first": -2
+          }
+        },
+        {
+          "condition": "cellulitis",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_mid": 4,
+            "fever_high": 3,
+            "onset_fast": 3,
+            "trauma_yes": 2,
+            "progress_worse": 3,
+            "fever_no": -3,
+            "joint_normal": -4,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "septic.arthritis",
+          "base": 1,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_high": 6,
+            "immuno_yes": 4,
+            "onset_fast": 3,
+            "progress_worse": 3,
+            "joint_normal": -5,
+            "fever_no": -4,
+            "dur_mon": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Внезапный щелчок над пяткой с невозможностью встать на носок",
+        "Пятка красная и горячая с температурой",
+        "Боль в пятках у молодого человека со скованностью в спине по утрам"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "leg.numb",
+      "zone": "leg",
+      "name": "Онемение ноги",
+      "priority": 2,
+      "aka": [
+        "немеет нога",
+        "мурашки в ноге",
+        "отсидел ногу"
+      ],
+      "feelings": [
+        "Немеет по наружной стороне",
+        "Немеют обе стопы",
+        "Полосой от поясницы вниз",
+        "Немеет и жжёт"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "symmetry",
+        "radleg",
+        "diabetes",
+        "focal",
+        "legweak",
+        "walkpain",
+        "movebetter",
+        "footcold",
+        "progress",
+        "temperature",
+        "urine",
+        "saddle",
+        "smoke",
+        "joint",
+        "fever",
+        "trauma"
+      ],
+      "candidates": [
+        {
+          "condition": "disc.herniation.lumbar",
+          "base": 7,
+          "weights": {
+            "radleg_below": 6,
+            "symmetry_one": 4,
+            "legweak_one": 3,
+            "movebetter_rest": 3,
+            "onset_fast": 2,
+            "symmetry_both": -3,
+            "diabetes_yes": -1,
+            "focal_yes": -3
+          }
+        },
+        {
+          "condition": "diabetic.neuropathy",
+          "base": 5,
+          "weights": {
+            "diabetes_yes": 6,
+            "symmetry_both": 5,
+            "onset_gradual": 4,
+            "dur_mon": 4,
+            "diabetes_no": -5,
+            "symmetry_one": -4,
+            "radleg_below": -2
+          }
+        },
+        {
+          "condition": "spinal.stenosis",
+          "base": 4,
+          "weights": {
+            "movebetter_bend": 6,
+            "walkpain_distance": 5,
+            "symmetry_both": 3,
+            "legweak_both": 3,
+            "dur_mon": 3,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "b12.deficiency",
+          "base": 3,
+          "weights": {
+            "symmetry_both": 4,
+            "onset_gradual": 4,
+            "dur_mon": 3,
+            "temperature_cold": 2,
+            "symmetry_one": -3
+          }
+        },
+        {
+          "condition": "piriformis.syndrome",
+          "base": 3,
+          "weights": {
+            "radleg_buttock": 5,
+            "symmetry_one": 3,
+            "dur_mon": 2,
+            "radleg_below": -2
+          }
+        },
+        {
+          "condition": "pad",
+          "base": 3,
+          "weights": {
+            "walkpain_distance": 6,
+            "footcold_cold": 6,
+            "smoke_both": 4,
+            "symmetry_one": 2,
+            "movebetter_bend": -3
+          }
+        },
+        {
+          "condition": "cauda.equina",
+          "base": 1,
+          "weights": {
+            "urine_retention": 6,
+            "saddle_yes": 6,
+            "legweak_both": 5,
+            "urine_no": -5,
+            "saddle_no": -4
+          }
+        },
+        {
+          "condition": "stroke.ischemic",
+          "base": 1,
+          "weights": {
+            "focal_yes": 6,
+            "onset_sudden": 6,
+            "symmetry_one": 2,
+            "focal_no": -4,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "acute.limb.ischemia",
+          "base": 1,
+          "weights": {
+            "footcold_cold": 6,
+            "onset_sudden": 5,
+            "progress_worse": 4,
+            "footcold_warm": -5,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "cellulitis",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_mid": 4,
+            "fever_high": 3,
+            "onset_fast": 3,
+            "trauma_yes": 2,
+            "progress_worse": 3,
+            "fever_no": -3,
+            "joint_normal": -4,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "restless.legs",
+          "base": 4,
+          "weights": {
+            "symmetry_both": 4,
+            "movebetter_move": 5,
+            "dur_mon": 3,
+            "temperature_cold": -1,
+            "radleg_below": -4,
+            "focal_yes": -4,
+            "footcold_cold": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Онемение в промежности вместе с нарушением мочеиспускания",
+        "Онемение появилось внезапно вместе со слабостью или нарушением речи",
+        "Стопа холодная, бледная, пальцы не двигаются",
+        "Нарастающая слабость в обеих ногах"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "leg.claudication",
+      "zone": "leg",
+      "name": "Боль в ноге при ходьбе, проходит в покое",
+      "priority": 2,
+      "aka": [
+        "перемежающаяся хромота",
+        "надо останавливаться при ходьбе"
+      ],
+      "feelings": [
+        "Через сто метров приходится встать",
+        "Легче, если наклониться вперёд",
+        "Ноги слабеют и немеют",
+        "Икра сводит при ходьбе"
+      ],
+      "questions": [
+        "dur",
+        "walkpain",
+        "movebetter",
+        "footcold",
+        "smoke",
+        "diabetes",
+        "symmetry",
+        "legweak",
+        "onset",
+        "progress",
+        "night",
+        "radleg",
+        "swelltime",
+        "stiffjoint",
+        "swellside",
+        "immobility",
+        "oncohist"
+      ],
+      "candidates": [
+        {
+          "condition": "pad",
+          "base": 7,
+          "weights": {
+            "walkpain_distance": 6,
+            "footcold_cold": 6,
+            "smoke_both": 5,
+            "diabetes_yes": 3,
+            "movebetter_rest": 3,
+            "movebetter_bend": -5,
+            "footcold_warm": -3
+          }
+        },
+        {
+          "condition": "spinal.stenosis",
+          "base": 6,
+          "weights": {
+            "movebetter_bend": 6,
+            "walkpain_distance": 4,
+            "legweak_both": 4,
+            "symmetry_both": 3,
+            "footcold_warm": 3,
+            "footcold_cold": -4,
+            "smoke_both": -1
+          }
+        },
+        {
+          "condition": "disc.herniation.lumbar",
+          "base": 3,
+          "weights": {
+            "radleg_below": 6,
+            "symmetry_one": 3,
+            "legweak_one": 3,
+            "movebetter_rest": 2,
+            "footcold_cold": -3
+          }
+        },
+        {
+          "condition": "varicose.veins",
+          "base": 3,
+          "weights": {
+            "swelltime_evening": 5,
+            "symmetry_both": 3,
+            "dur_mon": 3,
+            "footcold_cold": -3
+          }
+        },
+        {
+          "condition": "knee.oa",
+          "base": 3,
+          "weights": {
+            "walkpain_stairs": 5,
+            "dur_mon": 3,
+            "stiffjoint_short": 3,
+            "footcold_cold": -3
+          }
+        },
+        {
+          "condition": "hip.oa",
+          "base": 2,
+          "weights": {
+            "radleg_front": 5,
+            "walkpain_stairs": 3,
+            "dur_mon": 3,
+            "footcold_cold": -3
+          }
+        },
+        {
+          "condition": "acute.limb.ischemia",
+          "base": 1,
+          "weights": {
+            "footcold_cold": 6,
+            "onset_sudden": 6,
+            "walkpain_always": 4,
+            "night_yes": 3,
+            "progress_worse": 3,
+            "footcold_warm": -5
+          }
+        },
+        {
+          "condition": "leg.cramps",
+          "base": 2,
+          "weights": {
+            "night_yes": 6,
+            "symmetry_both": 2,
+            "walkpain_no": 3,
+            "walkpain_distance": -3
+          }
+        },
+        {
+          "condition": "dvt.leg",
+          "base": 1,
+          "weights": {
+            "swellside_one": 6,
+            "immobility_yes": 6,
+            "onset_fast": 3,
+            "oncohist_yes": 3,
+            "swellside_both": -5,
+            "walkpain_distance": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль в ноге появилась и в покое, особенно ночью",
+        "Стопа побледнела и похолодела",
+        "Появилась незаживающая ранка на пальце или пятке"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "leg.veins",
+      "zone": "leg",
+      "name": "Расширенные вены на ногах",
+      "priority": 3,
+      "aka": [
+        "варикоз",
+        "вены выступают",
+        "сосудистые звёздочки"
+      ],
+      "feelings": [
+        "Видны извитые вены",
+        "Тяжесть к вечеру",
+        "Плотный болезненный тяж",
+        "Потемнела кожа голени"
+      ],
+      "questions": [
+        "dur",
+        "swelltime",
+        "swellside",
+        "joint",
+        "fever",
+        "onset",
+        "night",
+        "progress",
+        "skinchange",
+        "immobility",
+        "oncohist",
+        "dysp",
+        "immuno"
+      ],
+      "candidates": [
+        {
+          "condition": "varicose.veins",
+          "base": 9,
+          "weights": {
+            "swelltime_evening": 6,
+            "dur_mon": 4,
+            "night_yes": 3,
+            "swellside_both": 3,
+            "fever_no": 3,
+            "joint_hotred": -4,
+            "onset_sudden": -4,
+            "fever_high": -4
+          }
+        },
+        {
+          "condition": "superficial.thrombophlebitis",
+          "base": 4,
+          "weights": {
+            "joint_hotred": 6,
+            "onset_fast": 4,
+            "swellside_one": 3,
+            "fever_low": 2,
+            "progress_worse": 2,
+            "swelltime_evening": -2
+          }
+        },
+        {
+          "condition": "venous.ulcer",
+          "base": 3,
+          "weights": {
+            "skinchange_dark": 6,
+            "dur_mon": 4,
+            "swelltime_evening": 3,
+            "progress_worse": 2
+          }
+        },
+        {
+          "condition": "dvt.leg",
+          "base": 2,
+          "weights": {
+            "swellside_one": 6,
+            "immobility_yes": 6,
+            "onset_fast": 3,
+            "swelltime_constant": 3,
+            "swellside_both": -4
+          }
+        },
+        {
+          "condition": "lymphedema",
+          "base": 2,
+          "weights": {
+            "swelltime_constant": 6,
+            "swellside_one": 4,
+            "oncohist_yes": 5,
+            "swelltime_evening": -3
+          }
+        },
+        {
+          "condition": "cellulitis",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 5,
+            "fever_mid": 4,
+            "onset_fast": 3,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "heart.failure",
+          "base": 2,
+          "weights": {
+            "swellside_both": 4,
+            "dysp_yes": 5,
+            "swelltime_evening": 3,
+            "swellside_one": -3,
+            "dysp_no": -4
+          }
+        },
+        {
+          "condition": "septic.arthritis",
+          "base": 1,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_high": 6,
+            "immuno_yes": 4,
+            "onset_fast": 3,
+            "progress_worse": 3,
+            "joint_normal": -5,
+            "fever_no": -4,
+            "dur_mon": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Плотный болезненный тяж по ходу вены, поднимающийся вверх по бедру",
+        "Одна нога отекла заметно сильнее другой",
+        "Кровотечение из венозного узла",
+        "Незаживающая язва на голени"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    }
+  ]
+}

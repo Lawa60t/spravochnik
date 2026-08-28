@@ -1,0 +1,1785 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-08-27",
+  "zone": "abd",
+  "syndromes": [
+    {
+      "id": "abd.rlq",
+      "zone": "abd",
+      "name": "Боль в правой нижней части живота",
+      "priority": 1,
+      "aka": [
+        "болит справа внизу",
+        "подозрение на аппендицит",
+        "правая подвздошная область"
+      ],
+      "feelings": [
+        "Постоянно ноет и нарастает",
+        "Схватывает волнами",
+        "Резко, как удар",
+        "Тянет и давит"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "migration",
+        "jolt",
+        "guarding",
+        "fever",
+        "appetite",
+        "vomitwhat",
+        "gas",
+        "period",
+        "bulge",
+        "surgery",
+        "bowel",
+        "urine",
+        "tapback",
+        "radleg",
+        "restless",
+        "progress",
+        "contact",
+        "stoolrel",
+        "weight",
+        "thirst"
+      ],
+      "candidates": [
+        {
+          "condition": "appendicitis.acute",
+          "base": 8,
+          "weights": {
+            "migration_yes": 6,
+            "jolt_yes": 4,
+            "appetite_down": 3,
+            "guarding_tender": 3,
+            "fever_low": 2,
+            "fever_mid": 2,
+            "dur_hours": 2,
+            "vomitwhat_food": 1,
+            "progress_worse": 2,
+            "migration_no": -3,
+            "jolt_no": -3,
+            "dur_mon": -5,
+            "fever_high": -1
+          },
+          "stop": [
+            "surgery_appendix"
+          ]
+        },
+        {
+          "condition": "gastroenteritis.acute",
+          "base": 6,
+          "weights": {
+            "bowel_loose": 5,
+            "vomitwhat_food": 3,
+            "contact_yes": 3,
+            "guarding_soft": 3,
+            "dur_d13": 2,
+            "guarding_board": -4,
+            "migration_yes": -2,
+            "jolt_yes": -2,
+            "thirst_yes": -4
+          }
+        },
+        {
+          "condition": "ectopic.pregnancy",
+          "base": 4,
+          "weights": {
+            "period_delay": 6,
+            "onset_sudden": 3,
+            "restless_restless": 2,
+            "guarding_tender": 2,
+            "period_none": -5,
+            "period_now": -3,
+            "migration_yes": -2
+          }
+        },
+        {
+          "condition": "ovarian.cyst",
+          "base": 4,
+          "weights": {
+            "onset_sudden": 4,
+            "period_mid": 4,
+            "guarding_tender": 2,
+            "dur_hours": 2,
+            "migration_yes": -3
+          }
+        },
+        {
+          "condition": "ovarian.torsion",
+          "base": 2,
+          "weights": {
+            "onset_sudden": 5,
+            "vomitwhat_food": 2,
+            "restless_restless": 3,
+            "progress_wave": 2,
+            "dur_mon": -4,
+            "migration_yes": -3
+          }
+        },
+        {
+          "condition": "renal.colic",
+          "base": 4,
+          "weights": {
+            "radleg_groin": 6,
+            "restless_restless": 5,
+            "tapback_yes": 4,
+            "guarding_soft": 2,
+            "restless_still": -4,
+            "jolt_yes": -3,
+            "migration_yes": -3
+          }
+        },
+        {
+          "condition": "pid",
+          "base": 3,
+          "weights": {
+            "fever_mid": 3,
+            "dur_d47": 3,
+            "period_now": 1,
+            "onset_gradual": 2,
+            "onset_sudden": -2,
+            "migration_yes": -3
+          }
+        },
+        {
+          "condition": "cystitis",
+          "base": 3,
+          "weights": {
+            "urine_burn": 6,
+            "fever_no": 2,
+            "guarding_soft": 2,
+            "guarding_board": -3,
+            "migration_yes": -3
+          }
+        },
+        {
+          "condition": "ibs",
+          "base": 3,
+          "weights": {
+            "stoolrel_better": 5,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "guarding_soft": 2,
+            "fever_high": -4,
+            "guarding_board": -5,
+            "progress_worse": -2
+          }
+        },
+        {
+          "condition": "strangulated.hernia",
+          "base": 2,
+          "weights": {
+            "bulge_stuck": 6,
+            "gas_none": 4,
+            "vomitwhat_food": 2,
+            "bulge_no": -5
+          }
+        },
+        {
+          "condition": "bowel.obstruction",
+          "base": 2,
+          "weights": {
+            "gas_none": 6,
+            "vomitwhat_fecal": 5,
+            "vomitwhat_bile": 3,
+            "surgery_yes": 3,
+            "surgery_appendix": 2,
+            "gas_yes": -4,
+            "bowel_loose": -3
+          }
+        },
+        {
+          "condition": "inguinal.hernia",
+          "base": 2,
+          "weights": {
+            "bulge_soft": 6,
+            "dur_mon": 2,
+            "bulge_no": -4,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "ibd",
+          "base": 2,
+          "weights": {
+            "bowel_blood": 5,
+            "bowel_loose": 3,
+            "dur_mon": 3,
+            "weight_yes": 3,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "diverticulitis",
+          "base": 1,
+          "weights": {
+            "fever_mid": 3,
+            "fever_high": 2,
+            "guarding_tender": 2,
+            "onset_gradual": 2,
+            "migration_yes": -2
+          }
+        },
+        {
+          "condition": "testicular.torsion",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 5,
+            "vomitwhat_food": 2,
+            "dur_hours": 3,
+            "dur_mon": -5,
+            "migration_yes": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Живот твёрдый как доска и до него невозможно дотронуться",
+        "Не отходят ни стул, ни газы",
+        "Боль внизу живота при задержке менструации",
+        "Выпячивание в паху перестало вправляться и стало болезненным",
+        "Внезапная сильная боль в мошонке"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "abd.epi",
+      "zone": "abd",
+      "name": "Боль под ложечкой",
+      "priority": 1,
+      "aka": [
+        "болит под ложечкой",
+        "в подложечной области",
+        "под грудиной болит"
+      ],
+      "feelings": [
+        "Жжёт",
+        "Ноет и давит",
+        "Резко, как удар кинжалом",
+        "Схватывает и отпускает",
+        "Тяжесть и распирание"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "eatrel",
+        "guarding",
+        "vomitwhat",
+        "radleg",
+        "movebetter",
+        "fever",
+        "auto",
+        "yellow",
+        "appetite",
+        "weight",
+        "reflux",
+        "painkillers",
+        "bowel",
+        "progress",
+        "jolt",
+        "dysp",
+        "migration",
+        "thirst"
+      ],
+      "candidates": [
+        {
+          "condition": "gastritis.acute",
+          "base": 8,
+          "weights": {
+            "eatrel_after": 4,
+            "guarding_soft": 3,
+            "fever_no": 3,
+            "dur_d13": 3,
+            "painkillers_often": 3,
+            "appetite_down": 2,
+            "guarding_board": -5,
+            "onset_sudden": -3,
+            "auto_yes": -3
+          }
+        },
+        {
+          "condition": "gerd",
+          "base": 7,
+          "weights": {
+            "reflux_yes": 6,
+            "eatrel_after": 3,
+            "dur_mon": 3,
+            "fever_no": 2,
+            "guarding_board": -5,
+            "fever_high": -3,
+            "auto_yes": -3,
+            "weight_yes": -2
+          }
+        },
+        {
+          "condition": "peptic.ulcer",
+          "base": 6,
+          "weights": {
+            "eatrel_empty": 6,
+            "dur_mon": 3,
+            "painkillers_often": 3,
+            "vomitwhat_blood": 4,
+            "bowel_no": 1,
+            "guarding_soft": 1,
+            "eatrel_fatty": -2
+          }
+        },
+        {
+          "condition": "functional.dyspepsia",
+          "base": 5,
+          "weights": {
+            "dur_mon": 4,
+            "fever_no": 3,
+            "guarding_soft": 3,
+            "appetite_down": 2,
+            "weight_no": 3,
+            "weight_yes": -4,
+            "vomitwhat_blood": -5,
+            "guarding_board": -5
+          }
+        },
+        {
+          "condition": "cholelithiasis.colic",
+          "base": 5,
+          "weights": {
+            "eatrel_fatty": 6,
+            "dur_hours": 3,
+            "vomitwhat_bile": 3,
+            "onset_fast": 2,
+            "eatrel_empty": -3
+          }
+        },
+        {
+          "condition": "pancreatitis.acute",
+          "base": 4,
+          "weights": {
+            "radleg_front": 5,
+            "movebetter_bend": 6,
+            "vomitwhat_bile": 4,
+            "vomitwhat_food": 2,
+            "onset_fast": 2,
+            "guarding_tender": 2,
+            "eatrel_fatty": 2,
+            "movebetter_rest": -2
+          }
+        },
+        {
+          "condition": "cholecystitis.acute",
+          "base": 3,
+          "weights": {
+            "fever_mid": 4,
+            "fever_high": 3,
+            "eatrel_fatty": 3,
+            "guarding_tender": 3,
+            "fever_no": -3,
+            "dur_d13": 2
+          }
+        },
+        {
+          "condition": "myocardial.infarction",
+          "base": 3,
+          "weights": {
+            "auto_yes": 6,
+            "onset_fast": 3,
+            "dysp_yes": 3,
+            "movebetter_none": 3,
+            "eatrel_empty": -2,
+            "dur_mon": -5,
+            "guarding_tender": -2
+          }
+        },
+        {
+          "condition": "perforated.ulcer",
+          "base": 2,
+          "weights": {
+            "onset_sudden": 6,
+            "guarding_board": 6,
+            "painkillers_often": 3,
+            "jolt_yes": 3,
+            "movebetter_rest": 2,
+            "guarding_soft": -5,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "appendicitis.acute",
+          "base": 2,
+          "weights": {
+            "migration_yes": 6,
+            "jolt_yes": 3,
+            "appetite_down": 2,
+            "dur_hours": 2,
+            "dur_mon": -5
+          },
+          "stop": [
+            "surgery_appendix"
+          ]
+        },
+        {
+          "condition": "dka",
+          "base": 3,
+          "weights": {
+            "thirst_yes": 6,
+            "vomitwhat_food": 3,
+            "dysp_yes": 3,
+            "guarding_soft": 2,
+            "thirst_no": -4
+          }
+        },
+        {
+          "condition": "stomach.cancer",
+          "base": 2,
+          "weights": {
+            "weight_yes": 5,
+            "appetite_down": 4,
+            "dur_mon": 3,
+            "vomitwhat_blood": 3,
+            "progress_worse": 3,
+            "weight_no": -3,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "pancreatic.cancer",
+          "base": 1,
+          "weights": {
+            "yellow_yes": 6,
+            "weight_yes": 4,
+            "radleg_front": 3,
+            "movebetter_bend": 3,
+            "progress_worse": 3,
+            "yellow_no": -2,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "aortic.aneurysm",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 4,
+            "radleg_front": 3,
+            "auto_yes": 3,
+            "movebetter_none": 3,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "choledocholithiasis",
+          "base": 2,
+          "weights": {
+            "yellow_yes": 6,
+            "fever_mid": 3,
+            "fever_high": 3,
+            "eatrel_fatty": 3,
+            "dur_d13": 1,
+            "yellow_no": -4,
+            "guarding_board": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль возникла мгновенно, живот стал твёрдым как доска",
+        "Боль под ложечкой вместе с холодным потом, дурнотой и одышкой",
+        "Рвота с кровью или как кофейная гуща, чёрный дёгтеобразный стул",
+        "Пожелтение белков глаз"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "abd.umb",
+      "zone": "abd",
+      "name": "Боль вокруг пупка",
+      "priority": 1,
+      "aka": [
+        "болит вокруг пупка",
+        "в середине живота"
+      ],
+      "feelings": [
+        "Схватывает волнами",
+        "Ноет постоянно",
+        "Крутит",
+        "Распирает"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "gas",
+        "vomitwhat",
+        "bowel",
+        "guarding",
+        "fever",
+        "surgery",
+        "bulge",
+        "migration",
+        "stoolrel",
+        "eatrel",
+        "weight",
+        "restless",
+        "progress",
+        "jolt",
+        "contact",
+        "appetite",
+        "thirst"
+      ],
+      "candidates": [
+        {
+          "condition": "gastroenteritis.acute",
+          "base": 8,
+          "weights": {
+            "bowel_loose": 6,
+            "vomitwhat_food": 4,
+            "contact_yes": 3,
+            "guarding_soft": 3,
+            "dur_d13": 3,
+            "fever_mid": 2,
+            "gas_none": -5,
+            "guarding_board": -4,
+            "dur_mon": -4,
+            "thirst_yes": -4,
+            "bowel_no": -3
+          }
+        },
+        {
+          "condition": "ibs",
+          "base": 6,
+          "weights": {
+            "stoolrel_better": 6,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "guarding_soft": 3,
+            "weight_no": 3,
+            "fever_high": -4,
+            "weight_yes": -4,
+            "gas_none": -4,
+            "bowel_blood": -4,
+            "eatrel_milk": -4
+          }
+        },
+        {
+          "condition": "appendicitis.acute",
+          "base": 5,
+          "weights": {
+            "migration_yes": 6,
+            "jolt_yes": 4,
+            "appetite_down": 3,
+            "dur_hours": 2,
+            "fever_low": 2,
+            "dur_mon": -5,
+            "bowel_loose": -2
+          },
+          "stop": [
+            "surgery_appendix"
+          ]
+        },
+        {
+          "condition": "bowel.obstruction",
+          "base": 4,
+          "weights": {
+            "gas_none": 6,
+            "vomitwhat_fecal": 6,
+            "vomitwhat_bile": 3,
+            "surgery_yes": 4,
+            "restless_restless": 2,
+            "gas_yes": -5,
+            "bowel_loose": -4
+          }
+        },
+        {
+          "condition": "constipation.functional",
+          "base": 4,
+          "weights": {
+            "bowel_hard": 6,
+            "gas_gasonly": 3,
+            "dur_mon": 2,
+            "fever_no": 2,
+            "bowel_loose": -5,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "lactose.intolerance",
+          "base": 4,
+          "weights": {
+            "eatrel_milk": 6,
+            "bowel_loose": 3,
+            "fever_no": 3,
+            "dur_mon": 2,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "ibd",
+          "base": 3,
+          "weights": {
+            "bowel_blood": 6,
+            "bowel_loose": 4,
+            "weight_yes": 4,
+            "dur_mon": 3,
+            "fever_low": 2,
+            "stoolrel_better": -2
+          }
+        },
+        {
+          "condition": "strangulated.hernia",
+          "base": 2,
+          "weights": {
+            "bulge_stuck": 6,
+            "gas_none": 4,
+            "vomitwhat_food": 2,
+            "bulge_no": -5
+          }
+        },
+        {
+          "condition": "mesenteric.ischemia",
+          "base": 1,
+          "weights": {
+            "guarding_soft": 4,
+            "onset_sudden": 4,
+            "progress_worse": 3,
+            "bowel_blood": 3,
+            "restless_restless": 2,
+            "guarding_board": -2,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "aortic.aneurysm",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 4,
+            "restless_restless": 3,
+            "guarding_soft": 2,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "colorectal.cancer",
+          "base": 1,
+          "weights": {
+            "bowel_blood": 5,
+            "bowel_alt": 5,
+            "weight_yes": 4,
+            "dur_mon": 3,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "giardiasis",
+          "base": 2,
+          "weights": {
+            "bowel_loose": 4,
+            "dur_w12": 3,
+            "dur_mon": 3,
+            "fever_no": 3,
+            "weight_yes": 2,
+            "fever_high": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Не отходят ни стул, ни газы",
+        "Рвота с каловым запахом",
+        "Сильная боль при мягком безболезненном животе у человека старше шестидесяти",
+        "Живот твёрдый как доска"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "abd.hypo",
+      "zone": "abd",
+      "name": "Боль внизу живота посередине",
+      "priority": 1,
+      "aka": [
+        "болит низ живота",
+        "над лобком",
+        "тянет низ живота"
+      ],
+      "feelings": [
+        "Тянет и ноет",
+        "Режет при мочеиспускании",
+        "Схватывает",
+        "Давит и распирает"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "urine",
+        "period",
+        "fever",
+        "bowel",
+        "guarding",
+        "bulge",
+        "gas",
+        "yellow",
+        "weight",
+        "progress",
+        "restless",
+        "stoolrel"
+      ],
+      "candidates": [
+        {
+          "condition": "cystitis",
+          "base": 8,
+          "weights": {
+            "urine_burn": 6,
+            "fever_no": 3,
+            "guarding_soft": 3,
+            "dur_d13": 3,
+            "fever_high": -3,
+            "guarding_board": -4,
+            "period_delay": -1
+          }
+        },
+        {
+          "condition": "ibs",
+          "base": 5,
+          "weights": {
+            "stoolrel_better": 6,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "weight_no": 2,
+            "urine_burn": -3,
+            "fever_high": -4,
+            "weight_yes": -3
+          }
+        },
+        {
+          "condition": "constipation.functional",
+          "base": 4,
+          "weights": {
+            "bowel_hard": 6,
+            "dur_mon": 2,
+            "fever_no": 2,
+            "bowel_loose": -5
+          }
+        },
+        {
+          "condition": "ectopic.pregnancy",
+          "base": 4,
+          "weights": {
+            "period_delay": 6,
+            "onset_sudden": 3,
+            "restless_restless": 2,
+            "progress_worse": 2,
+            "period_none": -5,
+            "period_now": -3,
+            "urine_burn": -2
+          }
+        },
+        {
+          "condition": "pid",
+          "base": 4,
+          "weights": {
+            "fever_mid": 4,
+            "dur_d47": 3,
+            "onset_gradual": 2,
+            "urine_burn": -1,
+            "onset_sudden": -2
+          }
+        },
+        {
+          "condition": "endometriosis",
+          "base": 4,
+          "weights": {
+            "period_now": 5,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "fever_high": -4,
+            "urine_burn": -2,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "pregnancy.early",
+          "base": 3,
+          "weights": {
+            "period_delay": 6,
+            "fever_no": 3,
+            "guarding_soft": 2,
+            "urine_burn": -2,
+            "period_now": -4
+          }
+        },
+        {
+          "condition": "prostatitis",
+          "base": 4,
+          "weights": {
+            "urine_burn": 4,
+            "urine_retention": 4,
+            "dur_mon": 2,
+            "fever_mid": 2
+          }
+        },
+        {
+          "condition": "ovarian.cyst",
+          "base": 3,
+          "weights": {
+            "onset_sudden": 4,
+            "period_mid": 4,
+            "dur_hours": 2,
+            "dur_mon": -2
+          }
+        },
+        {
+          "condition": "diverticulitis",
+          "base": 2,
+          "weights": {
+            "fever_mid": 4,
+            "fever_high": 3,
+            "bowel_hard": 2,
+            "guarding_tender": 2,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "ovarian.torsion",
+          "base": 2,
+          "weights": {
+            "onset_sudden": 5,
+            "restless_restless": 3,
+            "dur_hours": 2,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "colorectal.cancer",
+          "base": 1,
+          "weights": {
+            "bowel_blood": 5,
+            "bowel_alt": 5,
+            "weight_yes": 4,
+            "dur_mon": 3,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "strangulated.hernia",
+          "base": 1,
+          "weights": {
+            "bulge_stuck": 6,
+            "gas_none": 4,
+            "bulge_no": -5
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль внизу живота при задержке менструации",
+        "Боль или кровянистые выделения при известной беременности",
+        "Невозможность помочиться при наличии позывов",
+        "Сильная боль с дурнотой, бледностью и холодным потом"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "abd.diffuse",
+      "zone": "abd",
+      "name": "Разлитая боль по всему животу",
+      "priority": 1,
+      "aka": [
+        "болит весь живот",
+        "не понять где болит"
+      ],
+      "feelings": [
+        "Болит везде",
+        "Схватывает волнами по всему животу",
+        "Живот твёрдый",
+        "Распирает"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "guarding",
+        "gas",
+        "vomitwhat",
+        "bowel",
+        "fever",
+        "jolt",
+        "surgery",
+        "restless",
+        "auto",
+        "thirst",
+        "progress",
+        "weight",
+        "contact",
+        "stoolrel",
+        "painkillers",
+        "abxrecent",
+        "migration",
+        "immuno"
+      ],
+      "candidates": [
+        {
+          "condition": "gastroenteritis.acute",
+          "base": 7,
+          "weights": {
+            "bowel_loose": 6,
+            "vomitwhat_food": 4,
+            "guarding_soft": 3,
+            "contact_yes": 3,
+            "dur_d13": 3,
+            "guarding_board": -5,
+            "gas_none": -5,
+            "thirst_yes": -4,
+            "bowel_no": -3
+          }
+        },
+        {
+          "condition": "bowel.obstruction",
+          "base": 5,
+          "weights": {
+            "gas_none": 6,
+            "vomitwhat_fecal": 6,
+            "vomitwhat_bile": 3,
+            "surgery_yes": 4,
+            "restless_restless": 3,
+            "gas_yes": -5,
+            "bowel_loose": -4
+          }
+        },
+        {
+          "condition": "ibs",
+          "base": 4,
+          "weights": {
+            "stoolrel_better": 5,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "guarding_soft": 3,
+            "guarding_board": -5,
+            "fever_high": -4,
+            "gas_none": -4
+          }
+        },
+        {
+          "condition": "perforated.ulcer",
+          "base": 3,
+          "weights": {
+            "guarding_board": 6,
+            "onset_sudden": 6,
+            "jolt_yes": 4,
+            "painkillers_often": 3,
+            "guarding_soft": -5,
+            "bowel_loose": -3,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "constipation.functional",
+          "base": 3,
+          "weights": {
+            "bowel_hard": 5,
+            "gas_gasonly": 3,
+            "fever_no": 2,
+            "bowel_loose": -5
+          }
+        },
+        {
+          "condition": "mesenteric.ischemia",
+          "base": 2,
+          "weights": {
+            "guarding_soft": 5,
+            "onset_sudden": 4,
+            "progress_worse": 4,
+            "bowel_blood": 3,
+            "restless_restless": 2,
+            "dur_mon": -5,
+            "guarding_board": -1
+          }
+        },
+        {
+          "condition": "dka",
+          "base": 3,
+          "weights": {
+            "thirst_yes": 6,
+            "vomitwhat_food": 3,
+            "guarding_soft": 3,
+            "thirst_no": -4
+          }
+        },
+        {
+          "condition": "aortic.aneurysm",
+          "base": 2,
+          "weights": {
+            "onset_sudden": 5,
+            "auto_yes": 4,
+            "restless_restless": 3,
+            "guarding_soft": 2,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "cdiff",
+          "base": 2,
+          "weights": {
+            "abxrecent_yes": 6,
+            "bowel_loose": 5,
+            "fever_mid": 3,
+            "abxrecent_no": -4
+          }
+        },
+        {
+          "condition": "diverticulitis",
+          "base": 2,
+          "weights": {
+            "fever_high": 3,
+            "fever_mid": 3,
+            "guarding_tender": 3,
+            "bowel_hard": 2,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "appendicitis.acute",
+          "base": 2,
+          "weights": {
+            "migration_yes": 6,
+            "jolt_yes": 3,
+            "guarding_tender": 2,
+            "dur_mon": -5
+          },
+          "stop": [
+            "surgery_appendix"
+          ]
+        },
+        {
+          "condition": "sepsis",
+          "base": 1,
+          "weights": {
+            "fever_high": 4,
+            "auto_yes": 3,
+            "progress_worse": 3,
+            "immuno_yes": 4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Живот твёрдый как доска, дотронуться невозможно",
+        "Не отходят ни стул, ни газы, есть рвота",
+        "Сильная боль при мягком животе",
+        "Боль вместе с холодным потом, дурнотой и падением давления"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "abd.nausea",
+      "zone": "abd",
+      "name": "Тошнота и рвота",
+      "priority": 1,
+      "aka": [
+        "тошнит",
+        "рвота",
+        "мутит"
+      ],
+      "feelings": [
+        "Тошнит постоянно",
+        "Рвота несколько раз",
+        "Тошнит по утрам",
+        "Тошнит и кружится голова"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "vomitwhat",
+        "bowel",
+        "period",
+        "gas",
+        "guarding",
+        "fever",
+        "thirst",
+        "position",
+        "hearing",
+        "focal",
+        "yellow",
+        "morning",
+        "newmeds",
+        "abxrecent",
+        "weight",
+        "auto",
+        "contact",
+        "photo",
+        "attacks",
+        "surgery",
+        "dysp",
+        "appetite",
+        "movebetter",
+        "radleg",
+        "progress",
+        "migration",
+        "jolt"
+      ],
+      "candidates": [
+        {
+          "condition": "gastroenteritis.acute",
+          "base": 8,
+          "weights": {
+            "bowel_loose": 6,
+            "vomitwhat_food": 4,
+            "fever_mid": 3,
+            "contact_yes": 3,
+            "dur_d13": 3,
+            "gas_none": -5,
+            "dur_mon": -4,
+            "focal_yes": -3,
+            "thirst_yes": -4,
+            "bowel_no": -3
+          }
+        },
+        {
+          "condition": "pregnancy.early",
+          "base": 5,
+          "weights": {
+            "period_delay": 6,
+            "morning_yes": 4,
+            "fever_no": 3,
+            "bowel_no": 2,
+            "period_none": -5,
+            "period_now": -4,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "migraine",
+          "base": 4,
+          "weights": {
+            "photo_yes": 5,
+            "dur_hours": 3,
+            "attacks_repeat": 4,
+            "fever_no": 2,
+            "bowel_loose": -3
+          }
+        },
+        {
+          "condition": "bppv",
+          "base": 4,
+          "weights": {
+            "position_yes": 6,
+            "hearing_no": 2,
+            "bowel_no": 2,
+            "fever_no": 2,
+            "bowel_loose": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "vestibular.neuritis",
+          "base": 3,
+          "weights": {
+            "onset_sudden": 3,
+            "hearing_no": 2,
+            "position_no": 2,
+            "dur_d13": 2,
+            "bowel_loose": -3
+          }
+        },
+        {
+          "condition": "bowel.obstruction",
+          "base": 3,
+          "weights": {
+            "gas_none": 6,
+            "vomitwhat_fecal": 6,
+            "vomitwhat_bile": 3,
+            "surgery_yes": 3,
+            "gas_yes": -5,
+            "bowel_loose": -4
+          }
+        },
+        {
+          "condition": "dka",
+          "base": 3,
+          "weights": {
+            "thirst_yes": 6,
+            "guarding_soft": 2,
+            "dysp_yes": 3,
+            "thirst_no": -4
+          }
+        },
+        {
+          "condition": "hepatitis.viral",
+          "base": 2,
+          "weights": {
+            "yellow_yes": 6,
+            "appetite_down": 3,
+            "dur_w12": 3,
+            "yellow_no": -2,
+            "bowel_loose": -1
+          }
+        },
+        {
+          "condition": "pancreatitis.acute",
+          "base": 2,
+          "weights": {
+            "vomitwhat_bile": 4,
+            "movebetter_bend": 5,
+            "radleg_front": 4,
+            "guarding_tender": 2
+          }
+        },
+        {
+          "condition": "drug.eruption",
+          "base": 1,
+          "weights": {
+            "newmeds_yes": 4
+          }
+        },
+        {
+          "condition": "cdiff",
+          "base": 1,
+          "weights": {
+            "abxrecent_yes": 6,
+            "bowel_loose": 5,
+            "fever_mid": 3,
+            "abxrecent_no": -4
+          }
+        },
+        {
+          "condition": "brain.tumor",
+          "base": 1,
+          "weights": {
+            "morning_yes": 5,
+            "focal_yes": 5,
+            "progress_worse": 3,
+            "dur_w12": 2,
+            "dur_mon": 2,
+            "bowel_loose": -3
+          }
+        },
+        {
+          "condition": "myocardial.infarction",
+          "base": 1,
+          "weights": {
+            "auto_yes": 6,
+            "dysp_yes": 3,
+            "onset_fast": 2,
+            "bowel_loose": -3,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "appendicitis.acute",
+          "base": 2,
+          "weights": {
+            "migration_yes": 6,
+            "appetite_down": 3,
+            "jolt_yes": 3,
+            "dur_mon": -5
+          },
+          "stop": [
+            "surgery_appendix"
+          ]
+        }
+      ],
+      "notSearchedHere": [
+        "Рвота с кровью или как кофейная гуща",
+        "Рвота с каловым запахом и неотхождение газов",
+        "Рвота вместе со слабостью в конечностях, нарушением речи или сильной головной болью",
+        "Многократная рвота с невозможностью пить у ребёнка или пожилого человека"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "abd.diarrhea",
+      "zone": "abd",
+      "name": "Понос",
+      "priority": 1,
+      "aka": [
+        "жидкий стул",
+        "диарея",
+        "расстройство"
+      ],
+      "feelings": [
+        "Водянистый стул много раз",
+        "Жидкий стул с болью",
+        "Кашицеобразный неделями",
+        "Стул с кровью"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "bowel",
+        "fever",
+        "abxrecent",
+        "eatrel",
+        "contact",
+        "travel",
+        "weight",
+        "stoolrel",
+        "guarding",
+        "temperature",
+        "vomitwhat",
+        "night",
+        "immuno",
+        "thirst"
+      ],
+      "candidates": [
+        {
+          "condition": "gastroenteritis.acute",
+          "base": 9,
+          "weights": {
+            "dur_d13": 5,
+            "vomitwhat_food": 4,
+            "fever_mid": 3,
+            "contact_yes": 4,
+            "onset_sudden": 2,
+            "dur_mon": -5,
+            "weight_yes": -3,
+            "bowel_blood": -1,
+            "thirst_yes": -4,
+            "bowel_no": -3
+          }
+        },
+        {
+          "condition": "ibs",
+          "base": 6,
+          "weights": {
+            "stoolrel_better": 6,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "weight_no": 3,
+            "night_no": 2,
+            "bowel_blood": -5,
+            "weight_yes": -4,
+            "night_yes": -4,
+            "fever_high": -4,
+            "eatrel_milk": -4
+          }
+        },
+        {
+          "condition": "cdiff",
+          "base": 4,
+          "weights": {
+            "abxrecent_yes": 6,
+            "fever_mid": 3,
+            "fever_high": 2,
+            "dur_d47": 2,
+            "abxrecent_no": -5
+          }
+        },
+        {
+          "condition": "lactose.intolerance",
+          "base": 4,
+          "weights": {
+            "eatrel_milk": 6,
+            "fever_no": 3,
+            "dur_mon": 2,
+            "weight_no": 2,
+            "fever_high": -3,
+            "bowel_blood": -4
+          }
+        },
+        {
+          "condition": "ibd",
+          "base": 4,
+          "weights": {
+            "bowel_blood": 6,
+            "night_yes": 4,
+            "weight_yes": 4,
+            "dur_mon": 3,
+            "fever_low": 2,
+            "stoolrel_better": -2,
+            "dur_d13": -3
+          }
+        },
+        {
+          "condition": "giardiasis",
+          "base": 3,
+          "weights": {
+            "dur_w12": 4,
+            "dur_mon": 3,
+            "travel_other": 3,
+            "weight_yes": 2,
+            "fever_no": 3,
+            "bowel_blood": -4
+          }
+        },
+        {
+          "condition": "celiac",
+          "base": 3,
+          "weights": {
+            "dur_mon": 4,
+            "weight_yes": 3,
+            "fever_no": 3,
+            "bowel_blood": -4,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "thyrotoxicosis",
+          "base": 2,
+          "weights": {
+            "temperature_hot": 6,
+            "weight_yes": 4,
+            "dur_mon": 2,
+            "temperature_cold": -4,
+            "bowel_blood": -3
+          }
+        },
+        {
+          "condition": "colorectal.cancer",
+          "base": 2,
+          "weights": {
+            "bowel_blood": 5,
+            "bowel_alt": 5,
+            "weight_yes": 4,
+            "dur_mon": 3,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "diverticulitis",
+          "base": 1,
+          "weights": {
+            "fever_mid": 3,
+            "fever_high": 3,
+            "guarding_tender": 3,
+            "dur_d13": 1,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "hiv",
+          "base": 1,
+          "weights": {
+            "dur_mon": 4,
+            "weight_yes": 4,
+            "immuno_yes": 4,
+            "fever_low": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Понос с кровью и высокой температурой",
+        "Признаки обезвоживания: сухой язык, нет мочи больше восьми часов, головокружение при вставании",
+        "Понос у грудного ребёнка или пожилого человека, который не может пить",
+        "Понос дольше месяца с потерей веса"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "abd.stool.blood",
+      "zone": "abd",
+      "name": "Кровь в стуле",
+      "priority": 1,
+      "aka": [
+        "кровь при дефекации",
+        "кровь на бумаге",
+        "кровит из заднего прохода"
+      ],
+      "feelings": [
+        "Алая кровь поверх кала",
+        "Кровь смешана с калом",
+        "Капли крови после стула",
+        "Обильная тёмная кровь"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "bowel",
+        "painanal",
+        "weight",
+        "fever",
+        "bowelrhythm",
+        "oncohist",
+        "night",
+        "guarding",
+        "auto",
+        "progress",
+        "stoolrel",
+        "contact",
+        "vomitwhat",
+        "eatrel",
+        "abxrecent",
+        "yellow"
+      ],
+      "candidates": [
+        {
+          "condition": "hemorrhoids",
+          "base": 8,
+          "weights": {
+            "painanal_no": 4,
+            "dur_mon": 3,
+            "bowel_hard": 3,
+            "weight_no": 3,
+            "fever_no": 2,
+            "weight_yes": -3,
+            "bowel_alt": -3,
+            "night_yes": -2,
+            "auto_yes": -3
+          }
+        },
+        {
+          "condition": "anal.fissure",
+          "base": 6,
+          "weights": {
+            "painanal_yes": 6,
+            "bowel_hard": 4,
+            "dur_d13": 2,
+            "weight_no": 2,
+            "painanal_no": -4,
+            "weight_yes": -3
+          }
+        },
+        {
+          "condition": "colorectal.cancer",
+          "base": 4,
+          "weights": {
+            "bowel_alt": 6,
+            "weight_yes": 5,
+            "dur_mon": 3,
+            "progress_worse": 3,
+            "oncohist_yes": 2,
+            "painanal_yes": -2,
+            "weight_no": -2
+          }
+        },
+        {
+          "condition": "ibd",
+          "base": 4,
+          "weights": {
+            "bowel_loose": 5,
+            "night_yes": 4,
+            "weight_yes": 4,
+            "dur_mon": 3,
+            "fever_low": 2,
+            "bowel_hard": -3
+          }
+        },
+        {
+          "condition": "colon.polyp",
+          "base": 3,
+          "weights": {
+            "dur_mon": 3,
+            "weight_no": 2,
+            "painanal_no": 2,
+            "fever_no": 2,
+            "weight_yes": -2
+          }
+        },
+        {
+          "condition": "diverticular.bleeding",
+          "base": 3,
+          "weights": {
+            "onset_sudden": 5,
+            "painanal_no": 3,
+            "auto_yes": 3,
+            "progress_worse": 2,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "gastroenteritis.acute",
+          "base": 2,
+          "weights": {
+            "bowel_loose": 4,
+            "fever_mid": 3,
+            "dur_d13": 3,
+            "contact_yes": 3,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "peptic.ulcer",
+          "base": 2,
+          "weights": {
+            "vomitwhat_blood": 6,
+            "eatrel_empty": 4,
+            "auto_yes": 2,
+            "painanal_yes": -3
+          }
+        },
+        {
+          "condition": "cdiff",
+          "base": 1,
+          "weights": {
+            "abxrecent_yes": 6,
+            "bowel_loose": 4,
+            "fever_mid": 3,
+            "abxrecent_no": -4
+          }
+        },
+        {
+          "condition": "cirrhosis",
+          "base": 1,
+          "weights": {
+            "vomitwhat_blood": 5,
+            "yellow_yes": 4,
+            "auto_yes": 3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Обильное выделение крови со слабостью, дурнотой и учащённым сердцебиением",
+        "Чёрный дёгтеобразный стул",
+        "Кровь в стуле вместе с потерей веса или изменением привычного ритма стула",
+        "Любая кровь в стуле после сорока пяти лет — списывать её на геморрой нельзя"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "abd.heartburn",
+      "zone": "abd",
+      "name": "Изжога",
+      "priority": 1,
+      "aka": [
+        "жжёт за грудиной",
+        "кислота подступает",
+        "печёт после еды"
+      ],
+      "feelings": [
+        "Жжёт за грудиной снизу вверх",
+        "Кислый привкус во рту",
+        "Печёт под ложечкой",
+        "Ком и жжение"
+      ],
+      "questions": [
+        "dur",
+        "eatrel",
+        "reflux",
+        "swallow",
+        "weight",
+        "vomitwhat",
+        "auto",
+        "smoke",
+        "painkillers",
+        "appetite",
+        "progress",
+        "bowel",
+        "voice",
+        "stuck",
+        "dysp",
+        "onset"
+      ],
+      "candidates": [
+        {
+          "condition": "gerd",
+          "base": 9,
+          "weights": {
+            "reflux_yes": 6,
+            "eatrel_after": 4,
+            "dur_mon": 3,
+            "swallow_none": 2,
+            "weight_no": 2,
+            "weight_yes": -4,
+            "swallow_solid": -3,
+            "vomitwhat_blood": -4,
+            "auto_yes": -4
+          }
+        },
+        {
+          "condition": "gastritis.acute",
+          "base": 6,
+          "weights": {
+            "eatrel_after": 4,
+            "painkillers_often": 3,
+            "dur_d13": 3,
+            "appetite_down": 2,
+            "dur_mon": -1
+          }
+        },
+        {
+          "condition": "peptic.ulcer",
+          "base": 5,
+          "weights": {
+            "eatrel_empty": 6,
+            "dur_mon": 3,
+            "painkillers_often": 3,
+            "vomitwhat_blood": 5,
+            "bowel_no": 1
+          }
+        },
+        {
+          "condition": "functional.dyspepsia",
+          "base": 4,
+          "weights": {
+            "dur_mon": 4,
+            "weight_no": 3,
+            "appetite_down": 2,
+            "weight_yes": -4,
+            "vomitwhat_blood": -5
+          }
+        },
+        {
+          "condition": "lpr.reflux",
+          "base": 4,
+          "weights": {
+            "reflux_morn": 5,
+            "reflux_yes": 3,
+            "voice_hoarse": 4,
+            "dur_mon": 2
+          }
+        },
+        {
+          "condition": "esophagus.cancer",
+          "base": 2,
+          "weights": {
+            "swallow_solid": 6,
+            "progress_worse": 5,
+            "weight_yes": 5,
+            "smoke_both": 3,
+            "dur_mon": 2,
+            "swallow_none": -3,
+            "weight_no": -3
+          }
+        },
+        {
+          "condition": "eosinophilic.esophagitis",
+          "base": 2,
+          "weights": {
+            "stuck_yes": 5,
+            "swallow_solid": 3,
+            "dur_mon": 2,
+            "weight_yes": -2
+          }
+        },
+        {
+          "condition": "myocardial.infarction",
+          "base": 2,
+          "weights": {
+            "auto_yes": 6,
+            "dysp_yes": 4,
+            "onset_fast": 3,
+            "eatrel_no": 2,
+            "eatrel_after": -3,
+            "dur_mon": -5,
+            "reflux_yes": -2
+          }
+        },
+        {
+          "condition": "stomach.cancer",
+          "base": 1,
+          "weights": {
+            "weight_yes": 5,
+            "appetite_down": 4,
+            "vomitwhat_blood": 4,
+            "progress_worse": 3,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "achalasia",
+          "base": 1,
+          "weights": {
+            "swallow_both": 6,
+            "stuck_regur": 5,
+            "dur_mon": 2,
+            "swallow_none": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Жжение за грудиной вместе с холодным потом, дурнотой и одышкой — это разбирают как сердечное",
+        "Затруднение глотания, которое нарастает",
+        "Потеря веса",
+        "Рвота с кровью или чёрный стул"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    }
+  ]
+}

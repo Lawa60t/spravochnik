@@ -1,0 +1,627 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-08-27",
+  "zone": "skin",
+  "syndromes": [
+    {
+      "id": "skin.rash.itch",
+      "zone": "skin",
+      "name": "Зудящая сыпь",
+      "priority": 1,
+      "aka": [
+        "чешется сыпь",
+        "высыпало и зудит",
+        "красные пятна чешутся"
+      ],
+      "feelings": [
+        "Зудит и краснеет",
+        "Сухие шелушащиеся пятна",
+        "Волдыри",
+        "Пузырьки",
+        "Плотные бляшки с чешуйками"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "itch",
+        "rashwhere",
+        "rashlife",
+        "newmeds",
+        "contact",
+        "fever",
+        "mucosa",
+        "progress",
+        "side",
+        "animals",
+        "swell",
+        "stridor"
+      ],
+      "candidates": [
+        {
+          "condition": "atopic.dermatitis",
+          "base": 7,
+          "weights": {
+            "rashwhere_folds": 6,
+            "itch_night": 4,
+            "dur_mon": 3,
+            "fever_no": 2,
+            "rashlife_stay": 2,
+            "rashlife_day": -4,
+            "mucosa_yes": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "contact.dermatitis",
+          "base": 7,
+          "weights": {
+            "rashwhere_contact": 6,
+            "contact_yes": 3,
+            "fever_no": 3,
+            "itch_some": 2,
+            "dur_d13": 2,
+            "fever_high": -3,
+            "rashwhere_folds": -2
+          }
+        },
+        {
+          "condition": "urticaria",
+          "base": 6,
+          "weights": {
+            "rashlife_day": 6,
+            "itch_night": 2,
+            "itch_some": 2,
+            "onset_sudden": 3,
+            "fever_no": 2,
+            "rashlife_stay": -4,
+            "mucosa_yes": -1
+          }
+        },
+        {
+          "condition": "scabies",
+          "base": 5,
+          "weights": {
+            "itch_night": 6,
+            "contact_yes": 4,
+            "dur_w12": 3,
+            "dur_mon": 2,
+            "fever_no": 2,
+            "itch_no": -4,
+            "fever_high": -3,
+            "rashwhere_contact": -2
+          }
+        },
+        {
+          "condition": "tinea",
+          "base": 4,
+          "weights": {
+            "rashwhere_trunk": 2,
+            "itch_some": 2,
+            "dur_w12": 2,
+            "dur_mon": 2,
+            "fever_no": 2,
+            "side_one": 2,
+            "rashlife_day": -4,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "psoriasis",
+          "base": 4,
+          "weights": {
+            "rashwhere_extensor": 6,
+            "rashlife_stay": 3,
+            "dur_mon": 3,
+            "itch_some": 1,
+            "fever_no": 2,
+            "rashlife_day": -4,
+            "rashwhere_folds": -2
+          }
+        },
+        {
+          "condition": "pityriasis.rosea",
+          "base": 3,
+          "weights": {
+            "rashwhere_trunk": 4,
+            "dur_w12": 3,
+            "itch_some": 2,
+            "fever_no": 2,
+            "progress_better": 2,
+            "dur_mon": -1
+          }
+        },
+        {
+          "condition": "drug.eruption",
+          "base": 3,
+          "weights": {
+            "newmeds_yes": 6,
+            "rashwhere_trunk": 3,
+            "onset_fast": 2,
+            "newmeds_no": -4
+          }
+        },
+        {
+          "condition": "herpes.zoster",
+          "base": 3,
+          "weights": {
+            "rashwhere_band": 6,
+            "side_one": 4,
+            "dur_d13": 2,
+            "rashwhere_trunk": -2,
+            "rashlife_day": -3
+          }
+        },
+        {
+          "condition": "sjs.ten",
+          "base": 1,
+          "weights": {
+            "mucosa_yes": 6,
+            "newmeds_yes": 5,
+            "fever_high": 4,
+            "progress_worse": 3,
+            "mucosa_no": -5,
+            "newmeds_no": -3
+          }
+        },
+        {
+          "condition": "sle",
+          "base": 1,
+          "weights": {
+            "rashwhere_trunk": 1,
+            "dur_mon": 3,
+            "fever_low": 2,
+            "mucosa_yes": 3,
+            "newmeds_yes": -2
+          }
+        },
+        {
+          "condition": "anaphylaxis.angioedema",
+          "base": 1,
+          "weights": {
+            "swell_lips": 6,
+            "swell_floor": 5,
+            "stridor_hard": 5,
+            "onset_sudden": 3,
+            "rashlife_day": 2,
+            "swell_no": -4,
+            "dur_mon": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Высыпания на слизистых: во рту, на глазах, на половых органах",
+        "Пузыри и отслойка кожи, кожа болит при прикосновении",
+        "Сыпь вместе с отёком губ, языка или затруднением дыхания",
+        "Сыпь с высокой температурой, которая не бледнеет при надавливании стеклом"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "skin.rash.fever",
+      "zone": "skin",
+      "name": "Сыпь с высокой температурой",
+      "priority": 1,
+      "aka": [
+        "температура и высыпало",
+        "сыпь и жар"
+      ],
+      "feelings": [
+        "Мелкоточечная сыпь",
+        "Пятна по всему телу",
+        "Пузырьки разного возраста",
+        "Тёмные точки, не бледнеют"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "fever",
+        "rash",
+        "rashwhere",
+        "mucosa",
+        "newmeds",
+        "contact",
+        "vaccine",
+        "cough",
+        "plaque",
+        "nodes",
+        "photo",
+        "stiff",
+        "progress",
+        "itch",
+        "runny",
+        "tired",
+        "tick",
+        "side",
+        "swell",
+        "immuno"
+      ],
+      "candidates": [
+        {
+          "condition": "chickenpox",
+          "base": 6,
+          "weights": {
+            "itch_night": 3,
+            "itch_some": 2,
+            "contact_yes": 4,
+            "vaccine_no": 3,
+            "rash_spots": 3,
+            "dur_d13": 2,
+            "rash_fine": -3,
+            "rash_dark": -4,
+            "mucosa_yes": 1
+          }
+        },
+        {
+          "condition": "scarlet.fever",
+          "base": 5,
+          "weights": {
+            "rash_fine": 6,
+            "plaque_white": 4,
+            "fever_high": 3,
+            "nodes_front": 3,
+            "cough_no": 2,
+            "rash_spots": -2,
+            "rash_dark": -4
+          }
+        },
+        {
+          "condition": "hfmd",
+          "base": 4,
+          "weights": {
+            "rashwhere_handsfeet": 6,
+            "mucosa_yes": 4,
+            "contact_yes": 3,
+            "dur_d13": 2,
+            "rash_fine": -2
+          }
+        },
+        {
+          "condition": "drug.eruption",
+          "base": 4,
+          "weights": {
+            "newmeds_yes": 6,
+            "rashwhere_trunk": 3,
+            "fever_mid": 2,
+            "newmeds_no": -4,
+            "contact_yes": -2
+          }
+        },
+        {
+          "condition": "measles",
+          "base": 3,
+          "weights": {
+            "vaccine_no": 5,
+            "cough_dry": 4,
+            "photo_yes": 4,
+            "fever_high": 4,
+            "runny_yes": 3,
+            "rash_spots": 2,
+            "vaccine_yes": -3,
+            "rash_fine": -2
+          }
+        },
+        {
+          "condition": "rubella",
+          "base": 3,
+          "weights": {
+            "nodes_back": 5,
+            "vaccine_no": 3,
+            "fever_low": 3,
+            "fever_mid": 2,
+            "rash_fine": 2,
+            "progress_better": 2,
+            "fever_high": -2,
+            "cough_dry": -2
+          }
+        },
+        {
+          "condition": "mononucleosis",
+          "base": 3,
+          "weights": {
+            "nodes_back": 4,
+            "plaque_white": 3,
+            "newmeds_yes": 3,
+            "dur_w12": 3,
+            "tired_strong": 3
+          }
+        },
+        {
+          "condition": "borreliosis",
+          "base": 2,
+          "weights": {
+            "tick_bite": 6,
+            "tick_forest": 4,
+            "rash_spots": 3,
+            "fever_low": 2,
+            "rash_fine": -3
+          }
+        },
+        {
+          "condition": "erysipelas",
+          "base": 3,
+          "weights": {
+            "side_one": 4,
+            "fever_high": 4,
+            "onset_sudden": 3,
+            "swell_side": 3,
+            "rash_fine": -3,
+            "rashwhere_trunk": -2
+          }
+        },
+        {
+          "condition": "meningitis",
+          "base": 2,
+          "weights": {
+            "rash_dark": 6,
+            "stiff_no": 6,
+            "photo_yes": 4,
+            "fever_high": 4,
+            "stiff_yes": -4,
+            "itch_night": -3
+          }
+        },
+        {
+          "condition": "sjs.ten",
+          "base": 1,
+          "weights": {
+            "mucosa_yes": 6,
+            "newmeds_yes": 5,
+            "progress_worse": 4,
+            "fever_high": 3,
+            "mucosa_no": -5,
+            "newmeds_no": -3
+          }
+        },
+        {
+          "condition": "sepsis",
+          "base": 1,
+          "weights": {
+            "rash_dark": 5,
+            "fever_high": 3,
+            "progress_worse": 3,
+            "immuno_yes": 3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Сыпь, которая не бледнеет при надавливании прозрачным стеклом",
+        "Сыпь с температурой и невозможностью прижать подбородок к груди",
+        "Пузыри, отслойка кожи, поражение рта и глаз",
+        "Сыпь у беременной, а также контакт беременной с больным краснухой или корью"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "skin.mole",
+      "zone": "skin",
+      "name": "Изменение родинки или образования на коже",
+      "priority": 1,
+      "aka": [
+        "родинка изменилась",
+        "выросла родинка",
+        "не заживает ранка"
+      ],
+      "feelings": [
+        "Родинка выросла или изменила цвет",
+        "Кровоточит и не заживает",
+        "Появилось новое образование",
+        "Стало зудеть"
+      ],
+      "questions": [
+        "dur",
+        "molechange",
+        "moleedge",
+        "progress",
+        "itch",
+        "smoke",
+        "immuno",
+        "oncohist",
+        "side"
+      ],
+      "candidates": [
+        {
+          "condition": "dysplastic.nevus",
+          "base": 6,
+          "weights": {
+            "moleedge_irregular": 4,
+            "molechange_same": 4,
+            "dur_mon": 2,
+            "molechange_bleed": -3,
+            "moleedge_pearl": -3,
+            "progress_worse": -2
+          }
+        },
+        {
+          "condition": "seborrheic.keratosis",
+          "base": 6,
+          "weights": {
+            "moleedge_waxy": 6,
+            "molechange_same": 4,
+            "dur_mon": 3,
+            "molechange_bleed": -3,
+            "moleedge_irregular": -3,
+            "progress_worse": -3
+          }
+        },
+        {
+          "condition": "melanoma",
+          "base": 3,
+          "weights": {
+            "molechange_grow": 5,
+            "moleedge_irregular": 5,
+            "molechange_bleed": 4,
+            "molechange_itchy": 3,
+            "progress_worse": 3,
+            "oncohist_yes": 2,
+            "molechange_same": -5,
+            "moleedge_waxy": -4,
+            "moleedge_even": -3
+          }
+        },
+        {
+          "condition": "bcc",
+          "base": 3,
+          "weights": {
+            "moleedge_pearl": 6,
+            "molechange_bleed": 4,
+            "dur_mon": 3,
+            "smoke_one": 1,
+            "moleedge_waxy": -3,
+            "molechange_same": -3
+          }
+        },
+        {
+          "condition": "tinea",
+          "base": 2,
+          "weights": {
+            "itch_some": 3,
+            "moleedge_even": 2,
+            "side_one": 1,
+            "moleedge_pearl": -3,
+            "molechange_bleed": -3
+          }
+        },
+        {
+          "condition": "psoriasis",
+          "base": 2,
+          "weights": {
+            "itch_some": 2,
+            "dur_mon": 2,
+            "moleedge_pearl": -3,
+            "molechange_bleed": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Родинка выросла, изменила цвет, стала неровной по краю или начала кровоточить",
+        "Ранка на коже не заживает больше месяца",
+        "Появилось новое пигментное пятно после сорока лет"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "skin.hives",
+      "zone": "skin",
+      "name": "Волдыри и крапивница",
+      "priority": 2,
+      "aka": [
+        "обсыпало волдырями",
+        "крапивница",
+        "как от крапивы"
+      ],
+      "feelings": [
+        "Волдыри, сильно зудят",
+        "Появляются и исчезают",
+        "Отекли губы и веки",
+        "Жжёт и печёт"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "rashlife",
+        "itch",
+        "swell",
+        "newmeds",
+        "contact",
+        "stridor",
+        "fever",
+        "progress",
+        "mucosa"
+      ],
+      "candidates": [
+        {
+          "condition": "urticaria",
+          "base": 9,
+          "weights": {
+            "rashlife_day": 6,
+            "itch_night": 3,
+            "itch_some": 3,
+            "onset_sudden": 3,
+            "fever_no": 2,
+            "rashlife_stay": -5,
+            "stridor_hard": -5,
+            "fever_high": -3,
+            "swell_lips": -4,
+            "swell_floor": -4
+          }
+        },
+        {
+          "condition": "anaphylaxis.angioedema",
+          "base": 4,
+          "weights": {
+            "swell_lips": 6,
+            "stridor_hard": 6,
+            "onset_sudden": 4,
+            "swell_floor": 5,
+            "dur_hours": 2,
+            "swell_no": -4,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "contact.dermatitis",
+          "base": 4,
+          "weights": {
+            "contact_yes": 4,
+            "rashlife_stay": 4,
+            "itch_some": 2,
+            "rashlife_day": -4
+          }
+        },
+        {
+          "condition": "drug.eruption",
+          "base": 3,
+          "weights": {
+            "newmeds_yes": 6,
+            "rashlife_stay": 3,
+            "fever_mid": 2,
+            "newmeds_no": -4
+          }
+        },
+        {
+          "condition": "atopic.dermatitis",
+          "base": 3,
+          "weights": {
+            "itch_night": 3,
+            "rashlife_stay": 3,
+            "dur_mon": 3,
+            "rashlife_day": -4
+          }
+        },
+        {
+          "condition": "sjs.ten",
+          "base": 1,
+          "weights": {
+            "mucosa_yes": 6,
+            "newmeds_yes": 5,
+            "fever_high": 4,
+            "progress_worse": 3,
+            "mucosa_no": -5
+          }
+        },
+        {
+          "condition": "scabies",
+          "base": 2,
+          "weights": {
+            "itch_night": 5,
+            "dur_w12": 3,
+            "contact_yes": 3,
+            "rashlife_day": -4,
+            "onset_sudden": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Отёк губ, языка или под языком",
+        "Затруднение дыхания, изменение голоса, чувство сжатия в горле",
+        "Волдыри вместе с падением давления и дурнотой",
+        "Волдыри у человека, только что принявшего новое лекарство или получившего укус"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    }
+  ]
+}
