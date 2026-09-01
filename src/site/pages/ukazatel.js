@@ -63,9 +63,24 @@ module.exports = function ukazatelPage(updated) {
 
   const m = meta.ukazatel(D.conditions.length, D.syndromes.length);
 
+  /* Поле поиска создаёт скрипт. Без него в разметке остаётся пустой контейнер,
+     а указатель работает как обычный список — так и задумано. */
+  const search = `<div class="poisk" data-poisk
+    data-label="${attr(T.search.label)}"
+    data-placeholder="${attr(T.search.placeholder)}"
+    data-found="${attr(T.search.foundTpl)}"
+    data-nothing="${attr(T.search.nothing)}">
+    <div class="poisk-empty" data-poisk-empty hidden>
+      <p>${esc(T.search.nothingNote)}</p>
+      <p><a href="/moego-sluchaya-net/">${esc(T.syndrome.noMatch)}</a></p>
+    </div>
+  </div>`;
+
   const body = `<div class="ukazatel">
   <h1>${esc(T.index.title)}</h1>
-  <p class="lead">${esc(T.index.lead)}</p>
+  <p class="lead">${esc(T.index.lead)} <a href="/oblasti/">${esc(T.zones.title)}</a> — если название неизвестно.</p>
+
+  ${search}
 
   <h2>${esc(T.index.conditionsTitle)}</h2>
   <div class="cols">
@@ -84,6 +99,7 @@ module.exports = function ukazatelPage(updated) {
     path: "/ukazatel/",
     body,
     updated,
-    bodyClass: "page-ukazatel"
+    bodyClass: "page-ukazatel",
+    script: "/search.js"
   });
 };

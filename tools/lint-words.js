@@ -65,6 +65,11 @@ const SOFT = [
 /* Сколько символов шаблону позволено добавить к заголовку страницы. */
 const TITLE_OVERHEAD = 30;
 
+/* Страницы, которым разрешена надстройка на JavaScript. Список растёт только
+   осознанно: на третьем этапе сюда добавятся страницы разделов с уточнением.
+   Всё, чего нет в списке, обязано быть полным без единого скрипта. */
+const SCRIPTED = new Set(["/ukazatel/index.html"]);
+
 /* ---------- исключения ---------- */
 const allowPath = path.join(__dirname, "lint-allow.json");
 const allow = fs.existsSync(allowPath) ? JSON.parse(fs.readFileSync(allowPath, "utf8")).allow || [] : [];
@@ -128,7 +133,18 @@ function run() {
     if (!title) errors.push(`${rel}: нет title`);
     if (!desc) errors.push(`${rel}: нет description`);
     if (!/<link rel="canonical"/.test(html)) errors.push(`${rel}: нет канонического адреса`);
-    if (/<script/i.test(html)) errors.push(`${rel}: на странице есть скрипт — первый уровень доступа обязан работать без JavaScript`);
+    /* Скрипт допустим только как надстройка и только там, где это решено осознанно.
+       Проверяем не «есть ли скрипт», а три вещи: страница в списке разрешённых,
+       код лежит в своём файле по корневому пути, встроенного кода нет.
+       Чужой домен в src означал бы передачу IP читателя третьей стороне. */
+    const scripts = html.match(/<script\b[^>]*>/gi) || [];
+    if (scripts.length && !SCRIPTED.has(rel))
+      errors.push(`${rel}: скрипт на странице, которая обязана работать без JavaScript`);
+    scripts.forEach(tag => {
+      const src = (tag.match(/\ssrc="([^"]*)"/i) || [, ""])[1];
+      if (!src) errors.push(`${rel}: встроенный скрипт — код должен лежать своим файлом`);
+      else if (!/^\/[^/]/.test(src)) errors.push(`${rel}: скрипт с чужого адреса — ${src}`);
+    });
     if (/https?:\/\/(?!схема|www\.sitemaps\.org)/.test(html.replace(/<link rel="canonical"[^>]*>|<meta property="og:url"[^>]*>/g, ""))) {
       const ext = html.match(/https?:\/\/[^"'\s>]+/g) || [];
       const foreign = ext.filter(u => !u.startsWith("http://www.sitemaps.org") && !u.startsWith(originOf(html)));

@@ -41,6 +41,7 @@ function header() {
     <a class="skip" href="#main">${esc(T.skipToContent)}</a>
     <a class="brand" href="/">${esc(cfg.siteName)}</a>
     <nav class="topnav">
+      <a href="/oblasti/">${esc(T.navZones)}</a>
       <a href="/ukazatel/">${esc(T.navIndex)}</a>
       <a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a>
     </nav>
@@ -60,7 +61,9 @@ function footer(updated) {
 }
 
 /* Полная страница. body — уже готовый HTML. */
-function page({ title, description, path, body, updated, bodyClass, ogType }) {
+/* script — только свой файл по корневому пути и только там, где надстройка
+   действительно нужна. Страница обязана быть полной и без него. */
+function page({ title, description, path, body, updated, bodyClass, ogType, script }) {
   const canonical = cfg.origin.replace(/\/$/, "") + path;
   return `<!doctype html>
 <html lang="ru">
@@ -73,6 +76,7 @@ ${header()}
 ${body}
 </main>
 ${footer(updated)}
+${script ? `<script src="${attr(script)}" defer></script>` : ""}
 </body>
 </html>
 `;

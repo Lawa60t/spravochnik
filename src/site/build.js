@@ -16,6 +16,7 @@ const syndromePage = require("./pages/syndrome");
 const ukazatelPage = require("./pages/ukazatel");
 const homePage = require("./pages/home");
 const { notSearchedHerePage, noMatchPage } = require("./pages/plain");
+const { zonesPage, zonePage, zhalobyPage } = require("./pages/oblasti");
 
 const root = path.join(__dirname, "..", "..");
 const dist = path.join(root, "dist");
@@ -72,7 +73,7 @@ function assertLinks() {
 /* Адреса, на которые уже ссылаются страницы, но которые собирает следующий этап.
    Список конечный и должен опустеть: пока он не пуст, публиковать нельзя —
    это ровно те 404 внутри оглавления, ради которых существует проверка ниже. */
-const PLANNED = new Set(D.map.zones.map(z => D.zonePath(z.id)));
+const PLANNED = new Set(); /* пусто: страницы областей собраны на втором этапе */
 let plannedLinks = new Map();
 
 /* Каждая внутренняя ссылка обязана вести на собранную страницу.
@@ -81,6 +82,7 @@ let plannedLinks = new Map();
 function verifyLinks() {
   const targets = new Set(written.map(w => w.urlPath));
   targets.add("/style.css");
+  targets.add("/search.js");
   const broken = new Map();
   const planned = new Map();
   let total = 0;
@@ -114,6 +116,9 @@ function sitemap(origin, updated) {
   const urls = [
     { loc: "/", lastmod: updated },
     { loc: "/ukazatel/", lastmod: updated },
+    { loc: "/oblasti/", lastmod: D.anatomy.updated || updated },
+    { loc: "/zhaloby/", lastmod: D.anatomy.updated || updated },
+    ...D.map.zones.map(z => ({ loc: D.zonePath(z.id), lastmod: D.anatomy.updated || updated })),
     { loc: "/chto-ne-razbiraem/", lastmod: D.redflags.updated || updated },
     { loc: "/moego-sluchaya-net/", lastmod: D.redflags.updated || updated },
     ...D.conditions.map(c => ({ loc: D.conditionPath(c.id), lastmod: c.updated })),
@@ -151,12 +156,16 @@ function build() {
 
   write("/", homePage(updated));
   write("/ukazatel/", ukazatelPage(updated));
+  write("/oblasti/", zonesPage(updated));
+  write("/zhaloby/", zhalobyPage(updated));
   write("/chto-ne-razbiraem/", notSearchedHerePage(updated));
   write("/moego-sluchaya-net/", noMatchPage(updated));
+  D.map.zones.forEach(z => write(D.zonePath(z.id), zonePage(z, updated)));
   D.conditions.forEach(c => write(D.conditionPath(c.id), conditionPage(c, updated)));
   D.syndromes.forEach(s => write(D.syndromePath(s.id), syndromePage(s, updated)));
 
   fs.copyFileSync(path.join(__dirname, "assets", "style.css"), path.join(dist, "style.css"));
+  fs.copyFileSync(path.join(__dirname, "assets", "search.js"), path.join(dist, "search.js"));
   fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap(cfg.origin, updated), "utf8");
   fs.writeFileSync(path.join(dist, "robots.txt"), robots(cfg.origin), "utf8");
 
@@ -169,11 +178,13 @@ function build() {
   console.log(L);
   console.log(`Статей о состояниях        ${D.conditions.length}`);
   console.log(`Разделов справочника       ${D.syndromes.length}`);
-  console.log(`Служебных страниц          4`);
+  console.log(`Областей тела              ${D.map.zones.length}`);
+  console.log(`Служебных страниц          ${written.length - D.conditions.length - D.syndromes.length - D.map.zones.length}`);
   console.log(`Всего страниц              ${written.length}`);
   console.log(`Внутренних ссылок          ${links}, битых нет`);
   console.log(`Объём HTML                 ${(bytes / 1024 / 1024).toFixed(2)} МБ`);
-  console.log(`Скриптов на страницах      0`);
+  const scripted = written.filter(w => /<script\b/i.test(fs.readFileSync(w.file, "utf8")));
+  console.log(`Страниц со скриптом        ${scripted.length} из ${written.length}${scripted.length ? ` (${scripted.map(s => s.urlPath).join(", ")})` : ""}`);
   console.log(L);
 
   const warn = [];

@@ -48,6 +48,56 @@ syndromes.forEach(s => {
 const collator = new Intl.Collator("ru");
 const byName = (a, b) => collator.compare(a.name, b.name);
 
+/* ---------- области ----------
+   В оглавлении 10 областей (syndromes-map), в слое якорей 13 зон:
+   голова и шея разделены на вид спереди и вид сзади, плюс отдельный вход
+   для жалоб без привязки к месту. Область собирает свои зоны по префиксу id. */
+const anatomyZonesOf = zoneId => anatomy.zones.filter(z => z.id.split(".")[0] === zoneId);
+
+/* Разделы области, разложенные по участкам.
+   Остаток — разделы, которые в участках своей области не встречаются:
+   пятнадцать таких, почти все живут во входе «жалобы без привязки к месту»
+   (тошнота, кровь в стуле, головокружение). На странице области они обязаны
+   быть видны, иначе часть оглавления доступна только с фигуры. */
+function zoneGroups(zoneId) {
+  const groups = anatomyZonesOf(zoneId)
+    .map(az => ({
+      id: az.id,
+      label: az.label,
+      landmark: az.landmark,
+      view: az.view,
+      subzones: (az.subzones || [])
+        .map(sz => ({
+          id: sz.id,
+          label: sz.label,
+          landmark: sz.landmark,
+          syndromes: (sz.syndromes || []).map(id => syndromeById.get(id)).filter(Boolean)
+        }))
+        .filter(sz => sz.syndromes.length)
+    }))
+    .filter(g => g.subzones.length);
+
+  const covered = new Set(
+    groups.flatMap(g => g.subzones.flatMap(sz => sz.syndromes.map(s => s.id)))
+  );
+  const rest = syndromes.filter(s => s.zone === zoneId && !covered.has(s.id)).sort(byName);
+
+  return { groups, rest };
+}
+
+const syndromesOfZone = zoneId => syndromes.filter(s => s.zone === zoneId);
+
+/* Вход symptom.list: жалобы, которые нельзя показать пальцем. */
+function symptomList() {
+  const zone = anatomy.zones.find(z => z.id === "symptom");
+  const sub = (zone.subzones || [])[0] || {};
+  return {
+    label: zone.label,
+    landmark: zone.landmark,
+    syndromes: (sub.syndromes || []).map(id => syndromeById.get(id)).filter(Boolean)
+  };
+}
+
 module.exports = {
   questions,
   redflags,
@@ -59,6 +109,10 @@ module.exports = {
   syndromeById,
   zoneById,
   syndromesOfCondition,
+  anatomyZonesOf,
+  zoneGroups,
+  syndromesOfZone,
+  symptomList,
   slug,
   conditionPath,
   syndromePath,
