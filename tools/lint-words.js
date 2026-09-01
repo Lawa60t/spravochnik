@@ -62,8 +62,16 @@ const SOFT = [
   [/\bдиагностик/i, "«диагностика» в тексте сайта"]
 ];
 
-/* Сколько символов шаблону позволено добавить к заголовку страницы. */
-const TITLE_OVERHEAD = 30;
+/* Сколько символов шаблону позволено добавить к заголовку страницы.
+   Хвост раздела — « — раздел справочника · Викитело», 32 символа: имя сайта
+   назначения не несёт, поэтому жанр приходится называть словами прямо в title. */
+const TITLE_OVERHEAD = 32;
+
+/* Примерно столько показывает поисковик, дальше обрезает. */
+const TITLE_DISPLAY = 60;
+
+/* Для страниц, где title не выводится из заголовка, мерить нечего — только длину. */
+const TITLE_FIXED_MAX = 65;
 
 /* Страницы, которым разрешена надстройка на JavaScript. Список растёт только
    осознанно: на третьем этапе сюда добавятся страницы разделов с уточнением.
@@ -83,6 +91,16 @@ function walk(dir, out = []) {
     const p = path.join(dir, e.name);
     if (e.isDirectory()) walk(p, out);
     else if (e.name.endsWith(".html")) out.push(p);
+  }
+  return out;
+}
+
+/* Все файлы сайта, а не только страницы: заглушка может уцелеть в sitemap или robots. */
+function walkAll(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) walkAll(p, out);
+    else out.push(p);
   }
   return out;
 }
@@ -156,9 +174,18 @@ function run() {
        Длинное название болезни — это данные, их не сократить и незачем о них напоминать.
        Раздутый хвост шаблона — это наше, и он обрезается в выдаче первым. */
     const h1 = decode(stripTags((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ""])[1])).trim();
-    const overhead = title.length - h1.length;
-    if (h1 && overhead > TITLE_OVERHEAD)
-      warnings.push(`${rel}: хвост title длиннее ${TITLE_OVERHEAD} символов (${overhead}): «${title}»`);
+    if (h1 && title.startsWith(h1)) {
+      /* title собран из заголовка страницы: меряем то, что добавил шаблон */
+      const overhead = title.length - h1.length;
+      /* Ругаемся, только если хвост раздут И заголовок из-за него не помещается
+         в выдачу. Короткий заголовок с длинным хвостом вредит там, где обрезается;
+         если весь title влезает целиком, обрезать нечего и придираться не к чему. */
+      if (overhead > TITLE_OVERHEAD && title.length > TITLE_DISPLAY)
+        warnings.push(`${rel}: хвост title ${overhead} символов при длине ${title.length}: «${title}»`);
+    } else if (title.length > TITLE_FIXED_MAX) {
+      /* title задан целиком, вычитать из него нечего — смотрим просто длину */
+      warnings.push(`${rel}: title длиннее ${TITLE_FIXED_MAX} символов (${title.length}): «${title}»`);
+    }
     if (desc.length > 170) warnings.push(`${rel}: description длиннее 170 символов (${desc.length})`);
 
     if (titles.has(title)) warnings.push(`${rel}: title повторяет ${titles.get(title)}`);
@@ -175,6 +202,25 @@ function run() {
       const ext = src.match(/https?:\/\/[^\s"'`]+/g) || [];
       ext.forEach(u => errors.push(`/${f}: обращение на чужой адрес — ${u}`));
     });
+
+  /* Заглушки прошлого этапа не должны уцелеть нигде в собранном сайте:
+     ни в канонических адресах, ни в sitemap, ни в robots, ни в почте, ни в текстах. */
+  const cfg = require(path.join(root, "src", "site", "config.js"));
+  const leftovers = [
+    [/example\.(org|ru|com)/i, "адрес-заглушка"],
+    [new RegExp(cfg.PLACEHOLDER_MAIL.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), "почта-заглушка"],
+    /* Регистр важен: «Справочник о теле» — старое имя сайта, а «справочник о теле»
+       со строчной — законное пояснение к нынешнему имени. */
+    [new RegExp(cfg.WORKING_TITLE), "рабочее название вместо имени сайта"]
+  ];
+  walkAll(dist).forEach(file => {
+    const src = fs.readFileSync(file, "utf8");
+    const rel = "/" + path.relative(dist, file).replace(/\\/g, "/");
+    leftovers.forEach(([re, why]) => {
+      const hit = src.match(re);
+      if (hit) errors.push(`${rel}: «${hit[0]}» — ${why}`);
+    });
+  });
 
   /* строки, которые пишет сайт */
   const textSrc = fs.readFileSync(path.join(root, "src", "site", "text.js"), "utf8");

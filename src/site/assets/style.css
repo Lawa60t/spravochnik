@@ -57,6 +57,15 @@ p { margin: 0 0 .9rem; }
   background: var(--card);
 }
 .brand { font-weight: 650; color: var(--ink); text-decoration: none; }
+/* Имя сайта назначения не несёт, поэтому рядом с ним стоит пояснение.
+   Оно часть ссылки, а не отдельная строка: так не съедает высоту на телефоне. */
+.brand .tagline {
+  font-weight: 400;
+  color: var(--ink-3);
+  font-size: .82rem;
+  margin-left: .5rem;
+  white-space: nowrap;
+}
 .topnav { display: flex; gap: 1rem; font-size: .92rem; }
 .topnav a { color: var(--ink-2); }
 

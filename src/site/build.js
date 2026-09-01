@@ -277,9 +277,6 @@ function build() {
     warn.push(`origin — заглушка (${cfg.origin}). Канонические адреса и sitemap.xml публиковать нельзя, пока не выбран домен.`);
   if (cfg.errorMail === cfg.PLACEHOLDER_MAIL)
     warn.push(`адрес для «здесь ошибка» — заглушка (${cfg.errorMail}).`);
-  if (/Фамилия|000000000000000|example\.ru/.test(JSON.stringify(cfg.owner)))
-    warn.push("сведения о владельце в подвале — заглушка.");
-
   if (warn.length) {
     console.log("До публикации заполнить:");
     warn.forEach(w => console.log(`  ! ${w}`));

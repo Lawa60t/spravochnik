@@ -39,7 +39,7 @@ function head({ title, description, canonical, ogType }) {
 function header() {
   return `<header class="top">
     <a class="skip" href="#main">${esc(T.skipToContent)}</a>
-    <a class="brand" href="/">${esc(cfg.siteName)}</a>
+    <a class="brand" href="/">${esc(cfg.siteName)}<span class="tagline">${esc(cfg.tagline)}</span></a>
     <nav class="topnav">
       <a href="/oblasti/">${esc(T.navZones)}</a>
       <a href="/ukazatel/">${esc(T.navIndex)}</a>
@@ -55,7 +55,7 @@ function footer(updated) {
     <p>${esc(f.body)}</p>
     <p>${esc(f.sources)} ${esc(f.updatedPrefix)} ${esc(dateRu(updated))}</p>
     <p class="tel">${esc(f.emergency)}</p>
-    <p>${esc(f.ownerPrefix)} ${esc(cfg.owner.name)}, ОГРНИП ${esc(cfg.owner.ogrnip)}. ${esc(f.mailPrefix)} <a href="mailto:${attr(cfg.owner.mail)}">${esc(cfg.owner.mail)}</a></p>
+    <p>${esc(f.ownerPrefix)} ${esc(cfg.owner.name)}. ${esc(f.mailPrefix)} <a href="mailto:${attr(cfg.owner.mail)}">${esc(cfg.owner.mail)}</a></p>
     <p class="age">${esc(f.age)}</p>
   </footer>`;
 }
