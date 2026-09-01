@@ -147,12 +147,36 @@ ul.sources { margin: 0 0 1rem; padding-left: 1.1rem; font-size: .92rem; }
 
 .block { margin-top: 2rem; }
 .block h2 { margin-top: 0; }
-.block.rare {
-  background: var(--alarm-bg);
-  border: 1px solid var(--alarm-line);
+/* Свёрнутый блок «редко, но важно» стоит последним и в закрытом виде спокоен:
+   постоянный тревожный фон перестают замечать, и тогда он не сработает
+   в настоящем случае. Подсветка появляется, только когда человек его раскрыл. */
+details.block.rare {
+  border: 1px solid var(--line);
   border-radius: 4px;
-  padding: .9rem 1rem .3rem;
+  padding: 0 1rem;
+  margin-top: 2rem;
 }
+details.block.rare[open] {
+  background: var(--alarm-bg);
+  border-color: var(--alarm-line);
+  padding-bottom: .3rem;
+}
+details.block.rare > summary {
+  cursor: pointer;
+  padding: .75rem 0;
+  min-height: 44px;
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+details.block.rare > summary .sum { flex: 0 1 auto; }
+details.block.rare > summary .count {
+  color: var(--ink-3);
+  font-size: .82rem;
+  font-variant-numeric: tabular-nums;
+}
+details.block.rare[open] > summary { border-bottom: 1px solid var(--alarm-line); }
 
 ul.conditions { list-style: none; padding: 0; margin: 0; }
 ul.conditions li {

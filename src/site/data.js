@@ -32,6 +32,7 @@ const zoneById = new Map(map.zones.map(z => [z.id, z]));
 const slug = id => id.replace(/\./g, "-");
 const conditionPath = id => `/sostoyaniya/${slug(id)}/`;
 const syndromePath = id => `/razdely/${slug(id)}/`;
+const zonePath = id => `/oblasti/${slug(id)}/`;
 
 /* ---------- обратные связи ----------
    248 статей из 307 работают больше чем в одном разделе.
@@ -61,6 +62,7 @@ module.exports = {
   slug,
   conditionPath,
   syndromePath,
+  zonePath,
   collator,
   byName
 };

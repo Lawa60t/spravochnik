@@ -19,14 +19,14 @@ function dateRu(iso) {
   return m ? `${m[3]}.${m[2]}.${m[1]}` : String(iso);
 }
 
-function head({ title, description, canonical }) {
+function head({ title, description, canonical, ogType }) {
   return [
     '<meta charset="utf-8">',
     '<meta name="viewport" content="width=device-width, initial-scale=1">',
     `<title>${esc(title)}</title>`,
     `<meta name="description" content="${attr(description)}">`,
     `<link rel="canonical" href="${attr(canonical)}">`,
-    `<meta property="og:type" content="website">`,
+    `<meta property="og:type" content="${attr(ogType || "website")}">`,
     `<meta property="og:site_name" content="${attr(cfg.siteName)}">`,
     `<meta property="og:locale" content="ru_RU">`,
     `<meta property="og:title" content="${attr(title)}">`,
@@ -60,12 +60,12 @@ function footer(updated) {
 }
 
 /* Полная страница. body — уже готовый HTML. */
-function page({ title, description, path, body, updated, bodyClass }) {
+function page({ title, description, path, body, updated, bodyClass, ogType }) {
   const canonical = cfg.origin.replace(/\/$/, "") + path;
   return `<!doctype html>
 <html lang="ru">
 <head>
-  ${head({ title, description, canonical })}
+  ${head({ title, description, canonical, ogType })}
 </head>
 <body${bodyClass ? ` class="${attr(bodyClass)}"` : ""}>
 ${header()}

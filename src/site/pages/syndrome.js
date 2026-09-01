@@ -23,23 +23,43 @@ function sortItems(a, b) {
   return b.base - a.base || D.collator.compare(a.c.name, b.c.name);
 }
 
+/* Короткое описание — первое предложение и не длиннее 90 символов.
+   Иначе список получается рваный: у одной статьи шесть слов, у соседней сорок. */
+const GIST = 90;
+
 function renderItem({ c }) {
   return `<li>
         <a href="${attr(D.conditionPath(c.id))}">${esc(c.name)}</a>
         <span class="icd">${esc(c.icd)}</span>
-        <span class="gist">${esc(meta.clamp(meta.firstSentence(c.what), 180))}</span>
+        <span class="gist">${esc(meta.clamp(meta.firstSentence(c.what), GIST))}</span>
       </li>`;
 }
 
-function block(title, items, cls, note) {
+function list(items) {
+  return `<ul class="conditions">
+      ${items.map(renderItem).join("\n      ")}
+    </ul>`;
+}
+
+function block(title, items, cls) {
   if (!items.length) return "";
   return `<section class="block ${attr(cls)}">
     <h2>${esc(title)}</h2>
-    ${note ? `<p class="note">${esc(note)}</p>` : ""}
-    <ul class="conditions">
-      ${items.map(renderItem).join("\n      ")}
-    </ul>
+    ${list(items)}
   </section>`;
+}
+
+/* Блок «редко, но важно» стоит последним и свёрнутым.
+   В present() он первый — но там человек уже ответил на вопросы, и блок отвечает ему.
+   Здесь ответов нет, пугать не за что: шесть смертельных состояний до первого частого
+   превращают оглавление в предупреждение. */
+function rareBlock(title, items, note) {
+  if (!items.length) return "";
+  return `<details class="block rare">
+    <summary><span class="sum">${esc(title)}</span> <span class="count">${items.length}</span></summary>
+    <p class="note">${esc(note)}</p>
+    ${list(items)}
+  </details>`;
 }
 
 module.exports = function syndromePage(s, updated) {
@@ -53,16 +73,20 @@ module.exports = function syndromePage(s, updated) {
   const m = meta.syndrome(s, items.length);
 
   const body = `<article class="syndrome">
-  <p class="crumbs">${zone ? `<span class="muted">${esc(T.syndrome.zoneLabel)}:</span> ${esc(zone.name)}` : ""}</p>
+  <p class="crumbs">${
+    zone
+      ? `<span class="muted">${esc(T.syndrome.zoneLabel)}:</span> <a href="${attr(D.zonePath(zone.id))}">${esc(zone.name)}</a>`
+      : ""
+  }</p>
 
   <h1>${esc(s.name)}</h1>
   ${s.aka && s.aka.length ? `<p class="alt"><span>${esc(T.syndrome.alsoSaid)}:</span> ${esc(s.aka.join(" · "))}</p>` : ""}
 
   <p class="lead">${esc(T.syndrome.listTitle)}. ${esc(T.syndrome.listNote)}</p>
 
-  ${block(T.syndrome.blockRare, rare, "rare", T.syndrome.blockRareNote)}
   ${block(T.syndrome.blockOften, often, "often")}
   ${block(T.syndrome.blockSeldom, seldom, "seldom")}
+  ${rareBlock(T.syndrome.blockRare, rare, T.syndrome.blockRareNote)}
 
   <section class="notsearched">
     <h2>${esc(T.syndrome.notSearchedTitle)}</h2>

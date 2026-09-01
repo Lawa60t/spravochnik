@@ -69,6 +69,12 @@ function assertLinks() {
   }
 }
 
+/* Адреса, на которые уже ссылаются страницы, но которые собирает следующий этап.
+   Список конечный и должен опустеть: пока он не пуст, публиковать нельзя —
+   это ровно те 404 внутри оглавления, ради которых существует проверка ниже. */
+const PLANNED = new Set(D.map.zones.map(z => D.zonePath(z.id)));
+let plannedLinks = new Map();
+
 /* Каждая внутренняя ссылка обязана вести на собранную страницу.
    Без JavaScript ссылки — единственная навигация, и опечатка в шаблоне
    превращается в 404 внутри оглавления. */
@@ -76,6 +82,7 @@ function verifyLinks() {
   const targets = new Set(written.map(w => w.urlPath));
   targets.add("/style.css");
   const broken = new Map();
+  const planned = new Map();
   let total = 0;
 
   written.forEach(w => {
@@ -84,9 +91,13 @@ function verifyLinks() {
       const url = m.slice(6, -1);
       if (!url.startsWith("/") || url.startsWith("//")) return;
       total++;
-      if (!targets.has(url)) broken.set(url, (broken.get(url) || []).concat(w.urlPath));
+      if (targets.has(url)) return;
+      if (PLANNED.has(url)) planned.set(url, (planned.get(url) || 0) + 1);
+      else broken.set(url, (broken.get(url) || []).concat(w.urlPath));
     });
   });
+
+  plannedLinks = planned;
 
   if (broken.size) {
     console.error(`${L}\nСБОРКА ОСТАНОВЛЕНА: ссылки в никуда\n${L}`);
@@ -166,6 +177,10 @@ function build() {
   console.log(L);
 
   const warn = [];
+  if (plannedLinks.size) {
+    const n = [...plannedLinks.values()].reduce((a, b) => a + b, 0);
+    warn.push(`${plannedLinks.size} адресов ещё не собраны, на них ведут ${n} ссылок (второй этап). До публикации список обязан опустеть.`);
+  }
   if (cfg.origin === cfg.PLACEHOLDER_ORIGIN)
     warn.push(`origin — заглушка (${cfg.origin}). Канонические адреса и sitemap.xml публиковать нельзя, пока не выбран домен.`);
   if (cfg.errorMail === cfg.PLACEHOLDER_MAIL)

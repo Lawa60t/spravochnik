@@ -63,7 +63,11 @@ module.exports = function conditionPage(c, updated) {
   <dl class="fields">
     ${row(T.condition.what, c.what)}
     ${row(T.condition.who, c.who)}
-    ${row(T.condition.urgent, c.urgent, "urgent")}
+    ${/* Тревожная рамка — только у состояний с redflag. У остальных в этом поле
+          чаще всего написано «не относится к неотложным», и красная рамка вокруг
+          такой фразы — ровно тот постоянный тревожный фон, из-за которого
+          предупреждения перестают замечать. */ ""}
+    ${row(T.condition.urgent, c.urgent, c.redflag ? "urgent" : null)}
     ${row(T.condition.doctor, c.doctor)}
     ${row(T.condition.tests, c.tests)}
   </dl>
@@ -92,6 +96,7 @@ module.exports = function conditionPage(c, updated) {
     path: D.conditionPath(c.id),
     body,
     updated,
-    bodyClass: "page-condition"
+    bodyClass: "page-condition",
+    ogType: "article"
   });
 };
