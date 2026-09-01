@@ -271,6 +271,77 @@ ul.counts li { font-size: .85rem; color: var(--ink-3); }
 }
 .poisk-empty p { margin-bottom: .4rem; }
 
+/* ---------- уточнение ---------- */
+.refine {
+  margin-top: 2.4rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.2rem;
+}
+.refine h2 { margin-top: .6rem; font-size: 1.15rem; }
+.refine h3 { font-size: 1rem; }
+
+.choices { display: flex; flex-direction: column; gap: .5rem; margin: .8rem 0; }
+.choices button {
+  text-align: left;
+  font: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: .65rem .85rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+.choices button:hover { border-color: var(--accent); }
+.choices button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.choices button.muted { color: var(--ink-3); }
+
+.refine .age { max-width: 8rem; }
+
+.refine [data-act="copy"],
+.refine [data-act="restart"] {
+  font: inherit;
+  padding: .5rem .9rem;
+  min-height: 44px;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  margin-right: .5rem;
+}
+
+.tell { margin-top: 2rem; border-top: 1px solid var(--line); padding-top: .4rem; }
+.tell pre {
+  white-space: pre-wrap;
+  font: inherit;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: .8rem .9rem;
+  margin: 0 0 .8rem;
+}
+
+/* Тревога заметна, но появляется редко — постоянный тревожный фон
+   перестают замечать, и тогда он не сработает в настоящем случае. */
+.alarm {
+  margin-top: 1.6rem;
+  background: var(--alarm-bg);
+  border: 1px solid var(--alarm-line);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+  padding: 1rem 1.1rem .6rem;
+}
+.alarm h2 { margin-top: 0; color: var(--accent); }
+.alarm ul { padding-left: 1.1rem; }
+.alarm li { margin-bottom: .4rem; }
+.alarm .phone {
+  font-size: 1.5rem;
+  font-weight: 650;
+  letter-spacing: .04em;
+  margin: .6rem 0;
+}
+
 /* ---------- простые страницы ---------- */
 .plain ul.big { padding-left: 1.1rem; }
 .plain ul.big li { margin-bottom: .45rem; }

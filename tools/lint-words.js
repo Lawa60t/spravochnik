@@ -68,7 +68,8 @@ const TITLE_OVERHEAD = 30;
 /* Страницы, которым разрешена надстройка на JavaScript. Список растёт только
    осознанно: на третьем этапе сюда добавятся страницы разделов с уточнением.
    Всё, чего нет в списке, обязано быть полным без единого скрипта. */
-const SCRIPTED = new Set(["/ukazatel/index.html"]);
+const SCRIPTED = [/^\/ukazatel\/index\.html$/, /^\/razdely\/[a-z0-9-]+\/index\.html$/];
+const isScripted = rel => SCRIPTED.some(re => re.test(rel));
 
 /* ---------- исключения ---------- */
 const allowPath = path.join(__dirname, "lint-allow.json");
@@ -138,7 +139,7 @@ function run() {
        код лежит в своём файле по корневому пути, встроенного кода нет.
        Чужой домен в src означал бы передачу IP читателя третьей стороне. */
     const scripts = html.match(/<script\b[^>]*>/gi) || [];
-    if (scripts.length && !SCRIPTED.has(rel))
+    if (scripts.length && !isScripted(rel))
       errors.push(`${rel}: скрипт на странице, которая обязана работать без JavaScript`);
     scripts.forEach(tag => {
       const src = (tag.match(/\ssrc="([^"]*)"/i) || [, ""])[1];
@@ -163,6 +164,17 @@ function run() {
     if (titles.has(title)) warnings.push(`${rel}: title повторяет ${titles.get(title)}`);
     else titles.set(title, rel);
   });
+
+  /* Скрипты не должны ходить на чужие домены: встроенный чужой ресурс передаёт
+     IP посетителя третьей стороне, и заявление «не используем cookie» перестаёт
+     быть правдой. Проверяем сами файлы, а не только разметку. */
+  fs.readdirSync(dist)
+    .filter(f => f.endsWith(".js"))
+    .forEach(f => {
+      const src = fs.readFileSync(path.join(dist, f), "utf8");
+      const ext = src.match(/https?:\/\/[^\s"'`]+/g) || [];
+      ext.forEach(u => errors.push(`/${f}: обращение на чужой адрес — ${u}`));
+    });
 
   /* строки, которые пишет сайт */
   const textSrc = fs.readFileSync(path.join(root, "src", "site", "text.js"), "utf8");

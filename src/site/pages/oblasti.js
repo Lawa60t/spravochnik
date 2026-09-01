@@ -71,10 +71,13 @@ function zonePage(zone, updated) {
   const count = D.syndromesOfZone(zone.id).length;
   const m = meta.zone(zone, count);
 
+  /* Когда группа одна, её заголовок дословно повторяет h1 страницы. */
+  const showGroupTitle = groups.length > 1;
+
   const groupsHtml = groups
     .map(
       g => `<section class="block">
-    <h2>${esc(g.label)}</h2>
+    ${showGroupTitle ? `<h2>${esc(g.label)}</h2>` : ""}
     ${g.landmark ? `<p class="note">${esc(g.landmark)}</p>` : ""}
     ${g.subzones
       .map(

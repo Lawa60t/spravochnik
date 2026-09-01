@@ -60,6 +60,11 @@ const anatomyZonesOf = zoneId => anatomy.zones.filter(z => z.id.split(".")[0] ==
    (тошнота, кровь в стуле, головокружение). На странице области они обязаны
    быть видны, иначе часть оглавления доступна только с фигуры. */
 function zoneGroups(zoneId) {
+  /* Один раздел бывает якорем сразу у нескольких участков: «боль в правом боку»
+     висит и на подреберье, и на боку. В оглавлении он должен встретиться один раз,
+     под первым по порядку участком — иначе список выглядит ошибкой вёрстки. */
+  const shown = new Set();
+
   const groups = anatomyZonesOf(zoneId)
     .map(az => ({
       id: az.id,
@@ -71,15 +76,20 @@ function zoneGroups(zoneId) {
           id: sz.id,
           label: sz.label,
           landmark: sz.landmark,
-          syndromes: (sz.syndromes || []).map(id => syndromeById.get(id)).filter(Boolean)
+          syndromes: (sz.syndromes || [])
+            .map(id => syndromeById.get(id))
+            .filter(Boolean)
+            .filter(s => {
+              if (shown.has(s.id)) return false;
+              shown.add(s.id);
+              return true;
+            })
         }))
         .filter(sz => sz.syndromes.length)
     }))
     .filter(g => g.subzones.length);
 
-  const covered = new Set(
-    groups.flatMap(g => g.subzones.flatMap(sz => sz.syndromes.map(s => s.id)))
-  );
+  const covered = shown;
   const rest = syndromes.filter(s => s.zone === zoneId && !covered.has(s.id)).sort(byName);
 
   return { groups, rest };

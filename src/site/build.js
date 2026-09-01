@@ -11,6 +11,8 @@ const path = require("path");
 
 const cfg = require("./config");
 const D = require("./data");
+const meta = require("./meta");
+const SEXQ = require("../questions-sex.json");
 const conditionPage = require("./pages/condition");
 const syndromePage = require("./pages/syndrome");
 const ukazatelPage = require("./pages/ukazatel");
@@ -70,6 +72,17 @@ function assertLinks() {
   }
 }
 
+/* Список половых вопросов решён вручную, значит может разойтись с базой. */
+function assertSexQuestions() {
+  const known = new Set(D.questions.map(q => q.id));
+  const bad = ["f", "m"].flatMap(k => (SEXQ[k] || []).filter(id => !known.has(id)));
+  if (bad.length) {
+    console.error(`${L}\nСБОРКА ОСТАНОВЛЕНА: questions-sex.json\n${L}`);
+    bad.forEach(id => console.error(`  ✗ вопроса «${id}» нет в базе`));
+    process.exit(1);
+  }
+}
+
 /* Адреса, на которые уже ссылаются страницы, но которые собирает следующий этап.
    Список конечный и должен опустеть: пока он не пуст, публиковать нельзя —
    это ровно те 404 внутри оглавления, ради которых существует проверка ниже. */
@@ -111,6 +124,34 @@ function verifyLinks() {
   return total;
 }
 
+/* ---------- данные для уточнения ----------
+   На страницу раздела едет только то, что нужно этому разделу: сам раздел,
+   его состояния, только его вопросы (9–29 из 138) и правила тревоги,
+   отфильтрованные по зоне. Всю базу в браузер не отдаём — это мегабайты,
+   а человек на медленном мобильном интернете ждать их не станет.
+   Грузится по нажатию кнопки, а не при первой отрисовке страницы. */
+function payload(s) {
+  const questions = D.questions.filter(q => s.questions.includes(q.id));
+  const conditions = s.candidates
+    .map(c => D.conditionById.get(c.condition))
+    .filter(Boolean)
+    .map(c => ({
+      /* поля движка */
+      id: c.id, name: c.name, redflag: !!c.redflag,
+      sexOnly: c.sexOnly, ageMin: c.ageMin, ageMax: c.ageMax,
+      /* поля показа */
+      icd: c.icd,
+      path: D.conditionPath(c.id),
+      gist: meta.clamp(meta.firstSentence(c.what), 110)
+    }));
+  const redflags = {
+    global: D.redflags.global.filter(r => !r.zones || r.zones.includes(s.zone))
+  };
+
+  const data = { questions, redflags, conditions, syndromes: [s], sexQuestions: SEXQ };
+  return `window.EZ_DATA=${JSON.stringify(data)};\n`;
+}
+
 /* ---------- sitemap и robots ---------- */
 function sitemap(origin, updated) {
   const urls = [
@@ -143,6 +184,7 @@ function robots(origin) {
 function build() {
   assertSlugs();
   assertLinks();
+  assertSexQuestions();
 
   fs.rmSync(dist, { recursive: true, force: true });
   fs.mkdirSync(dist, { recursive: true });
@@ -164,6 +206,20 @@ function build() {
   D.conditions.forEach(c => write(D.conditionPath(c.id), conditionPage(c, updated)));
   D.syndromes.forEach(s => write(D.syndromePath(s.id), syndromePage(s, updated)));
 
+  /* Движок уезжает в браузер тем же файлом, что гоняют тесты. */
+  fs.copyFileSync(path.join(root, "src", "engine.js"), path.join(dist, "engine.js"));
+  fs.copyFileSync(path.join(__dirname, "assets", "utochnenie.js"), path.join(dist, "utochnenie.js"));
+
+  const dataDir = path.join(dist, "dannye");
+  fs.mkdirSync(dataDir, { recursive: true });
+  let payloadMax = 0;
+  D.syndromes.forEach(s => {
+    const js = payload(s);
+    payloadMax = Math.max(payloadMax, Buffer.byteLength(js));
+    fs.writeFileSync(path.join(dataDir, D.slug(s.id) + ".js"), js, "utf8");
+  });
+  build.payloadMax = payloadMax;
+
   fs.copyFileSync(path.join(__dirname, "assets", "style.css"), path.join(dist, "style.css"));
   fs.copyFileSync(path.join(__dirname, "assets", "search.js"), path.join(dist, "search.js"));
   fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap(cfg.origin, updated), "utf8");
@@ -183,8 +239,10 @@ function build() {
   console.log(`Всего страниц              ${written.length}`);
   console.log(`Внутренних ссылок          ${links}, битых нет`);
   console.log(`Объём HTML                 ${(bytes / 1024 / 1024).toFixed(2)} МБ`);
+  console.log(`Данные уточнения           ${D.syndromes.length} файлов, самый большой ${Math.round(build.payloadMax / 1024)} КБ`);
   const scripted = written.filter(w => /<script\b/i.test(fs.readFileSync(w.file, "utf8")));
-  console.log(`Страниц со скриптом        ${scripted.length} из ${written.length}${scripted.length ? ` (${scripted.map(s => s.urlPath).join(", ")})` : ""}`);
+  const kinds = [...new Set(scripted.map(s => s.urlPath.split("/")[1] || "/"))];
+  console.log(`Страниц со скриптом        ${scripted.length} из ${written.length}${kinds.length ? ` (${kinds.join(", ")})` : ""}`);
   console.log(L);
 
   const warn = [];

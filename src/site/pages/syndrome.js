@@ -62,6 +62,76 @@ function rareBlock(title, items, note) {
   </details>`;
 }
 
+/* Остров уточнения. Весь текст лежит в разметке, а не в скрипте: так он
+   остаётся под линтом формулировок и переводится вместе с остальным сайтом.
+   Блок скрыт атрибутом hidden — без JavaScript он не появляется вовсе,
+   и мёртвой кнопки, которая никуда не ведёт, на странице не возникает. */
+function refineBlock(s) {
+  const R = T.refine;
+  const MAX = 10;
+
+  return `<section class="refine" data-refine
+    data-syndrome="${attr(s.id)}"
+    data-payload="/dannye/${attr(D.slug(s.id))}.js"
+    data-max="${MAX}"
+    data-step-tpl="${attr(R.stepOf)}"
+    data-sex-line="${attr(R.sexLine)}"
+    data-age-line="${attr(R.ageLine)}" hidden>
+
+  <div data-step="start">
+    <p><button type="button" class="button" data-act="start">${esc(R.start)}</button></p>
+    <p class="note">${esc(R.startNote)}</p>
+  </div>
+
+  <div data-step="sex" hidden>
+    <h2>${esc(R.sexTitle)}</h2>
+    <div class="choices">
+      <button type="button" data-sex="m">${esc(R.male)}</button>
+      <button type="button" data-sex="f">${esc(R.female)}</button>
+    </div>
+  </div>
+
+  <div data-step="age" hidden>
+    <h2>${esc(R.ageTitle)}</h2>
+    <label class="poisk-label" for="refine-age">${esc(R.ageHint)}</label>
+    <input class="poisk-input age" type="number" id="refine-age" min="0" max="120" step="1" value="35" inputmode="numeric">
+    <p><button type="button" class="button" data-act="age">${esc(R.next)}</button></p>
+  </div>
+
+  <div data-step="q" hidden>
+    <p class="note" data-slot="count"></p>
+    <h2 data-slot="qtext"></h2>
+    <p class="note" data-slot="qhint" hidden></p>
+    <div class="choices" data-slot="options"></div>
+    <p class="nomatch"><a href="/moego-sluchaya-net/">${esc(T.syndrome.noMatch)}</a></p>
+  </div>
+
+  <div data-step="result" hidden>
+    <h2>${esc(R.resultTitle)}</h2>
+    <p class="note">${esc(R.resultNote)}</p>
+    <div data-slot="blocks"></div>
+
+    <section class="tell">
+      <h3>${esc(R.tellTitle)}</h3>
+      <p class="note">${esc(R.tellNote)}</p>
+      <pre data-slot="tell"></pre>
+      <p>
+        <button type="button" data-act="copy" data-copied="${attr(R.copied)}">${esc(R.copy)}</button>
+        <button type="button" data-act="restart">${esc(R.restart)}</button>
+      </p>
+    </section>
+  </div>
+
+  <div class="alarm" data-slot="alarm" hidden>
+    <h2>${esc(R.alarmTitle)}</h2>
+    <ul data-slot="alarmlist"></ul>
+    <p class="phone">${esc(R.alarmPhone)}</p>
+    <p>${esc(R.alarmNote)}</p>
+    <p class="note">${esc(R.alarmStill)}</p>
+  </div>
+</section>`;
+}
+
 module.exports = function syndromePage(s, updated) {
   const items = s.candidates.map(itemOf).filter(i => i.c);
   const rare = items.filter(i => i.c.redflag).sort(sortItems);
@@ -97,7 +167,9 @@ module.exports = function syndromePage(s, updated) {
   </section>
 
   <p class="nomatch"><a href="/moego-sluchaya-net/">${esc(T.syndrome.noMatch)}</a></p>
-</article>`;
+</article>
+
+${refineBlock(s)}`;
 
   return page({
     title: m.title,
@@ -105,6 +177,7 @@ module.exports = function syndromePage(s, updated) {
     path: D.syndromePath(s.id),
     body,
     updated,
-    bodyClass: "page-syndrome"
+    bodyClass: "page-syndrome",
+    script: "/utochnenie.js"
   });
 };
