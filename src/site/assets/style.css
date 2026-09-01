@@ -60,11 +60,22 @@ p { margin: 0 0 .9rem; }
 .topnav { display: flex; gap: 1rem; font-size: .92rem; }
 .topnav a { color: var(--ink-2); }
 
+/* Ссылку «к содержанию» прячем обрезкой, а не выносом за левый край:
+   элемент шириной 213px на позиции -9999px в части браузеров сам даёт
+   горизонтальную прокрутку — ровно то, что мы чиним на телефоне. */
 .skip {
-  position: absolute; left: -9999px;
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 .skip:focus {
-  position: static; left: auto; margin-right: 1rem;
+  position: static;
+  width: auto; height: auto;
+  overflow: visible;
+  clip-path: none;
+  margin-right: 1rem;
 }
 
 main {
@@ -313,7 +324,11 @@ ul.counts li { font-size: .85rem; color: var(--ink-3); }
 
 .tell { margin-top: 2rem; border-top: 1px solid var(--line); padding-top: .4rem; }
 .tell pre {
+  /* pre-wrap переносит по пробелам, anywhere — внутри длинного слова.
+     Без второго сводка уезжала бы вбок на узком экране. */
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 100%;
   font: inherit;
   background: var(--card);
   border: 1px solid var(--line);

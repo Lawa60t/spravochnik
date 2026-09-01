@@ -51,6 +51,7 @@
     var act = el.getAttribute("data-act");
     if (act === "start") return start();
     if (act === "age") return pickAge();
+    if (act === "age-skip") return pickAge(true);
     if (act === "copy") return copyTell(el);
     if (act === "restart") return restart();
 
@@ -72,10 +73,14 @@
     if (input) input.focus();
   }
 
-  function pickAge() {
+  /* Возраст остаётся undefined, если его не назвали. Так и надо: движок
+     обходит поправки ageMin/ageMax и возрастные правила тревоги, а не считает,
+     будто человеку столько-то лет. Подставить сюда число молча — значит
+     ответить за него: возраст двигает 11 статей. */
+  function pickAge(skip) {
     var input = document.getElementById("refine-age");
     var n = parseInt(input && input.value, 10);
-    state.age = isNaN(n) ? 35 : Math.max(0, Math.min(120, n));
+    state.age = skip || isNaN(n) ? undefined : Math.max(0, Math.min(120, n));
     ask();
   }
 
@@ -154,16 +159,39 @@
     var box = slot("blocks");
     box.textContent = "";
 
-    /* Заголовки блоков заданы движком и должны совпадать с тем, что видит человек. */
-    Object.keys(res.blocks).forEach(function (title) {
-      var items = res.blocks[title];
-      if (!items.length) return;
+    /* Заголовки блоков заданы движком и должны совпадать с тем, что видит человек.
+       Исключение одно: когда «часто» выродилось в ноль или одну строку, оба
+       блока сливаются в один список без заголовка. Заголовок над единственной
+       строкой читается как поломка вёрстки, а называть слитый список «часто»
+       было бы неправдой — в нём и редкие. Порядок и так объяснён выше. */
+    var titles = Object.keys(res.blocks);
+    var often = res.blocks["Встречается часто"] || [];
+    var seldom = res.blocks["Встречается реже"] || [];
+    var groups;
+
+    if (often.length <= 1 && often.length + seldom.length > 0) {
+      groups = [];
+      titles.forEach(function (t) {
+        if (t !== "Встречается часто" && t !== "Встречается реже") {
+          groups.push({ title: t, items: res.blocks[t] });
+        }
+      });
+      groups.push({ title: null, items: often.concat(seldom) });
+    } else {
+      groups = titles.map(function (t) { return { title: t, items: res.blocks[t] }; });
+    }
+
+    groups.forEach(function (g) {
+      var items = g.items;
+      if (!items || !items.length) return;
 
       var sec = document.createElement("section");
       sec.className = "block";
-      var h = document.createElement("h3");
-      h.textContent = title;
-      sec.appendChild(h);
+      if (g.title) {
+        var h = document.createElement("h3");
+        h.textContent = g.title;
+        sec.appendChild(h);
+      }
 
       var ul = document.createElement("ul");
       ul.className = "conditions";
@@ -197,11 +225,13 @@
   function tell() {
     var lines = [];
     var sexBtn = root.querySelector('[data-sex="' + state.sex + '"]');
-    lines.push(
-      (root.getAttribute("data-sex-line") || "") + ": " +
-      (sexBtn ? sexBtn.textContent.toLowerCase() : "") + ", " +
-      (root.getAttribute("data-age-line") || "").toLowerCase() + " " + state.age
-    );
+    var head = (root.getAttribute("data-sex-line") || "") + ": " +
+      (sexBtn ? sexBtn.textContent.toLowerCase() : "");
+    /* Возраст в сводку попадает, только если человек его назвал. */
+    if (state.age !== undefined) {
+      head += ", " + (root.getAttribute("data-age-line") || "").toLowerCase() + " " + state.age;
+    }
+    lines.push(head);
 
     window.EZ.QUESTIONS.forEach(function (q) {
       var a = state.answers[q.id];
@@ -214,24 +244,38 @@
     return lines.join("\n");
   }
 
+  /* navigator.clipboard существует только в защищённом контексте: по http
+     его просто нет, и кнопка молча ничего не делает. Поэтому запасной путь —
+     выделить текст в самой странице. Даже если и execCommand не сработает,
+     сводка остаётся выделенной и человек копирует её сам. */
   function copyTell(btn) {
-    var text = slot("tell").textContent;
-    var done = function () {
-      var was = btn.textContent;
-      btn.textContent = btn.getAttribute("data-copied");
-      setTimeout(function () { btn.textContent = was; }, 1800);
+    var el = slot("tell");
+    var was = btn.textContent;
+    var flash = function (label) {
+      btn.textContent = label;
+      setTimeout(function () { btn.textContent = was; }, 2200);
     };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, done);
-    } else {
-      var ta = document.createElement("textarea");
-      ta.value = text;
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand("copy"); } catch (err) {}
-      document.body.removeChild(ta);
-      done();
+
+    var selectAndCopy = function () {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+      flash(ok ? btn.getAttribute("data-copied") : btn.getAttribute("data-selected"));
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
+      navigator.clipboard.writeText(el.textContent).then(
+        function () { flash(btn.getAttribute("data-copied")); },
+        selectAndCopy
+      );
+      return;
     }
+    selectAndCopy();
   }
 
   root.hidden = false;

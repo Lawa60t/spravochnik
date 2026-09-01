@@ -94,8 +94,11 @@ function refineBlock(s) {
   <div data-step="age" hidden>
     <h2>${esc(R.ageTitle)}</h2>
     <label class="poisk-label" for="refine-age">${esc(R.ageHint)}</label>
-    <input class="poisk-input age" type="number" id="refine-age" min="0" max="120" step="1" value="35" inputmode="numeric">
-    <p><button type="button" class="button" data-act="age">${esc(R.next)}</button></p>
+    <input class="poisk-input age" type="number" id="refine-age" min="0" max="120" step="1" inputmode="numeric">
+    <p>
+      <button type="button" class="button" data-act="age">${esc(R.next)}</button>
+      <button type="button" data-act="age-skip">${esc(R.ageSkip)}</button>
+    </p>
   </div>
 
   <div data-step="q" hidden>
@@ -116,7 +119,7 @@ function refineBlock(s) {
       <p class="note">${esc(R.tellNote)}</p>
       <pre data-slot="tell"></pre>
       <p>
-        <button type="button" data-act="copy" data-copied="${attr(R.copied)}">${esc(R.copy)}</button>
+        <button type="button" data-act="copy" data-copied="${attr(R.copied)}" data-selected="${attr(R.selected)}">${esc(R.copy)}</button>
         <button type="button" data-act="restart">${esc(R.restart)}</button>
       </p>
     </section>
@@ -154,8 +157,15 @@ module.exports = function syndromePage(s, updated) {
 
   <p class="lead">${esc(T.syndrome.listTitle)}. ${esc(T.syndrome.listNote)}</p>
 
-  ${block(T.syndrome.blockOften, often, "often")}
-  ${block(T.syndrome.blockSeldom, seldom, "seldom")}
+  ${
+    /* Когда «часто» выродилось в ноль или одну строку, оба списка сливаются
+       в один без заголовка: заголовок над единственной строкой читается как
+       поломка вёрстки, а назвать слитый список «часто» было бы неправдой —
+       в нём и редкие. Так на 24 разделах из 110. */
+    often.length <= 1
+      ? `<section class="block">${list(often.concat(seldom))}</section>`
+      : block(T.syndrome.blockOften, often, "often") + "\n  " + block(T.syndrome.blockSeldom, seldom, "seldom")
+  }
   ${rareBlock(T.syndrome.blockRare, rare, T.syndrome.blockRareNote)}
 
   <section class="notsearched">
