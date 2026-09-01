@@ -22,23 +22,28 @@ const L = "─".repeat(58);
 
 /* Что здесь порог, а что справка.
 
-   ПОРОГ — упущенные тревоги, и он равен нулю. Тревога, сработавшая при полной
-   подаче, но не сработавшая в диалоге, означает: ответы у человека были,
-   справочник их не спросил и промолчал. Это не статистика, а дефект с именем.
-   Так терялись ишемия кишечника и лейкоз, пока надбавка правилу из трёх условий
-   проигрывала обычному вопросу.
+   ПОРОГ ПЕРВЫЙ — упущенные тревоги, ноль. Тревога, сработавшая при полной подаче
+   и не сработавшая в диалоге, означает: ответы у человека были, справочник их
+   не спросил и промолчал. Это не статистика, а дефект с именем. Так терялись
+   ишемия кишечника и лейкоз, пока надбавка правилу из трёх условий проигрывала
+   обычному вопросу.
 
-   СПРАВКА — совпадение вершины. Порогом её делать неправильно: при меньшем числе
-   ответов другой порядок статей законен, а прогон намеренно пессимистичнее жизни —
-   когда в виньетке нет ответа на заданный вопрос, здесь отвечают «не знаю»,
-   а живой человек на вопрос про желтуху ответит. Число печатается, чтобы видеть
-   движение, но сборку не роняет. */
+   ПОРОГ ВТОРОЙ — ожидаемое состояние, выпавшее из видимой части выдачи, ноль.
+   Видимая часть — это всё, что вернул present(): человек читает не одну статью,
+   а список. Пока ожидаемое в списке, справочник свою работу сделал.
+
+   СПРАВКА — на каком именно месте оно оказалось. Порогом это делать неправильно:
+   при меньшем числе ответов другой порядок статей законен, а прогон намеренно
+   пессимистичнее жизни — когда в виньетке нет ответа на заданный вопрос, здесь
+   отвечают «не знаю», а живой человек на вопрос про желтуху ответит. */
 const MAX_ALARM_LOST = 0;
+const MAX_OUT_OF_SIGHT = 0;
 
 function run() {
   const vign = DATA.vignettes();
   const problems = [];
-  let same = 0;
+  let same = 0, inTop3 = 0, inVisible = 0;
+  const outOfSight = [];
   let steps = 0, unknowns = 0, missed = 0, asked = 0, withExpectTop = 0;
   const alarmDrift = [];
 
@@ -81,8 +86,21 @@ function run() {
     });
 
     const got = E.present(v.syndrome, { sex: v.sex, age: v.age, answers });
-    if (got.all[0].id === wanted) same++;
-    else problems.push({ v, wanted, got: got.all[0].id, path });
+
+    /* Вершина — не та метрика, по которой читают страницу: человек видит
+       не одну статью, а всё, что вернул present(). Поэтому считаем, куда
+       ожидаемое состояние попало на самом деле. */
+    const pos = got.all.findIndex(r => r.id === wanted);
+    const visible = Object.keys(got.blocks).some(t =>
+      got.blocks[t].some(r => r.id === wanted)
+    );
+
+    if (pos === 0) same++;
+    if (pos >= 0 && pos < 3) inTop3++;
+    if (visible) inVisible++;
+    else outOfSight.push({ v, wanted, pos, path, top: got.all[0].id });
+
+    if (pos !== 0) problems.push({ v, wanted, got: got.all[0].id, pos, visible, path });
 
     /* тревога, поднятая при полной подаче, но упущенная в диалоге — отдельный риск:
        справочник промолчал там, где при тех же ответах он бы предупредил */
@@ -96,8 +114,11 @@ function run() {
   console.log("ПРОГОН ВЫБОРА ВОПРОСОВ");
   console.log(L);
   console.log(`Случаев                    ${vign.length}`);
-  console.log(`Вершина совпала            ${same} из ${vign.length}`);
-  console.log(`Из них с заданным expectTop ${withExpectTop}`);
+  console.log(`Ожидаемое состояние осталось:`);
+  console.log(`  первым                   ${same} из ${vign.length}`);
+  console.log(`  в первой тройке          ${inTop3} из ${vign.length}`);
+  console.log(`  в видимой части выдачи   ${inVisible} из ${vign.length}`);
+  console.log(`Случаев с заданным expectTop ${withExpectTop}`);
   console.log(`Вопросов задано в среднем  ${(steps / vign.length).toFixed(1)} из ${MAX_STEPS}`);
   console.log(`Из них «не знаю»           ${asked ? Math.round((unknowns / asked) * 100) : 0} %`);
   console.log(`Ответов не спрошено        ${missed}`);
@@ -112,25 +133,39 @@ function run() {
     console.log(L);
   }
 
+  /* Расхождение вершины при живом ожидаемом состоянии в видимой части —
+     не потеря: при меньшем числе ответов другой порядок статей законен. */
   if (problems.length) {
-    console.log(`Вершина разошлась (справочно, сборку не роняет): ${problems.length}`);
-    problems.slice(0, 6).forEach(p => {
-      console.log(`  · ${p.v.id}  ${p.v.note}`);
-      console.log(`      ожидалось «${p.wanted}», получилось «${p.got}»`);
-      console.log(`      спрошено: ${p.path.join(" · ") || "ничего"}`);
-    });
-    if (problems.length > 6) console.log(`  · …и ещё ${problems.length - 6}`);
+    const soft = problems.filter(p => p.visible).length;
+    console.log(`Вершина разошлась: ${problems.length}, из них ожидаемое осталось видимым: ${soft} (справочно)`);
     console.log(L);
   }
 
-  if (alarmDrift.length > MAX_ALARM_LOST) {
+  /* А вот это потеря: ожидаемое состояние выпало из того, что человек видит. */
+  if (outOfSight.length) {
+    console.log(`ВЫПАЛО ИЗ ВИДИМОЙ ЧАСТИ: ${outOfSight.length}`);
+    outOfSight.forEach(p => {
+      console.log(`  ✗ ${p.v.id}  ${p.v.note}`);
+      console.log(`      «${p.wanted}» ${p.pos < 0 ? "исключено из списка" : "на месте " + (p.pos + 1)}, первым стоит «${p.top}»`);
+      console.log(`      спрошено: ${p.path.join(" · ") || "ничего"}`);
+    });
+    console.log(L);
+  }
+
+  const bad = [];
+  if (alarmDrift.length > MAX_ALARM_LOST)
+    bad.push(`тревог упущено ${alarmDrift.length}, допускается ${MAX_ALARM_LOST}`);
+  if (outOfSight.length > MAX_OUT_OF_SIGHT)
+    bad.push(`из видимой части выпало ${outOfSight.length}, допускается ${MAX_OUT_OF_SIGHT}`);
+
+  if (bad.length) {
     console.log("СТАЛО ХУЖЕ:");
-    console.log(`  ✗ тревог упущено ${alarmDrift.length}, допускается ${MAX_ALARM_LOST}`);
+    bad.forEach(b => console.log(`  ✗ ${b}`));
     console.log(L);
     process.exit(1);
   }
 
-  console.log("Диалог не теряет ни одной тревоги, поднятой при полной подаче.");
+  console.log("Диалог не теряет ни одной тревоги и ни одного ожидаемого состояния.");
   console.log(L);
 }
 

@@ -97,6 +97,37 @@ function zoneGroups(zoneId) {
 
 const syndromesOfZone = zoneId => syndromes.filter(s => s.zone === zoneId);
 
+/* ---------- силуэт ----------
+   Участки для отрисовки на мужском или женском силуэте.
+
+   Возвращаются ВСЕ участки, включая помеченные `sexOnly`. Это правило, а не
+   недоделка: силуэт — это вид, а не утверждение о человеке, и скрывать разделы
+   он не имеет права. `sexOnly` у участка влияет только на то, как он нарисован
+   (грудная железа на мужском силуэте выглядит иначе), но не на достижимость.
+
+   Цена нарушения посчитана: если убирать участки с чужим `sexOnly`, с мужского
+   силуэта пропадают ровно два раздела из 110 — «уплотнение в молочной железе»
+   и «боль в молочной железе». Других якорей у них нет. При этом в обоих лежит
+   гинекомастия с `sexOnly: "m"`, то есть раздел, написанный в том числе для
+   мужчины, и рак молочной железы без ограничения по полу вообще.
+
+   Фигура на четвёртом этапе обязана брать участки отсюда, а не фильтровать сама:
+   проверка на сборке считает достижимость именно по этой функции. */
+function subzonesForSilhouette() {
+  return anatomy.zones.flatMap(z =>
+    (z.subzones || []).map(sz => ({ zone: z, subzone: sz }))
+  );
+}
+
+/* Разделы, достижимые с силуэта. Должно быть все 110 для каждого из двух. */
+function syndromesOnSilhouette(sex) {
+  const seen = new Set();
+  subzonesForSilhouette(sex).forEach(({ subzone }) =>
+    (subzone.syndromes || []).forEach(id => seen.add(id))
+  );
+  return seen;
+}
+
 /* Вход symptom.list: жалобы, которые нельзя показать пальцем. */
 function symptomList() {
   const zone = anatomy.zones.find(z => z.id === "symptom");
@@ -123,6 +154,8 @@ module.exports = {
   zoneGroups,
   syndromesOfZone,
   symptomList,
+  subzonesForSilhouette,
+  syndromesOnSilhouette,
   slug,
   conditionPath,
   syndromePath,

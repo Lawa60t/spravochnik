@@ -83,6 +83,27 @@ function assertSexQuestions() {
   }
 }
 
+/* Силуэт не убирает разделы никогда.
+   Он вид, а не утверждение о человеке: скрыть раздел значит закрыть человеку
+   текст, написанный в том числе для него. Скрытие участков с чужим sexOnly
+   стоило бы двух разделов из 110 на мужском силуэте — «уплотнение в молочной
+   железе» и «боль в молочной железе», где лежат гинекомастия и рак молочной
+   железы без ограничения по полу. */
+function assertSilhouettes() {
+  const problems = [];
+  ["m", "f"].forEach(sex => {
+    const seen = D.syndromesOnSilhouette(sex);
+    const lost = D.syndromes.filter(s => !seen.has(s.id));
+    if (lost.length)
+      problems.push(`силуэт «${sex}»: недостижимо ${lost.length} — ${lost.slice(0, 6).map(s => s.id).join(", ")}`);
+  });
+  if (problems.length) {
+    console.error(`${L}\nСБОРКА ОСТАНОВЛЕНА: силуэт скрывает разделы\n${L}`);
+    problems.forEach(p => console.error(`  ✗ ${p}`));
+    process.exit(1);
+  }
+}
+
 /* Адреса, на которые уже ссылаются страницы, но которые собирает следующий этап.
    Список конечный и должен опустеть: пока он не пуст, публиковать нельзя —
    это ровно те 404 внутри оглавления, ради которых существует проверка ниже. */
@@ -185,6 +206,7 @@ function build() {
   assertSlugs();
   assertLinks();
   assertSexQuestions();
+  assertSilhouettes();
 
   fs.rmSync(dist, { recursive: true, force: true });
   fs.mkdirSync(dist, { recursive: true });
@@ -235,6 +257,7 @@ function build() {
   console.log(`Статей о состояниях        ${D.conditions.length}`);
   console.log(`Разделов справочника       ${D.syndromes.length}`);
   console.log(`Областей тела              ${D.map.zones.length}`);
+  console.log(`Разделов с каждого силуэта ${D.syndromesOnSilhouette("m").size} и ${D.syndromesOnSilhouette("f").size} из ${D.syndromes.length}`);
   console.log(`Служебных страниц          ${written.length - D.conditions.length - D.syndromes.length - D.map.zones.length}`);
   console.log(`Всего страниц              ${written.length}`);
   console.log(`Внутренних ссылок          ${links}, битых нет`);
