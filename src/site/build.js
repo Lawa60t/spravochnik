@@ -1,0 +1,184 @@
+#!/usr/bin/env node
+"use strict";
+/* Сборка статического сайта из замороженной базы.
+   Ни одной зависимости: читает data/, пишет dist/.
+   data/ только читается — сборка не имеет права ничего там менять.
+
+   Первый этап: статьи, разделы, указатель, главная и две страницы слоя безопасности.
+   Фигуры и уточняющих шагов здесь нет — это второй и третий уровни доступа. */
+const fs = require("fs");
+const path = require("path");
+
+const cfg = require("./config");
+const D = require("./data");
+const conditionPage = require("./pages/condition");
+const syndromePage = require("./pages/syndrome");
+const ukazatelPage = require("./pages/ukazatel");
+const homePage = require("./pages/home");
+const { notSearchedHerePage, noMatchPage } = require("./pages/plain");
+
+const root = path.join(__dirname, "..", "..");
+const dist = path.join(root, "dist");
+
+const L = "─".repeat(58);
+const written = [];
+
+function write(urlPath, html) {
+  const rel = urlPath === "/" ? "index.html" : path.join(urlPath.replace(/^\/|\/$/g, ""), "index.html");
+  const file = path.join(dist, rel);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, html, "utf8");
+  written.push({ urlPath, file });
+}
+
+/* ---------- проверки до сборки ---------- */
+function assertSlugs() {
+  const seen = new Map();
+  const problems = [];
+
+  const claim = (id, slug, kind) => {
+    const key = `${kind}:${slug}`;
+    if (seen.has(key)) problems.push(`слаг «${slug}» занят дважды: ${seen.get(key)} и ${id}`);
+    seen.set(key, id);
+    if (!/^[a-z0-9-]+$/.test(slug)) problems.push(`слаг «${slug}» (${id}) содержит недопустимые символы`);
+    if (slug.replace(/-/g, ".") !== id && D.slug(id) !== slug) problems.push(`слаг «${slug}» не выводится из id ${id}`);
+  };
+
+  D.conditions.forEach(c => claim(c.id, D.slug(c.id), "cond"));
+  D.syndromes.forEach(s => claim(s.id, D.slug(s.id), "syn"));
+
+  if (problems.length) {
+    console.error(`${L}\nСБОРКА ОСТАНОВЛЕНА: адреса\n${L}`);
+    problems.forEach(p => console.error(`  ✗ ${p}`));
+    process.exit(1);
+  }
+}
+
+/* Битая ссылка на статью из раздела превратилась бы в 404 внутри оглавления. */
+function assertLinks() {
+  const problems = [];
+  D.syndromes.forEach(s =>
+    s.candidates.forEach(c => {
+      if (!D.conditionById.has(c.condition)) problems.push(`${s.id} → нет статьи «${c.condition}»`);
+    })
+  );
+  if (problems.length) {
+    console.error(`${L}\nСБОРКА ОСТАНОВЛЕНА: битые ссылки\n${L}`);
+    problems.forEach(p => console.error(`  ✗ ${p}`));
+    process.exit(1);
+  }
+}
+
+/* Каждая внутренняя ссылка обязана вести на собранную страницу.
+   Без JavaScript ссылки — единственная навигация, и опечатка в шаблоне
+   превращается в 404 внутри оглавления. */
+function verifyLinks() {
+  const targets = new Set(written.map(w => w.urlPath));
+  targets.add("/style.css");
+  const broken = new Map();
+  let total = 0;
+
+  written.forEach(w => {
+    const html = fs.readFileSync(w.file, "utf8");
+    (html.match(/href="([^"]+)"/g) || []).forEach(m => {
+      const url = m.slice(6, -1);
+      if (!url.startsWith("/") || url.startsWith("//")) return;
+      total++;
+      if (!targets.has(url)) broken.set(url, (broken.get(url) || []).concat(w.urlPath));
+    });
+  });
+
+  if (broken.size) {
+    console.error(`${L}\nСБОРКА ОСТАНОВЛЕНА: ссылки в никуда\n${L}`);
+    [...broken.entries()].slice(0, 20).forEach(([url, from]) =>
+      console.error(`  ✗ ${url} — со страниц: ${from.slice(0, 3).join(", ")}${from.length > 3 ? ` и ещё ${from.length - 3}` : ""}`)
+    );
+    process.exit(1);
+  }
+  return total;
+}
+
+/* ---------- sitemap и robots ---------- */
+function sitemap(origin, updated) {
+  const urls = [
+    { loc: "/", lastmod: updated },
+    { loc: "/ukazatel/", lastmod: updated },
+    { loc: "/chto-ne-razbiraem/", lastmod: D.redflags.updated || updated },
+    { loc: "/moego-sluchaya-net/", lastmod: D.redflags.updated || updated },
+    ...D.conditions.map(c => ({ loc: D.conditionPath(c.id), lastmod: c.updated })),
+    ...D.syndromes.map(s => ({ loc: D.syndromePath(s.id), lastmod: s.updated }))
+  ];
+  const base = origin.replace(/\/$/, "");
+  return (
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    urls
+      .map(u => `  <url><loc>${base}${u.loc}</loc><lastmod>${u.lastmod}</lastmod></url>`)
+      .join("\n") +
+    "\n</urlset>\n"
+  );
+}
+
+function robots(origin) {
+  return `User-agent: *\nAllow: /\n\nSitemap: ${origin.replace(/\/$/, "")}/sitemap.xml\n`;
+}
+
+/* ---------- сборка ---------- */
+function build() {
+  assertSlugs();
+  assertLinks();
+
+  fs.rmSync(dist, { recursive: true, force: true });
+  fs.mkdirSync(dist, { recursive: true });
+
+  /* «Дата последнего обновления материалов» в подвале — самая свежая дата в базе. */
+  const updated = D.conditions
+    .map(c => c.updated)
+    .concat(D.syndromes.map(s => s.updated))
+    .sort()
+    .pop();
+
+  write("/", homePage(updated));
+  write("/ukazatel/", ukazatelPage(updated));
+  write("/chto-ne-razbiraem/", notSearchedHerePage(updated));
+  write("/moego-sluchaya-net/", noMatchPage(updated));
+  D.conditions.forEach(c => write(D.conditionPath(c.id), conditionPage(c, updated)));
+  D.syndromes.forEach(s => write(D.syndromePath(s.id), syndromePage(s, updated)));
+
+  fs.copyFileSync(path.join(__dirname, "assets", "style.css"), path.join(dist, "style.css"));
+  fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap(cfg.origin, updated), "utf8");
+  fs.writeFileSync(path.join(dist, "robots.txt"), robots(cfg.origin), "utf8");
+
+  const links = verifyLinks();
+
+  const bytes = written.reduce((a, w) => a + fs.statSync(w.file).size, 0);
+
+  console.log(L);
+  console.log("СБОРКА САЙТА");
+  console.log(L);
+  console.log(`Статей о состояниях        ${D.conditions.length}`);
+  console.log(`Разделов справочника       ${D.syndromes.length}`);
+  console.log(`Служебных страниц          4`);
+  console.log(`Всего страниц              ${written.length}`);
+  console.log(`Внутренних ссылок          ${links}, битых нет`);
+  console.log(`Объём HTML                 ${(bytes / 1024 / 1024).toFixed(2)} МБ`);
+  console.log(`Скриптов на страницах      0`);
+  console.log(L);
+
+  const warn = [];
+  if (cfg.origin === cfg.PLACEHOLDER_ORIGIN)
+    warn.push(`origin — заглушка (${cfg.origin}). Канонические адреса и sitemap.xml публиковать нельзя, пока не выбран домен.`);
+  if (cfg.errorMail === cfg.PLACEHOLDER_MAIL)
+    warn.push(`адрес для «здесь ошибка» — заглушка (${cfg.errorMail}).`);
+  if (/Фамилия|000000000000000|example\.ru/.test(JSON.stringify(cfg.owner)))
+    warn.push("сведения о владельце в подвале — заглушка.");
+
+  if (warn.length) {
+    console.log("До публикации заполнить:");
+    warn.forEach(w => console.log(`  ! ${w}`));
+    console.log(L);
+  }
+}
+
+if (require.main === module) build();
+module.exports = { build };

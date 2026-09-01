@@ -5,6 +5,9 @@
   "description": "Медицинская энциклопедия с оглавлением в виде модели тела",
   "scripts": {
     "validate": "node tools/validate.js",
-    "test": "node src/engine.js"
+    "test": "node src/engine.js",
+    "check:anatomy": "node tools/check-anatomy.js",
+    "lint:words": "node tools/lint-words.js",
+    "build": "node tools/check-anatomy.js && node src/site/build.js && node tools/lint-words.js"
   }
 }
