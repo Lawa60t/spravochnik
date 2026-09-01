@@ -1,0 +1,1299 @@
+<title>Энциклопедия здоровья EZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --ground:#EDF1F0; --surface:#FFFFFF; --surface-2:#F4F8F7;
+  --ink:#0F1F1C; --ink-2:#48605B; --ink-3:#7A8F8A;
+  --rule:#CFDAD7; --rule-soft:#E2EAE8;
+  --accent:#0D5851; --accent-2:#118A7E; --accent-soft:#DFEDEA;
+  --danger:#A02234; --danger-soft:#F8E6E8;
+  --warn:#875B0B; --warn-soft:#F6EEDD;
+  --ok:#2B6337; --ok-soft:#E4EFE5;
+  --body-fill:#C9D9D5; --body-line:#93AEA8; --btn-fg:#FFFFFF;
+  --skin-hi:#F3DDCB; --skin-mid:#E4C4AC; --skin-lo:#C7A084; --skin-line:#A9846A;
+  --hair:#4A3A2E;
+  --shadow:0 1px 2px rgba(15,31,28,.05), 0 12px 32px -18px rgba(15,31,28,.3);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0A1211; --surface:#111A18; --surface-2:#16211F;
+    --ink:#E4ECE9; --ink-2:#9CB1AC; --ink-3:#6C817C;
+    --rule:#26332F; --rule-soft:#1B2724;
+    --accent:#5DBAAD; --accent-2:#7FD0C4; --accent-soft:#152B28;
+    --danger:#E4788A; --danger-soft:#2B1A1E;
+    --warn:#D3A44E; --warn-soft:#2A2214;
+    --ok:#6FBF7D; --ok-soft:#152318;
+    --body-fill:#1E2C29; --body-line:#334742; --btn-fg:#08110F;
+    --skin-hi:#9A7B66; --skin-mid:#82634F; --skin-lo:#634A3B; --skin-line:#4A362B;
+    --hair:#2A211A;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -18px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0A1211; --surface:#111A18; --surface-2:#16211F;
+  --ink:#E4ECE9; --ink-2:#9CB1AC; --ink-3:#6C817C;
+  --rule:#26332F; --rule-soft:#1B2724;
+  --accent:#5DBAAD; --accent-2:#7FD0C4; --accent-soft:#152B28;
+  --danger:#E4788A; --danger-soft:#2B1A1E;
+  --warn:#D3A44E; --warn-soft:#2A2214;
+  --ok:#6FBF7D; --ok-soft:#152318;
+  --body-fill:#1E2C29; --body-line:#334742; --btn-fg:#08110F;
+  --skin-hi:#9A7B66; --skin-mid:#82634F; --skin-lo:#634A3B; --skin-line:#4A362B;
+  --hair:#2A211A;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -18px rgba(0,0,0,.9);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* ---- chrome ---- */
+.topbar{
+  border-bottom:1px solid var(--rule); background:var(--surface);
+  position:sticky; top:0; z-index:40;
+}
+.topbar-in{
+  max-width:1080px; margin:0 auto; padding:12px 22px;
+  display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+}
+.brand{display:flex; align-items:baseline; gap:10px; margin-right:auto}
+.brand .mark{
+  font-family:Spectral,Georgia,serif; font-weight:700; font-size:1.45rem;
+  letter-spacing:-.02em; color:var(--accent);
+}
+.brand .sub{font-size:13px; color:var(--ink-3); letter-spacing:.01em}
+.demo-flag{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:10px;
+  letter-spacing:.12em; text-transform:uppercase;
+  background:var(--warn-soft); color:var(--warn);
+  border:1px solid var(--warn); padding:3px 8px; border-radius:2px;
+}
+.ghost-btn{
+  font:inherit; font-size:13px; background:none; border:1px solid var(--rule);
+  color:var(--ink-2); padding:5px 12px; cursor:pointer; border-radius:2px;
+}
+.ghost-btn:hover{border-color:var(--accent); color:var(--accent)}
+
+/* ---- crumbs ---- */
+.crumbs{
+  max-width:1080px; margin:0 auto; padding:12px 22px 0;
+  display:flex; gap:7px; flex-wrap:wrap; align-items:center;
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11px;
+  letter-spacing:.05em;
+}
+.crumb{
+  background:var(--surface); border:1px solid var(--rule);
+  padding:3px 9px; color:var(--ink-2); border-radius:2px;
+}
+.crumb button{all:unset; cursor:pointer; color:inherit}
+.crumb button:hover{color:var(--accent)}
+.crumb-sep{color:var(--ink-3)}
+
+/* ---- layout ---- */
+main{max-width:1080px; margin:0 auto; padding:26px 22px 90px}
+.screen{display:none}
+.screen.on{display:block; animation:fade .28s ease}
+@keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+@media (prefers-reduced-motion:reduce){.screen.on{animation:none}}
+
+h1{
+  font-family:Spectral,Georgia,serif; font-weight:700;
+  font-size:clamp(1.9rem,4.4vw,2.8rem); line-height:1.08; letter-spacing:-.02em;
+  margin:0 0 14px; text-wrap:balance;
+}
+h2{
+  font-family:Spectral,Georgia,serif; font-weight:600;
+  font-size:clamp(1.35rem,3vw,1.8rem); line-height:1.15; letter-spacing:-.012em;
+  margin:0 0 10px; text-wrap:balance;
+}
+h3{font-size:1rem; font-weight:600; margin:26px 0 10px}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--accent);
+  display:block; margin-bottom:12px;
+}
+.sub{color:var(--ink-2); max-width:62ch; margin:0 0 24px}
+p{margin:0 0 14px; max-width:66ch}
+
+/* ---- login ---- */
+.login-wrap{
+  display:grid; gap:38px; align-items:center; padding:34px 0 10px;
+}
+@media (min-width:860px){.login-wrap{grid-template-columns:1.15fr .85fr}}
+.login-card{
+  background:var(--surface); border:1px solid var(--rule);
+  box-shadow:var(--shadow); padding:26px 26px 28px;
+}
+.login-card h3{margin:0 0 4px; font-size:1.05rem}
+.field{display:block; margin:16px 0 0}
+.field span{
+  display:block; font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-3); margin-bottom:5px;
+}
+.field input{
+  width:100%; font:inherit; font-size:15px; padding:9px 11px;
+  border:1px solid var(--rule); background:var(--surface-2); color:var(--ink);
+  border-radius:2px;
+}
+.field input:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent)}
+.btn{
+  font:inherit; font-weight:600; font-size:15px; cursor:pointer;
+  background:var(--accent); color:var(--btn-fg); border:1px solid var(--accent);
+  padding:11px 22px; border-radius:2px; margin-top:20px; width:100%;
+}
+.btn:hover{background:var(--accent-2); border-color:var(--accent-2)}
+.btn.sec{background:none; color:var(--accent); margin-top:10px}
+.btn.sec:hover{background:var(--accent-soft); color:var(--accent)}
+.fineprint{font-size:12.5px; color:var(--ink-3); margin:14px 0 0; line-height:1.5}
+
+/* ---- disclaimer ---- */
+.disclaim{
+  border:1px solid var(--danger); background:var(--danger-soft);
+  border-left-width:4px; padding:16px 20px; margin:0 0 22px; max-width:70ch;
+}
+.disclaim .t{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:10.5px;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--danger);
+  display:block; margin-bottom:7px;
+}
+.disclaim p{margin:0; font-size:14.5px; line-height:1.55}
+.disclaim p + p{margin-top:9px}
+
+/* ---- choice grids ---- */
+.choices{display:grid; gap:10px; margin:0 0 22px; max-width:640px}
+.choices.two{grid-template-columns:1fr 1fr}
+.choice{
+  font:inherit; text-align:left; cursor:pointer;
+  background:var(--surface); border:1px solid var(--rule); color:var(--ink);
+  padding:14px 16px; border-radius:2px; display:flex; align-items:center; gap:12px;
+  transition:border-color .14s, background .14s;
+}
+.choice:hover{border-color:var(--accent); background:var(--accent-soft)}
+.choice.sel{border-color:var(--accent); background:var(--accent-soft); box-shadow:inset 3px 0 0 var(--accent)}
+.choice b{font-weight:600; display:block}
+.choice small{display:block; color:var(--ink-3); font-size:12.5px; line-height:1.45; margin-top:2px}
+
+/* ---- sex pick ---- */
+.sexes{display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:560px}
+.sexcard{
+  font:inherit; cursor:pointer; background:var(--surface); border:1px solid var(--rule);
+  padding:18px 12px 14px; display:flex; flex-direction:column; align-items:center; gap:10px;
+  border-radius:2px; color:var(--ink); transition:border-color .14s, background .14s;
+}
+.sexcard:hover{border-color:var(--accent); background:var(--accent-soft)}
+.sexcard svg{width:100%; height:auto; max-height:300px}
+.sexcard .lbl{font-family:Spectral,Georgia,serif; font-size:1.2rem; font-weight:600}
+
+/* ---- age ---- */
+.agebox{background:var(--surface); border:1px solid var(--rule); padding:24px; max-width:560px}
+.agebig{
+  font-family:Spectral,Georgia,serif; font-size:3.2rem; font-weight:700;
+  line-height:1; font-variant-numeric:tabular-nums; margin-bottom:2px;
+}
+.agebig small{font-size:1rem; font-family:"IBM Plex Sans",sans-serif; font-weight:400; color:var(--ink-3)}
+input[type=range]{width:100%; margin:18px 0 6px; accent-color:var(--accent)}
+.agescale{display:flex; justify-content:space-between; font-size:11px; color:var(--ink-3)}
+
+/* ---- body map ---- */
+.mapwrap{
+  display:grid; gap:26px; align-items:start;
+}
+@media (min-width:820px){.mapwrap{grid-template-columns:minmax(0,340px) minmax(0,1fr)}}
+.stage{
+  background:var(--surface); border:1px solid var(--rule);
+  padding:16px; display:flex; justify-content:center; box-shadow:var(--shadow);
+}
+.stage svg{width:100%; height:auto; max-height:620px}
+.bodyshape{fill:var(--body-fill); stroke:var(--body-line); stroke-width:1.5}
+.limb{stroke:var(--body-line); fill:none; stroke-linecap:round; stroke-linejoin:round}
+.limb-fill{stroke:var(--body-fill); fill:none; stroke-linecap:round; stroke-linejoin:round}
+.zone{
+  fill:transparent; stroke:none; cursor:pointer;
+  transition:fill .12s;
+}
+.zone:hover, .zone:focus{fill:var(--accent); fill-opacity:.34; outline:none}
+.zone.off{cursor:not-allowed}
+.zone.off:hover{fill:var(--ink-3); fill-opacity:.22}
+.zone.live:hover{fill:var(--accent); fill-opacity:.4}
+.readout{
+  background:var(--surface-2); border:1px solid var(--rule);
+  padding:14px 16px; min-height:96px;
+}
+.readout .z{
+  font-family:Spectral,Georgia,serif; font-size:1.25rem; font-weight:600;
+  margin:0 0 4px; line-height:1.2;
+}
+.readout .s{font-size:13.5px; color:var(--ink-2); margin:0}
+.readout .idle{color:var(--ink-3); font-size:14px; margin:0}
+.hint{
+  font-size:13px; color:var(--ink-3); margin:14px 0 0; line-height:1.5;
+  border-left:2px solid var(--rule); padding-left:12px;
+}
+.zonelist{display:grid; gap:6px; margin:16px 0 0}
+.zonelist button{
+  all:unset; cursor:pointer; font-size:13.5px; color:var(--ink-2);
+  padding:6px 10px; border:1px solid transparent; border-radius:2px;
+}
+.zonelist button:hover{color:var(--accent); border-color:var(--rule); background:var(--surface)}
+.zonelist button[disabled]{color:var(--ink-3); cursor:not-allowed; opacity:.6}
+
+/* ---- question ---- */
+.qcount{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11px;
+  letter-spacing:.1em; color:var(--ink-3); margin-bottom:10px; display:block;
+}
+
+/* ---- results ---- */
+.alarm{
+  border:2px solid var(--danger); background:var(--danger-soft);
+  padding:22px 24px; margin:0 0 26px; max-width:72ch;
+}
+.alarm h2{color:var(--danger); margin-bottom:8px}
+.alarm .phone{
+  font-family:Spectral,Georgia,serif; font-size:2.4rem; font-weight:700;
+  color:var(--danger); line-height:1; margin:12px 0 6px; font-variant-numeric:tabular-nums;
+}
+.alarm p{font-size:15px; margin-bottom:8px}
+.resblock{margin:0 0 34px}
+.resblock > .cap{
+  display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+  border-bottom:1px solid var(--rule); padding-bottom:8px; margin-bottom:16px;
+}
+.resblock .cap h3{
+  margin:0; font-family:Spectral,Georgia,serif; font-weight:600; font-size:1.25rem;
+}
+.resblock .cap .note{font-size:12.5px; color:var(--ink-3)}
+.resblock.crit .cap h3{color:var(--danger)}
+.item{
+  background:var(--surface); border:1px solid var(--rule);
+  border-left:3px solid var(--rule); margin:0 0 8px; max-width:72ch;
+}
+.item.crit{border-left-color:var(--danger)}
+.item.freq{border-left-color:var(--accent)}
+.item.rare{border-left-color:var(--ink-3)}
+.item > summary{
+  cursor:pointer; padding:13px 18px; display:flex; gap:12px;
+  align-items:baseline; justify-content:space-between; flex-wrap:wrap;
+  list-style:none;
+}
+.item > summary::-webkit-details-marker{display:none}
+.item > summary:hover{background:var(--surface-2)}
+.item .nm{font-family:Spectral,Georgia,serif; font-size:1.12rem; font-weight:600; line-height:1.2}
+.item .icd{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px; color:var(--ink-3)}
+.item .body{padding:2px 18px 18px; border-top:1px solid var(--rule-soft)}
+.item dl{margin:14px 0 0; display:grid; gap:11px}
+.item dt{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:10px;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:3px;
+}
+.item dd{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink-2)}
+.item dd.urgent{color:var(--danger)}
+.item .src{
+  margin-top:14px; padding-top:10px; border-top:1px solid var(--rule-soft);
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:10.5px;
+  color:var(--ink-3); line-height:1.5;
+}
+.match{display:flex; flex-wrap:wrap; gap:5px; margin-top:3px}
+.match span{
+  font-size:12px; background:var(--accent-soft); color:var(--accent);
+  border:1px solid var(--accent); padding:2px 7px; border-radius:2px;
+}
+.match span.neg{background:var(--surface-2); color:var(--ink-3); border-color:var(--rule)}
+
+/* ---- summary box ---- */
+.tellbox{
+  background:var(--surface); border:1px solid var(--accent); padding:20px 22px;
+  max-width:72ch; box-shadow:var(--shadow);
+}
+.tellbox h3{margin:0 0 10px; font-family:Spectral,Georgia,serif; font-size:1.2rem; font-weight:600}
+.telltext{
+  background:var(--surface-2); border:1px solid var(--rule-soft);
+  padding:14px 16px; font-size:14px; line-height:1.62; white-space:pre-wrap;
+  font-family:"IBM Plex Mono",ui-monospace,monospace; overflow-x:auto;
+}
+.rowbtns{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+.rowbtns .btn{width:auto; margin-top:0; font-size:14px; padding:9px 18px}
+
+.footnote{
+  margin-top:40px; padding-top:20px; border-top:1px solid var(--rule);
+  font-size:13px; color:var(--ink-3); line-height:1.6; max-width:72ch;
+}
+.footnote strong{color:var(--ink-2)}
+.navrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:26px}
+.navrow .btn{width:auto; margin-top:0}
+</style>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <span class="mark">EZ<span style="color:var(--ink-3)">.net</span></span>
+      <span class="sub">Энциклопедия здоровья</span>
+    </div>
+    <span class="demo-flag">Прототип · содержание демонстрационное</span>
+    <button class="ghost-btn" id="restart" hidden>Начать заново</button>
+  </div>
+</div>
+
+<div class="crumbs" id="crumbs" hidden></div>
+
+<main>
+
+<!-- ================= 0. ВХОД ================= -->
+<section class="screen on" id="s-login">
+  <div class="login-wrap">
+    <div>
+      <span class="eyebrow">Справочно-информационный ресурс</span>
+      <h1>Найдите то, что вас беспокоит, показав пальцем</h1>
+      <p class="sub">Обычная медицинская энциклопедия с необычным оглавлением: вместо алфавитного указателя — модель человеческого тела. Выберите область, опишите ощущение — справочник откроется на нужной странице.</p>
+
+      <div class="disclaim">
+        <span class="t">Прочтите до входа</span>
+        <p>Этот сайт <strong>не ставит диагнозов</strong> и не заменяет осмотр врача. Он показывает, при каких состояниях встречается описанное сочетание жалоб, — не более того. Совпадение описания не означает, что у вас именно это.</p>
+        <p>Здесь нет назначений, лекарств и дозировок. Если вам плохо прямо сейчас — закройте страницу и вызовите скорую по номеру <strong>103</strong> (с мобильного — <strong>112</strong>).</p>
+      </div>
+    </div>
+
+    <div class="login-card">
+      <h3>Вход в справочник</h3>
+      <p class="fineprint" style="margin-top:2px">Демонстрация: поля не работают, данные никуда не отправляются.</p>
+      <label class="field"><span>Логин</span><input type="text" autocomplete="off" placeholder="ваш логин"></label>
+      <label class="field"><span>Пароль</span><input type="password" autocomplete="off" placeholder="••••••••"></label>
+      <button class="btn" data-go="s-sex">Войти в демонстрацию</button>
+      <button class="btn sec" data-go="s-sex">Посмотреть без входа</button>
+      <p class="fineprint">Как это устроено в прототипе: ни логина, ни оплаты нет. Кнопка ведёт прямо в справочник — экран показан, чтобы обсудить саму идею платного доступа.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 1. ПОЛ ================= -->
+<section class="screen" id="s-sex">
+  <span class="eyebrow">Шаг 1 из 5</span>
+  <h2>Выберите модель</h2>
+  <p class="sub">Пол влияет на то, какие состояния вообще попадают в список, и насколько они часты.</p>
+
+  <div class="sexes">
+    <button class="sexcard" data-sex="m">
+      <svg viewBox="0 0 280 720" aria-hidden="true">
+        <g class="mini"></g>
+      </svg>
+      <span class="lbl">Мужчина</span>
+    </button>
+    <button class="sexcard" data-sex="f">
+      <svg viewBox="0 0 280 720" aria-hidden="true">
+        <g class="mini"></g>
+      </svg>
+      <span class="lbl">Женщина</span>
+    </button>
+  </div>
+</section>
+
+<!-- ================= 2. ВОЗРАСТ ================= -->
+<section class="screen" id="s-age">
+  <span class="eyebrow">Шаг 2 из 5</span>
+  <h2>Сколько вам лет</h2>
+  <p class="sub">Возраст меняет порядок списка сильнее всего остального: одна и та же боль в 22 года и в 65 разбирается по-разному.</p>
+
+  <div class="agebox">
+    <div class="agebig" id="ageOut">38 <small>лет</small></div>
+    <input type="range" id="ageRange" min="1" max="95" value="38" aria-label="Возраст">
+    <div class="agescale"><span>1</span><span>25</span><span>50</span><span>75</span><span>95</span></div>
+    <button class="btn" id="ageNext">Дальше</button>
+  </div>
+</section>
+
+<!-- ================= 3. ОБЛАСТЬ ================= -->
+<section class="screen" id="s-map">
+  <span class="eyebrow">Шаг 3 из 5</span>
+  <h2>Выберите интересующую область</h2>
+  <p class="sub">Наведите курсор на модель и выберите место, которое беспокоит. В этом прототипе полностью разобрана одна область — рёбра и подреберье справа.</p>
+
+  <div class="mapwrap">
+    <div class="stage">
+      <svg viewBox="0 0 280 720" id="mapSvg" role="group" aria-label="Модель тела"></svg>
+    </div>
+    <div>
+      <div class="readout" id="readout">
+        <p class="idle">Наведите на область тела — здесь появится её название.</p>
+      </div>
+      <p class="hint">Модель повёрнута лицом к вам. <strong>Правая сторона тела — слева на экране</strong>, как при осмотре.</p>
+      <div class="zonelist" id="zonelist"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. КРУПНЫЙ ПЛАН ================= -->
+<section class="screen" id="s-zoom">
+  <span class="eyebrow">Шаг 4 из 5</span>
+  <h2>Рёбра и подреберье справа — крупный план</h2>
+  <p class="sub">Уточните место точнее: под рёберной дугой, по боковой поверхности, у грудины или по нижним рёбрам сзади.</p>
+
+  <div class="mapwrap">
+    <div class="stage">
+      <svg viewBox="0 0 300 340" id="zoomSvg" role="group" aria-label="Крупный план правой половины грудной клетки"></svg>
+    </div>
+    <div>
+      <div class="readout" id="zreadout">
+        <p class="idle">Наведите на участок — здесь появится его название.</p>
+      </div>
+      <div class="zonelist" id="zsublist"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. ОЩУЩЕНИЕ ================= -->
+<section class="screen" id="s-feel">
+  <span class="eyebrow">Шаг 5 из 5</span>
+  <h2>Что именно вы чувствуете</h2>
+  <p class="sub">Выберите то, что ближе всего. Если подходит несколько — выберите самое сильное.</p>
+  <div class="choices" id="feelList"></div>
+</section>
+
+<!-- ================= 6. ВОПРОСЫ ================= -->
+<section class="screen" id="s-q">
+  <span class="qcount mono" id="qcount"></span>
+  <h2 id="qtitle"></h2>
+  <p class="sub" id="qsub"></p>
+  <div class="choices" id="qList"></div>
+</section>
+
+<!-- ================= 7. РЕЗУЛЬТАТ ================= -->
+<section class="screen" id="s-res">
+  <div id="alarmSlot"></div>
+
+  <span class="eyebrow">Раздел справочника</span>
+  <h2 id="resTitle">Боль в правом подреберье</h2>
+  <p class="sub" id="resSub"></p>
+
+  <div id="resBlocks"></div>
+
+  <div class="tellbox">
+    <h3>Что сказать врачу</h3>
+    <p style="font-size:14px; color:var(--ink-2); margin-bottom:12px">Ваши ответы, собранные в том виде, в каком их спросят на приёме. Скопируйте или покажите с экрана.</p>
+    <div class="telltext" id="tellText"></div>
+    <div class="rowbtns">
+      <button class="btn" id="copyBtn">Скопировать</button>
+      <button class="btn sec" data-go="s-map">Выбрать другую область</button>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <p><strong>Ещё раз, коротко.</strong> Это перечень состояний, при которых встречается описанное сочетание жалоб, составленный по клиническим рекомендациям. Это не ваш диагноз и не заключение. Порядок в списке — не порядок вероятности для вас лично.</p>
+    <p><strong>О прототипе.</strong> Содержание демонстрационное и не проверено врачом. В рабочей версии каждая статья открывается по постоянному адресу, имеет ссылку на источник, дату и отметку о проверке.</p>
+  </div>
+</section>
+
+</main>
+
+<script>
+"use strict";
+
+/* ============================================================
+   ФИГУРЫ
+   ============================================================ */
+/* Анатомическая фигура, вид спереди. Пропорции 7,5 головы.
+   viewBox 0 0 280 720. Осевая линия x = 140.
+   Ориентиры (ключицы, рёберная дуга, гребни таза) нарисованы не для красоты:
+   по ним человек находит место, которое у него болит. */
+function figure(sex, uid){
+  const f = (sex === "f");
+  const id = "g" + (uid || sex);
+  const M = 280; // ширина viewBox, для зеркалирования: x' = M - x
+
+  const T_M = "M140 138 C126 138 112 145 102 157 C93 167 85 175 85 190 C85 210 86 232 89 252 " +
+              "C92 272 97 286 98 300 C99 318 96 330 95 342 C93 358 90 368 90 382 " +
+              "C90 400 91 416 94 432 L186 432 C189 416 190 400 190 382 C190 368 187 358 185 342 " +
+              "C184 330 181 318 182 300 C183 286 188 272 191 252 C194 232 195 210 195 190 " +
+              "C195 175 187 167 178 157 C168 145 154 138 140 138 Z";
+
+  const T_F = "M140 140 C130 140 118 147 110 158 C102 168 94 176 94 192 C94 210 95 230 97 250 " +
+              "C99 268 104 286 106 300 C107 318 103 330 100 342 C96 358 90 368 88 382 " +
+              "C86 400 88 416 92 432 L188 432 C192 416 194 400 192 382 C190 368 184 358 180 342 " +
+              "C177 330 173 318 174 300 C176 286 181 268 183 250 C185 230 186 210 186 192 " +
+              "C186 176 178 168 170 158 C162 147 150 140 140 140 Z";
+
+  const HEAD_M = "M140 24 C161 24 172 41 172 63 C172 81 167 96 158 104 C152 109 147 113 140 113 " +
+                 "C133 113 128 109 122 104 C113 96 108 81 108 63 C108 41 119 24 140 24 Z";
+  const HEAD_F = "M140 26 C159 26 169 42 169 63 C169 80 164 95 156 103 C151 108 146 112 140 112 " +
+                 "C134 112 129 108 124 103 C116 95 111 80 111 63 C111 42 121 26 140 26 Z";
+
+  const HAIR_M = "M107 62 C106 34 119 21 140 21 C161 21 174 34 173 62 C171 52 166 45 156 42 " +
+                 "C147 39 132 39 122 43 C113 46 109 53 107 62 Z";
+  const HAIR_F = "M110 64 C109 33 121 21 140 21 C159 21 171 33 170 64 C170 77 172 89 175 98 " +
+                 "L167 100 C163 90 163 74 162 62 C151 57 129 57 118 62 C117 74 117 90 113 100 " +
+                 "L105 98 C108 89 110 77 110 64 Z";
+
+  /* координаты суставов */
+  const shX  = f ? 92 : 82;    const shY = 186;   // плечевой сустав
+  const elX  = f ? 76 : 63;    const elY = 322;   // локоть
+  const wrX  = f ? 66 : 51;    const wrY = 442;   // запястье
+  const upW  = f ? 31 : 37;    const foW = f ? 25 : 30;
+  const hipX = f ? 111 : 113;  const hipY = 414;
+  const knX  = f ? 107 : 107;  const knY = 550;
+  const anX  = f ? 103 : 101;  const anY = 664;
+  const thW  = f ? 52 : 55;    const caW = f ? 34 : 38;
+
+  const mir = function(x){ return M - x; };
+  let s = "";
+
+  /* --- градиенты: объём за счёт светлой полосы слева от центра --- */
+  s += '<defs>' +
+    '<linearGradient id="' + id + 'sk" x1="0" y1="0" x2="1" y2="0">' +
+      '<stop offset="0" stop-color="var(--skin-lo)"/>' +
+      '<stop offset=".26" stop-color="var(--skin-hi)"/>' +
+      '<stop offset=".64" stop-color="var(--skin-mid)"/>' +
+      '<stop offset="1" stop-color="var(--skin-lo)"/>' +
+    '</linearGradient>' +
+    '<linearGradient id="' + id + 'skl" x1="0" y1="0" x2="1" y2="0">' +
+      '<stop offset="0" stop-color="var(--skin-lo)"/>' +
+      '<stop offset=".34" stop-color="var(--skin-hi)"/>' +
+      '<stop offset="1" stop-color="var(--skin-lo)"/>' +
+    '</linearGradient>' +
+  '</defs>';
+
+  const SK  = 'fill="url(#' + id + 'sk)" stroke="var(--skin-lo)" stroke-width="1.1" stroke-opacity=".55"';
+  const LINE = 'fill="none" stroke="var(--skin-line)" stroke-linecap="round"';
+  /* конечность: тёмный контур снизу, светлый цилиндр сверху */
+  function limb(x1, y1, x2, y2, w){
+    const d = 'M' + x1 + ' ' + y1 + ' L' + x2 + ' ' + y2 + '"';
+    return '<path fill="none" stroke="var(--skin-lo)" stroke-opacity=".55" stroke-linecap="round" stroke-width="' +
+             (w + 2.2) + '" d="' + d + '/>' +
+           '<path fill="none" stroke="url(#' + id + 'skl)" stroke-linecap="round" stroke-width="' +
+             w + '" d="' + d + '/>';
+  }
+
+  /* --- ноги (под торсом) --- */
+  [hipX, mir(hipX)].forEach(function(hx, i){
+    const kx = i ? mir(knX) : knX, ax = i ? mir(anX) : anX;
+    s += limb(hx, hipY, kx, knY, thW);
+    s += limb(kx, knY, ax, anY, caW);
+    const fo = i ? 6 : -6;
+    s += '<path ' + SK + ' d="M' + (ax - 13) + ' ' + (anY - 6) + ' h26 c1 12 6 20 10 26 c3 5 0 11 -7 11 ' +
+         'h-' + (36) + ' c-6 0 -8 -5 -6 -10 z" transform="translate(' + fo + ',0) rotate(' +
+         (i ? 6 : -6) + ' ' + ax + ' ' + anY + ')"/>';
+    s += '<ellipse ' + LINE + ' stroke-width="1.2" opacity=".45" cx="' + kx + '" cy="' + knY + '" rx="15" ry="11"/>';
+  });
+
+  /* --- таз, торс --- */
+  s += '<ellipse ' + SK + ' cx="140" cy="426" rx="' + (f ? 47 : 45) + '" ry="26"/>';
+  s += '<path ' + SK + ' d="' + (f ? T_F : T_M) + '"/>';
+
+  /* --- шея, дельтовидные --- */
+  s += '<path ' + SK + ' d="M' + (f ? 127 : 124) + ' 102 L' + (f ? 153 : 156) + ' 102 L' +
+       (f ? 155 : 159) + ' 148 L' + (f ? 125 : 121) + ' 148 Z"/>';
+  [shX, mir(shX)].forEach(function(x){
+    s += '<ellipse ' + SK + ' cx="' + x + '" cy="184" rx="' + (f ? 19 : 23) + '" ry="' + (f ? 23 : 27) + '"/>';
+  });
+
+  /* --- руки --- */
+  [0, 1].forEach(function(i){
+    const sx = i ? mir(shX) : shX, ex = i ? mir(elX) : elX, wx = i ? mir(wrX) : wrX;
+    s += limb(sx, shY, ex, elY, upW);
+    s += limb(ex, elY, wx, wrY, foW);
+    s += '<ellipse ' + SK + ' cx="' + (i ? wx + 2 : wx - 2) + '" cy="' + (wrY + 26) + '" rx="' +
+         (f ? 12 : 13.5) + '" ry="' + (f ? 26 : 28) + '"/>';
+  });
+
+  /* --- голова --- */
+  s += '<path ' + SK + ' d="' + (f ? HEAD_F : HEAD_M) + '"/>';
+  s += '<path fill="var(--hair)" opacity=".9" d="' + (f ? HAIR_F : HAIR_M) + '"/>';
+
+  /* --- анатомические ориентиры --- */
+  const O = ' opacity=".42"';
+  // ключицы
+  s += '<path ' + LINE + ' stroke-width="1.6"' + O + ' d="M' + (f ? 114 : 110) + ' 152 Q127 162 140 160"/>';
+  s += '<path ' + LINE + ' stroke-width="1.6"' + O + ' d="M' + (f ? 166 : 170) + ' 152 Q153 162 140 160"/>';
+  // грудина
+  s += '<path ' + LINE + ' stroke-width="1.2" opacity=".26" d="M140 164 L140 296"/>';
+  // рёберная дуга — главный ориентир для этого раздела
+  s += '<path ' + LINE + ' stroke-width="2" opacity=".62" d="M' + (f ? 106 : 99) + ' 262 Q124 302 140 296"/>';
+  s += '<path ' + LINE + ' stroke-width="2" opacity=".62" d="M' + (f ? 174 : 181) + ' 262 Q156 302 140 296"/>';
+  // белая линия живота и пупок
+  s += '<path ' + LINE + ' stroke-width="1.2" opacity=".26" d="M140 300 L140 386"/>';
+  s += '<ellipse fill="var(--skin-line)" opacity=".5" cx="140" cy="352" rx="3.4" ry="4.6"/>';
+  // паховые складки
+  s += '<path ' + LINE + ' stroke-width="1.5"' + O + ' d="M' + (f ? 104 : 102) + ' 392 Q122 420 140 426"/>';
+  s += '<path ' + LINE + ' stroke-width="1.5"' + O + ' d="M' + (f ? 176 : 178) + ' 392 Q158 420 140 426"/>';
+  if(f){
+    // контур груди
+    s += '<path ' + LINE + ' stroke-width="1.6" opacity=".45" d="M104 218 Q118 254 140 246"/>';
+    s += '<path ' + LINE + ' stroke-width="1.6" opacity=".45" d="M176 218 Q162 254 140 246"/>';
+  } else {
+    s += '<circle fill="var(--skin-line)" opacity=".38" cx="117" cy="233" r="3.2"/>';
+    s += '<circle fill="var(--skin-line)" opacity=".38" cx="163" cy="233" r="3.2"/>';
+    // прямые мышцы живота
+    s += '<path ' + LINE + ' stroke-width="1.1" opacity=".2" d="M122 318 L158 318"/>';
+    s += '<path ' + LINE + ' stroke-width="1.1" opacity=".2" d="M124 340 L156 340"/>';
+  }
+  return s;
+}
+
+document.querySelectorAll(".sexcard").forEach(function(c){
+  c.querySelector(".mini").innerHTML = figure(c.dataset.sex, "mini" + c.dataset.sex);
+});
+
+/* ============================================================
+   ЗОНЫ ОБЗОРНОЙ МОДЕЛИ
+   ============================================================ */
+const ZONES = [
+  {id:"head",  n:"Голова и лицо",              x:106, y:20,  w:68, h:94,  live:false},
+  {id:"neck",  n:"Шея и горло",                x:122, y:114, w:36, h:32,  live:false},
+  {id:"chest", n:"Грудь, за грудиной",          x:92,  y:150, w:96, h:98,  live:false},
+  {id:"ribR",  n:"Рёбра и подреберье справа",   x:92,  y:250, w:44, h:68,  live:true},
+  {id:"epi",   n:"Под ложечкой",                x:136, y:250, w:20, h:62,  live:false},
+  {id:"ribL",  n:"Рёбра и подреберье слева",    x:156, y:250, w:32, h:68,  live:false},
+  {id:"flankR",n:"Правый бок",                  x:90,  y:318, w:28, h:62,  live:false},
+  {id:"navel", n:"Вокруг пупка",                x:118, y:318, w:44, h:62,  live:false},
+  {id:"flankL",n:"Левый бок",                   x:162, y:318, w:28, h:62,  live:false},
+  {id:"lower", n:"Низ живота и пах",            x:94,  y:380, w:92, h:58,  live:false},
+  {id:"armR",  n:"Правая рука",                 x:36,  y:170, w:52, h:330, live:false},
+  {id:"armL",  n:"Левая рука",                  x:192, y:170, w:52, h:330, live:false},
+  {id:"legR",  n:"Правая нога",                 x:82,  y:442, w:58, h:256, live:false},
+  {id:"legL",  n:"Левая нога",                  x:140, y:442, w:58, h:256, live:false}
+];
+
+/* ============================================================
+   УЧАСТКИ КРУПНОГО ПЛАНА (правая половина груди, вид спереди)
+   ============================================================ */
+const SUBZONES = [
+  {id:"upper", n:"Верхние рёбра спереди", s:"На уровне соска и выше, по передней поверхности",
+   x:82,  y:44,  w:58, h:104, onmap:true},
+  {id:"hypo",  n:"Под рёберной дугой",    s:"Прямо под краем рёбер — самая частая точка",
+   x:82,  y:154, w:58, h:112, onmap:true},
+  {id:"lat",   n:"Боковая поверхность",   s:"Сбоку, по линии, опущенной из подмышки",
+   x:46,  y:88,  w:32, h:168, onmap:true},
+  {id:"stern", n:"У грудины",             s:"Там, где рёбра соединяются с грудиной",
+   x:144, y:50,  w:36, h:156, onmap:true},
+  {id:"back",  n:"Нижние рёбра сзади",    s:"Ближе к позвоночнику, под лопаткой — на виде спереди не показано",
+   onmap:false}
+];
+
+/* ============================================================
+   ОЩУЩЕНИЯ
+   ============================================================ */
+const FEELINGS = [
+  {id:"colic",  n:"Приступами, схватывает",   s:"Накатывает и отпускает, на пике почти невыносимо"},
+  {id:"dull",   n:"Ноет, тянет, давит",       s:"Постоянно, без резких пиков"},
+  {id:"sharp",  n:"Колет, режет при вдохе",   s:"Стреляет, когда глубоко вдыхаешь или кашляешь"},
+  {id:"burn",   n:"Жжёт полосой по ребру",    s:"Как будто вдоль ребра проходит горячая полоса"},
+  {id:"press",  n:"Болит при нажатии",        s:"Пока не трогаешь и не двигаешься — почти не беспокоит"},
+  {id:"heavy",  n:"Тяжесть, распирание",      s:"Не боль, а ощущение налитости и полноты"}
+];
+
+/* ============================================================
+   ВОПРОСЫ
+   ============================================================ */
+const QUESTIONS = [
+  {id:"dur", sh:"Длительность", t:"Сколько это длится", s:"Считайте от начала нынешнего эпизода.", opts:[
+    {id:"min",  n:"Минуты, потом проходит",                  sn:"минуты"},
+    {id:"hrs",  n:"От получаса до нескольких часов",          sn:"до нескольких часов"},
+    {id:"long", n:"Больше шести часов подряд, не отпускает",  sn:"больше 6 часов подряд"},
+    {id:"days", n:"Несколько дней",                           sn:"несколько дней"},
+    {id:"mon",  n:"Недели или месяцы, эпизодами",             sn:"недели-месяцы"}
+  ]},
+  {id:"irr", sh:"Отдаёт", t:"Отдаёт ли боль куда-то ещё", s:"Часто это самая полезная подсказка.", opts:[
+    {id:"shoulder", n:"В правое плечо или под правую лопатку", sn:"в правое плечо и лопатку"},
+    {id:"backpain", n:"В поясницу и вниз, к паху",             sn:"в поясницу и пах"},
+    {id:"jaw",      n:"В челюсть, шею или левую руку",         sn:"в челюсть и левую руку"},
+    {id:"none",     n:"Никуда не отдаёт",                      sn:"никуда"},
+    {id:"unk",      n:"Не знаю",                               sn:"не знаю"}
+  ]},
+  {id:"food", sh:"Связь с едой", t:"Связано ли с едой", s:"Особенно с жирной, жареной или обильной.", opts:[
+    {id:"fat",   n:"Да, начинается после жирной или обильной еды", sn:"после жирной еды"},
+    {id:"empty", n:"Наоборот, натощак; после еды легчает",         sn:"натощак, после еды легчает"},
+    {id:"no",    n:"Связи с едой не замечаю",                      sn:"нет"},
+    {id:"unk",   n:"Не знаю",                                      sn:"не знаю"}
+  ]},
+  {id:"fever", sh:"Температура", t:"Есть ли температура", s:"Выше 37,5 °C за последние сутки.", opts:[
+    {id:"yes", n:"Да, есть",  sn:"есть"},
+    {id:"no",  n:"Нет",       sn:"нет"},
+    {id:"unk", n:"Не мерил",  sn:"не мерил"}
+  ]},
+  {id:"jaund", sh:"Желтуха", t:"Изменился ли цвет кожи, мочи или стула", s:"Посмотрите на белки глаз при дневном свете.", opts:[
+    {id:"yes", n:"Да: желтизна глаз или кожи, тёмная моча, светлый кал", sn:"есть"},
+    {id:"no",  n:"Нет, всё как обычно",                                  sn:"нет"},
+    {id:"unk", n:"Не обращал внимания",                                  sn:"не смотрел"}
+  ]},
+  {id:"breath", sh:"На вдохе", t:"Усиливается ли при глубоком вдохе или кашле", s:"", opts:[
+    {id:"yes", n:"Да, заметно сильнее",          sn:"усиливается"},
+    {id:"no",  n:"Нет, от дыхания не зависит",   sn:"не зависит"},
+    {id:"unk", n:"Не знаю",                      sn:"не знаю"}
+  ]},
+  {id:"dysp", sh:"Одышка и кашель", t:"Есть ли одышка или кашель", s:"", opts:[
+    {id:"yes", n:"Да",       sn:"есть"},
+    {id:"no",  n:"Нет",      sn:"нет"},
+    {id:"unk", n:"Не знаю",  sn:"не знаю"}
+  ]},
+  {id:"touch", sh:"При нажатии", t:"Болит ли, если нажать на само ребро", s:"Осторожно надавите пальцем на болезненное место.", opts:[
+    {id:"yes", n:"Да, ровно та же боль",                    sn:"та же боль"},
+    {id:"no",  n:"Нет, боль внутри, снаружи не отзывается",  sn:"не отзывается"},
+    {id:"unk", n:"Не знаю",                                  sn:"не знаю"}
+  ]},
+  {id:"rash", sh:"Сыпь по ходу боли", t:"Есть ли сыпь или пузырьки по ходу боли", s:"", opts:[
+    {id:"yes", n:"Да, есть высыпания", sn:"есть"},
+    {id:"no",  n:"Нет",                sn:"нет"},
+    {id:"unk", n:"Не смотрел",         sn:"не смотрел"}
+  ]},
+  {id:"trauma", sh:"Травма", t:"Был ли удар, падение или сильное напряжение", s:"За последние две недели.", opts:[
+    {id:"yes", n:"Да, было",           sn:"была"},
+    {id:"no",  n:"Нет, ничего такого", sn:"не было"},
+    {id:"unk", n:"Не помню",           sn:"не помню"}
+  ]},
+  {id:"auto", sh:"Слабость и холодный пот", t:"Есть ли слабость, холодный пот, дурнота", s:"Всё вместе, вместе с болью.", opts:[
+    {id:"yes", n:"Да, всё это есть", sn:"есть"},
+    {id:"no",  n:"Нет",              sn:"нет"},
+    {id:"unk", n:"Не знаю",          sn:"не знаю"}
+  ]}
+];
+
+/* ============================================================
+   СОСТОЯНИЯ
+   ============================================================ */
+const CONDITIONS = [
+  {
+    id:"colic", n:"Желчная колика при желчнокаменной болезни", icd:"МКБ-10 · K80",
+    what:"Камень перекрывает отток желчи из пузыря. Пузырь сокращается, упираясь в препятствие, — отсюда приступ, который нарастает и через несколько часов отпускает.",
+    who:"Чаще после 40, у женщин в 2–3 раза чаще. Связана с обильной жирной едой.",
+    urgent:"Приступ дольше шести часов, с температурой или желтизной глаз — это уже не колика, а осложнение.",
+    doc:"Гастроэнтеролог или хирург. При затянувшемся приступе — приёмное отделение.",
+    tests:"УЗИ органов брюшной полости, общий и биохимический анализ крови.",
+    src:"КР «Желчнокаменная болезнь»",
+    base:6, crit:false,
+    w:{ feel_colic:4, feel_dull:-1, dur_hrs:3, dur_min:1, dur_long:-1, dur_mon:1,
+        irr_shoulder:3, food_fat:3, food_empty:-1, touch_yes:-2, breath_yes:-1, rash_yes:-3 }
+  },
+  {
+    id:"chole", n:"Острый холецистит", icd:"МКБ-10 · K81.0",
+    what:"Воспаление стенки желчного пузыря, обычно продолжение затянувшейся колики. Боль перестаёт быть приступообразной и становится постоянной.",
+    who:"Тот же портрет, что у колики. Часто начинается ночью после плотного ужина.",
+    urgent:"Практически всегда: требует госпитализации, наблюдения хирурга и нередко операции в ближайшие дни.",
+    doc:"Хирург. При постоянной боли с температурой — приёмное отделение, не поликлиника.",
+    tests:"УЗИ, общий анализ крови, биохимия, осмотр хирурга.",
+    src:"КР «Острый холецистит»",
+    base:5, crit:true,
+    w:{ feel_dull:2, feel_colic:1, dur_long:4, dur_hrs:1, dur_min:-2, fever_yes:3, fever_no:-2,
+        food_fat:2, irr_shoulder:2, touch_yes:1, rash_yes:-3 }
+  },
+  {
+    id:"cholang", n:"Острый холангит", icd:"МКБ-10 · K83.0",
+    what:"Гнойное воспаление желчных протоков при их закупорке. Классическое сочетание — боль в правом подреберье, лихорадка и желтуха одновременно.",
+    who:"Чаще у пожилых и у тех, у кого уже находили камни в протоках.",
+    urgent:"Да, это неотложное состояние. Без быстрого восстановления оттока желчи развивается сепсис.",
+    doc:"Приёмное отделение стационара. Не откладывать до утра.",
+    tests:"Биохимия крови, УЗИ, МРТ-холангиография или эндоскопическое вмешательство.",
+    src:"КР «Холангит»",
+    base:2, crit:true,
+    w:{ fever_yes:4, jaund_yes:6, dur_long:2, feel_dull:1, jaund_no:-4, fever_no:-3, rash_yes:-3, touch_yes:-2 }
+  },
+  {
+    id:"hep", n:"Гепатит: воспаление печени", icd:"МКБ-10 · B15–B19, K71",
+    what:"Печень увеличивается, растягивается её капсула — отсюда тяжесть и тупая боль. Сама печень болеть не может, болит именно капсула.",
+    who:"Вирусный, лекарственный, алкогольный, аутоиммунный — причины очень разные.",
+    urgent:"Обычно не экстренно, но желтуха, спутанность сознания или кровоточивость требуют срочного обращения.",
+    doc:"Инфекционист или гастроэнтеролог.",
+    tests:"Биохимия крови с печёночными ферментами, маркёры вирусных гепатитов, УЗИ.",
+    src:"КР «Хронический вирусный гепатит»",
+    base:4, crit:false,
+    w:{ feel_heavy:4, feel_dull:2, feel_colic:-2, jaund_yes:4, dur_days:2, dur_mon:2, dur_min:-2,
+        touch_yes:-2, breath_yes:-2, rash_yes:-2 }
+  },
+  {
+    id:"pneum", n:"Правосторонняя нижнедолевая пневмония", icd:"МКБ-10 · J18",
+    what:"Воспаление нижней доли правого лёгкого. Она прилегает к диафрагме, поэтому боль ощущается не в груди, а под рёбрами справа — и это регулярно сбивает с толку.",
+    who:"В любом возрасте. У пожилых может протекать почти без температуры.",
+    urgent:"Одышка в покое, синюшность губ, спутанность сознания, частое дыхание — вызов скорой.",
+    doc:"Терапевт. При одышке — приёмное отделение.",
+    tests:"Рентген или КТ грудной клетки, общий анализ крови, измерение сатурации.",
+    src:"КР «Внебольничная пневмония»",
+    base:3, crit:true,
+    w:{ feel_sharp:3, breath_yes:4, dysp_yes:4, fever_yes:3, dysp_no:-2, breath_no:-2,
+        food_fat:-3, irr_shoulder:-1, touch_yes:-1 }
+  },
+  {
+    id:"pleur", n:"Плеврит и плевральная боль", icd:"МКБ-10 · R09.1",
+    what:"Раздражение плевры — оболочки лёгкого. Боль чётко привязана к дыханию: на вдохе резко, на выдохе отпускает.",
+    who:"Обычно спутник другой болезни — пневмонии, вирусной инфекции, реже более серьёзных причин.",
+    urgent:"Внезапная резкая боль с одышкой и учащённым сердцебиением требует немедленного обращения.",
+    doc:"Терапевт или пульмонолог.",
+    tests:"Рентген грудной клетки, УЗИ плевральных полостей, анализ крови.",
+    src:"Справочные материалы по КР «Внебольничная пневмония»",
+    base:3, crit:false,
+    w:{ feel_sharp:4, breath_yes:4, breath_no:-3, dysp_yes:2, food_fat:-2, irr_shoulder:-1 }
+  },
+  {
+    id:"neur", n:"Межрёберная невралгия", icd:"МКБ-10 · M79.2",
+    what:"Раздражение межрёберного нерва. Боль идёт узкой полосой строго по ходу ребра, усиливается при движении и надавливании.",
+    who:"Очень часто. Провоцируется неудобной позой, переохлаждением, резким движением.",
+    urgent:"Само по себе не опасно. Важно другое: под неё маскируются и сердечные, и лёгочные причины.",
+    doc:"Невролог или терапевт.",
+    tests:"Осмотр. Обследования назначают, чтобы исключить другие причины.",
+    src:"Справочные материалы по КР «Дорсопатии»",
+    base:6, crit:false,
+    w:{ feel_burn:4, feel_press:3, touch_yes:3, touch_no:-3, breath_yes:1,
+        fever_yes:-2, jaund_yes:-4, food_fat:-2, dysp_yes:-2 }
+  },
+  {
+    id:"zoster", n:"Опоясывающий лишай", icd:"МКБ-10 · B02",
+    what:"Пробуждение вируса ветряной оспы в нервном узле. Боль и жжение по ходу ребра появляются за два-четыре дня до сыпи — в этом окне болезнь почти всегда принимают за невралгию.",
+    who:"Чаще после 50 и при сниженном иммунитете.",
+    urgent:"Не экстренно, но обратиться нужно в первые трое суток от появления сыпи — позже лечение работает хуже.",
+    doc:"Дерматолог, инфекционист или терапевт.",
+    tests:"Осмотр; диагноз ставится по виду высыпаний.",
+    src:"КР «Опоясывающий лишай»",
+    base:2, crit:false,
+    w:{ rash_yes:6, feel_burn:3, touch_yes:1, rash_no:-2, food_fat:-2, jaund_yes:-3 }
+  },
+  {
+    id:"rib", n:"Ушиб или перелом ребра", icd:"МКБ-10 · S22.3",
+    what:"Повреждение самого ребра. Болит точечно, в одном месте, резко отзывается на нажатие, кашель и повороты.",
+    who:"После удара, падения, сильного кашля; у пожилых — от небольшой травмы.",
+    urgent:"Нарастающая одышка после травмы груди — вызов скорой: возможно повреждение лёгкого.",
+    doc:"Травматолог.",
+    tests:"Рентген грудной клетки, осмотр травматолога.",
+    src:"Справочные материалы по КР «Травмы грудной клетки»",
+    base:3, crit:false,
+    w:{ trauma_yes:6, trauma_no:-4, touch_yes:3, feel_press:3, breath_yes:2,
+        fever_yes:-2, jaund_yes:-4, food_fat:-3 }
+  },
+  {
+    id:"tietze", n:"Синдром Титце и рёберно-хрящевая боль", icd:"МКБ-10 · M94.0",
+    what:"Воспаление хряща в месте, где ребро соединяется с грудиной. Болезненная точка находится пальцем, иногда есть небольшая припухлость.",
+    who:"Молодые и среднего возраста. Часто после физической нагрузки.",
+    urgent:"Не опасно, но требует исключения сердечных причин.",
+    doc:"Терапевт, ревматолог.",
+    tests:"Осмотр; обследования — для исключения другого.",
+    src:"Справочные материалы по КР «Дорсопатии»",
+    base:3, crit:false,
+    w:{ touch_yes:4, feel_press:3, sub_stern:4, dur_mon:2, touch_no:-3,
+        fever_yes:-2, jaund_yes:-3, food_fat:-2, dysp_yes:-2 }
+  },
+  {
+    id:"ulcer", n:"Язвенная болезнь двенадцатиперстной кишки", icd:"МКБ-10 · K26",
+    what:"Дефект слизистой. Характерна боль натощак и ночью, которая утихает после еды или молока.",
+    who:"Чаще у мужчин 25–50 лет. Связана с инфекцией Helicobacter pylori и обезболивающими препаратами.",
+    urgent:"Рвота кофейной гущей, чёрный стул, внезапная кинжальная боль — вызов скорой немедленно.",
+    doc:"Гастроэнтеролог.",
+    tests:"Гастроскопия, тест на Helicobacter pylori.",
+    src:"КР «Язвенная болезнь»",
+    base:4, crit:false,
+    w:{ food_empty:5, feel_burn:1, feel_dull:2, dur_mon:3, food_fat:-1,
+        touch_yes:-2, rash_yes:-3, breath_yes:-2 }
+  },
+  {
+    id:"renal", n:"Почечная колика справа", icd:"МКБ-10 · N23",
+    what:"Камень перекрывает отток мочи. Боль волнами, отдаёт вниз — в пах и по внутренней стороне бедра; человек не может найти позу, в которой легче.",
+    who:"Чаще у мужчин 30–60 лет.",
+    urgent:"Колика с температурой — неотложно: воспаление на фоне закупорки развивается быстро.",
+    doc:"Уролог. При температуре — приёмное отделение.",
+    tests:"УЗИ почек, анализ мочи, КТ без контраста.",
+    src:"КР «Мочекаменная болезнь»",
+    base:3, crit:false,
+    w:{ irr_backpain:5, feel_colic:3, dur_hrs:2, sub_back:2, food_fat:-2,
+        touch_yes:-2, breath_yes:-2, jaund_yes:-2 }
+  },
+  {
+    id:"mi", n:"Инфаркт миокарда, брюшная форма", icd:"МКБ-10 · I21",
+    what:"Гибель участка сердечной мышцы. При поражении нижней стенки боль ощущается не в груди, а под рёбрами и под ложечкой — и человек уверен, что это желудок.",
+    who:"Чаще после 50, при диабете, гипертонии, курении. У женщин и диабетиков картина чаще стёртая.",
+    urgent:"Да. Каждая минута имеет значение: боль дольше двадцати минут с потливостью и слабостью — вызов скорой немедленно.",
+    doc:"Скорая помощь. Не терапевт, не гастроэнтеролог, не завтра.",
+    tests:"ЭКГ в первые минуты, тропонин крови.",
+    src:"КР «Острый инфаркт миокарда»",
+    base:1, crit:true,
+    w:{ auto_yes:5, irr_jaw:5, dur_long:2, dur_hrs:1, feel_press:-1, feel_dull:1,
+        touch_yes:-4, rash_yes:-4, food_fat:-1, dur_mon:-3 }
+  }
+];
+
+/* ============================================================
+   СОСТОЯНИЕ СЕАНСА
+   ============================================================ */
+const S = { sex:null, age:38, zone:null, sub:null, feel:null, ans:{}, asked:[] };
+
+const $  = function(q){ return document.querySelector(q); };
+const $$ = function(q){ return Array.prototype.slice.call(document.querySelectorAll(q)); };
+
+function show(id){
+  $$(".screen").forEach(function(s){ s.classList.toggle("on", s.id === id); });
+  $("#restart").hidden = (id === "s-login");
+  window.scrollTo({top:0, behavior:"instant"});
+  drawCrumbs();
+}
+
+function drawCrumbs(){
+  const c = $("#crumbs");
+  const parts = [];
+  if(S.sex) parts.push({t: S.sex === "m" ? "Мужчина" : "Женщина", go:"s-sex"});
+  if(S.sex) parts.push({t: S.age + " лет", go:"s-age"});
+  if(S.zone) parts.push({t: S.zone.n, go:"s-map"});
+  if(S.sub) parts.push({t: S.sub.n, go:"s-zoom"});
+  if(S.feel) parts.push({t: feelName(S.feel), go:"s-feel"});
+  if(!parts.length){ c.hidden = true; return; }
+  c.hidden = false;
+  c.innerHTML = parts.map(function(p,i){
+    return (i ? '<span class="crumb-sep">→</span>' : "") +
+      '<span class="crumb"><button data-go="'+p.go+'">'+p.t+'</button></span>';
+  }).join("");
+}
+
+function feelName(id){
+  const f = FEELINGS.find(function(x){ return x.id === id; });
+  return f ? f.n : "";
+}
+
+document.addEventListener("click", function(e){
+  const b = e.target.closest("[data-go]");
+  if(b){ show(b.dataset.go); }
+});
+
+$("#restart").addEventListener("click", function(){
+  S.sex = null; S.zone = null; S.sub = null; S.feel = null; S.ans = {}; S.asked = [];
+  show("s-login");
+});
+
+/* ---------- пол ---------- */
+$$(".sexcard").forEach(function(c){
+  c.addEventListener("click", function(){
+    S.sex = c.dataset.sex;
+    show("s-age");
+  });
+});
+
+/* ---------- возраст ---------- */
+const ageRange = $("#ageRange");
+ageRange.addEventListener("input", function(){
+  S.age = +ageRange.value;
+  const y = S.age % 100;
+  const d = S.age % 10;
+  let w = "лет";
+  if(!(y > 10 && y < 15)){ if(d === 1) w = "год"; else if(d >= 2 && d <= 4) w = "года"; }
+  $("#ageOut").innerHTML = S.age + ' <small>' + w + '</small>';
+});
+$("#ageNext").addEventListener("click", function(){ buildMap(); show("s-map"); });
+
+/* ---------- карта тела ---------- */
+function buildMap(){
+  const svg = $("#mapSvg");
+  let s = figure(S.sex, "map");
+  ZONES.forEach(function(z){
+    s += '<rect class="zone ' + (z.live ? "live" : "off") + '" rx="7" x="' + z.x + '" y="' + z.y +
+         '" width="' + z.w + '" height="' + z.h +
+         '" data-zone="' + z.id + '" tabindex="0" role="button" aria-label="' + z.n + '"></rect>';
+  });
+  svg.innerHTML = s;
+
+  const ro = $("#readout");
+  svg.querySelectorAll(".zone").forEach(function(p){
+    const z = ZONES.find(function(x){ return x.id === p.dataset.zone; });
+    function enter(){
+      ro.innerHTML = '<p class="z">' + z.n + '</p><p class="s">' +
+        (z.live ? "Раздел готов — нажмите, чтобы открыть." :
+                  "В этом прототипе раздел не разобран. В рабочей версии здесь свои статьи.") + '</p>';
+    }
+    p.addEventListener("mouseenter", enter);
+    p.addEventListener("focus", enter);
+    p.addEventListener("click", function(){ pickZone(z); });
+    p.addEventListener("keydown", function(ev){
+      if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); pickZone(z); }
+    });
+  });
+
+  $("#zonelist").innerHTML = "<p class='mono' style='font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4px'>Или выберите из списка</p>" +
+    ZONES.map(function(z){
+      return '<button data-zl="' + z.id + '"' + (z.live ? "" : " disabled") + '>' + z.n +
+        (z.live ? "" : " — не разобрано") + '</button>';
+    }).join("");
+  $$("#zonelist [data-zl]").forEach(function(b){
+    b.addEventListener("click", function(){
+      pickZone(ZONES.find(function(z){ return z.id === b.dataset.zl; }));
+    });
+  });
+}
+
+function pickZone(z){
+  if(!z.live){
+    $("#readout").innerHTML = '<p class="z">' + z.n + '</p><p class="s">' +
+      'В прототипе разобрана только область «Рёбра и подреберье справа» — выберите её, чтобы пройти сценарий целиком.</p>';
+    return;
+  }
+  S.zone = z; S.sub = null; S.feel = null; S.ans = {}; S.asked = [];
+  buildZoom();
+  show("s-zoom");
+}
+
+/* ---------- крупный план ---------- */
+function buildZoom(){
+  const svg = $("#zoomSvg");
+  let s = "";
+  // торс крупным планом, вид спереди
+  s += '<path class="bodyshape" d="M50 26 C40 74 42 124 52 166 C62 214 72 258 76 322 L224 322 C228 258 238 214 248 166 C258 124 260 74 250 26 Z"/>';
+  // рёбра
+  for(let i = 0; i < 6; i++){
+    const y = 56 + i * 26;
+    s += '<path d="M56 ' + y + ' Q 104 ' + (y + 22) + ' 142 ' + (y + 8) +
+         '" fill="none" stroke="var(--body-line)" stroke-width="6" stroke-linecap="round" opacity=".7"/>';
+    s += '<path d="M244 ' + y + ' Q 196 ' + (y + 22) + ' 158 ' + (y + 8) +
+         '" fill="none" stroke="var(--body-line)" stroke-width="6" stroke-linecap="round" opacity=".45"/>';
+  }
+  // рёберная дуга
+  s += '<path d="M58 196 Q 108 254 148 216" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round" opacity=".55"/>';
+  s += '<path d="M242 196 Q 192 254 152 216" fill="none" stroke="var(--body-line)" stroke-width="5" stroke-linecap="round" opacity=".45"/>';
+  // грудина
+  s += '<rect x="143" y="42" width="14" height="172" rx="7" fill="var(--body-line)" opacity=".8"/>';
+  // подписи
+  s += '<text x="164" y="238" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-3)" letter-spacing="1">грудина</text>';
+  s += '<text x="30" y="272" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--accent)" letter-spacing="1">рёберная дуга</text>';
+  s += '<text x="30" y="18" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-3)" letter-spacing="1">ПРАВАЯ СТОРОНА ТЕЛА</text>';
+
+  SUBZONES.filter(function(z){ return z.onmap; }).forEach(function(z){
+    s += '<rect class="zone live" rx="8" x="' + z.x + '" y="' + z.y + '" width="' + z.w +
+         '" height="' + z.h + '" data-sub="' + z.id +
+         '" tabindex="0" role="button" aria-label="' + z.n + '"></rect>';
+  });
+  svg.innerHTML = s;
+
+  const ro = $("#zreadout");
+  svg.querySelectorAll(".zone").forEach(function(p){
+    const z = SUBZONES.find(function(x){ return x.id === p.dataset.sub; });
+    function enter(){ ro.innerHTML = '<p class="z">' + z.n + '</p><p class="s">' + z.s + '</p>'; }
+    p.addEventListener("mouseenter", enter);
+    p.addEventListener("focus", enter);
+    p.addEventListener("click", function(){ pickSub(z); });
+    p.addEventListener("keydown", function(ev){
+      if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); pickSub(z); }
+    });
+  });
+
+  $("#zsublist").innerHTML = "<p class='mono' style='font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4px'>Или выберите из списка</p>" +
+    SUBZONES.map(function(z){ return '<button data-sl="' + z.id + '">' + z.n + '</button>'; }).join("");
+  $$("#zsublist [data-sl]").forEach(function(b){
+    b.addEventListener("click", function(){
+      pickSub(SUBZONES.find(function(z){ return z.id === b.dataset.sl; }));
+    });
+  });
+}
+
+function pickSub(z){
+  S.sub = z; S.feel = null; S.ans = {}; S.asked = [];
+  buildFeel();
+  show("s-feel");
+}
+
+/* ---------- ощущение ---------- */
+function buildFeel(){
+  $("#feelList").innerHTML = FEELINGS.map(function(f){
+    return '<button class="choice" data-feel="' + f.id + '"><span><b>' + f.n +
+           '</b><small>' + f.s + '</small></span></button>';
+  }).join("");
+  $$("#feelList [data-feel]").forEach(function(b){
+    b.addEventListener("click", function(){
+      S.feel = b.dataset.feel; S.ans = {}; S.asked = [];
+      nextQuestion();
+    });
+  });
+}
+
+/* ============================================================
+   ДВИЖОК
+   ============================================================ */
+function keys(){
+  const k = ["feel_" + S.feel, "sub_" + S.sub.id];
+  for(const q in S.ans){ k.push(q + "_" + S.ans[q]); }
+  return k;
+}
+
+function score(c){
+  let v = c.base;
+  const hits = [], miss = [];
+  keys().forEach(function(k){
+    const w = c.w[k];
+    if(w === undefined) return;
+    v += w;
+    const label = labelFor(k);
+    if(!label) return;
+    if(w > 0) hits.push(label); else if(w <= -2) miss.push(label);
+  });
+  // возрастные поправки
+  if(c.id === "mi" && S.age >= 55) v += 2;
+  if(c.id === "mi" && S.age < 35) v -= 3;
+  if(c.id === "colic" && S.age >= 40) v += 1;
+  if(c.id === "zoster" && S.age >= 50) v += 1;
+  if(c.id === "tietze" && S.age > 60) v -= 1;
+  if(c.id === "colic" && S.sex === "f") v += 1;
+  if(c.id === "ulcer" && S.sex === "m") v += 1;
+  return {v:v, hits:hits, miss:miss};
+}
+
+function labelFor(k){
+  if(k.indexOf("feel_") === 0) return feelName(k.slice(5));
+  if(k.indexOf("sub_") === 0){
+    const z = SUBZONES.find(function(x){ return x.id === k.slice(4); });
+    return z ? z.n : null;
+  }
+  const p = k.split("_");
+  const q = QUESTIONS.find(function(x){ return x.id === p[0]; });
+  if(!q) return null;
+  const o = q.opts.find(function(x){ return x.id === p.slice(1).join("_"); });
+  return o ? (q.sh + ": " + (o.sn || o.n.toLowerCase())) : null;
+}
+
+function ranked(){
+  return CONDITIONS.map(function(c){
+    const r = score(c);
+    return {c:c, v:r.v, hits:r.hits, miss:r.miss};
+  }).sort(function(a,b){ return b.v - a.v; });
+}
+
+/* следующий вопрос — тот, что сильнее всего разводит текущих лидеров */
+function bestQuestion(){
+  const top = ranked().slice(0, 6).map(function(r){ return r.c; });
+  let best = null, bestSpread = 0;
+  QUESTIONS.forEach(function(q){
+    if(S.ans[q.id] !== undefined) return;
+    let spread = 0;
+    q.opts.forEach(function(o){
+      const vals = top.map(function(c){ return c.w[q.id + "_" + o.id] || 0; });
+      spread = Math.max(spread, Math.max.apply(null, vals) - Math.min.apply(null, vals));
+    });
+    if(spread > bestSpread){ bestSpread = spread; best = q; }
+  });
+  return bestSpread >= 3 ? best : null;
+}
+
+function nextQuestion(){
+  if(S.asked.length >= 6){ buildResults(); show("s-res"); return; }
+  const q = bestQuestion();
+  if(!q){ buildResults(); show("s-res"); return; }
+  S.asked.push(q.id);
+  $("#qcount").textContent = "Уточняющий вопрос " + S.asked.length + " из 6, не больше";
+  $("#qtitle").textContent = q.t;
+  $("#qsub").textContent = q.s || "";
+  $("#qsub").style.display = q.s ? "" : "none";
+  $("#qList").innerHTML = q.opts.map(function(o){
+    return '<button class="choice" data-opt="' + o.id + '"><span><b>' + o.n + '</b></span></button>';
+  }).join("");
+  $$("#qList [data-opt]").forEach(function(b){
+    b.addEventListener("click", function(){
+      S.ans[q.id] = b.dataset.opt;
+      nextQuestion();
+    });
+  });
+  show("s-q");
+}
+
+/* ============================================================
+   РЕЗУЛЬТАТ
+   ============================================================ */
+function emergency(){
+  const a = S.ans;
+  const r = [];
+  if(a.auto === "yes" || a.irr === "jaw")
+    r.push("боль под рёбрами вместе со слабостью, холодным потом или отдачей в челюсть и левую руку разбирают как сердечную, пока не доказано обратное");
+  if(a.fever === "yes" && a.jaund === "yes")
+    r.push("боль, температура и желтизна глаз одновременно — сочетание, при котором помощь нужна в ближайшие часы");
+  if(a.dysp === "yes" && a.fever === "yes")
+    r.push("боль при дыхании с температурой и одышкой требует осмотра сегодня");
+  if(a.dur === "long" && (a.fever === "yes" || a.jaund === "yes"))
+    r.push("боль дольше шести часов подряд с температурой или желтухой — повод для приёмного отделения, а не для наблюдения дома");
+  return r;
+}
+
+function buildResults(){
+  const em = emergency();
+  $("#alarmSlot").innerHTML = em.length ? (
+    '<div class="alarm"><h2>Не читайте дальше — сначала позвоните</h2>' +
+    '<p>Из того, что вы отметили: ' + em.join("; ") + '.</p>' +
+    '<div class="phone">103 · 112</div>' +
+    '<p>Это не диагноз и не утверждение, что с вами именно это. Это признаки, при которых справочник закрывают и звонят. Если ошиблись — ничего страшного не произойдёт.</p>' +
+    '<p style="margin-bottom:0;font-size:13.5px;color:var(--ink-2)">Список ниже остаётся доступным, но он не заменяет звонок.</p></div>'
+  ) : "";
+
+  const list = ranked();
+  const crit = list.filter(function(r){ return r.c.crit; }).slice(0, 4);
+  const rest = list.filter(function(r){ return !r.c.crit; });
+  const often = rest.slice(0, 4);
+  const rare = rest.slice(4, 9);
+
+  $("#resTitle").textContent = S.sub.n + " справа: " + feelName(S.feel).toLowerCase();
+  $("#resSub").textContent = (S.sex === "m" ? "Мужчина" : "Женщина") + ", " + S.age +
+    " лет. Ниже — состояния, при которых встречается такое сочетание. Порядок не означает вероятности лично для вас.";
+
+  let h = "";
+  h += block("Редко, но важно не пропустить", crit, "crit",
+    "Показываются всегда, независимо от совпадений: у этих состояний слишком высока цена ошибки.");
+  h += block("Встречается часто", often, "freq",
+    "Наибольшее совпадение с тем, что вы описали.");
+  h += block("Встречается реже", rare, "rare",
+    "Совпадение слабее, но состояние в этой области встречается.");
+  $("#resBlocks").innerHTML = h;
+
+  $("#tellText").textContent = tellDoctor();
+}
+
+function block(title, arr, cls, note){
+  if(!arr.length) return "";
+  return '<div class="resblock ' + (cls === "crit" ? "crit" : "") + '">' +
+    '<div class="cap"><h3>' + title + '</h3><span class="note">' + note + '</span></div>' +
+    arr.map(function(r){ return item(r, cls); }).join("") + '</div>';
+}
+
+function item(r, cls){
+  const c = r.c;
+  const hits = r.hits.length ? '<div class="match">' + r.hits.map(function(t){
+    return '<span>' + t + '</span>'; }).join("") + '</div>' : '<div class="match"><span class="neg">прямых совпадений нет</span></div>';
+  const miss = r.miss.length ? '<div class="match">' + r.miss.map(function(t){
+    return '<span class="neg">' + t + '</span>'; }).join("") + '</div>' : "";
+  return '<details class="item ' + cls + '">' +
+    '<summary><span class="nm">' + c.n + '</span><span class="icd">' + c.icd + '</span></summary>' +
+    '<div class="body"><dl>' +
+    dd("Что это", c.what) +
+    dd("Совпадает с описанным", hits, true) +
+    (miss ? dd("Говорит против", miss, true) : "") +
+    dd("У кого встречается чаще", c.who) +
+    ddU("Когда бывает неотложным", c.urgent) +
+    dd("С этим идут к", c.doc) +
+    dd("Чем обычно подтверждают", c.tests) +
+    '</dl><p class="src">Составлено по: ' + c.src +
+    ' · Демонстрационный текст, врачом не проверен · Постоянный адрес статьи</p></div></details>';
+}
+function dd(t, v, raw){ return '<div><dt>' + t + '</dt><dd>' + (raw ? v : v) + '</dd></div>'; }
+function ddU(t, v){ return '<div><dt>' + t + '</dt><dd class="urgent">' + v + '</dd></div>'; }
+
+function tellDoctor(){
+  const L = [];
+  L.push("Пол и возраст: " + (S.sex === "m" ? "мужчина" : "женщина") + ", " + S.age + " лет.");
+  L.push("Локализация: " + S.sub.n.toLowerCase() + " справа.");
+  L.push("Характер: " + feelName(S.feel).toLowerCase() + ".");
+  QUESTIONS.forEach(function(q){
+    const a = S.ans[q.id];
+    if(a === undefined) return;
+    const o = q.opts.find(function(x){ return x.id === a; });
+    if(!o) return;
+    L.push(q.sh + ": " + (o.sn || o.n.toLowerCase()) + ".");
+  });
+  return L.join("\n");
+}
+
+$("#copyBtn").addEventListener("click", function(){
+  const t = $("#tellText").textContent;
+  const done = function(){
+    $("#copyBtn").textContent = "Скопировано";
+    setTimeout(function(){ $("#copyBtn").textContent = "Скопировать"; }, 1800);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(done, done);
+  } else {
+    const ta = document.createElement("textarea");
+    ta.value = t; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch(e){}
+    document.body.removeChild(ta); done();
+  }
+});
+</script>

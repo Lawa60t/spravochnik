@@ -1,0 +1,929 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-08-27",
+  "zone": "arm",
+  "syndromes": [
+    {
+      "id": "arm.shoulder",
+      "zone": "arm",
+      "name": "Боль в плече",
+      "priority": 1,
+      "aka": [
+        "болит плечо",
+        "не поднять руку",
+        "плечо ноет"
+      ],
+      "feelings": [
+        "Ноет, особенно ночью",
+        "Больно поднять руку",
+        "Плечо не двигается",
+        "Простреливает от шеи"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "raise",
+        "trauma",
+        "twist",
+        "joint",
+        "stiffjoint",
+        "symmetry",
+        "nightwake",
+        "move",
+        "radleg",
+        "numbwhere",
+        "fever",
+        "auto",
+        "dysp",
+        "chewpain",
+        "tired",
+        "progress",
+        "immuno",
+        "eatrel"
+      ],
+      "candidates": [
+        {
+          "condition": "rotator.cuff",
+          "base": 8,
+          "weights": {
+            "raise_pain": 6,
+            "raise_help": 4,
+            "nightwake_yes": 4,
+            "symmetry_one": 3,
+            "twist_load": 3,
+            "joint_normal": 2,
+            "raise_nohelp": -3,
+            "joint_hotred": -5,
+            "stiffjoint_long": -3
+          }
+        },
+        {
+          "condition": "adhesive.capsulitis",
+          "base": 5,
+          "weights": {
+            "raise_nohelp": 6,
+            "dur_mon": 4,
+            "stiffjoint_short": 2,
+            "symmetry_one": 2,
+            "joint_normal": 2,
+            "raise_pain": -3,
+            "trauma_yes": -2,
+            "joint_hotred": -4
+          }
+        },
+        {
+          "condition": "cervical.radiculopathy",
+          "base": 5,
+          "weights": {
+            "numbwhere_radial": 6,
+            "move_turn": 5,
+            "raise_ok": 2,
+            "symmetry_one": 2,
+            "raise_nohelp": -3,
+            "joint_hotred": -3
+          }
+        },
+        {
+          "condition": "cervical.myofascial",
+          "base": 4,
+          "weights": {
+            "move_press": 5,
+            "move_turn": 3,
+            "fever_no": 2,
+            "joint_normal": 2,
+            "joint_hotred": -4,
+            "raise_nohelp": -3
+          }
+        },
+        {
+          "condition": "polymyalgia.rheumatica",
+          "base": 3,
+          "weights": {
+            "symmetry_both": 5,
+            "stiffjoint_long": 5,
+            "dur_w12": 3,
+            "tired_strong": 3,
+            "chewpain_yes": 3,
+            "symmetry_one": -4,
+            "trauma_yes": -3
+          }
+        },
+        {
+          "condition": "rheumatoid.arthritis",
+          "base": 2,
+          "weights": {
+            "symmetry_both": 4,
+            "stiffjoint_long": 5,
+            "joint_swollen": 4,
+            "dur_mon": 3,
+            "symmetry_one": -3
+          }
+        },
+        {
+          "condition": "septic.arthritis",
+          "base": 1,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_high": 5,
+            "onset_fast": 3,
+            "raise_nohelp": 3,
+            "immuno_yes": 3,
+            "joint_normal": -5,
+            "fever_no": -4,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "gout",
+          "base": 1,
+          "weights": {
+            "joint_hotred": 5,
+            "onset_sudden": 4,
+            "dur_d13": 2,
+            "joint_normal": -4,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "myocardial.infarction",
+          "base": 1,
+          "weights": {
+            "auto_yes": 6,
+            "dysp_yes": 4,
+            "symmetry_one": 1,
+            "onset_fast": 2,
+            "move_press": -5,
+            "raise_pain": -3,
+            "dur_mon": -5,
+            "trauma_yes": -4
+          }
+        },
+        {
+          "condition": "cholelithiasis.colic",
+          "base": 1,
+          "weights": {
+            "eatrel_fatty": 6,
+            "symmetry_one": 2,
+            "move_press": -4,
+            "trauma_yes": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль в плече вместе с холодным потом, дурнотой и одышкой",
+        "Сустав красный, горячий, двигать невозможно, есть температура",
+        "Рука не поднимается совсем сразу после травмы",
+        "Онемение и слабость в кисти, нарастающие день ото дня"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "arm.elbow",
+      "zone": "arm",
+      "name": "Боль в локте",
+      "priority": 2,
+      "aka": [
+        "болит локоть",
+        "локоть теннисиста"
+      ],
+      "feelings": [
+        "Болит в определённой точке",
+        "Припухло на кончике локтя",
+        "Ноет при нагрузке",
+        "Красный и горячий"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "joint",
+        "move",
+        "trauma",
+        "twist",
+        "fever",
+        "symmetry",
+        "stiffjoint",
+        "numbwhere",
+        "immuno",
+        "progress",
+        "nightwake"
+      ],
+      "candidates": [
+        {
+          "condition": "epicondylitis",
+          "base": 8,
+          "weights": {
+            "move_press": 6,
+            "twist_load": 4,
+            "joint_normal": 3,
+            "fever_no": 3,
+            "symmetry_one": 2,
+            "joint_hotred": -5,
+            "joint_swollen": -3,
+            "fever_high": -4
+          }
+        },
+        {
+          "condition": "olecranon.bursitis",
+          "base": 5,
+          "weights": {
+            "joint_swollen": 6,
+            "move_press": 2,
+            "trauma_yes": 2,
+            "fever_no": 2,
+            "joint_normal": -4
+          }
+        },
+        {
+          "condition": "cubital.tunnel",
+          "base": 4,
+          "weights": {
+            "numbwhere_ulnar": 6,
+            "nightwake_yes": 3,
+            "dur_mon": 2,
+            "joint_hotred": -4,
+            "move_press": -2
+          }
+        },
+        {
+          "condition": "hand.oa",
+          "base": 3,
+          "weights": {
+            "stiffjoint_short": 3,
+            "dur_mon": 3,
+            "joint_normal": 2,
+            "joint_hotred": -4
+          }
+        },
+        {
+          "condition": "gout",
+          "base": 3,
+          "weights": {
+            "joint_hotred": 6,
+            "onset_sudden": 5,
+            "dur_d13": 3,
+            "symmetry_one": 2,
+            "joint_normal": -5,
+            "dur_mon": -3,
+            "move_press": -2
+          }
+        },
+        {
+          "condition": "rheumatoid.arthritis",
+          "base": 3,
+          "weights": {
+            "symmetry_both": 5,
+            "stiffjoint_long": 5,
+            "joint_swollen": 4,
+            "dur_mon": 3,
+            "symmetry_one": -3
+          }
+        },
+        {
+          "condition": "septic.arthritis",
+          "base": 1,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_high": 5,
+            "onset_fast": 3,
+            "immuno_yes": 4,
+            "progress_worse": 3,
+            "joint_normal": -5,
+            "fever_no": -4
+          }
+        },
+        {
+          "condition": "cervical.radiculopathy",
+          "base": 2,
+          "weights": {
+            "numbwhere_radial": 6,
+            "move_turn": 4,
+            "joint_normal": 2,
+            "move_press": -2
+          }
+        },
+        {
+          "condition": "cellulitis",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_mid": 4,
+            "fever_high": 3,
+            "onset_fast": 3,
+            "trauma_yes": 2,
+            "progress_worse": 3,
+            "fever_no": -3,
+            "joint_normal": -4,
+            "dur_mon": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Сустав красный, горячий, движения невозможны, есть температура",
+        "Локоть распух сразу после падения и не разгибается",
+        "Нарастающая слабость в кисти"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "arm.wrist",
+      "zone": "arm",
+      "name": "Боль в запястье и кисти",
+      "priority": 2,
+      "aka": [
+        "болит запястье",
+        "болит кисть",
+        "болят суставы пальцев"
+      ],
+      "feelings": [
+        "Болит при движении кистью",
+        "Ноют суставы пальцев",
+        "Резко у основания большого пальца",
+        "Шишка на запястье"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "joint",
+        "stiffjoint",
+        "symmetry",
+        "trauma",
+        "twist",
+        "move",
+        "fever",
+        "numbwhere",
+        "nightwake",
+        "immuno",
+        "progress"
+      ],
+      "candidates": [
+        {
+          "condition": "de.quervain",
+          "base": 6,
+          "weights": {
+            "move_press": 5,
+            "symmetry_one": 3,
+            "twist_load": 3,
+            "joint_normal": 3,
+            "fever_no": 2,
+            "symmetry_both": -3,
+            "joint_hotred": -4,
+            "stiffjoint_long": -3
+          }
+        },
+        {
+          "condition": "hand.oa",
+          "base": 6,
+          "weights": {
+            "stiffjoint_short": 5,
+            "dur_mon": 4,
+            "joint_normal": 2,
+            "symmetry_both": 2,
+            "stiffjoint_long": -4,
+            "joint_hotred": -4,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "carpal.tunnel",
+          "base": 6,
+          "weights": {
+            "numbwhere_median": 6,
+            "nightwake_yes": 5,
+            "dur_mon": 3,
+            "joint_normal": 2,
+            "numbwhere_ulnar": -4,
+            "joint_hotred": -4
+          }
+        },
+        {
+          "condition": "rheumatoid.arthritis",
+          "base": 4,
+          "weights": {
+            "symmetry_both": 5,
+            "stiffjoint_long": 6,
+            "joint_swollen": 4,
+            "dur_mon": 3,
+            "symmetry_one": -4,
+            "stiffjoint_short": -3,
+            "trauma_yes": -3
+          }
+        },
+        {
+          "condition": "ganglion",
+          "base": 4,
+          "weights": {
+            "joint_swollen": 4,
+            "fever_no": 3,
+            "dur_mon": 3,
+            "joint_hotred": -4,
+            "stiffjoint_long": -3
+          }
+        },
+        {
+          "condition": "wrist.fracture",
+          "base": 3,
+          "weights": {
+            "twist_fall": 6,
+            "trauma_yes": 5,
+            "onset_sudden": 4,
+            "joint_swollen": 3,
+            "trauma_no": -5,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "gout",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 6,
+            "onset_sudden": 5,
+            "symmetry_one": 3,
+            "joint_normal": -5,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "septic.arthritis",
+          "base": 1,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_high": 5,
+            "immuno_yes": 4,
+            "progress_worse": 3,
+            "joint_normal": -5,
+            "fever_no": -4
+          }
+        },
+        {
+          "condition": "raynaud",
+          "base": 2,
+          "weights": {
+            "symmetry_both": 3,
+            "joint_normal": 3,
+            "dur_mon": 2,
+            "joint_hotred": -4,
+            "trauma_yes": -3
+          }
+        },
+        {
+          "condition": "cellulitis",
+          "base": 2,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_mid": 4,
+            "fever_high": 3,
+            "onset_fast": 3,
+            "trauma_yes": 2,
+            "progress_worse": 3,
+            "fever_no": -3,
+            "joint_normal": -4,
+            "dur_mon": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Сустав красный, горячий, есть температура",
+        "Запястье деформировано после падения, пальцы немеют или бледнеют",
+        "Симметричная припухлость мелких суставов со скованностью дольше часа"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "arm.numb",
+      "zone": "arm",
+      "name": "Онемение кисти и пальцев",
+      "priority": 1,
+      "aka": [
+        "немеют пальцы",
+        "отсидел руку",
+        "мурашки в кисти"
+      ],
+      "feelings": [
+        "Немеет и покалывает",
+        "Будит ночью",
+        "Немеет вся кисть",
+        "Полосой от шеи вниз"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "numbwhere",
+        "nightwake",
+        "symmetry",
+        "move",
+        "focal",
+        "diabetes",
+        "raise",
+        "progress",
+        "temperature",
+        "immuno"
+      ],
+      "candidates": [
+        {
+          "condition": "carpal.tunnel",
+          "base": 8,
+          "weights": {
+            "numbwhere_median": 6,
+            "nightwake_yes": 5,
+            "dur_mon": 3,
+            "onset_gradual": 3,
+            "numbwhere_ulnar": -5,
+            "numbwhere_radial": -4,
+            "focal_yes": -4,
+            "onset_sudden": -4
+          }
+        },
+        {
+          "condition": "cubital.tunnel",
+          "base": 5,
+          "weights": {
+            "numbwhere_ulnar": 6,
+            "nightwake_yes": 3,
+            "dur_mon": 3,
+            "numbwhere_median": -5,
+            "focal_yes": -4
+          }
+        },
+        {
+          "condition": "cervical.radiculopathy",
+          "base": 5,
+          "weights": {
+            "numbwhere_radial": 6,
+            "move_turn": 5,
+            "symmetry_one": 3,
+            "dur_w12": 2,
+            "numbwhere_median": -2,
+            "focal_yes": -3
+          }
+        },
+        {
+          "condition": "diabetic.neuropathy",
+          "base": 3,
+          "weights": {
+            "diabetes_yes": 6,
+            "symmetry_both": 4,
+            "numbwhere_all": 3,
+            "onset_gradual": 3,
+            "dur_mon": 3,
+            "diabetes_no": -4,
+            "symmetry_one": -3
+          }
+        },
+        {
+          "condition": "b12.deficiency",
+          "base": 3,
+          "weights": {
+            "symmetry_both": 4,
+            "numbwhere_all": 3,
+            "onset_gradual": 3,
+            "dur_mon": 2,
+            "temperature_cold": 2,
+            "symmetry_one": -3
+          }
+        },
+        {
+          "condition": "raynaud",
+          "base": 3,
+          "weights": {
+            "temperature_cold": 5,
+            "symmetry_both": 3,
+            "numbwhere_all": 2,
+            "progress_wave": 3,
+            "nightwake_yes": -2
+          }
+        },
+        {
+          "condition": "cervical.degenerative",
+          "base": 3,
+          "weights": {
+            "move_turn": 4,
+            "dur_mon": 3,
+            "numbwhere_radial": 3,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "stroke.ischemic",
+          "base": 1,
+          "weights": {
+            "focal_yes": 6,
+            "onset_sudden": 6,
+            "numbwhere_all": 3,
+            "symmetry_one": 2,
+            "focal_no": -4,
+            "dur_mon": -5,
+            "nightwake_yes": -3
+          }
+        },
+        {
+          "condition": "tia",
+          "base": 1,
+          "weights": {
+            "focal_yes": 5,
+            "onset_sudden": 4,
+            "progress_better": 4,
+            "dur_mon": -5
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Онемение появилось внезапно вместе с нарушением речи или слабостью в ноге",
+        "Онемение всей руки с невозможностью её поднять",
+        "Стойкое онемение с похуданием мышцы у основания большого пальца"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "arm.weak",
+      "zone": "arm",
+      "name": "Слабость в руке",
+      "priority": 1,
+      "aka": [
+        "рука не слушается",
+        "не могу удержать",
+        "ослабла рука"
+      ],
+      "feelings": [
+        "Роняю предметы",
+        "Не могу поднять руку",
+        "Слабеет к вечеру",
+        "Слабость с онемением"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "focal",
+        "symmetry",
+        "numbwhere",
+        "daytime",
+        "move",
+        "raise",
+        "trauma",
+        "progress",
+        "forehead",
+        "diabetes",
+        "nightwake",
+        "stiffjoint"
+      ],
+      "candidates": [
+        {
+          "condition": "stroke.ischemic",
+          "base": 5,
+          "weights": {
+            "onset_sudden": 6,
+            "focal_yes": 6,
+            "symmetry_one": 3,
+            "forehead_spared": 4,
+            "dur_mon": -5,
+            "onset_gradual": -4,
+            "focal_no": -3
+          }
+        },
+        {
+          "condition": "cervical.radiculopathy",
+          "base": 5,
+          "weights": {
+            "numbwhere_radial": 6,
+            "move_turn": 5,
+            "symmetry_one": 3,
+            "onset_gradual": 2,
+            "dur_w12": 2,
+            "onset_sudden": -2,
+            "forehead_spared": -3
+          }
+        },
+        {
+          "condition": "carpal.tunnel",
+          "base": 4,
+          "weights": {
+            "numbwhere_median": 6,
+            "nightwake_yes": 4,
+            "dur_mon": 3,
+            "onset_gradual": 3,
+            "onset_sudden": -4,
+            "focal_yes": -4
+          }
+        },
+        {
+          "condition": "cubital.tunnel",
+          "base": 3,
+          "weights": {
+            "numbwhere_ulnar": 6,
+            "dur_mon": 3,
+            "onset_gradual": 2,
+            "focal_yes": -4
+          }
+        },
+        {
+          "condition": "rotator.cuff",
+          "base": 4,
+          "weights": {
+            "raise_pain": 5,
+            "raise_help": 4,
+            "trauma_yes": 3,
+            "focal_yes": -4,
+            "numbwhere_median": -3
+          }
+        },
+        {
+          "condition": "tia",
+          "base": 3,
+          "weights": {
+            "onset_sudden": 5,
+            "focal_yes": 5,
+            "progress_better": 5,
+            "dur_hours": 3,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "myasthenia",
+          "base": 2,
+          "weights": {
+            "daytime_yes": 6,
+            "symmetry_both": 3,
+            "progress_wave": 3,
+            "daytime_no": -4,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "b12.deficiency",
+          "base": 2,
+          "weights": {
+            "symmetry_both": 4,
+            "onset_gradual": 4,
+            "dur_mon": 3,
+            "onset_sudden": -4
+          }
+        },
+        {
+          "condition": "brain.tumor",
+          "base": 1,
+          "weights": {
+            "onset_gradual": 4,
+            "progress_worse": 5,
+            "focal_yes": 4,
+            "dur_mon": 3,
+            "onset_sudden": -4
+          }
+        },
+        {
+          "condition": "polymyalgia.rheumatica",
+          "base": 2,
+          "weights": {
+            "symmetry_both": 5,
+            "stiffjoint_long": 5,
+            "raise_pain": 2,
+            "focal_yes": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Слабость возникла внезапно — это всегда оценивают как возможный инсульт",
+        "Слабость вместе с перекосом лица или нарушением речи",
+        "Слабость, которая была и прошла за минуты или часы",
+        "Быстро нарастающая слабость в обеих руках"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "arm.swell",
+      "zone": "arm",
+      "name": "Отёк руки",
+      "priority": 3,
+      "aka": [
+        "отекла рука",
+        "распухла кисть"
+      ],
+      "feelings": [
+        "Вся рука отекла",
+        "Отекла кисть",
+        "Отёк с покраснением",
+        "Отёк без боли"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "symmetry",
+        "joint",
+        "fever",
+        "trauma",
+        "oncohist",
+        "immobility",
+        "immuno",
+        "progress",
+        "swelltime",
+        "dysp",
+        "stiffjoint"
+      ],
+      "candidates": [
+        {
+          "condition": "cellulitis",
+          "base": 6,
+          "weights": {
+            "joint_hotred": 5,
+            "fever_mid": 4,
+            "fever_high": 3,
+            "symmetry_one": 3,
+            "onset_fast": 3,
+            "trauma_yes": 2,
+            "fever_no": -3,
+            "swelltime_evening": -2
+          }
+        },
+        {
+          "condition": "lymphedema",
+          "base": 5,
+          "weights": {
+            "oncohist_yes": 6,
+            "symmetry_one": 4,
+            "swelltime_constant": 5,
+            "dur_mon": 4,
+            "fever_no": 3,
+            "onset_sudden": -3,
+            "joint_hotred": -3
+          }
+        },
+        {
+          "condition": "dvt.leg",
+          "base": 3,
+          "weights": {
+            "symmetry_one": 5,
+            "immobility_yes": 5,
+            "onset_fast": 3,
+            "oncohist_yes": 2,
+            "swelltime_constant": 3,
+            "symmetry_both": -4,
+            "fever_high": -2
+          }
+        },
+        {
+          "condition": "heart.failure",
+          "base": 3,
+          "weights": {
+            "symmetry_both": 5,
+            "swelltime_evening": 4,
+            "dysp_yes": 4,
+            "onset_gradual": 3,
+            "symmetry_one": -4,
+            "dysp_no": -4
+          }
+        },
+        {
+          "condition": "wrist.fracture",
+          "base": 2,
+          "weights": {
+            "trauma_yes": 6,
+            "onset_sudden": 4,
+            "symmetry_one": 3,
+            "trauma_no": -5,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "rheumatoid.arthritis",
+          "base": 2,
+          "weights": {
+            "joint_swollen": 5,
+            "symmetry_both": 4,
+            "stiffjoint_long": 5,
+            "dur_mon": 3
+          }
+        },
+        {
+          "condition": "ckd",
+          "base": 2,
+          "weights": {
+            "symmetry_both": 4,
+            "swelltime_morning": 5,
+            "onset_gradual": 3,
+            "symmetry_one": -4
+          }
+        },
+        {
+          "condition": "septic.arthritis",
+          "base": 1,
+          "weights": {
+            "joint_hotred": 6,
+            "fever_high": 5,
+            "immuno_yes": 4,
+            "fever_no": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Рука отекла быстро, кожа горячая и красная, есть температура",
+        "Отёк одной руки после операции или на фоне онкологического заболевания",
+        "Отёк вместе с одышкой"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    }
+  ]
+}

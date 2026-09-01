@@ -1,0 +1,1739 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-08-27",
+  "zone": "chest",
+  "syndromes": [
+    {
+      "id": "chest.pain.press",
+      "zone": "chest",
+      "name": "Давящая боль за грудиной",
+      "priority": 1,
+      "aka": [
+        "давит в груди",
+        "сжимает за грудиной",
+        "жмёт в груди"
+      ],
+      "feelings": [
+        "Давит и сжимает",
+        "Жжёт за грудиной",
+        "Тяжесть, будто плита",
+        "Стягивает"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "exertion",
+        "auto",
+        "dysp",
+        "move",
+        "breath",
+        "radleg",
+        "movebetter",
+        "reflux",
+        "eatrel",
+        "rhythm",
+        "immobility",
+        "calfswell",
+        "fever",
+        "hbp",
+        "smoke",
+        "progress"
+      ],
+      "candidates": [
+        {
+          "condition": "myocardial.infarction",
+          "base": 5,
+          "weights": {
+            "auto_yes": 6,
+            "exertion_worse": 4,
+            "exertion_rest": 3,
+            "dysp_yes": 4,
+            "movebetter_none": 3,
+            "dur_long": 3,
+            "move_press": -5,
+            "move_turn": -3,
+            "dur_mon": -5,
+            "breath_yes": -2
+          }
+        },
+        {
+          "condition": "angina.stable",
+          "base": 6,
+          "weights": {
+            "exertion_onload": 6,
+            "movebetter_rest": 4,
+            "dur_min": 3,
+            "smoke_both": 2,
+            "hbp_high": 2,
+            "move_press": -4,
+            "dur_long": -3,
+            "exertion_rest": -2,
+            "breath_yes": -2
+          }
+        },
+        {
+          "condition": "gerd",
+          "base": 6,
+          "weights": {
+            "reflux_yes": 6,
+            "eatrel_after": 4,
+            "dur_mon": 3,
+            "auto_yes": -4,
+            "exertion_onload": -3,
+            "dysp_yes": -2
+          }
+        },
+        {
+          "condition": "panic.attack",
+          "base": 5,
+          "weights": {
+            "dur_min": 3,
+            "rhythm_fastgrad": 3,
+            "onset_fast": 2,
+            "exertion_rest": 2,
+            "progress_better": 3,
+            "exertion_onload": -4,
+            "auto_yes": -1,
+            "dur_mon": -2
+          }
+        },
+        {
+          "condition": "costochondritis",
+          "base": 5,
+          "weights": {
+            "move_press": 6,
+            "move_turn": 3,
+            "breath_yes": 2,
+            "auto_yes": -5,
+            "dysp_yes": -3,
+            "exertion_onload": -3
+          }
+        },
+        {
+          "condition": "thoracic.myofascial",
+          "base": 4,
+          "weights": {
+            "move_press": 5,
+            "move_turn": 4,
+            "auto_yes": -5,
+            "exertion_onload": -3,
+            "dysp_yes": -3
+          }
+        },
+        {
+          "condition": "pericarditis",
+          "base": 3,
+          "weights": {
+            "movebetter_bend": 6,
+            "breath_yes": 4,
+            "fever_low": 3,
+            "fever_mid": 2,
+            "move_press": -2,
+            "exertion_onload": -2
+          }
+        },
+        {
+          "condition": "pulmonary.embolism",
+          "base": 2,
+          "weights": {
+            "immobility_yes": 6,
+            "calfswell_yes": 6,
+            "dysp_yes": 5,
+            "onset_sudden": 3,
+            "breath_yes": 3,
+            "move_press": -4,
+            "exertion_onload": -2,
+            "calfswell_no": -3,
+            "immobility_no": -2
+          }
+        },
+        {
+          "condition": "aortic.dissection",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 6,
+            "movebetter_none": 4,
+            "auto_yes": 3,
+            "hbp_high": 3,
+            "radleg_front": 2,
+            "move_press": -5,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "peptic.ulcer",
+          "base": 3,
+          "weights": {
+            "eatrel_empty": 6,
+            "dur_mon": 3,
+            "reflux_yes": 2,
+            "exertion_onload": -3,
+            "auto_yes": -3
+          }
+        },
+        {
+          "condition": "myocarditis",
+          "base": 1,
+          "weights": {
+            "dysp_yes": 4,
+            "rhythm_skips": 3,
+            "fever_low": 2,
+            "dur_w12": 3,
+            "exertion_worse": 2,
+            "move_press": -3
+          }
+        },
+        {
+          "condition": "pneumothorax",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 5,
+            "dysp_yes": 4,
+            "breath_yes": 3,
+            "smoke_both": 2,
+            "move_press": -3,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "anemia",
+          "base": 2,
+          "weights": {
+            "dysp_yes": 3,
+            "exertion_onload": 3,
+            "onset_gradual": 3,
+            "dur_mon": 2,
+            "auto_yes": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Давящая боль дольше двадцати минут, особенно с холодным потом и дурнотой",
+        "Боль, возникшая мгновенно и разрывающая, отдающая в спину",
+        "Боль с одышкой, которой раньше не было",
+        "Приступ, который раньше проходил от отдыха, а теперь не проходит"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "chest.pain.breath",
+      "zone": "chest",
+      "name": "Боль в груди при дыхании",
+      "priority": 1,
+      "aka": [
+        "больно вдохнуть",
+        "колет при вдохе",
+        "режет на вдохе"
+      ],
+      "feelings": [
+        "Колет при вдохе",
+        "Режет сбоку",
+        "Не даёт вдохнуть глубоко",
+        "Ноет при дыхании"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "breath",
+        "dysp",
+        "cough",
+        "sputum",
+        "fever",
+        "move",
+        "side",
+        "immobility",
+        "calfswell",
+        "trauma",
+        "rash",
+        "smoke",
+        "auto",
+        "progress",
+        "movebetter",
+        "weight"
+      ],
+      "candidates": [
+        {
+          "condition": "pleurisy",
+          "base": 7,
+          "weights": {
+            "breath_yes": 6,
+            "cough_dry": 3,
+            "fever_mid": 2,
+            "side_one": 3,
+            "move_press": -3
+          }
+        },
+        {
+          "condition": "pneumonia",
+          "base": 6,
+          "weights": {
+            "sputum_purulent": 5,
+            "fever_high": 5,
+            "dysp_yes": 4,
+            "cough_wet": 4,
+            "side_one": 2,
+            "fever_no": -4,
+            "move_press": -3
+          }
+        },
+        {
+          "condition": "costochondritis",
+          "base": 6,
+          "weights": {
+            "move_press": 6,
+            "fever_no": 3,
+            "trauma_no": 1,
+            "dysp_yes": -3,
+            "fever_high": -3,
+            "sputum_purulent": -3
+          }
+        },
+        {
+          "condition": "rib.fracture",
+          "base": 5,
+          "weights": {
+            "trauma_yes": 6,
+            "move_press": 5,
+            "side_one": 3,
+            "trauma_no": -4,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "thoracic.myofascial",
+          "base": 4,
+          "weights": {
+            "move_press": 5,
+            "move_turn": 4,
+            "fever_no": 3,
+            "dysp_yes": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "pulmonary.embolism",
+          "base": 3,
+          "weights": {
+            "immobility_yes": 6,
+            "calfswell_yes": 6,
+            "dysp_yes": 5,
+            "onset_sudden": 4,
+            "sputum_blood": 3,
+            "move_press": -4,
+            "trauma_yes": -2,
+            "calfswell_no": -3,
+            "immobility_no": -2
+          }
+        },
+        {
+          "condition": "pneumothorax",
+          "base": 3,
+          "weights": {
+            "onset_sudden": 6,
+            "dysp_yes": 4,
+            "side_one": 3,
+            "smoke_both": 2,
+            "move_press": -4,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "pericarditis",
+          "base": 3,
+          "weights": {
+            "movebetter_bend": 6,
+            "fever_low": 3,
+            "cough_dry": 2,
+            "move_press": -2,
+            "trauma_yes": -3
+          }
+        },
+        {
+          "condition": "herpes.zoster",
+          "base": 3,
+          "weights": {
+            "rash_spots": 6,
+            "side_one": 4,
+            "dur_d13": 2,
+            "trauma_yes": -3,
+            "sputum_purulent": -3
+          }
+        },
+        {
+          "condition": "bronchitis.acute",
+          "base": 3,
+          "weights": {
+            "cough_dry": 4,
+            "cough_wet": 3,
+            "sputum_clear": 3,
+            "fever_low": 2,
+            "dur_d47": 2,
+            "trauma_yes": -3
+          }
+        },
+        {
+          "condition": "pleural.effusion",
+          "base": 2,
+          "weights": {
+            "dysp_yes": 5,
+            "progress_worse": 3,
+            "side_one": 3,
+            "breath_no": 2,
+            "trauma_yes": -2
+          }
+        },
+        {
+          "condition": "lung.cancer",
+          "base": 1,
+          "weights": {
+            "smoke_both": 5,
+            "sputum_blood": 5,
+            "weight_yes": 4,
+            "dur_mon": 3,
+            "progress_worse": 3,
+            "dur_d13": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль при дыхании вместе с одышкой, которой раньше не было",
+        "Боль возникла внезапно после перелёта, операции или долгой неподвижности",
+        "Одна голень отекла и болит икра",
+        "Кровь в мокроте"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "chest.rib.right",
+      "zone": "chest",
+      "name": "Рёбра и подреберье справа",
+      "priority": 1,
+      "aka": [
+        "болит справа под ребром",
+        "колет в правом боку"
+      ],
+      "feelings": [
+        "Приступами, схватывает",
+        "Ноет и давит",
+        "Колет при вдохе",
+        "Жжёт полосой по ребру",
+        "Болит при нажатии",
+        "Тяжесть и распирание"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "eatrel",
+        "move",
+        "breath",
+        "fever",
+        "yellow",
+        "vomitwhat",
+        "dysp",
+        "cough",
+        "sputum",
+        "rash",
+        "trauma",
+        "radleg",
+        "auto",
+        "weight",
+        "restless",
+        "tapback",
+        "appetite",
+        "immobility",
+        "calfswell"
+      ],
+      "candidates": [
+        {
+          "condition": "cholelithiasis.colic",
+          "base": 7,
+          "weights": {
+            "eatrel_fatty": 6,
+            "dur_hours": 3,
+            "vomitwhat_bile": 3,
+            "restless_restless": 3,
+            "radleg_front": 1,
+            "move_press": -4,
+            "breath_yes": -2,
+            "eatrel_empty": -3
+          }
+        },
+        {
+          "condition": "cholecystitis.acute",
+          "base": 5,
+          "weights": {
+            "fever_mid": 4,
+            "fever_high": 3,
+            "eatrel_fatty": 3,
+            "dur_d13": 3,
+            "vomitwhat_bile": 2,
+            "fever_no": -3,
+            "move_press": -4
+          }
+        },
+        {
+          "condition": "thoracic.myofascial",
+          "base": 6,
+          "weights": {
+            "move_press": 6,
+            "move_turn": 4,
+            "fever_no": 3,
+            "trauma_yes": 2,
+            "yellow_yes": -5,
+            "fever_high": -3,
+            "eatrel_fatty": -3
+          }
+        },
+        {
+          "condition": "hepatitis.viral",
+          "base": 4,
+          "weights": {
+            "yellow_yes": 6,
+            "dur_w12": 3,
+            "appetite_down": 3,
+            "weight_yes": 1,
+            "move_press": -3,
+            "restless_restless": -3,
+            "dur_hours": -3
+          }
+        },
+        {
+          "condition": "pneumonia",
+          "base": 4,
+          "weights": {
+            "sputum_purulent": 5,
+            "dysp_yes": 5,
+            "fever_high": 4,
+            "cough_wet": 4,
+            "breath_yes": 3,
+            "eatrel_fatty": -4,
+            "move_press": -3
+          }
+        },
+        {
+          "condition": "pleurisy",
+          "base": 4,
+          "weights": {
+            "breath_yes": 6,
+            "cough_dry": 3,
+            "dysp_yes": 2,
+            "eatrel_fatty": -3,
+            "move_press": -2
+          }
+        },
+        {
+          "condition": "herpes.zoster",
+          "base": 3,
+          "weights": {
+            "rash_spots": 6,
+            "dur_d13": 2,
+            "move_press": 1,
+            "eatrel_fatty": -3,
+            "yellow_yes": -3
+          }
+        },
+        {
+          "condition": "rib.fracture",
+          "base": 3,
+          "weights": {
+            "trauma_yes": 6,
+            "move_press": 4,
+            "breath_yes": 2,
+            "trauma_no": -4,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "costochondritis",
+          "base": 3,
+          "weights": {
+            "move_press": 5,
+            "fever_no": 3,
+            "dur_mon": 2,
+            "yellow_yes": -4,
+            "dysp_yes": -3
+          }
+        },
+        {
+          "condition": "peptic.ulcer",
+          "base": 3,
+          "weights": {
+            "eatrel_empty": 6,
+            "dur_mon": 3,
+            "vomitwhat_blood": 4,
+            "move_press": -3,
+            "breath_yes": -2
+          }
+        },
+        {
+          "condition": "renal.colic",
+          "base": 3,
+          "weights": {
+            "radleg_groin": 6,
+            "restless_restless": 4,
+            "tapback_yes": 4,
+            "move_press": -3,
+            "eatrel_fatty": -3
+          }
+        },
+        {
+          "condition": "choledocholithiasis",
+          "base": 2,
+          "weights": {
+            "yellow_yes": 6,
+            "fever_mid": 3,
+            "fever_high": 3,
+            "eatrel_fatty": 3,
+            "move_press": -4
+          }
+        },
+        {
+          "condition": "myocardial.infarction",
+          "base": 1,
+          "weights": {
+            "auto_yes": 6,
+            "dysp_yes": 3,
+            "onset_fast": 2,
+            "move_press": -5,
+            "dur_mon": -5,
+            "rash_spots": -4
+          }
+        },
+        {
+          "condition": "pulmonary.embolism",
+          "base": 1,
+          "weights": {
+            "immobility_yes": 6,
+            "calfswell_yes": 6,
+            "dysp_yes": 4,
+            "onset_sudden": 3,
+            "move_press": -4,
+            "calfswell_no": -3,
+            "immobility_no": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль справа под рёбрами вместе с холодным потом, слабостью и одышкой",
+        "Боль, температура и желтизна глаз одновременно",
+        "Боль дольше шести часов подряд, которая не отпускает",
+        "Рвота с кровью или чёрный стул"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "chest.rib.left",
+      "zone": "chest",
+      "name": "Рёбра и подреберье слева",
+      "priority": 1,
+      "aka": [
+        "болит слева под ребром",
+        "колет в левом боку"
+      ],
+      "feelings": [
+        "Давит и сжимает",
+        "Колет при вдохе",
+        "Ноет",
+        "Жжёт полосой по ребру",
+        "Болит при нажатии"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "exertion",
+        "auto",
+        "dysp",
+        "move",
+        "breath",
+        "fever",
+        "cough",
+        "sputum",
+        "rash",
+        "trauma",
+        "eatrel",
+        "reflux",
+        "radleg",
+        "movebetter",
+        "immobility",
+        "calfswell",
+        "vomitwhat"
+      ],
+      "candidates": [
+        {
+          "condition": "thoracic.myofascial",
+          "base": 7,
+          "weights": {
+            "move_press": 6,
+            "move_turn": 4,
+            "fever_no": 3,
+            "auto_yes": -5,
+            "dysp_yes": -3,
+            "exertion_onload": -3
+          }
+        },
+        {
+          "condition": "costochondritis",
+          "base": 6,
+          "weights": {
+            "move_press": 6,
+            "breath_yes": 2,
+            "fever_no": 3,
+            "auto_yes": -5,
+            "exertion_onload": -3
+          }
+        },
+        {
+          "condition": "myocardial.infarction",
+          "base": 4,
+          "weights": {
+            "auto_yes": 6,
+            "exertion_worse": 4,
+            "dysp_yes": 4,
+            "movebetter_none": 3,
+            "exertion_rest": 2,
+            "move_press": -5,
+            "move_turn": -3,
+            "dur_mon": -5,
+            "rash_spots": -4
+          }
+        },
+        {
+          "condition": "angina.stable",
+          "base": 4,
+          "weights": {
+            "exertion_onload": 6,
+            "movebetter_rest": 4,
+            "dur_min": 3,
+            "move_press": -4,
+            "dur_mon": -2
+          }
+        },
+        {
+          "condition": "gerd",
+          "base": 4,
+          "weights": {
+            "reflux_yes": 6,
+            "eatrel_after": 4,
+            "dur_mon": 3,
+            "auto_yes": -4,
+            "dysp_yes": -2
+          }
+        },
+        {
+          "condition": "pancreatitis.acute",
+          "base": 3,
+          "weights": {
+            "radleg_front": 5,
+            "movebetter_bend": 6,
+            "vomitwhat_bile": 4,
+            "eatrel_fatty": 3,
+            "move_press": -3
+          }
+        },
+        {
+          "condition": "pleurisy",
+          "base": 3,
+          "weights": {
+            "breath_yes": 6,
+            "cough_dry": 3,
+            "fever_mid": 2,
+            "move_press": -3
+          }
+        },
+        {
+          "condition": "pneumonia",
+          "base": 3,
+          "weights": {
+            "sputum_purulent": 5,
+            "fever_high": 4,
+            "dysp_yes": 4,
+            "cough_wet": 4,
+            "move_press": -3
+          }
+        },
+        {
+          "condition": "herpes.zoster",
+          "base": 3,
+          "weights": {
+            "rash_spots": 6,
+            "dur_d13": 2,
+            "auto_yes": -3,
+            "exertion_onload": -3
+          }
+        },
+        {
+          "condition": "rib.fracture",
+          "base": 3,
+          "weights": {
+            "trauma_yes": 6,
+            "move_press": 4,
+            "trauma_no": -4,
+            "auto_yes": -3
+          }
+        },
+        {
+          "condition": "pericarditis",
+          "base": 2,
+          "weights": {
+            "movebetter_bend": 6,
+            "breath_yes": 4,
+            "fever_low": 3,
+            "move_press": -2
+          }
+        },
+        {
+          "condition": "pneumothorax",
+          "base": 2,
+          "weights": {
+            "onset_sudden": 6,
+            "dysp_yes": 4,
+            "breath_yes": 3,
+            "move_press": -4
+          }
+        },
+        {
+          "condition": "pulmonary.embolism",
+          "base": 1,
+          "weights": {
+            "immobility_yes": 6,
+            "calfswell_yes": 6,
+            "dysp_yes": 5,
+            "onset_sudden": 3,
+            "move_press": -4,
+            "calfswell_no": -3,
+            "immobility_no": -2
+          }
+        },
+        {
+          "condition": "aortic.dissection",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 6,
+            "movebetter_none": 4,
+            "auto_yes": 3,
+            "move_press": -5,
+            "dur_mon": -5
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль слева вместе с холодным потом, дурнотой и одышкой",
+        "Боль, возникшая мгновенно и разрывающая",
+        "Боль с одышкой после долгой неподвижности или перелёта",
+        "Боль в левом подреберье после удара в живот"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "chest.palpit",
+      "zone": "chest",
+      "name": "Сердцебиение и перебои",
+      "priority": 1,
+      "aka": [
+        "колотится сердце",
+        "перебои в сердце",
+        "замирает сердце"
+      ],
+      "feelings": [
+        "Колотится часто и ровно",
+        "Бьётся беспорядочно",
+        "Замирает и толкает",
+        "Трепещет в груди"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "rhythm",
+        "exertion",
+        "dysp",
+        "auto",
+        "temperature",
+        "weight",
+        "position",
+        "mood",
+        "tired",
+        "fever",
+        "progress",
+        "attacks",
+        "edema",
+        "immobility",
+        "calfswell"
+      ],
+      "candidates": [
+        {
+          "condition": "extrasystole",
+          "base": 7,
+          "weights": {
+            "rhythm_skips": 6,
+            "attacks_repeat": 3,
+            "exertion_rest": 3,
+            "dur_mon": 2,
+            "fever_no": 2,
+            "rhythm_chaotic": -4,
+            "dysp_yes": -2,
+            "auto_yes": -2
+          }
+        },
+        {
+          "condition": "panic.attack",
+          "base": 6,
+          "weights": {
+            "mood_anx": 5,
+            "rhythm_fastgrad": 4,
+            "attacks_repeat": 3,
+            "dur_min": 2,
+            "exertion_rest": 2,
+            "rhythm_chaotic": -3,
+            "exertion_onload": -3
+          }
+        },
+        {
+          "condition": "svt",
+          "base": 5,
+          "weights": {
+            "rhythm_even": 6,
+            "onset_sudden": 4,
+            "progress_better": 2,
+            "attacks_repeat": 2,
+            "rhythm_chaotic": -4,
+            "rhythm_skips": -3,
+            "rhythm_fastgrad": -4
+          }
+        },
+        {
+          "condition": "atrial.fibrillation",
+          "base": 4,
+          "weights": {
+            "rhythm_chaotic": 6,
+            "dysp_yes": 3,
+            "dur_hours": 2,
+            "tired_strong": 2,
+            "rhythm_even": -4,
+            "rhythm_skips": -2
+          }
+        },
+        {
+          "condition": "anemia",
+          "base": 4,
+          "weights": {
+            "position_stand": 4,
+            "dysp_yes": 3,
+            "tired_strong": 4,
+            "onset_gradual": 3,
+            "temperature_cold": 2,
+            "rhythm_chaotic": -2,
+            "attacks_repeat": -1
+          }
+        },
+        {
+          "condition": "thyrotoxicosis",
+          "base": 4,
+          "weights": {
+            "temperature_hot": 6,
+            "weight_yes": 4,
+            "dur_mon": 3,
+            "tired_some": 1,
+            "temperature_cold": -4,
+            "attacks_repeat": -1
+          }
+        },
+        {
+          "condition": "hypoglycemia",
+          "base": 2,
+          "weights": {
+            "auto_yes": 5,
+            "attacks_repeat": 2,
+            "dur_min": 2,
+            "progress_better": 3,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "myocarditis",
+          "base": 2,
+          "weights": {
+            "dysp_yes": 4,
+            "rhythm_skips": 3,
+            "fever_low": 3,
+            "dur_w12": 3,
+            "exertion_worse": 3
+          }
+        },
+        {
+          "condition": "heart.failure",
+          "base": 2,
+          "weights": {
+            "dysp_yes": 5,
+            "edema_legs": 5,
+            "exertion_worse": 3,
+            "onset_gradual": 3,
+            "dur_mon": 2,
+            "dysp_no": -4
+          }
+        },
+        {
+          "condition": "myocardial.infarction",
+          "base": 1,
+          "weights": {
+            "auto_yes": 6,
+            "dysp_yes": 3,
+            "exertion_worse": 3,
+            "onset_fast": 2,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "pulmonary.embolism",
+          "base": 1,
+          "weights": {
+            "immobility_yes": 6,
+            "calfswell_yes": 6,
+            "dysp_yes": 4,
+            "onset_sudden": 3,
+            "calfswell_no": -3,
+            "immobility_no": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Сердцебиение вместе с болью в груди, обмороком или предобморочным состоянием",
+        "Впервые возникший приступ беспорядочного сердцебиения",
+        "Сердцебиение с выраженной одышкой в покое",
+        "Обмороки при физической нагрузке"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "chest.dyspnea",
+      "zone": "chest",
+      "name": "Одышка",
+      "priority": 1,
+      "aka": [
+        "не хватает воздуха",
+        "задыхаюсь",
+        "тяжело дышать"
+      ],
+      "feelings": [
+        "Не хватает воздуха при нагрузке",
+        "Не хватает воздуха в покое",
+        "Трудно выдохнуть, свистит",
+        "Не могу лежать, нужна высокая подушка"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "exertion",
+        "stridor",
+        "cough",
+        "sputum",
+        "edema",
+        "position",
+        "fever",
+        "immobility",
+        "calfswell",
+        "smoke",
+        "temperature",
+        "tired",
+        "auto",
+        "rhythm",
+        "progress",
+        "mood",
+        "attacks",
+        "swell",
+        "weight",
+        "dysp"
+      ],
+      "candidates": [
+        {
+          "condition": "asthma",
+          "base": 6,
+          "weights": {
+            "stridor_wheeze": 6,
+            "cough_dry": 3,
+            "progress_wave": 4,
+            "attacks_repeat": 3,
+            "dur_mon": 2,
+            "edema_legs": -3,
+            "fever_high": -2
+          }
+        },
+        {
+          "condition": "copd",
+          "base": 5,
+          "weights": {
+            "smoke_both": 6,
+            "sputum_lots": 4,
+            "cough_wet": 3,
+            "onset_gradual": 4,
+            "dur_mon": 3,
+            "stridor_wheeze": 3,
+            "smoke_no": -5,
+            "onset_sudden": -4
+          }
+        },
+        {
+          "condition": "heart.failure",
+          "base": 5,
+          "weights": {
+            "edema_legs": 6,
+            "position_stand": 2,
+            "onset_gradual": 3,
+            "exertion_worse": 4,
+            "dur_mon": 2,
+            "cough_dry": 2,
+            "fever_high": -3,
+            "smoke_no": 1,
+            "dysp_no": -4
+          }
+        },
+        {
+          "condition": "anemia",
+          "base": 4,
+          "weights": {
+            "tired_strong": 4,
+            "position_stand": 4,
+            "temperature_cold": 3,
+            "onset_gradual": 3,
+            "exertion_onload": 3,
+            "stridor_wheeze": -3,
+            "edema_legs": -1
+          }
+        },
+        {
+          "condition": "pneumonia",
+          "base": 4,
+          "weights": {
+            "fever_high": 5,
+            "sputum_purulent": 5,
+            "cough_wet": 4,
+            "dur_d47": 3,
+            "fever_no": -4,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "panic.attack",
+          "base": 4,
+          "weights": {
+            "mood_anx": 5,
+            "onset_sudden": 3,
+            "dur_min": 3,
+            "progress_better": 3,
+            "attacks_repeat": 3,
+            "edema_legs": -4,
+            "sputum_purulent": -4,
+            "smoke_both": -1
+          }
+        },
+        {
+          "condition": "pulmonary.embolism",
+          "base": 3,
+          "weights": {
+            "immobility_yes": 6,
+            "calfswell_yes": 6,
+            "onset_sudden": 5,
+            "sputum_blood": 3,
+            "auto_yes": 2,
+            "dur_mon": -4,
+            "stridor_wheeze": -2,
+            "calfswell_no": -3,
+            "immobility_no": -2
+          }
+        },
+        {
+          "condition": "pleural.effusion",
+          "base": 2,
+          "weights": {
+            "progress_worse": 4,
+            "onset_gradual": 3,
+            "edema_legs": 2,
+            "cough_dry": 2,
+            "stridor_wheeze": -3
+          }
+        },
+        {
+          "condition": "myocarditis",
+          "base": 2,
+          "weights": {
+            "dur_w12": 4,
+            "rhythm_skips": 3,
+            "fever_low": 3,
+            "exertion_worse": 3,
+            "smoke_both": -1
+          }
+        },
+        {
+          "condition": "atrial.fibrillation",
+          "base": 2,
+          "weights": {
+            "rhythm_chaotic": 6,
+            "onset_sudden": 2,
+            "exertion_worse": 2,
+            "edema_legs": 2
+          }
+        },
+        {
+          "condition": "pneumothorax",
+          "base": 2,
+          "weights": {
+            "onset_sudden": 6,
+            "smoke_both": 2,
+            "dur_hours": 3,
+            "dur_mon": -5,
+            "edema_legs": -3
+          }
+        },
+        {
+          "condition": "anaphylaxis.angioedema",
+          "base": 1,
+          "weights": {
+            "swell_lips": 6,
+            "stridor_hard": 5,
+            "onset_sudden": 4,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "lung.cancer",
+          "base": 1,
+          "weights": {
+            "smoke_both": 5,
+            "sputum_blood": 5,
+            "weight_yes": 4,
+            "progress_worse": 3,
+            "dur_mon": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Воздуха не хватает прямо сейчас, в покое",
+        "Невозможно договорить фразу без паузы на вдох",
+        "Губы или кончики пальцев синеют",
+        "Одышка появилась внезапно после перелёта, операции или долгой неподвижности",
+        "Невозможно лежать, появилась розовая пенистая мокрота"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "chest.cough.dry",
+      "zone": "chest",
+      "name": "Сухой кашель",
+      "priority": 1,
+      "aka": [
+        "сухой кашель",
+        "кашель без мокроты",
+        "першит и кашляю"
+      ],
+      "feelings": [
+        "Покашливаю постоянно",
+        "Приступами до рвоты",
+        "Ночью сильнее",
+        "Дерёт горло и кашляю"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "sputum",
+        "fever",
+        "runny",
+        "reflux",
+        "acei",
+        "dysp",
+        "night",
+        "smoke",
+        "weight",
+        "contact",
+        "vaccine",
+        "progress",
+        "stridor",
+        "breath",
+        "sweats",
+        "edema"
+      ],
+      "candidates": [
+        {
+          "condition": "arvi",
+          "base": 8,
+          "weights": {
+            "runny_yes": 5,
+            "fever_low": 3,
+            "fever_mid": 2,
+            "dur_d13": 4,
+            "progress_better": 3,
+            "dur_mon": -5,
+            "weight_yes": -3,
+            "acei_pril": -2
+          }
+        },
+        {
+          "condition": "bronchitis.acute",
+          "base": 6,
+          "weights": {
+            "dur_d47": 4,
+            "dur_w12": 3,
+            "runny_yes": 3,
+            "fever_low": 2,
+            "progress_better": 2,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "postnasal.drip",
+          "base": 5,
+          "weights": {
+            "runny_yes": 5,
+            "reflux_morn": 4,
+            "night_yes": 3,
+            "fever_no": 3,
+            "dur_mon": 3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "lpr.reflux",
+          "base": 5,
+          "weights": {
+            "reflux_yes": 6,
+            "reflux_morn": 4,
+            "night_yes": 3,
+            "dur_mon": 3,
+            "fever_no": 2,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "ace.cough",
+          "base": 4,
+          "weights": {
+            "acei_pril": 6,
+            "dur_mon": 3,
+            "fever_no": 3,
+            "runny_no": 2,
+            "acei_no": -5,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "asthma",
+          "base": 4,
+          "weights": {
+            "night_yes": 4,
+            "stridor_wheeze": 5,
+            "progress_wave": 3,
+            "dur_mon": 2,
+            "fever_high": -2
+          }
+        },
+        {
+          "condition": "whooping.cough",
+          "base": 3,
+          "weights": {
+            "dur_mon": 5,
+            "night_yes": 4,
+            "fever_no": 4,
+            "vaccine_old": 3,
+            "vaccine_no": 3,
+            "contact_yes": 2,
+            "runny_yes": -1,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "pneumonia",
+          "base": 3,
+          "weights": {
+            "fever_high": 5,
+            "dysp_yes": 4,
+            "dur_d47": 2,
+            "fever_no": -4
+          }
+        },
+        {
+          "condition": "pleurisy",
+          "base": 2,
+          "weights": {
+            "breath_yes": 5,
+            "fever_mid": 2,
+            "dur_d13": 2
+          }
+        },
+        {
+          "condition": "copd",
+          "base": 2,
+          "weights": {
+            "smoke_both": 6,
+            "onset_gradual": 3,
+            "dur_mon": 3,
+            "dysp_yes": 3,
+            "smoke_no": -5
+          }
+        },
+        {
+          "condition": "lung.cancer",
+          "base": 1,
+          "weights": {
+            "smoke_both": 5,
+            "weight_yes": 5,
+            "dur_mon": 4,
+            "progress_worse": 4,
+            "sputum_blood": 5,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "tuberculosis.pulmonary",
+          "base": 1,
+          "weights": {
+            "dur_mon": 4,
+            "weight_yes": 4,
+            "sweats_yes": 5,
+            "fever_low": 3,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "heart.failure",
+          "base": 1,
+          "weights": {
+            "edema_legs": 5,
+            "night_yes": 3,
+            "dysp_yes": 4,
+            "onset_gradual": 2,
+            "dysp_no": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Кашель дольше трёх недель, особенно у курящего человека",
+        "Кровь в мокроте",
+        "Кашель вместе с потерей веса и ночной потливостью",
+        "Кашель с нарастающей одышкой"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "chest.cough.wet",
+      "zone": "chest",
+      "name": "Кашель с мокротой",
+      "priority": 1,
+      "aka": [
+        "кашель с мокротой",
+        "отхаркиваю",
+        "мокрый кашель"
+      ],
+      "feelings": [
+        "Откашливаю светлую мокроту",
+        "Густая жёлто-зелёная",
+        "Обильная по утрам",
+        "С прожилками крови"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "sputum",
+        "fever",
+        "dysp",
+        "smoke",
+        "weight",
+        "sweats",
+        "runny",
+        "night",
+        "progress",
+        "immuno",
+        "breath",
+        "edema"
+      ],
+      "candidates": [
+        {
+          "condition": "bronchitis.acute",
+          "base": 8,
+          "weights": {
+            "sputum_clear": 5,
+            "dur_d47": 4,
+            "dur_w12": 3,
+            "runny_yes": 3,
+            "fever_low": 2,
+            "progress_better": 3,
+            "dur_mon": -5,
+            "weight_yes": -3,
+            "sputum_blood": -3
+          }
+        },
+        {
+          "condition": "pneumonia",
+          "base": 6,
+          "weights": {
+            "sputum_purulent": 5,
+            "fever_high": 5,
+            "dysp_yes": 5,
+            "breath_yes": 3,
+            "dur_d47": 2,
+            "fever_no": -4,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "arvi",
+          "base": 5,
+          "weights": {
+            "runny_yes": 5,
+            "sputum_clear": 3,
+            "dur_d13": 4,
+            "fever_low": 2,
+            "dur_mon": -5,
+            "weight_yes": -3
+          }
+        },
+        {
+          "condition": "copd",
+          "base": 5,
+          "weights": {
+            "smoke_both": 6,
+            "sputum_lots": 4,
+            "onset_gradual": 4,
+            "dur_mon": 4,
+            "dysp_yes": 3,
+            "smoke_no": -5,
+            "dur_d13": -3
+          }
+        },
+        {
+          "condition": "bronchiectasis",
+          "base": 3,
+          "weights": {
+            "sputum_lots": 6,
+            "dur_mon": 4,
+            "sputum_purulent": 3,
+            "sputum_blood": 3,
+            "progress_wave": 2,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "tuberculosis.pulmonary",
+          "base": 2,
+          "weights": {
+            "dur_mon": 5,
+            "sweats_yes": 6,
+            "weight_yes": 5,
+            "fever_low": 3,
+            "sputum_blood": 3,
+            "immuno_yes": 3,
+            "sweats_no": -3,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "lung.cancer",
+          "base": 2,
+          "weights": {
+            "smoke_both": 5,
+            "sputum_blood": 6,
+            "weight_yes": 5,
+            "progress_worse": 4,
+            "dur_mon": 3,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "asthma",
+          "base": 2,
+          "weights": {
+            "sputum_clear": 3,
+            "progress_wave": 4,
+            "night_yes": 3,
+            "dur_mon": 2,
+            "sputum_purulent": -2
+          }
+        },
+        {
+          "condition": "heart.failure",
+          "base": 2,
+          "weights": {
+            "edema_legs": 6,
+            "dysp_yes": 4,
+            "night_yes": 3,
+            "onset_gradual": 3,
+            "fever_high": -3,
+            "dysp_no": -4
+          }
+        },
+        {
+          "condition": "postnasal.drip",
+          "base": 3,
+          "weights": {
+            "runny_yes": 5,
+            "night_yes": 2,
+            "fever_no": 3,
+            "dur_mon": 2,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "pleural.effusion",
+          "base": 1,
+          "weights": {
+            "dysp_yes": 5,
+            "progress_worse": 3,
+            "edema_legs": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Кровь в мокроте в любом количестве",
+        "Кашель дольше трёх недель с потерей веса и ночной потливостью",
+        "Кашель с высокой температурой и одышкой в покое",
+        "Обильная гнойная мокрота с ознобами"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "chest.breast.lump",
+      "zone": "chest",
+      "name": "Уплотнение в молочной железе",
+      "priority": 1,
+      "aka": [
+        "шишка в груди",
+        "нащупала уплотнение",
+        "узел в молочной железе"
+      ],
+      "feelings": [
+        "Плотный безболезненный узел",
+        "Гладкое подвижное образование",
+        "Обе железы бугристые",
+        "Горячий болезненный участок"
+      ],
+      "questions": [
+        "dur",
+        "lump",
+        "nipple",
+        "side",
+        "period",
+        "fever",
+        "nodes",
+        "progress",
+        "weight",
+        "oncohist",
+        "trauma",
+        "onset",
+        "sweats"
+      ],
+      "candidates": [
+        {
+          "condition": "mastopathy",
+          "base": 8,
+          "weights": {
+            "lump_diffuse": 6,
+            "period_now": 4,
+            "side_both": 4,
+            "fever_no": 3,
+            "nipple_no": 3,
+            "lump_hardfix": -5,
+            "nipple_retract": -5,
+            "nodes_hard": -4,
+            "side_one": -2
+          }
+        },
+        {
+          "condition": "breast.cyst",
+          "base": 6,
+          "weights": {
+            "lump_smooth": 6,
+            "side_one": 2,
+            "fever_no": 3,
+            "nipple_no": 2,
+            "period_now": 2,
+            "lump_hardfix": -5,
+            "nipple_retract": -4,
+            "nodes_hard": -3
+          }
+        },
+        {
+          "condition": "mastitis",
+          "base": 4,
+          "weights": {
+            "lump_hotred": 6,
+            "fever_high": 5,
+            "fever_mid": 3,
+            "side_one": 3,
+            "onset_fast": 3,
+            "fever_no": -4,
+            "lump_diffuse": -3,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "breast.cancer",
+          "base": 3,
+          "weights": {
+            "lump_hardfix": 6,
+            "nipple_retract": 6,
+            "nipple_discharge": 4,
+            "nipple_peel": 5,
+            "nodes_hard": 5,
+            "side_one": 3,
+            "progress_worse": 4,
+            "weight_yes": 2,
+            "dur_mon": 2,
+            "lump_diffuse": -4,
+            "lump_smooth": -3,
+            "period_now": -2,
+            "fever_high": -2
+          }
+        },
+        {
+          "condition": "gynecomastia",
+          "base": 3,
+          "weights": {
+            "lump_smooth": 2,
+            "side_both": 4,
+            "fever_no": 3,
+            "nipple_no": 2,
+            "lump_hardfix": -4,
+            "nipple_retract": -4
+          }
+        },
+        {
+          "condition": "lymphadenitis",
+          "base": 2,
+          "weights": {
+            "nodes_front": 4,
+            "fever_mid": 3,
+            "dur_d13": 2,
+            "nodes_hard": -3,
+            "nipple_retract": -3
+          }
+        },
+        {
+          "condition": "lymphoma",
+          "base": 1,
+          "weights": {
+            "nodes_hard": 6,
+            "sweats_yes": 5,
+            "weight_yes": 4,
+            "progress_worse": 3,
+            "dur_mon": 2,
+            "lump_hotred": -4,
+            "period_now": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Плотный узел, который не смещается и не меняется в течение цикла",
+        "Втяжение соска или кожи, кожа наподобие лимонной корки",
+        "Кровянистые выделения из соска",
+        "Плотные безболезненные узлы в подмышке"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    }
+  ]
+}

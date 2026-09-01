@@ -1,0 +1,1267 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-08-27",
+  "zone": "back",
+  "syndromes": [
+    {
+      "id": "back.lumbar.acute",
+      "zone": "back",
+      "name": "Острая боль в пояснице, прострел",
+      "priority": 1,
+      "aka": [
+        "прострелило поясницу",
+        "сорвал спину",
+        "заклинило поясницу"
+      ],
+      "feelings": [
+        "Прострелило, не разогнуться",
+        "Тянет и ноет",
+        "Жжёт полосой",
+        "Резко при движении",
+        "Волнами, накатывает"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "lift",
+        "radleg",
+        "movebetter",
+        "night",
+        "fever",
+        "urine",
+        "saddle",
+        "legweak",
+        "trauma",
+        "restless",
+        "tapback",
+        "weight",
+        "oncohist",
+        "immuno",
+        "rash",
+        "side",
+        "progress",
+        "vomit"
+      ],
+      "candidates": [
+        {
+          "condition": "lumbago.nonspecific",
+          "base": 9,
+          "weights": {
+            "lift_yes": 4,
+            "radleg_no": 3,
+            "movebetter_rest": 2,
+            "legweak_no": 3,
+            "fever_no": 2,
+            "dur_d13": 2,
+            "urine_retention": -6,
+            "saddle_yes": -6,
+            "legweak_both": -5,
+            "fever_high": -4,
+            "night_yes": -3,
+            "oncohist_yes": -2
+          }
+        },
+        {
+          "condition": "disc.herniation.lumbar",
+          "base": 6,
+          "weights": {
+            "radleg_below": 5,
+            "legweak_one": 3,
+            "lift_yes": 2,
+            "movebetter_rest": 2,
+            "onset_fast": 1,
+            "radleg_no": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "si.joint.dysfunction",
+          "base": 4,
+          "weights": {
+            "side_one": 3,
+            "radleg_buttock": 3,
+            "movebetter_move": 1,
+            "radleg_below": -2,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "renal.colic",
+          "base": 4,
+          "weights": {
+            "radleg_groin": 6,
+            "restless_restless": 5,
+            "side_one": 2,
+            "tapback_yes": 2,
+            "lift_yes": -3,
+            "restless_still": -4,
+            "radleg_below": -3
+          }
+        },
+        {
+          "condition": "herpes.zoster",
+          "base": 3,
+          "weights": {
+            "rash_spots": 6,
+            "side_one": 3,
+            "dur_d13": 2,
+            "lift_no": 2,
+            "lift_yes": -3,
+            "radleg_below": -2
+          }
+        },
+        {
+          "condition": "pyelonephritis.acute",
+          "base": 3,
+          "weights": {
+            "fever_high": 5,
+            "tapback_yes": 4,
+            "urine_burn": 4,
+            "side_one": 2,
+            "fever_no": -4,
+            "lift_yes": -3
+          }
+        },
+        {
+          "condition": "vertebral.fracture",
+          "base": 3,
+          "weights": {
+            "onset_sudden": 3,
+            "trauma_yes": 4,
+            "movebetter_rest": 3,
+            "immuno_yes": 2,
+            "lift_yes": 2,
+            "radleg_below": -2,
+            "fever_high": -2
+          }
+        },
+        {
+          "condition": "pancreatitis.acute",
+          "base": 2,
+          "weights": {
+            "radleg_front": 5,
+            "movebetter_bend": 4,
+            "vomit_yes": 3,
+            "restless_restless": 2,
+            "lift_yes": -3
+          }
+        },
+        {
+          "condition": "cauda.equina",
+          "base": 1,
+          "weights": {
+            "urine_retention": 6,
+            "saddle_yes": 6,
+            "legweak_both": 5,
+            "urine_incont": 5,
+            "urine_no": -5,
+            "saddle_no": -4,
+            "legweak_no": -4
+          }
+        },
+        {
+          "condition": "aortic.aneurysm",
+          "base": 1,
+          "weights": {
+            "radleg_front": 3,
+            "onset_sudden": 3,
+            "movebetter_none": 3,
+            "restless_restless": 2,
+            "lift_yes": -3
+          }
+        },
+        {
+          "condition": "spondylodiscitis",
+          "base": 1,
+          "weights": {
+            "fever_mid": 4,
+            "fever_high": 3,
+            "night_yes": 4,
+            "immuno_yes": 4,
+            "movebetter_none": 3,
+            "lift_yes": -3,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "spine.metastases",
+          "base": 1,
+          "weights": {
+            "oncohist_yes": 6,
+            "night_yes": 4,
+            "weight_yes": 4,
+            "progress_worse": 3,
+            "movebetter_none": 3,
+            "lift_yes": -3,
+            "dur_d13": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Не получается помочиться или моча подтекает незаметно",
+        "Онемение в промежности и на внутренней поверхности бёдер",
+        "Слабость в обеих ногах или стопа шлёпает при ходьбе",
+        "Боль в пояснице с высокой температурой и ознобом",
+        "Внезапная сильнейшая боль в спине с дурнотой и холодным потом"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "back.lumbar.chronic",
+      "zone": "back",
+      "name": "Длительная боль в пояснице",
+      "priority": 1,
+      "aka": [
+        "поясница болит давно",
+        "хроническая боль в спине"
+      ],
+      "feelings": [
+        "Ноет постоянно",
+        "Тянет к вечеру",
+        "Скованность по утрам",
+        "Устаёт спина от стояния"
+      ],
+      "questions": [
+        "dur",
+        "stiffam",
+        "movebetter",
+        "night",
+        "radleg",
+        "legweak",
+        "weight",
+        "oncohist",
+        "immuno",
+        "fever",
+        "progress",
+        "urine",
+        "saddle",
+        "walkdist",
+        "painkillers"
+      ],
+      "candidates": [
+        {
+          "condition": "lumbar.degenerative",
+          "base": 8,
+          "weights": {
+            "movebetter_rest": 4,
+            "stiffam_short": 3,
+            "dur_mon": 3,
+            "night_no": 2,
+            "weight_no": 2,
+            "stiffam_long": -4,
+            "movebetter_move": -3,
+            "night_yes": -3,
+            "weight_yes": -3
+          }
+        },
+        {
+          "condition": "lumbago.nonspecific",
+          "base": 6,
+          "weights": {
+            "radleg_no": 3,
+            "legweak_no": 3,
+            "movebetter_rest": 2,
+            "night_no": 2,
+            "night_yes": -3,
+            "weight_yes": -3,
+            "stiffam_long": -3
+          }
+        },
+        {
+          "condition": "axial.spondyloarthritis",
+          "base": 4,
+          "weights": {
+            "stiffam_long": 6,
+            "movebetter_move": 5,
+            "night_yes": 4,
+            "dur_mon": 3,
+            "movebetter_rest": -4,
+            "stiffam_no": -4,
+            "stiffam_short": -2
+          }
+        },
+        {
+          "condition": "spinal.stenosis",
+          "base": 4,
+          "weights": {
+            "movebetter_bend": 6,
+            "walkdist_short": 5,
+            "legweak_both": 2,
+            "dur_mon": 2,
+            "movebetter_move": -3,
+            "walkdist_ok": -3
+          }
+        },
+        {
+          "condition": "disc.herniation.lumbar",
+          "base": 4,
+          "weights": {
+            "radleg_below": 5,
+            "legweak_one": 3,
+            "movebetter_rest": 2,
+            "radleg_no": -3
+          }
+        },
+        {
+          "condition": "si.joint.dysfunction",
+          "base": 3,
+          "weights": {
+            "radleg_buttock": 4,
+            "stiffam_short": 2,
+            "dur_mon": 2,
+            "radleg_below": -2
+          }
+        },
+        {
+          "condition": "piriformis.syndrome",
+          "base": 3,
+          "weights": {
+            "radleg_buttock": 5,
+            "movebetter_move": 2,
+            "dur_mon": 2,
+            "radleg_no": -3,
+            "stiffam_long": -2
+          }
+        },
+        {
+          "condition": "vertebral.fracture",
+          "base": 2,
+          "weights": {
+            "immuno_yes": 3,
+            "movebetter_rest": 3,
+            "progress_same": 2,
+            "stiffam_long": -2
+          }
+        },
+        {
+          "condition": "spine.metastases",
+          "base": 2,
+          "weights": {
+            "oncohist_yes": 6,
+            "night_yes": 5,
+            "weight_yes": 5,
+            "progress_worse": 4,
+            "movebetter_none": 3,
+            "movebetter_rest": -2,
+            "weight_no": -2
+          }
+        },
+        {
+          "condition": "multiple.myeloma",
+          "base": 1,
+          "weights": {
+            "night_yes": 4,
+            "weight_yes": 4,
+            "progress_worse": 3,
+            "movebetter_none": 2,
+            "weight_no": -2
+          }
+        },
+        {
+          "condition": "spondylodiscitis",
+          "base": 1,
+          "weights": {
+            "immuno_yes": 5,
+            "night_yes": 4,
+            "fever_mid": 4,
+            "progress_worse": 3,
+            "movebetter_none": 3,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "cauda.equina",
+          "base": 1,
+          "weights": {
+            "urine_retention": 6,
+            "saddle_yes": 6,
+            "legweak_both": 4,
+            "urine_no": -5,
+            "saddle_no": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль будит ночью и не зависит от положения тела",
+        "Боль в спине вместе с потерей веса или на фоне перенесённой опухоли",
+        "Скованность по утрам дольше получаса у человека моложе сорока",
+        "Нарушение мочеиспускания или онемение в промежности"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "back.sciatica",
+      "zone": "back",
+      "name": "Боль в пояснице с отдачей в ногу",
+      "priority": 1,
+      "aka": [
+        "защемило седалищный нерв",
+        "боль отдаёт в ногу",
+        "ишиас"
+      ],
+      "feelings": [
+        "Простреливает по ноге",
+        "Жжёт и печёт по задней поверхности",
+        "Тянет от ягодицы вниз",
+        "Онемение и мурашки"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "radleg",
+        "legweak",
+        "urine",
+        "saddle",
+        "movebetter",
+        "walkdist",
+        "lift",
+        "night",
+        "fever",
+        "weight",
+        "oncohist",
+        "progress",
+        "side",
+        "rash",
+        "trauma"
+      ],
+      "candidates": [
+        {
+          "condition": "disc.herniation.lumbar",
+          "base": 8,
+          "weights": {
+            "radleg_below": 5,
+            "legweak_one": 4,
+            "lift_yes": 2,
+            "side_one": 2,
+            "movebetter_rest": 2,
+            "onset_fast": 2,
+            "radleg_buttock": -1,
+            "legweak_both": -2,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "piriformis.syndrome",
+          "base": 5,
+          "weights": {
+            "radleg_buttock": 5,
+            "movebetter_move": 3,
+            "legweak_no": 2,
+            "dur_mon": 2,
+            "radleg_below": -2,
+            "legweak_one": -2
+          }
+        },
+        {
+          "condition": "spinal.stenosis",
+          "base": 4,
+          "weights": {
+            "movebetter_bend": 6,
+            "walkdist_short": 5,
+            "legweak_both": 3,
+            "dur_mon": 2,
+            "walkdist_ok": -3,
+            "onset_sudden": -2
+          }
+        },
+        {
+          "condition": "lumbar.degenerative",
+          "base": 4,
+          "weights": {
+            "radleg_buttock": 2,
+            "movebetter_rest": 3,
+            "dur_mon": 3,
+            "legweak_one": -2
+          }
+        },
+        {
+          "condition": "si.joint.dysfunction",
+          "base": 3,
+          "weights": {
+            "radleg_buttock": 4,
+            "side_one": 3,
+            "legweak_no": 2,
+            "radleg_below": -3
+          }
+        },
+        {
+          "condition": "herpes.zoster",
+          "base": 2,
+          "weights": {
+            "rash_spots": 6,
+            "side_one": 2,
+            "dur_d13": 2,
+            "legweak_one": -2
+          }
+        },
+        {
+          "condition": "cauda.equina",
+          "base": 2,
+          "weights": {
+            "urine_retention": 6,
+            "saddle_yes": 6,
+            "legweak_both": 5,
+            "urine_incont": 5,
+            "urine_no": -5,
+            "saddle_no": -4,
+            "legweak_no": -4
+          }
+        },
+        {
+          "condition": "spine.metastases",
+          "base": 1,
+          "weights": {
+            "oncohist_yes": 6,
+            "night_yes": 4,
+            "weight_yes": 4,
+            "progress_worse": 3,
+            "lift_yes": -3
+          }
+        },
+        {
+          "condition": "vertebral.fracture",
+          "base": 1,
+          "weights": {
+            "trauma_yes": 4,
+            "onset_sudden": 2,
+            "movebetter_rest": 2,
+            "radleg_below": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Слабость в обеих ногах",
+        "Задержка мочи или недержание",
+        "Онемение в промежности",
+        "Боль отдаёт в ногу и есть температура"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "back.colic",
+      "zone": "back",
+      "name": "Приступ боли в пояснице с отдачей в пах",
+      "priority": 1,
+      "aka": [
+        "почечная колика",
+        "схватило поясницу и отдаёт вниз"
+      ],
+      "feelings": [
+        "Накатывает волнами",
+        "Схватывает так, что не найти места",
+        "Режет и отдаёт вниз",
+        "Тупо ноет сбоку"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "radleg",
+        "restless",
+        "tapback",
+        "fever",
+        "urine",
+        "vomit",
+        "side",
+        "movebetter",
+        "lift",
+        "trauma",
+        "rash"
+      ],
+      "candidates": [
+        {
+          "condition": "renal.colic",
+          "base": 9,
+          "weights": {
+            "radleg_groin": 6,
+            "restless_restless": 5,
+            "side_one": 3,
+            "tapback_yes": 3,
+            "vomit_yes": 2,
+            "onset_fast": 2,
+            "restless_still": -4,
+            "lift_yes": -4,
+            "radleg_below": -3,
+            "movebetter_bend": -2
+          }
+        },
+        {
+          "condition": "pyelonephritis.acute",
+          "base": 5,
+          "weights": {
+            "fever_high": 5,
+            "tapback_yes": 4,
+            "urine_burn": 4,
+            "side_one": 2,
+            "vomit_yes": 2,
+            "fever_no": -4,
+            "lift_yes": -3
+          }
+        },
+        {
+          "condition": "lumbago.nonspecific",
+          "base": 4,
+          "weights": {
+            "lift_yes": 5,
+            "radleg_no": 3,
+            "restless_still": 3,
+            "movebetter_rest": 2,
+            "fever_no": 2,
+            "radleg_groin": -4,
+            "restless_restless": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "disc.herniation.lumbar",
+          "base": 3,
+          "weights": {
+            "radleg_below": 5,
+            "lift_yes": 2,
+            "restless_still": 2,
+            "radleg_groin": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "herpes.zoster",
+          "base": 2,
+          "weights": {
+            "rash_spots": 6,
+            "side_one": 2,
+            "restless_still": 1,
+            "radleg_groin": -2
+          }
+        },
+        {
+          "condition": "aortic.aneurysm",
+          "base": 2,
+          "weights": {
+            "onset_sudden": 4,
+            "restless_restless": 3,
+            "radleg_front": 3,
+            "movebetter_none": 3,
+            "lift_yes": -3,
+            "fever_high": -2
+          }
+        },
+        {
+          "condition": "pancreatitis.acute",
+          "base": 2,
+          "weights": {
+            "radleg_front": 5,
+            "movebetter_bend": 5,
+            "vomit_yes": 4,
+            "lift_yes": -3,
+            "radleg_groin": -2
+          }
+        },
+        {
+          "condition": "cholelithiasis.colic",
+          "base": 2,
+          "weights": {
+            "radleg_front": 3,
+            "vomit_yes": 2,
+            "side_one": 2,
+            "radleg_groin": -3,
+            "tapback_yes": -2
+          }
+        },
+        {
+          "condition": "vertebral.fracture",
+          "base": 1,
+          "weights": {
+            "trauma_yes": 5,
+            "movebetter_rest": 3,
+            "restless_still": 2,
+            "radleg_groin": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Приступ вместе с высокой температурой и ознобом",
+        "Рвота, из-за которой невозможно пить",
+        "Внезапная сильнейшая боль с холодным потом и дурнотой",
+        "Приступ у человека с единственной почкой"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "back.cauda",
+      "zone": "back",
+      "name": "Боль в спине с нарушением мочеиспускания",
+      "priority": 1,
+      "aka": [
+        "не могу помочиться и болит спина",
+        "онемела промежность"
+      ],
+      "feelings": [
+        "Онемение в промежности",
+        "Не чувствую позыва",
+        "Слабость в ногах",
+        "Боль и невозможность помочиться"
+      ],
+      "questions": [
+        "urine",
+        "saddle",
+        "legweak",
+        "dur",
+        "onset",
+        "radleg",
+        "fever",
+        "oncohist",
+        "trauma",
+        "immuno",
+        "progress",
+        "tapback",
+        "weight"
+      ],
+      "candidates": [
+        {
+          "condition": "cauda.equina",
+          "base": 7,
+          "weights": {
+            "urine_retention": 6,
+            "saddle_yes": 6,
+            "legweak_both": 5,
+            "urine_incont": 5,
+            "radleg_below": 2,
+            "urine_no": -5,
+            "saddle_no": -4,
+            "legweak_no": -4
+          }
+        },
+        {
+          "condition": "spine.metastases",
+          "base": 4,
+          "weights": {
+            "oncohist_yes": 6,
+            "legweak_both": 4,
+            "progress_worse": 3,
+            "dur_w12": 2,
+            "dur_mon": 2,
+            "oncohist_no": -2
+          }
+        },
+        {
+          "condition": "spondylodiscitis",
+          "base": 3,
+          "weights": {
+            "fever_mid": 5,
+            "fever_high": 4,
+            "immuno_yes": 5,
+            "progress_worse": 3,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "disc.herniation.lumbar",
+          "base": 4,
+          "weights": {
+            "radleg_below": 4,
+            "legweak_one": 3,
+            "urine_no": 2,
+            "saddle_no": 2,
+            "legweak_both": -1
+          }
+        },
+        {
+          "condition": "vertebral.fracture",
+          "base": 3,
+          "weights": {
+            "trauma_yes": 5,
+            "onset_sudden": 3,
+            "immuno_yes": 2,
+            "fever_high": -2
+          }
+        },
+        {
+          "condition": "spinal.stenosis",
+          "base": 3,
+          "weights": {
+            "legweak_both": 3,
+            "dur_mon": 3,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "pyelonephritis.acute",
+          "base": 2,
+          "weights": {
+            "urine_burn": 5,
+            "fever_high": 5,
+            "tapback_yes": 3,
+            "saddle_yes": -3,
+            "legweak_both": -3
+          }
+        },
+        {
+          "condition": "multiple.myeloma",
+          "base": 1,
+          "weights": {
+            "progress_worse": 3,
+            "weight_yes": 3,
+            "legweak_both": 2,
+            "dur_mon": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Это сочетание вообще не разбирают по справочнику: задержка мочи, онемение в промежности и слабость в ногах требуют осмотра в течение часов, а не дней"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "back.upper",
+      "zone": "back",
+      "name": "Боль между лопатками",
+      "priority": 2,
+      "aka": [
+        "болит между лопаток",
+        "ноет верх спины"
+      ],
+      "feelings": [
+        "Тянет и ноет",
+        "Жжёт",
+        "Простреливает при вдохе",
+        "Давит, будто кол между лопаток"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "move",
+        "breath",
+        "night",
+        "fever",
+        "cough",
+        "radleg",
+        "weight",
+        "oncohist",
+        "progress",
+        "rash",
+        "restless",
+        "movebetter",
+        "side",
+        "reflux",
+        "vomit",
+        "dysp",
+        "auto",
+        "trauma",
+        "immuno"
+      ],
+      "candidates": [
+        {
+          "condition": "thoracic.myofascial",
+          "base": 9,
+          "weights": {
+            "move_press": 5,
+            "move_turn": 3,
+            "fever_no": 3,
+            "movebetter_move": 2,
+            "night_no": 2,
+            "night_yes": -3,
+            "fever_high": -3,
+            "weight_yes": -3,
+            "restless_restless": -3
+          }
+        },
+        {
+          "condition": "thoracic.degenerative",
+          "base": 6,
+          "weights": {
+            "move_turn": 4,
+            "breath_yes": 3,
+            "dur_mon": 3,
+            "move_press": 2,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "herpes.zoster",
+          "base": 3,
+          "weights": {
+            "rash_spots": 6,
+            "side_one": 3,
+            "dur_d13": 2,
+            "move_press": -1
+          }
+        },
+        {
+          "condition": "peptic.ulcer",
+          "base": 3,
+          "weights": {
+            "reflux_yes": 4,
+            "night_yes": 3,
+            "dur_mon": 2,
+            "move_press": -3,
+            "breath_yes": -2
+          }
+        },
+        {
+          "condition": "cholelithiasis.colic",
+          "base": 3,
+          "weights": {
+            "reflux_yes": 2,
+            "vomit_yes": 2,
+            "restless_restless": 2,
+            "move_press": -3
+          }
+        },
+        {
+          "condition": "pleurisy",
+          "base": 3,
+          "weights": {
+            "breath_yes": 5,
+            "cough_dry": 2,
+            "fever_mid": 2,
+            "move_press": -2
+          }
+        },
+        {
+          "condition": "pneumonia",
+          "base": 3,
+          "weights": {
+            "cough_wet": 4,
+            "fever_high": 4,
+            "breath_yes": 3,
+            "dysp_yes": 3,
+            "move_press": -3,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "myocardial.infarction",
+          "base": 2,
+          "weights": {
+            "auto_yes": 5,
+            "onset_fast": 2,
+            "restless_restless": 2,
+            "movebetter_none": 3,
+            "move_press": -5,
+            "move_turn": -3,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "aortic.dissection",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 6,
+            "movebetter_none": 4,
+            "auto_yes": 3,
+            "move_press": -4,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "spine.metastases",
+          "base": 1,
+          "weights": {
+            "oncohist_yes": 6,
+            "night_yes": 4,
+            "weight_yes": 4,
+            "progress_worse": 3,
+            "move_press": -2
+          }
+        },
+        {
+          "condition": "vertebral.fracture",
+          "base": 2,
+          "weights": {
+            "trauma_yes": 5,
+            "onset_sudden": 3,
+            "immuno_yes": 2,
+            "move_press": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль между лопатками, возникшая мгновенно и очень сильная",
+        "Боль, не зависящая от позы и надавливания, вместе с потливостью и дурнотой",
+        "Боль с одышкой, температурой и кашлем"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "back.scapula",
+      "zone": "back",
+      "name": "Боль под лопаткой",
+      "priority": 2,
+      "aka": [
+        "болит под лопаткой",
+        "отдаёт под лопатку"
+      ],
+      "feelings": [
+        "Ноет под лопаткой",
+        "Простреливает",
+        "Давит и распирает",
+        "Жжёт"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "side",
+        "move",
+        "breath",
+        "reflux",
+        "vomit",
+        "fever",
+        "cough",
+        "auto",
+        "night",
+        "restless",
+        "movebetter",
+        "oncohist",
+        "weight",
+        "rash",
+        "dysp"
+      ],
+      "candidates": [
+        {
+          "condition": "thoracic.myofascial",
+          "base": 8,
+          "weights": {
+            "move_press": 5,
+            "move_turn": 3,
+            "fever_no": 3,
+            "night_no": 2,
+            "auto_yes": -4,
+            "restless_restless": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "cholelithiasis.colic",
+          "base": 5,
+          "weights": {
+            "side_one": 3,
+            "reflux_yes": 3,
+            "vomit_yes": 3,
+            "restless_restless": 3,
+            "onset_fast": 2,
+            "move_press": -4,
+            "breath_yes": -2
+          }
+        },
+        {
+          "condition": "cholecystitis.acute",
+          "base": 3,
+          "weights": {
+            "fever_mid": 4,
+            "fever_high": 3,
+            "side_one": 3,
+            "vomit_yes": 2,
+            "movebetter_none": 2,
+            "move_press": -4
+          }
+        },
+        {
+          "condition": "thoracic.degenerative",
+          "base": 5,
+          "weights": {
+            "move_turn": 4,
+            "breath_yes": 3,
+            "dur_mon": 3,
+            "auto_yes": -3
+          }
+        },
+        {
+          "condition": "pleurisy",
+          "base": 4,
+          "weights": {
+            "breath_yes": 5,
+            "cough_dry": 3,
+            "fever_mid": 2,
+            "move_press": -2
+          }
+        },
+        {
+          "condition": "pneumonia",
+          "base": 3,
+          "weights": {
+            "cough_wet": 4,
+            "fever_high": 4,
+            "dysp_yes": 3,
+            "breath_yes": 3,
+            "fever_no": -3,
+            "move_press": -3
+          }
+        },
+        {
+          "condition": "peptic.ulcer",
+          "base": 3,
+          "weights": {
+            "reflux_yes": 4,
+            "night_yes": 3,
+            "dur_mon": 2,
+            "move_press": -3
+          }
+        },
+        {
+          "condition": "pancreatitis.acute",
+          "base": 2,
+          "weights": {
+            "vomit_yes": 4,
+            "movebetter_bend": 5,
+            "restless_restless": 2,
+            "move_press": -3
+          }
+        },
+        {
+          "condition": "herpes.zoster",
+          "base": 2,
+          "weights": {
+            "rash_spots": 6,
+            "side_one": 3,
+            "dur_d13": 2
+          }
+        },
+        {
+          "condition": "myocardial.infarction",
+          "base": 2,
+          "weights": {
+            "auto_yes": 6,
+            "onset_fast": 2,
+            "movebetter_none": 3,
+            "move_press": -5,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "aortic.dissection",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 6,
+            "movebetter_none": 4,
+            "auto_yes": 3,
+            "move_press": -4,
+            "dur_mon": -5
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль под лопаткой вместе с холодным потом, слабостью и дурнотой",
+        "Боль, возникшая мгновенно и разрывающая",
+        "Боль с одышкой и невозможностью глубоко вдохнуть"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "back.coccyx",
+      "zone": "back",
+      "name": "Боль в копчике",
+      "priority": 3,
+      "aka": [
+        "болит копчик",
+        "больно сидеть"
+      ],
+      "feelings": [
+        "Резко при сидении",
+        "Ноет постоянно",
+        "Больно вставать со стула",
+        "Припухло и болит"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "trauma",
+        "fever",
+        "swell",
+        "progress",
+        "weight",
+        "oncohist",
+        "night",
+        "immuno"
+      ],
+      "candidates": [
+        {
+          "condition": "coccydynia",
+          "base": 8,
+          "weights": {
+            "trauma_yes": 5,
+            "fever_no": 3,
+            "swell_no": 2,
+            "dur_mon": 2,
+            "fever_high": -4,
+            "swell_neckfront": -2,
+            "weight_yes": -2
+          }
+        },
+        {
+          "condition": "pilonidal.disease",
+          "base": 5,
+          "weights": {
+            "fever_mid": 4,
+            "fever_high": 3,
+            "progress_worse": 3,
+            "onset_fast": 2,
+            "trauma_no": 1,
+            "fever_no": -3
+          }
+        },
+        {
+          "condition": "lumbago.nonspecific",
+          "base": 3,
+          "weights": {
+            "trauma_yes": 2,
+            "fever_no": 2,
+            "dur_d13": 2,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "vertebral.fracture",
+          "base": 3,
+          "weights": {
+            "trauma_yes": 5,
+            "onset_sudden": 3,
+            "fever_high": -2
+          }
+        },
+        {
+          "condition": "si.joint.dysfunction",
+          "base": 3,
+          "weights": {
+            "dur_mon": 2,
+            "trauma_yes": 2,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "spine.metastases",
+          "base": 1,
+          "weights": {
+            "oncohist_yes": 6,
+            "night_yes": 4,
+            "weight_yes": 4,
+            "progress_worse": 3,
+            "trauma_yes": -3
+          }
+        },
+        {
+          "condition": "spondylodiscitis",
+          "base": 1,
+          "weights": {
+            "fever_mid": 4,
+            "immuno_yes": 4,
+            "night_yes": 3,
+            "progress_worse": 3,
+            "fever_no": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Припухлость над копчиком с покраснением, температурой и выделениями",
+        "Боль в копчике с потерей веса или на фоне перенесённой опухоли"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    }
+  ]
+}

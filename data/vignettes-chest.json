@@ -1,0 +1,166 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    { "id": "c01", "syndrome": "chest.pain.press", "sex": "m", "age": 62,
+      "note": "Инфаркт: дольше двадцати минут, холодный пот, одышка",
+      "feel": 0, "answers": { "dur": "long", "onset": "fast", "exertion": "rest", "auto": "yes", "dysp": "yes", "move": "no", "movebetter": "none", "breath": "no", "reflux": "no", "hbp": "high", "smoke": "both", "immobility": "no", "calfswell": "no", "fever": "no" },
+      "expectTop": "myocardial.infarction", "expectAlarm": true },
+
+    { "id": "c02", "syndrome": "chest.pain.press", "sex": "m", "age": 58,
+      "note": "Стенокардия: строго при нагрузке, проходит от остановки за пару минут",
+      "feel": 0, "answers": { "dur": "min", "exertion": "onload", "movebetter": "rest", "auto": "no", "dysp": "no", "move": "no", "breath": "no", "reflux": "no", "hbp": "high", "smoke": "both", "immobility": "no", "calfswell": "no", "fever": "no", "onset": "gradual" },
+      "expectTop": "angina.stable", "expectAlarm": false },
+
+    { "id": "c03", "syndrome": "chest.pain.press", "sex": "f", "age": 34,
+      "note": "Рёберно-хрящевой синдром: точка находится пальцем — тревоги быть не должно",
+      "feel": 3, "answers": { "dur": "w12", "move": "press", "auto": "no", "dysp": "no", "exertion": "rest", "breath": "yes", "fever": "no", "reflux": "no", "immobility": "no", "calfswell": "no", "hbp": "normal", "smoke": "no", "onset": "gradual" },
+      "expectTop": "costochondritis", "expectAlarm": false,
+      "notExpect": ["myocardial.infarction", "aortic.dissection"] },
+
+    { "id": "c04", "syndrome": "chest.pain.press", "sex": "f", "age": 41,
+      "note": "ТЭЛА после перелёта: одышка, отекла одна голень",
+      "feel": 0, "answers": { "dur": "hours", "onset": "sudden", "immobility": "yes", "calfswell": "yes", "dysp": "yes", "breath": "yes", "move": "no", "auto": "no", "exertion": "rest", "fever": "no", "reflux": "no", "smoke": "no", "hbp": "normal" },
+      "expectTop": "pulmonary.embolism", "expectAlarm": true },
+
+    { "id": "c05", "syndrome": "chest.pain.press", "sex": "m", "age": 66,
+      "note": "Расслоение аорты: мгновенно, разрывающая, ничем не облегчается",
+      "feel": 2, "answers": { "dur": "hours", "onset": "sudden", "movebetter": "none", "auto": "yes", "hbp": "high", "radleg": "front", "move": "no", "dysp": "no", "exertion": "rest", "breath": "no", "immobility": "no", "calfswell": "no", "fever": "no", "reflux": "no" },
+      "expectTop": "aortic.dissection", "expectAlarm": true },
+
+    { "id": "c06", "syndrome": "chest.pain.press", "sex": "m", "age": 29,
+      "note": "Перикардит: легче сидя с наклоном вперёд, хуже лёжа и на вдохе",
+      "feel": 1, "answers": { "dur": "d13", "movebetter": "bend", "breath": "yes", "fever": "low", "move": "no", "auto": "no", "dysp": "no", "exertion": "rest", "immobility": "no", "calfswell": "no", "reflux": "no", "hbp": "normal", "onset": "gradual" },
+      "expectTop": "pericarditis", "expectAlarm": false },
+
+    { "id": "c07", "syndrome": "chest.pain.breath", "sex": "m", "age": 24,
+      "note": "Пневмоторакс: внезапно, худой курящий, одышка",
+      "feel": 0, "answers": { "dur": "hours", "onset": "sudden", "dysp": "yes", "breath": "yes", "side": "one", "smoke": "both", "move": "no", "fever": "no", "cough": "no", "trauma": "no", "immobility": "no", "calfswell": "no", "rash": "no" },
+      "expectTop": "pneumothorax", "expectAlarm": false },
+
+    { "id": "c08", "syndrome": "chest.pain.breath", "sex": "m", "age": 55,
+      "note": "Пневмония: гнойная мокрота, высокая температура, одышка",
+      "feel": 1, "answers": { "dur": "d47", "sputum": "purulent", "fever": "high", "dysp": "yes", "cough": "wet", "side": "one", "breath": "yes", "move": "no", "trauma": "no", "immobility": "no", "calfswell": "no", "rash": "no", "smoke": "one" },
+      "expectTop": "pneumonia", "expectAlarm": false },
+
+    { "id": "c09", "syndrome": "chest.pain.breath", "sex": "m", "age": 47,
+      "note": "Перелом ребра после падения",
+      "feel": 1, "answers": { "dur": "d13", "trauma": "yes", "move": "press", "side": "one", "breath": "yes", "fever": "no", "dysp": "no", "cough": "no", "immobility": "no", "calfswell": "no", "rash": "no", "onset": "sudden" },
+      "expectTop": "rib.fracture", "expectAlarm": false },
+
+    { "id": "c10", "syndrome": "chest.rib.right", "sex": "f", "age": 51,
+      "note": "Желчная колика: после жирной еды, мечется, рвота желчью",
+      "feel": 0, "answers": { "dur": "hours", "onset": "fast", "eatrel": "fatty", "vomitwhat": "bile", "restless": "restless", "move": "no", "fever": "no", "yellow": "no", "breath": "no", "cough": "no", "rash": "no", "trauma": "no", "auto": "no" },
+      "expectTop": "cholelithiasis.colic", "expectAlarm": false },
+
+    { "id": "c11", "syndrome": "chest.rib.right", "sex": "m", "age": 43,
+      "note": "Мышечная боль справа: воспроизводится нажатием — тревоги быть не должно",
+      "feel": 4, "answers": { "dur": "w12", "move": "press", "fever": "no", "yellow": "no", "eatrel": "no", "breath": "no", "dysp": "no", "cough": "no", "rash": "no", "trauma": "no", "auto": "no", "restless": "still", "vomitwhat": "none" },
+      "expectTop": "thoracic.myofascial", "expectAlarm": false,
+      "notExpect": ["myocardial.infarction", "pulmonary.embolism"] },
+
+    { "id": "c12", "syndrome": "chest.rib.right", "sex": "m", "age": 36,
+      "note": "Гепатит: желтуха, тяжесть, аппетита нет",
+      "feel": 5, "answers": { "dur": "w12", "yellow": "yes", "appetite": "down", "move": "no", "fever": "low", "eatrel": "no", "restless": "still", "vomitwhat": "none", "breath": "no", "cough": "no", "rash": "no", "trauma": "no", "auto": "no" },
+      "expectTop": "hepatitis.viral", "expectAlarm": true },
+
+    { "id": "c13", "syndrome": "chest.rib.left", "sex": "m", "age": 60,
+      "note": "Инфаркт с болью слева: от позы не зависит, холодный пот",
+      "feel": 0, "answers": { "dur": "long", "onset": "fast", "auto": "yes", "dysp": "yes", "exertion": "rest", "movebetter": "none", "move": "no", "breath": "no", "fever": "no", "rash": "no", "trauma": "no", "reflux": "no", "immobility": "no", "calfswell": "no" },
+      "expectTop": "myocardial.infarction", "expectAlarm": true },
+
+    { "id": "c14", "syndrome": "chest.rib.left", "sex": "f", "age": 38,
+      "note": "Опоясывающий лишай: сыпь полосой слева",
+      "feel": 3, "answers": { "dur": "d13", "rash": "spots", "move": "no", "auto": "no", "dysp": "no", "fever": "low", "exertion": "rest", "breath": "no", "trauma": "no", "reflux": "no", "immobility": "no", "calfswell": "no" },
+      "expectTop": "herpes.zoster", "expectAlarm": false },
+
+    { "id": "c15", "syndrome": "chest.palpit", "sex": "m", "age": 31,
+      "note": "Экстрасистолы: замирания и толчки в покое — тревоги быть не должно",
+      "feel": 2, "answers": { "dur": "mon", "rhythm": "skips", "exertion": "rest", "dysp": "no", "auto": "no", "temperature": "no", "weight": "no", "mood": "no", "fever": "no", "attacks": "repeat", "position": "no", "tired": "no" },
+      "expectTop": "extrasystole", "expectAlarm": false,
+      "notExpect": ["atrial.fibrillation", "myocardial.infarction"] },
+
+    { "id": "c16", "syndrome": "chest.palpit", "sex": "f", "age": 25,
+      "note": "Приступ ровной тахикардии: началось и оборвалось как выключателем",
+      "feel": 0, "answers": { "dur": "min", "onset": "sudden", "rhythm": "even", "progress": "better", "dysp": "no", "auto": "no", "mood": "no", "temperature": "no", "weight": "no", "attacks": "repeat", "fever": "no", "position": "no" },
+      "expectTop": "svt", "expectAlarm": false },
+
+    { "id": "c17", "syndrome": "chest.palpit", "sex": "m", "age": 68,
+      "note": "Мерцательная аритмия: пульс совершенно беспорядочный",
+      "feel": 1, "answers": { "dur": "hours", "rhythm": "chaotic", "dysp": "yes", "tired": "strong", "auto": "no", "temperature": "no", "weight": "no", "mood": "no", "fever": "no", "exertion": "worse", "position": "no", "attacks": "first" },
+      "expectTop": "atrial.fibrillation", "expectAlarm": true },
+
+    { "id": "c18", "syndrome": "chest.palpit", "sex": "f", "age": 37,
+      "note": "Тиреотоксикоз: жарко, худеет, сердцебиение месяцами",
+      "feel": 0, "answers": { "dur": "mon", "temperature": "hot", "weight": "yes", "rhythm": "fastgrad", "dysp": "no", "auto": "no", "mood": "anx", "fever": "no", "exertion": "rest", "position": "no", "tired": "some", "attacks": "repeat" },
+      "expect": ["thyrotoxicosis"], "expectAlarm": true },
+
+    { "id": "c19", "syndrome": "chest.dyspnea", "sex": "m", "age": 64,
+      "note": "ХОБЛ: курит сорок лет, мокрота по утрам, нарастает годами",
+      "feel": 0, "answers": { "dur": "mon", "onset": "gradual", "smoke": "both", "sputum": "lots", "cough": "wet", "stridor": "wheeze", "edema": "no", "exertion": "worse", "fever": "no", "immobility": "no", "calfswell": "no", "temperature": "no", "mood": "no", "position": "no" },
+      "expectTop": "copd", "expectAlarm": true },
+
+    { "id": "c20", "syndrome": "chest.dyspnea", "sex": "f", "age": 72,
+      "note": "Сердечная недостаточность: отёки ног, не может лежать",
+      "feel": 3, "answers": { "dur": "mon", "onset": "gradual", "edema": "legs", "exertion": "worse", "cough": "dry", "smoke": "no", "sputum": "none", "stridor": "short", "fever": "no", "immobility": "no", "calfswell": "no", "temperature": "no", "mood": "no", "tired": "strong" },
+      "expectTop": "heart.failure", "expectAlarm": true },
+
+    { "id": "c21", "syndrome": "chest.dyspnea", "sex": "f", "age": 29,
+      "note": "Паническая атака: приступ на минуты, тревожно, проходит само",
+      "feel": 1, "answers": { "dur": "min", "onset": "sudden", "mood": "anx", "progress": "better", "attacks": "repeat", "edema": "no", "smoke": "no", "sputum": "none", "fever": "no", "immobility": "no", "calfswell": "no", "temperature": "no", "cough": "no", "stridor": "short", "exertion": "rest" },
+      "expectTop": "panic.attack", "expectAlarm": false,
+      "notExpect": ["pulmonary.embolism", "heart.failure"] },
+
+    { "id": "c22", "syndrome": "chest.dyspnea", "sex": "m", "age": 53,
+      "note": "ТЭЛА после операции: внезапная одышка, отекла голень",
+      "feel": 1, "answers": { "dur": "hours", "onset": "sudden", "immobility": "yes", "calfswell": "yes", "auto": "yes", "edema": "no", "smoke": "no", "sputum": "blood", "fever": "no", "cough": "dry", "stridor": "short", "temperature": "no", "mood": "no", "exertion": "rest" },
+      "expectTop": "pulmonary.embolism", "expectAlarm": true },
+
+    { "id": "c23", "syndrome": "chest.cough.dry", "sex": "f", "age": 33,
+      "note": "Обычная ОРВИ: насморк, три дня, идёт на поправку",
+      "feel": 0, "answers": { "dur": "d13", "runny": "yes", "fever": "low", "progress": "better", "acei": "no", "reflux": "no", "night": "no", "smoke": "no", "weight": "no", "dysp": "no", "sputum": "none", "vaccine": "yes", "contact": "yes", "stridor": "ok", "sweats": "no" },
+      "expectTop": "arvi", "expectAlarm": false,
+      "notExpect": ["lung.cancer", "tuberculosis.pulmonary"] },
+
+    { "id": "c24", "syndrome": "chest.cough.dry", "sex": "m", "age": 57,
+      "note": "Кашель от препарата на «-прил»: месяцами, температуры нет",
+      "feel": 0, "answers": { "dur": "mon", "acei": "pril", "fever": "no", "runny": "no", "reflux": "no", "night": "no", "smoke": "no", "weight": "no", "dysp": "no", "sputum": "none", "progress": "same", "vaccine": "yes", "contact": "no", "stridor": "ok", "sweats": "no" },
+      "expectTop": "ace.cough", "expectAlarm": false },
+
+    { "id": "c25", "syndrome": "chest.cough.dry", "sex": "f", "age": 41,
+      "note": "Коклюш у взрослой: месяцами приступами ночью, температуры нет",
+      "feel": 1, "answers": { "dur": "mon", "night": "yes", "fever": "no", "vaccine": "old", "contact": "yes", "acei": "no", "runny": "no", "reflux": "no", "smoke": "no", "weight": "no", "dysp": "no", "sputum": "none", "progress": "same", "stridor": "ok", "sweats": "no" },
+      "expectTop": "whooping.cough", "expectAlarm": false },
+
+    { "id": "c26", "syndrome": "chest.cough.wet", "sex": "m", "age": 61,
+      "note": "Опухоль лёгкого: курит, кровь в мокроте, худеет",
+      "feel": 3, "answers": { "dur": "mon", "sputum": "blood", "smoke": "both", "weight": "yes", "progress": "worse", "dysp": "yes", "fever": "no", "sweats": "no", "runny": "no", "night": "no", "immuno": "no", "breath": "no", "onset": "gradual" },
+      "expectTop": "lung.cancer", "expectAlarm": true },
+
+    { "id": "c27", "syndrome": "chest.cough.wet", "sex": "m", "age": 38,
+      "note": "Туберкулёз: месяцами, ночная потливость, похудел",
+      "feel": 0, "answers": { "dur": "mon", "sweats": "yes", "weight": "yes", "fever": "low", "sputum": "purulent", "smoke": "one", "immuno": "no", "dysp": "no", "progress": "worse", "runny": "no", "night": "no", "breath": "no", "onset": "gradual" },
+      "expectTop": "tuberculosis.pulmonary", "expectAlarm": true },
+
+    { "id": "c28", "syndrome": "chest.cough.wet", "sex": "f", "age": 30,
+      "note": "Обычный бронхит: светлая мокрота, неделя, идёт на поправку",
+      "feel": 0, "answers": { "dur": "d47", "sputum": "clear", "runny": "yes", "fever": "low", "progress": "better", "smoke": "no", "weight": "no", "sweats": "no", "dysp": "no", "night": "no", "immuno": "no", "breath": "no", "onset": "gradual" },
+      "expectTop": "bronchitis.acute", "expectAlarm": false,
+      "notExpect": ["lung.cancer", "tuberculosis.pulmonary"] },
+
+    { "id": "c29", "syndrome": "chest.breast.lump", "sex": "f", "age": 34,
+      "note": "Мастопатия: обе железы, меняются по циклу — тревоги быть не должно",
+      "feel": 2, "answers": { "dur": "mon", "lump": "diffuse", "side": "both", "period": "now", "nipple": "no", "fever": "no", "nodes": "no", "progress": "same", "weight": "no", "oncohist": "no", "sweats": "no", "trauma": "no" },
+      "expectTop": "mastopathy", "expectAlarm": false,
+      "notExpect": ["breast.cancer"] },
+
+    { "id": "c30", "syndrome": "chest.breast.lump", "sex": "f", "age": 54,
+      "note": "Опухоль молочной железы: плотный узел, втяжение соска, узлы в подмышке",
+      "feel": 0, "answers": { "dur": "w12", "lump": "hardfix", "nipple": "retract", "side": "one", "nodes": "hard", "progress": "worse", "fever": "no", "period": "none", "weight": "no", "oncohist": "no", "sweats": "no", "trauma": "no" },
+      "expectTop": "breast.cancer", "expectAlarm": true },
+
+    { "id": "c31", "syndrome": "chest.breast.lump", "sex": "f", "age": 28,
+      "note": "Мастит у кормящей: горячий красный участок, высокая температура",
+      "feel": 3, "answers": { "dur": "d13", "lump": "hotred", "fever": "high", "side": "one", "onset": "fast", "nipple": "no", "nodes": "front", "progress": "worse", "period": "none", "weight": "no", "oncohist": "no", "sweats": "no", "trauma": "no" },
+      "expectTop": "mastitis", "expectAlarm": false }
+  ]
+}

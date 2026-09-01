@@ -1,0 +1,790 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "g01",
+      "syndrome": "gen.fever.acute",
+      "sex": "f",
+      "age": 30,
+      "note": "Обычная ОРВИ — тревоги быть не должно",
+      "feel": 0,
+      "answers": {
+        "dur": "d13",
+        "onset": "gradual",
+        "fever": "mid",
+        "cough": "dry",
+        "runny": "yes",
+        "plaque": "no",
+        "stiff": "yes",
+        "photo": "no",
+        "rash": "no",
+        "bowel": "no",
+        "vomit": "no",
+        "dysp": "no",
+        "travel": "no",
+        "tick": "no",
+        "immuno": "no",
+        "focal": "no"
+      },
+      "expectTop": "arvi",
+      "expectAlarm": false,
+      "notExpect": [
+        "meningitis",
+        "sepsis",
+        "malaria"
+      ]
+    },
+    {
+      "id": "g02",
+      "syndrome": "gen.fever.acute",
+      "sex": "m",
+      "age": 35,
+      "note": "Грипп: внезапно 39, ломота, насморка почти нет",
+      "feel": 1,
+      "answers": {
+        "dur": "d13",
+        "onset": "sudden",
+        "fever": "high",
+        "cough": "dry",
+        "runny": "no",
+        "tired": "strong",
+        "rash": "no",
+        "stiff": "yes",
+        "bowel": "no",
+        "travel": "no",
+        "tick": "no"
+      },
+      "expectTop": "influenza",
+      "expectAlarm": false
+    },
+    {
+      "id": "g03",
+      "syndrome": "gen.fever.acute",
+      "sex": "m",
+      "age": 19,
+      "note": "Менингококковая инфекция: температура, шея не гнётся, сыпь не бледнеет",
+      "feel": 0,
+      "answers": {
+        "dur": "hours",
+        "onset": "sudden",
+        "fever": "high",
+        "stiff": "no",
+        "photo": "yes",
+        "rash": "dark",
+        "vomit": "yes",
+        "runny": "no",
+        "cough": "no"
+      },
+      "expectTop": "meningitis",
+      "expectAlarm": true
+    },
+    {
+      "id": "g04",
+      "syndrome": "gen.fever.acute",
+      "sex": "f",
+      "age": 41,
+      "note": "Малярия после поездки в тропики — тревога обязана сработать",
+      "feel": 0,
+      "answers": {
+        "dur": "d13",
+        "onset": "sudden",
+        "fever": "high",
+        "travel": "tropic",
+        "runny": "no",
+        "cough": "no",
+        "rash": "no",
+        "stiff": "yes",
+        "vomit": "yes",
+        "bowel": "no",
+        "tick": "no"
+      },
+      "expect": [
+        "malaria"
+      ],
+      "expectAlarm": true
+    },
+    {
+      "id": "g05",
+      "syndrome": "gen.fever.acute",
+      "sex": "m",
+      "age": 52,
+      "note": "Боррелиоз: был в лесу, кольцевидное пятно, небольшая температура",
+      "feel": 2,
+      "answers": {
+        "dur": "w12",
+        "onset": "gradual",
+        "fever": "low",
+        "tick": "forest",
+        "rash": "spots",
+        "runny": "no",
+        "cough": "no",
+        "stiff": "yes",
+        "travel": "no"
+      },
+      "expect": [
+        "borreliosis"
+      ],
+      "expectAlarm": false
+    },
+    {
+      "id": "g06",
+      "syndrome": "gen.fever.acute",
+      "sex": "f",
+      "age": 27,
+      "note": "Пиелонефрит: постукивание болезненно, рези при мочеиспускании",
+      "feel": 0,
+      "answers": {
+        "dur": "d13",
+        "fever": "high",
+        "tapback": "yes",
+        "urine": "burn",
+        "runny": "no",
+        "cough": "no",
+        "rash": "no",
+        "stiff": "yes",
+        "vomit": "yes"
+      },
+      "expect": [
+        "pyelonephritis.acute"
+      ],
+      "expectAlarm": true
+    },
+    {
+      "id": "g07",
+      "syndrome": "gen.fever.long",
+      "sex": "m",
+      "age": 44,
+      "note": "Туберкулёз: кашель месяцами, ночная потливость, похудел",
+      "feel": 0,
+      "answers": {
+        "dur": "mon",
+        "fever": "low",
+        "cough": "wet",
+        "sweats": "yes",
+        "weight": "yes",
+        "immuno": "no",
+        "nodes": "no",
+        "travel": "no",
+        "animals": "no",
+        "bruise": "no",
+        "oncohist": "no"
+      },
+      "expectTop": "tuberculosis.pulmonary",
+      "expectAlarm": true
+    },
+    {
+      "id": "g08",
+      "syndrome": "gen.fever.long",
+      "sex": "m",
+      "age": 33,
+      "note": "Астения после гриппа: слабость, но веса и потливости нет",
+      "feel": 3,
+      "answers": {
+        "dur": "w12",
+        "fever": "low",
+        "sweats": "no",
+        "weight": "no",
+        "cough": "no",
+        "nodes": "no",
+        "tired": "strong",
+        "bruise": "no",
+        "immuno": "no",
+        "oncohist": "no",
+        "progress": "better"
+      },
+      "expectTop": "postviral.asthenia",
+      "expectAlarm": false,
+      "notExpect": [
+        "lymphoma",
+        "leukemia",
+        "tuberculosis.pulmonary"
+      ]
+    },
+    {
+      "id": "g09",
+      "syndrome": "gen.fatigue",
+      "sex": "f",
+      "age": 29,
+      "note": "Анемия из-за скрытой кровопотери: кровь в стуле обязана поднять тревогу",
+      "feel": 2,
+      "answers": {
+        "dur": "mon",
+        "onset": "gradual",
+        "position": "stand",
+        "dysp": "yes",
+        "bowel": "blood",
+        "temperature": "cold",
+        "mood": "no",
+        "snore": "no",
+        "weight": "no",
+        "sweats": "no",
+        "thirst": "no",
+        "fever": "no",
+        "bruise": "no"
+      },
+      "expectTop": "anemia",
+      "expectAlarm": true
+    },
+    {
+      "id": "g10",
+      "syndrome": "gen.fatigue",
+      "sex": "m",
+      "age": 48,
+      "note": "Апноэ сна: близкие замечают паузы в дыхании",
+      "feel": 3,
+      "answers": {
+        "dur": "mon",
+        "snore": "yes",
+        "mood": "no",
+        "temperature": "no",
+        "appetite": "no",
+        "weight": "no",
+        "dysp": "no",
+        "position": "no",
+        "thirst": "no",
+        "fever": "no",
+        "sweats": "no",
+        "bruise": "no"
+      },
+      "expectTop": "sleep.apnea",
+      "expectAlarm": false
+    },
+    {
+      "id": "g11",
+      "syndrome": "gen.fatigue",
+      "sex": "f",
+      "age": 52,
+      "note": "Гипотиреоз: мёрзнет, запоры, отёки лица, вялость",
+      "feel": 0,
+      "answers": {
+        "dur": "mon",
+        "onset": "gradual",
+        "temperature": "cold",
+        "bowel": "hard",
+        "edema": "face",
+        "mood": "low",
+        "weight": "no",
+        "appetite": "no",
+        "snore": "no",
+        "thirst": "no",
+        "sweats": "no",
+        "fever": "no",
+        "bruise": "no"
+      },
+      "expect": [
+        "hypothyroidism"
+      ],
+      "expectAlarm": false
+    },
+    {
+      "id": "g12",
+      "syndrome": "gen.fatigue",
+      "sex": "m",
+      "age": 58,
+      "note": "Диабет: жажда, обильное мочеиспускание, худеет",
+      "feel": 0,
+      "answers": {
+        "dur": "w12",
+        "thirst": "yes",
+        "weight": "yes",
+        "appetite": "up",
+        "onset": "gradual",
+        "temperature": "no",
+        "mood": "no",
+        "snore": "no",
+        "bowel": "no",
+        "fever": "no",
+        "sweats": "no",
+        "bruise": "no"
+      },
+      "expectTop": "diabetes",
+      "expectAlarm": true
+    },
+    {
+      "id": "g13",
+      "syndrome": "gen.fatigue",
+      "sex": "m",
+      "age": 24,
+      "note": "Лейкоз: слабость, синяки, температура — нужен анализ крови сегодня",
+      "feel": 0,
+      "answers": {
+        "dur": "w12",
+        "tired": "strong",
+        "bruise": "yes",
+        "fever": "mid",
+        "nodes": "hard",
+        "weight": "yes",
+        "mood": "no",
+        "snore": "no",
+        "temperature": "no",
+        "thirst": "no"
+      },
+      "expect": [
+        "leukemia"
+      ],
+      "expectAlarm": true
+    },
+    {
+      "id": "g14",
+      "syndrome": "gen.weightloss",
+      "sex": "f",
+      "age": 34,
+      "note": "Тиреотоксикоз: ест много, худеет, жарко, сердцебиение",
+      "feel": 2,
+      "answers": {
+        "dur": "w12",
+        "appetite": "up",
+        "temperature": "hot",
+        "sweats": "yes",
+        "bowel": "loose",
+        "mood": "anx",
+        "nodes": "no",
+        "cough": "no",
+        "thirst": "no",
+        "smoke": "no",
+        "oncohist": "no",
+        "immuno": "no",
+        "vomit": "no"
+      },
+      "expectTop": "thyrotoxicosis",
+      "expectAlarm": false
+    },
+    {
+      "id": "g15",
+      "syndrome": "gen.weightloss",
+      "sex": "m",
+      "age": 64,
+      "note": "Опухоль толстой кишки: кровь в стуле, ритм изменился, худеет",
+      "feel": 1,
+      "answers": {
+        "dur": "mon",
+        "bowel": "blood",
+        "appetite": "down",
+        "tired": "strong",
+        "smoke": "one",
+        "temperature": "no",
+        "sweats": "no",
+        "nodes": "no",
+        "cough": "no",
+        "thirst": "no",
+        "mood": "no",
+        "oncohist": "no"
+      },
+      "expect": [
+        "colorectal.cancer"
+      ],
+      "expectAlarm": true
+    },
+    {
+      "id": "g16",
+      "syndrome": "gen.weightloss",
+      "sex": "f",
+      "age": 45,
+      "note": "Депрессия: подавленность, аппетит пропал, температуры и потливости нет",
+      "feel": 1,
+      "answers": {
+        "dur": "mon",
+        "mood": "low",
+        "appetite": "down",
+        "fever": "no",
+        "sweats": "no",
+        "nodes": "no",
+        "bowel": "no",
+        "cough": "no",
+        "thirst": "no",
+        "temperature": "no",
+        "smoke": "no",
+        "oncohist": "no",
+        "immuno": "no"
+      },
+      "expectTop": "depression",
+      "expectAlarm": true,
+      "notExpect": [
+        "lymphoma",
+        "colorectal.cancer"
+      ]
+    },
+    {
+      "id": "g17",
+      "syndrome": "gen.lymph",
+      "sex": "m",
+      "age": 12,
+      "note": "Обычный реактивный лимфаденит: один узел, болезненный, проходит",
+      "feel": 0,
+      "answers": {
+        "dur": "d47",
+        "nodes": "front",
+        "nodesmany": "one",
+        "fever": "mid",
+        "sweats": "no",
+        "weight": "no",
+        "progress": "better",
+        "animals": "no",
+        "plaque": "white",
+        "bruise": "no",
+        "immuno": "no",
+        "oncohist": "no"
+      },
+      "expectTop": "lymphadenitis",
+      "expectAlarm": false,
+      "notExpect": [
+        "lymphoma",
+        "leukemia",
+        "hiv"
+      ]
+    },
+    {
+      "id": "g18",
+      "syndrome": "gen.lymph",
+      "sex": "f",
+      "age": 31,
+      "note": "Лимфома: плотный узел, потливость, похудела, растёт",
+      "feel": 1,
+      "answers": {
+        "dur": "mon",
+        "nodes": "hard",
+        "nodesmany": "many",
+        "sweats": "yes",
+        "weight": "yes",
+        "progress": "worse",
+        "fever": "low",
+        "animals": "no",
+        "bruise": "no",
+        "immuno": "no",
+        "oncohist": "no"
+      },
+      "expectTop": "lymphoma",
+      "expectAlarm": true
+    },
+    {
+      "id": "g19",
+      "syndrome": "gen.lymph",
+      "sex": "f",
+      "age": 14,
+      "note": "Болезнь кошачьей царапины: узел после царапины котёнка",
+      "feel": 0,
+      "answers": {
+        "dur": "w12",
+        "nodes": "front",
+        "nodesmany": "one",
+        "animals": "catscratch",
+        "fever": "low",
+        "sweats": "no",
+        "weight": "no",
+        "progress": "same",
+        "bruise": "no",
+        "immuno": "no",
+        "oncohist": "no"
+      },
+      "expect": [
+        "cat.scratch"
+      ],
+      "expectAlarm": false
+    },
+    {
+      "id": "s01",
+      "syndrome": "skin.rash.itch",
+      "sex": "f",
+      "age": 26,
+      "note": "Крапивница: каждый волдырь живёт меньше суток",
+      "feel": 2,
+      "answers": {
+        "dur": "d13",
+        "onset": "sudden",
+        "rashlife": "day",
+        "itch": "some",
+        "fever": "no",
+        "mucosa": "no",
+        "newmeds": "no",
+        "contact": "no",
+        "swell": "no",
+        "stridor": "ok"
+      },
+      "expectTop": "urticaria",
+      "expectAlarm": false
+    },
+    {
+      "id": "s02",
+      "syndrome": "skin.rash.itch",
+      "sex": "m",
+      "age": 34,
+      "note": "Чесотка: зуд резко усиливается ночью, зудит вся семья",
+      "feel": 0,
+      "answers": {
+        "dur": "w12",
+        "itch": "night",
+        "contact": "yes",
+        "rashlife": "stay",
+        "fever": "no",
+        "mucosa": "no",
+        "newmeds": "no",
+        "rashwhere": "trunk",
+        "swell": "no"
+      },
+      "expectTop": "scabies",
+      "expectAlarm": false
+    },
+    {
+      "id": "s03",
+      "syndrome": "skin.rash.itch",
+      "sex": "f",
+      "age": 8,
+      "note": "Атопический дерматит: сгибы локтей и коленей, зуд ночью, годами",
+      "feel": 1,
+      "answers": {
+        "dur": "mon",
+        "rashwhere": "folds",
+        "itch": "night",
+        "rashlife": "stay",
+        "fever": "no",
+        "mucosa": "no",
+        "newmeds": "no",
+        "contact": "no",
+        "swell": "no"
+      },
+      "expectTop": "atopic.dermatitis",
+      "expectAlarm": false
+    },
+    {
+      "id": "s04",
+      "syndrome": "skin.rash.itch",
+      "sex": "m",
+      "age": 47,
+      "note": "Синдром Стивенса-Джонсона: новое лекарство, слизистые, ухудшение",
+      "feel": 3,
+      "answers": {
+        "dur": "d13",
+        "onset": "fast",
+        "newmeds": "yes",
+        "mucosa": "yes",
+        "fever": "high",
+        "progress": "worse",
+        "itch": "some",
+        "rashwhere": "trunk",
+        "rashlife": "stay",
+        "swell": "no"
+      },
+      "expectTop": "sjs.ten",
+      "expectAlarm": false
+    },
+    {
+      "id": "s05",
+      "syndrome": "skin.rash.itch",
+      "sex": "m",
+      "age": 39,
+      "note": "Псориаз: бляшки на локтях и коленях, держатся годами",
+      "feel": 4,
+      "answers": {
+        "dur": "mon",
+        "rashwhere": "extensor",
+        "rashlife": "stay",
+        "itch": "some",
+        "fever": "no",
+        "mucosa": "no",
+        "newmeds": "no",
+        "contact": "no",
+        "swell": "no"
+      },
+      "expectTop": "psoriasis",
+      "expectAlarm": false
+    },
+    {
+      "id": "s06",
+      "syndrome": "skin.rash.fever",
+      "sex": "m",
+      "age": 6,
+      "note": "Ветрянка: пузырьки разного возраста, контакт в саду",
+      "feel": 2,
+      "answers": {
+        "dur": "d13",
+        "fever": "mid",
+        "rash": "spots",
+        "itch": "night",
+        "contact": "yes",
+        "vaccine": "no",
+        "mucosa": "no",
+        "newmeds": "no",
+        "stiff": "yes",
+        "photo": "no",
+        "cough": "no"
+      },
+      "expectTop": "chickenpox",
+      "expectAlarm": false
+    },
+    {
+      "id": "s07",
+      "syndrome": "skin.rash.fever",
+      "sex": "f",
+      "age": 5,
+      "note": "Скарлатина: мелкоточечная сыпь, кожа как наждак, налёты на миндалинах",
+      "feel": 0,
+      "answers": {
+        "dur": "d13",
+        "fever": "high",
+        "rash": "fine",
+        "plaque": "white",
+        "nodes": "front",
+        "cough": "no",
+        "vaccine": "yes",
+        "mucosa": "no",
+        "newmeds": "no",
+        "stiff": "yes"
+      },
+      "expectTop": "scarlet.fever",
+      "expectAlarm": false
+    },
+    {
+      "id": "s08",
+      "syndrome": "skin.rash.fever",
+      "sex": "m",
+      "age": 17,
+      "note": "Менингококцемия: сыпь не бледнеет, шея не гнётся",
+      "feel": 3,
+      "answers": {
+        "dur": "hours",
+        "onset": "sudden",
+        "fever": "high",
+        "rash": "dark",
+        "stiff": "no",
+        "photo": "yes",
+        "mucosa": "no",
+        "newmeds": "no",
+        "vaccine": "no",
+        "contact": "no"
+      },
+      "expectTop": "meningitis",
+      "expectAlarm": true
+    },
+    {
+      "id": "s09",
+      "syndrome": "skin.rash.fever",
+      "sex": "m",
+      "age": 4,
+      "note": "Рука-нога-рот: ладони, подошвы и рот",
+      "feel": 1,
+      "answers": {
+        "dur": "d13",
+        "fever": "mid",
+        "rashwhere": "handsfeet",
+        "mucosa": "yes",
+        "contact": "yes",
+        "vaccine": "yes",
+        "rash": "spots",
+        "newmeds": "no",
+        "stiff": "yes",
+        "photo": "no"
+      },
+      "expectTop": "hfmd",
+      "expectAlarm": false
+    },
+    {
+      "id": "s10",
+      "syndrome": "skin.mole",
+      "sex": "f",
+      "age": 42,
+      "note": "Меланома: родинка выросла, край неровный, кровоточит",
+      "feel": 0,
+      "answers": {
+        "dur": "w12",
+        "molechange": "grow",
+        "moleedge": "irregular",
+        "progress": "worse",
+        "itch": "some",
+        "oncohist": "no",
+        "smoke": "no",
+        "immuno": "no"
+      },
+      "expectTop": "melanoma",
+      "expectAlarm": false
+    },
+    {
+      "id": "s11",
+      "syndrome": "skin.mole",
+      "sex": "m",
+      "age": 68,
+      "note": "Базалиома: перламутровый узелок на лице, не заживает",
+      "feel": 1,
+      "answers": {
+        "dur": "mon",
+        "moleedge": "pearl",
+        "molechange": "bleed",
+        "progress": "same",
+        "itch": "no",
+        "oncohist": "no",
+        "smoke": "one",
+        "immuno": "no"
+      },
+      "expectTop": "bcc",
+      "expectAlarm": false
+    },
+    {
+      "id": "s12",
+      "syndrome": "skin.mole",
+      "sex": "f",
+      "age": 61,
+      "note": "Себорейный кератоз: восковая бляшка, не меняется — это не опухоль",
+      "feel": 2,
+      "answers": {
+        "dur": "mon",
+        "moleedge": "waxy",
+        "molechange": "same",
+        "progress": "same",
+        "itch": "no",
+        "oncohist": "no",
+        "smoke": "no",
+        "immuno": "no"
+      },
+      "expectTop": "seborrheic.keratosis",
+      "expectAlarm": false,
+      "notExpect": [
+        "melanoma"
+      ]
+    },
+    {
+      "id": "s13",
+      "syndrome": "skin.hives",
+      "sex": "f",
+      "age": 33,
+      "note": "Отёк Квинке: губы отекли, дышать тяжело — это уже не крапивница",
+      "feel": 2,
+      "answers": {
+        "dur": "hours",
+        "onset": "sudden",
+        "swell": "lips",
+        "stridor": "hard",
+        "rashlife": "day",
+        "itch": "some",
+        "newmeds": "yes",
+        "fever": "no",
+        "mucosa": "no"
+      },
+      "expectTop": "anaphylaxis.angioedema",
+      "expectAlarm": true
+    },
+    {
+      "id": "s14",
+      "syndrome": "skin.hives",
+      "sex": "m",
+      "age": 28,
+      "note": "Простая крапивница без отёка — тревоги быть не должно",
+      "feel": 0,
+      "answers": {
+        "dur": "d13",
+        "onset": "sudden",
+        "rashlife": "day",
+        "itch": "night",
+        "swell": "no",
+        "stridor": "ok",
+        "newmeds": "no",
+        "fever": "no",
+        "mucosa": "no",
+        "contact": "no"
+      },
+      "expectTop": "urticaria",
+      "expectAlarm": false,
+      "notExpect": [
+        "sjs.ten"
+      ]
+    }
+  ]
+}

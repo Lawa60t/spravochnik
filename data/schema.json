@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ez.example/schema/v1",
+  "title": "Схема базы знаний справочника",
+  "version": "1.0.0",
+  "frozen": "2026-08-27",
+  "_комментарий": [
+    "Три сущности и одна связь между ними.",
+    "СОСТОЯНИЕ пишется ОДИН раз и переиспользуется во всех синдромах, где встречается.",
+    "Пневмония живёт в одной карточке, а ссылаются на неё и 'рёбра справа', и 'грудь', и 'спина'.",
+    "Именно поэтому базу нельзя набивать 'по областям' — получатся дубли, которые разъедутся.",
+    "СИНДРОМ — это раздел справочника: зона тела + характер ощущения. Он не содержит текста о болезнях,",
+    "только ссылки на состояния и веса признаков.",
+    "ВОПРОС — переиспользуемый признак. Один и тот же вопрос про лихорадку работает во всех синдромах."
+  ],
+
+  "$defs": {
+
+    "condition": {
+      "type": "object",
+      "title": "Состояние (статья о болезни)",
+      "required": [
+        "id", "name", "icd", "what", "who", "urgent", "doctor", "tests",
+        "sources", "status", "updated"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id":      { "type": "string", "pattern": "^[a-z0-9.]+$", "description": "Устойчивый идентификатор, он же часть постоянного адреса статьи" },
+        "name":    { "type": "string", "minLength": 3, "description": "Название человеческим языком, не латынью" },
+        "alt":     { "type": "array", "items": { "type": "string" }, "description": "Синонимы и обиходные названия — для поиска" },
+        "icd":     { "type": "string", "description": "Код МКБ-10. Только код и официальное название рубрики" },
+        "what":    { "type": "string", "minLength": 40, "description": "Что это, механизм простыми словами. 2–4 предложения" },
+        "who":     { "type": "string", "description": "У кого встречается чаще: возраст, пол, обстоятельства" },
+        "urgent":  { "type": "string", "minLength": 20, "description": "Когда состояние бывает неотложным. Описание болезни, НЕ указание читателю" },
+        "doctor":  { "type": "string", "description": "Специальность врача. Без фамилий, клиник и ссылок" },
+        "tests":   { "type": "string", "description": "Чем обычно подтверждают. Диагностика, не лечение" },
+        "redflag": { "type": "boolean", "default": false, "description": "Показывать в блоке «редко, но важно» всегда, независимо от совпадений" },
+        "sexOnly": { "type": "string", "enum": ["m", "f"], "description": "Только для одного пола" },
+        "ageMin":  { "type": "integer", "minimum": 0 },
+        "ageMax":  { "type": "integer", "maximum": 120 },
+        "sources": {
+          "type": "array", "minItems": 1,
+          "description": "Откуда взято. Минимум один источник, иначе статья не публикуется",
+          "items": {
+            "type": "object",
+            "required": ["title"],
+            "additionalProperties": false,
+            "properties": {
+              "title": { "type": "string", "description": "Например: КР Минздрава РФ «Острый аппендицит у взрослых»" },
+              "url":   { "type": "string" },
+              "year":  { "type": "integer" }
+            }
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "compiled", "reviewed", "published"],
+          "description": "draft — черновик; compiled — сверено с источником; reviewed — врач проверил; published — на сайте. На сайт попадает только reviewed и выше"
+        },
+        "reviewer": { "type": "string", "description": "Кто проверял: специальность и имя" },
+        "updated":  { "type": "string", "format": "date" }
+      }
+    },
+
+    "syndrome": {
+      "type": "object",
+      "title": "Синдром (раздел справочника)",
+      "required": ["id", "zone", "name", "feelings", "questions", "candidates", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "id":       { "type": "string", "pattern": "^[a-z0-9.]+$" },
+        "zone":     { "type": "string", "description": "Идентификатор зоны тела" },
+        "subzone":  { "type": "string" },
+        "name":     { "type": "string", "description": "Как это называется в оглавлении" },
+        "aka":      { "type": "array", "items": { "type": "string" }, "description": "Как это называет человек: «колет в боку», «режет под ребром»" },
+        "priority": { "type": "integer", "minimum": 1, "maximum": 3, "description": "1 — первая очередь наполнения, 3 — последняя" },
+        "feelings": {
+          "type": "array", "minItems": 2,
+          "description": "Варианты характера ощущения на этом экране",
+          "items": { "type": "string" }
+        },
+        "questions": {
+          "type": "array", "minItems": 3,
+          "description": "Идентификаторы вопросов, применимых к этому синдрому",
+          "items": { "type": "string" }
+        },
+        "candidates": {
+          "type": "array", "minItems": 5,
+          "description": "Состояния этого раздела. Именно этот список проверяет врач — здесь цена ошибки максимальна",
+          "items": {
+            "type": "object",
+            "required": ["condition", "base"],
+            "additionalProperties": false,
+            "properties": {
+              "condition": { "type": "string", "description": "id состояния" },
+              "base": {
+                "type": "integer", "minimum": 0, "maximum": 10,
+                "description": "Базовая частота в этом разделе: 8–10 очень часто, 4–7 часто, 1–3 редко"
+              },
+              "weights": {
+                "type": "object",
+                "description": "Ключ — «идВопроса_идОтвета». Значение: +4 патогномоничный, +2 сильно за, +1 за, −2 против, −4 почти исключает",
+                "additionalProperties": { "type": "integer", "minimum": -6, "maximum": 6 }
+              },
+              "stop": {
+                "type": "array", "items": { "type": "string" },
+                "description": "Ответы, полностью исключающие состояние. Например аппендэктомия в анамнезе"
+              }
+            }
+          }
+        },
+        "notSearchedHere": {
+          "type": "array", "items": { "type": "string" },
+          "description": "Ситуации, при которых справочник закрывают. Текст страницы-предупреждения для этого раздела"
+        },
+        "status":   { "type": "string", "enum": ["planned", "drafted", "reviewed", "published"] },
+        "reviewer": { "type": "string" },
+        "updated":  { "type": "string", "format": "date" }
+      }
+    },
+
+    "question": {
+      "type": "object",
+      "title": "Вопрос (переиспользуемый признак)",
+      "required": ["id", "short", "text", "options"],
+      "additionalProperties": false,
+      "properties": {
+        "id":    { "type": "string", "pattern": "^[a-z0-9]+$" },
+        "short": { "type": "string", "description": "Короткая подпись для карточки совпадений: «Температура», «Отдаёт»" },
+        "text":  { "type": "string", "description": "Сам вопрос" },
+        "hint":  { "type": "string", "description": "Пояснение под вопросом. Как проверить, что имеется в виду" },
+        "scope": {
+          "type": "array", "items": { "type": "string" },
+          "description": "Зоны, где вопрос применим. Пусто — применим везде"
+        },
+        "options": {
+          "type": "array", "minItems": 2,
+          "items": {
+            "type": "object",
+            "required": ["id", "text", "short"],
+            "additionalProperties": false,
+            "properties": {
+              "id":    { "type": "string" },
+              "text":  { "type": "string", "description": "Полный текст варианта на экране" },
+              "short": { "type": "string", "description": "Короткая форма для карточки совпадений" }
+            }
+          }
+        },
+        "unknownAllowed": {
+          "type": "boolean", "default": true,
+          "description": "«Не знаю» обязателен почти всегда: без него человек угадывает, и весь вывод строится на выдумке"
+        }
+      }
+    }
+  },
+
+  "type": "object",
+  "properties": {
+    "conditions": { "type": "array", "items": { "$ref": "#/$defs/condition" } },
+    "syndromes":  { "type": "array", "items": { "$ref": "#/$defs/syndrome" } },
+    "questions":  { "type": "array", "items": { "$ref": "#/$defs/question" } }
+  }
+}

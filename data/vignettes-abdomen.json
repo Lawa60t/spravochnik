@@ -1,0 +1,170 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    { "id": "a01", "syndrome": "abd.rlq", "sex": "m", "age": 22,
+      "note": "Классический аппендицит: боль переместилась, усиливается при кашле",
+      "feel": 0, "answers": { "dur": "hours", "onset": "gradual", "migration": "yes", "jolt": "yes", "guarding": "tender", "fever": "low", "appetite": "down", "vomitwhat": "food", "gas": "yes", "surgery": "no", "bowel": "no", "urine": "no", "restless": "still", "progress": "worse" },
+      "expectTop": "appendicitis.acute", "expectAlarm": false },
+
+    { "id": "a02", "syndrome": "abd.rlq", "sex": "m", "age": 34,
+      "note": "Аппендикс удалён — диагноз должен полностью исчезнуть из списка",
+      "feel": 0, "answers": { "dur": "hours", "migration": "yes", "jolt": "yes", "guarding": "tender", "fever": "low", "appetite": "down", "surgery": "appendix", "gas": "yes", "bowel": "no", "urine": "no" },
+      "notExpect": ["appendicitis.acute"], "expectAlarm": false },
+
+    { "id": "a03", "syndrome": "abd.rlq", "sex": "f", "age": 27,
+      "note": "Внематочная беременность: задержка менструации и боль внизу справа",
+      "feel": 2, "answers": { "dur": "d13", "onset": "sudden", "period": "delay", "guarding": "tender", "migration": "no", "fever": "no", "restless": "restless", "gas": "yes", "urine": "no", "surgery": "no", "progress": "worse" },
+      "expectTop": "ectopic.pregnancy", "expectAlarm": true },
+
+    { "id": "a04", "syndrome": "abd.rlq", "sex": "m", "age": 61,
+      "note": "Непроходимость на спайках: газы не отходят, рвота с каловым запахом",
+      "feel": 1, "answers": { "dur": "d13", "gas": "none", "vomitwhat": "fecal", "surgery": "yes", "guarding": "tender", "migration": "no", "fever": "no", "restless": "restless", "bowel": "no" },
+      "expectTop": "bowel.obstruction", "expectAlarm": true },
+
+    { "id": "a05", "syndrome": "abd.rlq", "sex": "m", "age": 46,
+      "note": "Ущемлённая грыжа: выпячивание перестало вправляться",
+      "feel": 2, "answers": { "dur": "hours", "onset": "sudden", "bulge": "stuck", "gas": "none", "vomitwhat": "food", "guarding": "tender", "migration": "no", "fever": "no", "surgery": "no" },
+      "expectTop": "strangulated.hernia", "expectAlarm": true },
+
+    { "id": "a06", "syndrome": "abd.rlq", "sex": "f", "age": 31,
+      "note": "Обычная кишечная инфекция — тревоги быть не должно",
+      "feel": 3, "answers": { "dur": "d13", "onset": "fast", "bowel": "loose", "vomitwhat": "food", "contact": "yes", "guarding": "soft", "migration": "no", "jolt": "no", "fever": "mid", "gas": "yes", "period": "now", "surgery": "no", "urine": "no", "bulge": "no" },
+      "expectTop": "gastroenteritis.acute", "expectAlarm": false,
+      "notExpect": ["appendicitis.acute", "ectopic.pregnancy"] },
+
+    { "id": "a07", "syndrome": "abd.epi", "sex": "m", "age": 53,
+      "note": "Прободная язва: мгновенно, живот как доска",
+      "feel": 2, "answers": { "dur": "hours", "onset": "sudden", "guarding": "board", "jolt": "yes", "painkillers": "often", "movebetter": "rest", "eatrel": "empty", "fever": "no", "vomitwhat": "none", "auto": "no", "yellow": "no" },
+      "expectTop": "perforated.ulcer", "expectAlarm": true },
+
+    { "id": "a08", "syndrome": "abd.epi", "sex": "m", "age": 64,
+      "note": "Инфаркт под маской желудка: холодный пот, одышка, от еды не зависит",
+      "feel": 1, "answers": { "dur": "hours", "onset": "fast", "auto": "yes", "dysp": "yes", "movebetter": "none", "guarding": "soft", "eatrel": "no", "fever": "no", "vomitwhat": "none", "yellow": "no", "painkillers": "rare" },
+      "expectTop": "myocardial.infarction", "expectAlarm": true },
+
+    { "id": "a09", "syndrome": "abd.epi", "sex": "f", "age": 49,
+      "note": "Желчная колика после жирной еды",
+      "feel": 3, "answers": { "dur": "hours", "onset": "fast", "eatrel": "fatty", "vomitwhat": "bile", "guarding": "tender", "fever": "no", "yellow": "no", "auto": "no", "movebetter": "none", "painkillers": "rare" },
+      "expectTop": "cholelithiasis.colic", "expectAlarm": false },
+
+    { "id": "a10", "syndrome": "abd.epi", "sex": "m", "age": 41,
+      "note": "Панкреатит: опоясывающая, легче с наклоном вперёд, рвота желчью",
+      "feel": 1, "answers": { "dur": "d13", "onset": "fast", "radleg": "front", "movebetter": "bend", "vomitwhat": "bile", "eatrel": "fatty", "guarding": "tender", "fever": "low", "yellow": "no", "auto": "no" },
+      "expectTop": "pancreatitis.acute", "expectAlarm": false },
+
+    { "id": "a11", "syndrome": "abd.epi", "sex": "m", "age": 37,
+      "note": "Язва двенадцатиперстной: натощак и ночью, легчает после еды",
+      "feel": 0, "answers": { "dur": "mon", "eatrel": "empty", "painkillers": "often", "guarding": "soft", "fever": "no", "vomitwhat": "none", "yellow": "no", "auto": "no", "weight": "no", "onset": "gradual" },
+      "expectTop": "peptic.ulcer", "expectAlarm": false },
+
+    { "id": "a12", "syndrome": "abd.epi", "sex": "m", "age": 68,
+      "note": "Опухоль поджелудочной: безболезненная желтуха и потеря веса",
+      "feel": 1, "answers": { "dur": "mon", "yellow": "yes", "weight": "yes", "radleg": "front", "movebetter": "bend", "progress": "worse", "appetite": "down", "guarding": "soft", "fever": "no", "eatrel": "no", "auto": "no" },
+      "expect": ["pancreatic.cancer"], "expectAlarm": true },
+
+    { "id": "a13", "syndrome": "abd.umb", "sex": "f", "age": 33,
+      "note": "Синдром раздражённого кишечника: годами, легчает после стула, вес стабилен",
+      "feel": 2, "answers": { "dur": "mon", "stoolrel": "better", "fever": "no", "guarding": "soft", "weight": "no", "gas": "yes", "bowel": "no", "surgery": "no", "vomitwhat": "none", "migration": "no", "bulge": "no", "progress": "same" },
+      "expectTop": "ibs", "expectAlarm": false,
+      "notExpect": ["colorectal.cancer", "ibd", "mesenteric.ischemia"] },
+
+    { "id": "a14", "syndrome": "abd.umb", "sex": "m", "age": 74,
+      "note": "Ишемия кишечника: сильнейшая боль при мягком животе",
+      "feel": 0, "answers": { "dur": "hours", "onset": "sudden", "guarding": "soft", "restless": "restless", "progress": "worse", "gas": "yes", "bowel": "no", "vomitwhat": "none", "surgery": "no", "fever": "no", "migration": "no" },
+      "expect": ["mesenteric.ischemia"], "expectAlarm": true },
+
+    { "id": "a15", "syndrome": "abd.umb", "sex": "f", "age": 24,
+      "note": "Непереносимость лактозы: всё начинается после молочного",
+      "feel": 2, "answers": { "dur": "mon", "eatrel": "milk", "bowel": "loose", "fever": "no", "guarding": "soft", "gas": "yes", "weight": "no", "surgery": "no", "vomitwhat": "none", "stoolrel": "no", "migration": "no" },
+      "expectTop": "lactose.intolerance", "expectAlarm": false },
+
+    { "id": "a16", "syndrome": "abd.hypo", "sex": "f", "age": 25,
+      "note": "Обычный цистит — тревоги быть не должно",
+      "feel": 1, "answers": { "dur": "d13", "urine": "burn", "fever": "no", "period": "now", "guarding": "soft", "bowel": "no", "onset": "fast", "bulge": "no", "weight": "no", "yellow": "no" },
+      "expectTop": "cystitis", "expectAlarm": false,
+      "notExpect": ["ectopic.pregnancy"] },
+
+    { "id": "a17", "syndrome": "abd.hypo", "sex": "f", "age": 29,
+      "note": "Задержка менструации и боль внизу — внематочная, пока не доказано обратное",
+      "feel": 0, "answers": { "dur": "d13", "period": "delay", "onset": "sudden", "urine": "no", "fever": "no", "guarding": "tender", "progress": "worse", "bowel": "no", "bulge": "no" },
+      "expectTop": "ectopic.pregnancy", "expectAlarm": true },
+
+    { "id": "a18", "syndrome": "abd.hypo", "sex": "f", "age": 36,
+      "note": "Эндометриоз: боль строго по циклу, годами",
+      "feel": 0, "answers": { "dur": "mon", "period": "now", "fever": "no", "urine": "no", "guarding": "soft", "onset": "gradual", "bowel": "no", "weight": "no", "bulge": "no", "progress": "same" },
+      "expectTop": "endometriosis", "expectAlarm": false },
+
+    { "id": "a19", "syndrome": "abd.diffuse", "sex": "m", "age": 58,
+      "note": "Перитонит: живот твёрдый как доска",
+      "feel": 2, "answers": { "dur": "hours", "onset": "sudden", "guarding": "board", "jolt": "yes", "painkillers": "often", "gas": "gasonly", "vomitwhat": "none", "fever": "mid", "bowel": "no", "thirst": "no" },
+      "expectTop": "perforated.ulcer", "expectAlarm": true },
+
+    { "id": "a20", "syndrome": "abd.diffuse", "sex": "m", "age": 19,
+      "note": "Кетоацидоз под маской острого живота: жажда, рвота, боль",
+      "feel": 0, "answers": { "dur": "d13", "thirst": "yes", "vomitwhat": "food", "guarding": "soft", "gas": "yes", "bowel": "no", "fever": "no", "onset": "gradual", "auto": "no", "surgery": "no" },
+      "expectTop": "dka", "expectAlarm": true },
+
+    { "id": "a21", "syndrome": "abd.diffuse", "sex": "f", "age": 70,
+      "note": "Клостридиальный колит после антибиотиков",
+      "feel": 0, "answers": { "dur": "d47", "abxrecent": "yes", "bowel": "loose", "fever": "mid", "guarding": "tender", "gas": "yes", "vomitwhat": "none", "thirst": "no", "surgery": "no", "onset": "gradual" },
+      "expect": ["cdiff"], "expectAlarm": true },
+
+    { "id": "a22", "syndrome": "abd.nausea", "sex": "f", "age": 28,
+      "note": "Беременность малого срока: задержка, тошнит по утрам",
+      "feel": 2, "answers": { "dur": "w12", "period": "delay", "morning": "yes", "fever": "no", "bowel": "no", "vomitwhat": "food", "gas": "yes", "thirst": "no", "focal": "no", "yellow": "no", "position": "no", "abxrecent": "no" },
+      "expectTop": "pregnancy.early", "expectAlarm": true },
+
+    { "id": "a23", "syndrome": "abd.nausea", "sex": "m", "age": 44,
+      "note": "Кишечная инфекция: понос, рвота, контакт",
+      "feel": 1, "answers": { "dur": "d13", "bowel": "loose", "vomitwhat": "food", "contact": "yes", "fever": "mid", "gas": "yes", "guarding": "soft", "focal": "no", "yellow": "no", "thirst": "no", "position": "no", "abxrecent": "no" },
+      "expectTop": "gastroenteritis.acute", "expectAlarm": false },
+
+    { "id": "a24", "syndrome": "abd.nausea", "sex": "m", "age": 62,
+      "note": "Опухоль мозга: тошнота по утрам, очаговые признаки, нарастает",
+      "feel": 0, "answers": { "dur": "mon", "morning": "yes", "focal": "yes", "progress": "worse", "bowel": "no", "vomitwhat": "food", "fever": "no", "gas": "yes", "thirst": "no", "yellow": "no", "position": "no", "abxrecent": "no" },
+      "expect": ["brain.tumor"], "expectAlarm": true },
+
+    { "id": "a25", "syndrome": "abd.diarrhea", "sex": "m", "age": 30,
+      "note": "Обычная кишечная инфекция, три дня — тревоги быть не должно",
+      "feel": 0, "answers": { "dur": "d13", "onset": "sudden", "bowel": "loose", "fever": "mid", "abxrecent": "no", "contact": "yes", "weight": "no", "night": "no", "eatrel": "no", "travel": "no", "immuno": "no", "temperature": "no", "vomitwhat": "food", "stoolrel": "no" },
+      "expectTop": "gastroenteritis.acute", "expectAlarm": false,
+      "notExpect": ["ibd", "colorectal.cancer"] },
+
+    { "id": "a26", "syndrome": "abd.diarrhea", "sex": "f", "age": 26,
+      "note": "Воспалительное заболевание кишечника: кровь, ночью будит, худеет",
+      "feel": 3, "answers": { "dur": "mon", "bowel": "blood", "night": "yes", "weight": "yes", "fever": "low", "abxrecent": "no", "stoolrel": "no", "contact": "no", "travel": "no", "eatrel": "no", "immuno": "no", "temperature": "no" },
+      "expectTop": "ibd", "expectAlarm": true },
+
+    { "id": "a27", "syndrome": "abd.stool.blood", "sex": "m", "age": 32,
+      "note": "Анальная трещина: резкая боль при дефекации и капли крови",
+      "feel": 2, "answers": { "dur": "d13", "painanal": "yes", "bowel": "hard", "weight": "no", "fever": "no", "bowelrhythm": "same", "night": "no", "oncohist": "no", "auto": "no", "progress": "same" },
+      "expectTop": "anal.fissure", "expectAlarm": false },
+
+    { "id": "a28", "syndrome": "abd.stool.blood", "sex": "m", "age": 66,
+      "note": "Опухоль толстой кишки: ритм стула изменился, худеет, боли нет",
+      "feel": 1, "answers": { "dur": "mon", "painanal": "no", "bowel": "alt", "bowelrhythm": "changed", "weight": "yes", "progress": "worse", "fever": "no", "night": "no", "oncohist": "no", "auto": "no" },
+      "expectTop": "colorectal.cancer", "expectAlarm": true },
+
+    { "id": "a29", "syndrome": "abd.stool.blood", "sex": "f", "age": 38,
+      "note": "Геморрой: алая кровь поверх кала, без боли, вес стабилен",
+      "feel": 0, "answers": { "dur": "mon", "painanal": "no", "bowel": "hard", "bowelrhythm": "same", "weight": "no", "fever": "no", "night": "no", "oncohist": "no", "auto": "no", "progress": "same" },
+      "expectTop": "hemorrhoids", "expectAlarm": false,
+      "notExpect": ["colorectal.cancer"] },
+
+    { "id": "a30", "syndrome": "abd.heartburn", "sex": "m", "age": 40,
+      "note": "Обычная ГЭРБ: жжёт после еды, глотание не нарушено, вес стабилен",
+      "feel": 0, "answers": { "dur": "mon", "reflux": "yes", "eatrel": "after", "swallow": "none", "weight": "no", "vomitwhat": "none", "auto": "no", "smoke": "one", "painkillers": "rare", "appetite": "no", "progress": "same" },
+      "expectTop": "gerd", "expectAlarm": false,
+      "notExpect": ["esophagus.cancer", "myocardial.infarction"] },
+
+    { "id": "a31", "syndrome": "abd.heartburn", "sex": "m", "age": 59,
+      "note": "Опухоль пищевода под маской изжоги: глотание ухудшается, худеет, курит",
+      "feel": 0, "answers": { "dur": "mon", "swallow": "solid", "progress": "worse", "weight": "yes", "smoke": "both", "reflux": "yes", "vomitwhat": "none", "auto": "no", "appetite": "down" },
+      "expectTop": "esophagus.cancer", "expectAlarm": true },
+
+    { "id": "a32", "syndrome": "abd.heartburn", "sex": "m", "age": 57,
+      "note": "Инфаркт под маской изжоги: с едой не связано, холодный пот, одышка",
+      "feel": 2, "answers": { "dur": "hours", "eatrel": "no", "auto": "yes", "dysp": "yes", "onset": "fast", "reflux": "no", "swallow": "none", "weight": "no", "vomitwhat": "none", "smoke": "one" },
+      "expectTop": "myocardial.infarction", "expectAlarm": true }
+  ]
+}

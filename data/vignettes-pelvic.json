@@ -1,0 +1,102 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    { "id": "p01", "syndrome": "pelv.uro.dysuria", "sex": "f", "age": 26,
+      "note": "Обычный цистит — тревоги быть не должно",
+      "feel": 0, "answers": { "dur": "d13", "urine": "burn", "fever": "no", "tapback": "no", "bloodurine": "withpain", "vagdischarge": "no", "period": "now", "contact": "no", "immuno": "no", "progress": "same", "guarding": "soft" },
+      "expectTop": "cystitis", "expectAlarm": false,
+      "notExpect": ["bladder.cancer", "pyelonephritis.acute"] },
+
+    { "id": "p02", "syndrome": "pelv.uro.dysuria", "sex": "f", "age": 31,
+      "note": "Пиелонефрит: температура и болезненное постукивание по пояснице",
+      "feel": 0, "answers": { "dur": "d13", "urine": "burn", "fever": "high", "tapback": "yes", "progress": "worse", "vagdischarge": "no", "period": "now", "contact": "no", "immuno": "no", "guarding": "soft" },
+      "expectTop": "pyelonephritis.acute", "expectAlarm": true },
+
+    { "id": "p03", "syndrome": "pelv.uro.dysuria", "sex": "m", "age": 71,
+      "note": "Аденома простаты: вялая струя, годами, температуры нет",
+      "feel": 1, "answers": { "dur": "mon", "stream": "weak", "urine": "no", "fever": "no", "tapback": "no", "onset": "gradual", "contact": "no", "bloodurine": "unk", "scrotum": "no", "immuno": "no", "progress": "same" },
+      "expectTop": "bph", "expectAlarm": false },
+
+    { "id": "p04", "syndrome": "pelv.uro.dysuria", "sex": "m", "age": 27,
+      "note": "Уретрит после незащищённого контакта",
+      "feel": 0, "answers": { "dur": "d13", "urine": "burn", "contact": "yes", "fever": "no", "tapback": "no", "stream": "normal", "scrotum": "no", "immuno": "no", "progress": "same", "onset": "fast" },
+      "expect": ["urethritis"], "expectAlarm": false },
+
+    { "id": "p05", "syndrome": "pelv.uro.blood", "sex": "m", "age": 68,
+      "note": "Опухоль мочевого пузыря: кровь без боли, курит",
+      "feel": 0, "answers": { "dur": "d13", "bloodurine": "painless", "smoke": "both", "urine": "no", "fever": "no", "tapback": "no", "restless": "still", "weight": "no", "edema": "no", "hbp": "normal", "trauma": "no", "stream": "normal", "onset": "sudden" },
+      "expectTop": "bladder.cancer", "expectAlarm": true },
+
+    { "id": "p06", "syndrome": "pelv.uro.blood", "sex": "m", "age": 44,
+      "note": "Почечная колика: волнами, отдаёт в пах, не находит места",
+      "feel": 1, "answers": { "dur": "hours", "onset": "fast", "bloodurine": "withpain", "radleg": "groin", "restless": "restless", "tapback": "yes", "fever": "no", "smoke": "no", "weight": "no", "edema": "no", "hbp": "normal", "trauma": "no", "urine": "no" },
+      "expectTop": "renal.colic", "expectAlarm": false },
+
+    { "id": "p07", "syndrome": "pelv.uro.blood", "sex": "m", "age": 16,
+      "note": "Гломерулонефрит после ангины: моча цвета мясных помоев, отёки лица",
+      "feel": 3, "answers": { "dur": "w12", "bloodurine": "meat", "edema": "face", "hbp": "high", "fever": "no", "tapback": "no", "restless": "still", "urine": "no", "smoke": "no", "weight": "no", "trauma": "no", "onset": "gradual", "stream": "normal" },
+      "expectTop": "glomerulonephritis", "expectAlarm": true },
+
+    { "id": "p08", "syndrome": "pelv.gyn.pain", "sex": "f", "age": 28,
+      "note": "Внематочная: задержка и боль с одной стороны",
+      "feel": 2, "answers": { "dur": "d13", "onset": "sudden", "period": "delay", "pregnant": "unk", "vagdischarge": "bloody", "fever": "no", "urine": "no", "guarding": "tender", "restless": "restless", "progress": "worse", "contact": "no" },
+      "expectTop": "ectopic.pregnancy", "expectAlarm": true },
+
+    { "id": "p09", "syndrome": "pelv.gyn.pain", "sex": "f", "age": 34,
+      "note": "Эндометриоз: боль строго по циклу, годами",
+      "feel": 0, "answers": { "dur": "mon", "period": "now", "fever": "no", "vagdischarge": "no", "urine": "no", "guarding": "soft", "onset": "gradual", "progress": "same", "pregnant": "no", "weight": "no", "contact": "no" },
+      "expectTop": "endometriosis", "expectAlarm": false,
+      "notExpect": ["ectopic.pregnancy", "ovarian.torsion"] },
+
+    { "id": "p10", "syndrome": "pelv.gyn.pain", "sex": "f", "age": 24,
+      "note": "Воспаление придатков: гнойные выделения, температура, за несколько дней",
+      "feel": 0, "answers": { "dur": "d47", "vagdischarge": "purulent", "fever": "mid", "contact": "yes", "onset": "gradual", "period": "now", "urine": "no", "guarding": "tender", "pregnant": "no", "progress": "worse" },
+      "expectTop": "pid", "expectAlarm": false },
+
+    { "id": "p11", "syndrome": "pelv.gyn.pain", "sex": "f", "age": 22,
+      "note": "Перекрут яичника: мгновенно, очень сильно, мечется",
+      "feel": 2, "answers": { "dur": "hours", "onset": "sudden", "restless": "restless", "period": "mid", "fever": "no", "vagdischarge": "no", "urine": "no", "guarding": "tender", "pregnant": "no", "progress": "wave", "contact": "no" },
+      "expect": ["ovarian.torsion", "ovarian.cyst"], "expectAlarm": false },
+
+    { "id": "p12", "syndrome": "pelv.gyn.pregnancy", "sex": "f", "age": 30,
+      "note": "Преэклампсия: поздний срок, высокое давление, отёки лица, мушки",
+      "feel": 2, "answers": { "pregnant": "late", "hbp": "high", "edema": "face", "vision": "blur", "radleg": "front", "dur": "d13", "vagdischarge": "no", "guarding": "soft", "onset": "gradual", "fever": "no", "auto": "no", "vomitwhat": "none", "thirst": "no" },
+      "expectTop": "preeclampsia", "expectAlarm": true },
+
+    { "id": "p13", "syndrome": "pelv.gyn.pregnancy", "sex": "f", "age": 33,
+      "note": "Отслойка плаценты: поздний срок, живот твёрдый, внезапно",
+      "feel": 3, "answers": { "pregnant": "late", "guarding": "board", "onset": "sudden", "auto": "yes", "vagdischarge": "bloody", "dur": "hours", "hbp": "normal", "edema": "no", "vision": "no", "fever": "no", "vomitwhat": "none", "thirst": "no" },
+      "expectTop": "placental.abruption", "expectAlarm": true },
+
+    { "id": "p14", "syndrome": "pelv.gyn.pregnancy", "sex": "f", "age": 27,
+      "note": "Ранний выкидыш: малый срок, кровянистые выделения, схватки",
+      "feel": 0, "answers": { "pregnant": "early", "vagdischarge": "bloody", "dur": "d13", "onset": "gradual", "progress": "worse", "guarding": "soft", "hbp": "normal", "edema": "no", "vision": "no", "fever": "no", "auto": "no", "vomitwhat": "none", "thirst": "no" },
+      "expectTop": "miscarriage", "expectAlarm": true },
+
+    { "id": "p15", "syndrome": "pelv.gyn.pregnancy", "sex": "f", "age": 25,
+      "note": "Тяжёлый токсикоз: рвёт, не может пить, похудела",
+      "feel": 0, "answers": { "pregnant": "early", "vomitwhat": "bile", "thirst": "yes", "weight": "yes", "vagdischarge": "no", "dur": "w12", "guarding": "soft", "hbp": "normal", "edema": "no", "vision": "no", "fever": "no", "auto": "no", "onset": "gradual" },
+      "expect": ["hyperemesis"], "expectAlarm": true },
+
+    { "id": "p16", "syndrome": "pelv.andr.testis", "sex": "m", "age": 15,
+      "note": "Перекрут яичка: внезапно ночью, яичко подтянуто, тошнит",
+      "feel": 0, "answers": { "dur": "hours", "onset": "sudden", "scrotum": "suddenpain", "vomitwhat": "food", "fever": "no", "urine": "no", "trauma": "no", "contact": "no", "side": "one", "progress": "worse" },
+      "expectTop": "testicular.torsion", "expectAlarm": true },
+
+    { "id": "p17", "syndrome": "pelv.andr.testis", "sex": "m", "age": 32,
+      "note": "Эпидидимит: нарастало день-два, температура, резь при мочеиспускании",
+      "feel": 1, "answers": { "dur": "d13", "onset": "gradual", "scrotum": "gradual", "fever": "mid", "urine": "burn", "contact": "yes", "trauma": "no", "side": "one", "vomitwhat": "none", "progress": "worse" },
+      "expectTop": "epididymitis", "expectAlarm": false,
+      "notExpect": ["testicular.torsion"] },
+
+    { "id": "p18", "syndrome": "pelv.andr.testis", "sex": "m", "age": 19,
+      "note": "Варикоцеле: клубок вен слева, тянет к вечеру, годами",
+      "feel": 3, "answers": { "dur": "mon", "scrotum": "veins", "side": "one", "fever": "no", "onset": "gradual", "urine": "no", "trauma": "no", "contact": "no", "vomitwhat": "none", "progress": "same" },
+      "expectTop": "varicocele", "expectAlarm": false },
+
+    { "id": "p19", "syndrome": "pelv.andr.testis", "sex": "m", "age": 58,
+      "note": "Водянка: безболезненное увеличение, месяцами",
+      "feel": 2, "answers": { "dur": "mon", "scrotum": "painless", "fever": "no", "progress": "same", "onset": "gradual", "urine": "no", "trauma": "no", "contact": "no", "side": "one", "vomitwhat": "none" },
+      "expectTop": "hydrocele", "expectAlarm": false }
+  ]
+}

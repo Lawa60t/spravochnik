@@ -1,0 +1,10 @@
+{
+  "name": "spravochnik",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Медицинская энциклопедия с оглавлением в виде модели тела",
+  "scripts": {
+    "validate": "node tools/validate.js",
+    "test": "node src/engine.js"
+  }
+}

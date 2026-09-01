@@ -1,0 +1,1234 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-08-27",
+  "zone": "head",
+  "syndromes": [
+    {
+      "id": "head.pain.diffuse",
+      "zone": "head",
+      "name": "Головная боль, разлитая",
+      "priority": 1,
+      "aka": [
+        "голова болит вся",
+        "сдавливает голову",
+        "тяжёлая голова"
+      ],
+      "feelings": [
+        "Сдавливает, как обруч",
+        "Тупо ноет",
+        "Распирает изнутри",
+        "Тяжесть в голове"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "progress",
+        "fever",
+        "stiff",
+        "photo",
+        "move",
+        "trauma",
+        "hbp",
+        "morning",
+        "painkillers",
+        "focal",
+        "tired",
+        "runny",
+        "cohab"
+      ],
+      "candidates": [
+        {
+          "condition": "tension.headache",
+          "base": 9,
+          "weights": {
+            "onset_gradual": 3,
+            "photo_no": 3,
+            "fever_no": 2,
+            "move_press": 2,
+            "tired_some": 2,
+            "progress_wave": 2,
+            "focal_yes": -4,
+            "stiff_no": -4,
+            "onset_sudden": -3,
+            "morning_yes": -2
+          }
+        },
+        {
+          "condition": "medication.overuse.headache",
+          "base": 5,
+          "weights": {
+            "painkillers_often": 5,
+            "dur_mon": 4,
+            "morning_yes": 2,
+            "progress_same": 2,
+            "painkillers_rare": -3,
+            "dur_d13": -3,
+            "onset_sudden": -3
+          }
+        },
+        {
+          "condition": "cervicogenic.headache",
+          "base": 5,
+          "weights": {
+            "move_turn": 4,
+            "move_press": 2,
+            "onset_gradual": 2,
+            "dur_mon": 2,
+            "photo_no": 1,
+            "focal_yes": -3
+          }
+        },
+        {
+          "condition": "hypertension.crisis",
+          "base": 4,
+          "weights": {
+            "hbp_high": 5,
+            "onset_fast": 2,
+            "morning_yes": 1,
+            "hbp_normal": -4
+          }
+        },
+        {
+          "condition": "sinusitis.acute",
+          "base": 4,
+          "weights": {
+            "runny_yes": 4,
+            "fever_mid": 2,
+            "fever_low": 1,
+            "dur_d47": 2,
+            "dur_w12": 2,
+            "runny_no": -3,
+            "dur_mon": -1
+          }
+        },
+        {
+          "condition": "anemia",
+          "base": 3,
+          "weights": {
+            "tired_strong": 3,
+            "onset_gradual": 2,
+            "dur_mon": 2,
+            "photo_no": 1,
+            "fever_high": -2
+          }
+        },
+        {
+          "condition": "concussion",
+          "base": 3,
+          "weights": {
+            "trauma_yes": 6,
+            "photo_yes": 2,
+            "onset_fast": 2,
+            "trauma_no": -5
+          }
+        },
+        {
+          "condition": "co.poisoning",
+          "base": 1,
+          "weights": {
+            "cohab_yes": 6,
+            "fever_no": 2,
+            "onset_fast": 2,
+            "runny_no": 2,
+            "cohab_no": -3
+          }
+        },
+        {
+          "condition": "meningitis",
+          "base": 1,
+          "weights": {
+            "fever_high": 4,
+            "stiff_no": 5,
+            "photo_yes": 4,
+            "onset_fast": 2,
+            "fever_no": -4,
+            "stiff_yes": -4,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "subarachnoid.hemorrhage",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 5,
+            "stiff_no": 3,
+            "photo_yes": 2,
+            "onset_gradual": -5,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "brain.tumor",
+          "base": 1,
+          "weights": {
+            "progress_worse": 4,
+            "morning_yes": 4,
+            "focal_yes": 4,
+            "dur_w12": 2,
+            "dur_mon": 3,
+            "dur_hours": -4,
+            "progress_better": -3
+          }
+        },
+        {
+          "condition": "cerebral.venous.thrombosis",
+          "base": 1,
+          "weights": {
+            "progress_worse": 3,
+            "morning_yes": 3,
+            "focal_yes": 3,
+            "dur_d47": 2,
+            "dur_w12": 2,
+            "dur_mon": -2
+          }
+        },
+        {
+          "condition": "subdural.hematoma",
+          "base": 1,
+          "weights": {
+            "trauma_yes": 4,
+            "progress_worse": 3,
+            "focal_yes": 3,
+            "dur_w12": 2,
+            "dur_mon": 2,
+            "dur_hours": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Головная боль возникла мгновенно и сразу стала очень сильной",
+        "Температура вместе с невозможностью прижать подбородок к груди",
+        "Появились слабость в руке или ноге, нарушение речи, перекос лица",
+        "Судороги или спутанность",
+        "Одинаковая головная боль у нескольких человек в одном помещении"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.pain.onesided",
+      "zone": "head",
+      "name": "Односторонняя пульсирующая головная боль",
+      "priority": 1,
+      "aka": [
+        "мигрень",
+        "болит полголовы",
+        "пульсирует в виске"
+      ],
+      "feelings": [
+        "Пульсирует в такт сердцу",
+        "Сверлит за глазом",
+        "Простреливает",
+        "Давит с одной стороны"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "progress",
+        "photo",
+        "aura",
+        "attacks",
+        "fever",
+        "focal",
+        "move",
+        "painkillers",
+        "eyered",
+        "chewpain",
+        "runny",
+        "vision",
+        "trauma"
+      ],
+      "candidates": [
+        {
+          "condition": "migraine",
+          "base": 9,
+          "weights": {
+            "photo_yes": 4,
+            "aura_yes": 4,
+            "attacks_repeat": 4,
+            "dur_hours": 2,
+            "progress_wave": 2,
+            "focal_yes": -2,
+            "fever_high": -3,
+            "attacks_first": -1
+          }
+        },
+        {
+          "condition": "tension.headache",
+          "base": 5,
+          "weights": {
+            "photo_no": 3,
+            "move_press": 2,
+            "progress_same": 2,
+            "photo_yes": -2,
+            "aura_yes": -4
+          }
+        },
+        {
+          "condition": "cluster.headache",
+          "base": 3,
+          "weights": {
+            "eyered_yes": 6,
+            "attacks_repeat": 3,
+            "dur_hours": 3,
+            "photo_no": 1,
+            "eyered_no": -3,
+            "aura_yes": -3
+          }
+        },
+        {
+          "condition": "cervicogenic.headache",
+          "base": 4,
+          "weights": {
+            "move_turn": 5,
+            "progress_same": 2,
+            "dur_mon": 2,
+            "aura_yes": -3,
+            "photo_yes": -2
+          }
+        },
+        {
+          "condition": "trigeminal.neuralgia",
+          "base": 2,
+          "weights": {
+            "attacks_seconds": 6,
+            "attacks_repeat": 2,
+            "photo_no": 1,
+            "dur_hours": -3,
+            "aura_yes": -3
+          }
+        },
+        {
+          "condition": "giant.cell.arteritis",
+          "base": 2,
+          "weights": {
+            "chewpain_yes": 6,
+            "dur_w12": 3,
+            "dur_mon": 2,
+            "attacks_first": 3,
+            "progress_worse": 2,
+            "attacks_repeat": -3,
+            "aura_yes": -2
+          }
+        },
+        {
+          "condition": "sinusitis.acute",
+          "base": 3,
+          "weights": {
+            "runny_yes": 4,
+            "fever_mid": 2,
+            "move_press": 2,
+            "runny_no": -3
+          }
+        },
+        {
+          "condition": "glaucoma.acute",
+          "base": 1,
+          "weights": {
+            "eyered_yes": 4,
+            "vision_blur": 5,
+            "onset_fast": 2,
+            "attacks_first": 2,
+            "eyered_no": -3
+          }
+        },
+        {
+          "condition": "brain.tumor",
+          "base": 1,
+          "weights": {
+            "progress_worse": 4,
+            "focal_yes": 4,
+            "attacks_first": 2,
+            "dur_mon": 2,
+            "attacks_repeat": -3
+          }
+        },
+        {
+          "condition": "carotid.dissection",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 4,
+            "trauma_yes": 4,
+            "attacks_first": 2,
+            "focal_yes": 2,
+            "attacks_repeat": -3
+          }
+        },
+        {
+          "condition": "subarachnoid.hemorrhage",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 5,
+            "attacks_first": 3,
+            "progress_worse": 1,
+            "attacks_repeat": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Самая сильная головная боль в жизни, возникшая за секунды",
+        "Аура длится дольше часа или не проходит",
+        "Впервые появившаяся односторонняя боль после 50 лет",
+        "Боль вместе с нарушением зрения или слабостью в конечностях"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.pain.occiput",
+      "zone": "head",
+      "name": "Боль в затылке",
+      "priority": 1,
+      "aka": [
+        "болит затылок",
+        "тянет в основании черепа"
+      ],
+      "feelings": [
+        "Тянет и ноет",
+        "Давит в затылке",
+        "Простреливает вверх от шеи",
+        "Стягивает"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "move",
+        "fever",
+        "stiff",
+        "hbp",
+        "photo",
+        "trauma",
+        "focal",
+        "progress"
+      ],
+      "candidates": [
+        {
+          "condition": "cervicogenic.headache",
+          "base": 8,
+          "weights": {
+            "move_turn": 5,
+            "move_press": 3,
+            "onset_gradual": 2,
+            "dur_mon": 2,
+            "fever_no": 2,
+            "stiff_no": -3,
+            "fever_high": -3,
+            "focal_yes": -3
+          }
+        },
+        {
+          "condition": "cervical.myofascial",
+          "base": 8,
+          "weights": {
+            "move_press": 4,
+            "move_turn": 3,
+            "fever_no": 3,
+            "dur_d13": 2,
+            "stiff_yes": 2,
+            "fever_high": -4,
+            "photo_yes": -3,
+            "focal_yes": -3
+          }
+        },
+        {
+          "condition": "tension.headache",
+          "base": 6,
+          "weights": {
+            "onset_gradual": 3,
+            "photo_no": 2,
+            "fever_no": 2,
+            "progress_wave": 2,
+            "focal_yes": -4
+          }
+        },
+        {
+          "condition": "cervical.degenerative",
+          "base": 5,
+          "weights": {
+            "dur_mon": 4,
+            "move_turn": 3,
+            "progress_wave": 2,
+            "onset_sudden": -3,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "hypertension.crisis",
+          "base": 4,
+          "weights": {
+            "hbp_high": 5,
+            "onset_fast": 2,
+            "hbp_normal": -4
+          }
+        },
+        {
+          "condition": "cervical.radiculopathy",
+          "base": 3,
+          "weights": {
+            "move_turn": 3,
+            "dur_w12": 2,
+            "progress_worse": 1,
+            "fever_high": -3
+          }
+        },
+        {
+          "condition": "meningitis",
+          "base": 1,
+          "weights": {
+            "fever_high": 4,
+            "stiff_no": 5,
+            "photo_yes": 4,
+            "fever_no": -4,
+            "stiff_yes": -4
+          }
+        },
+        {
+          "condition": "subarachnoid.hemorrhage",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 6,
+            "stiff_no": 3,
+            "photo_yes": 2,
+            "onset_gradual": -5,
+            "dur_mon": -5
+          }
+        },
+        {
+          "condition": "carotid.dissection",
+          "base": 1,
+          "weights": {
+            "onset_sudden": 4,
+            "trauma_yes": 5,
+            "focal_yes": 3,
+            "dur_mon": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль в затылке возникла мгновенно и очень сильная",
+        "Затылок болит, шея не сгибается, есть температура",
+        "Боль началась после травмы или резкого поворота головы и есть опущение века"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.pain.thunder",
+      "zone": "head",
+      "name": "Внезапная очень сильная головная боль",
+      "priority": 1,
+      "aka": [
+        "как удар по голове",
+        "самая сильная боль в жизни"
+      ],
+      "feelings": [
+        "Как удар",
+        "Взорвалось в голове",
+        "Мгновенно и очень сильно"
+      ],
+      "questions": [
+        "onset",
+        "dur",
+        "stiff",
+        "photo",
+        "fever",
+        "focal",
+        "trauma",
+        "vomit",
+        "hbp",
+        "eyered",
+        "vision"
+      ],
+      "candidates": [
+        {
+          "condition": "subarachnoid.hemorrhage",
+          "base": 5,
+          "weights": {
+            "onset_sudden": 6,
+            "stiff_no": 4,
+            "vomit_yes": 3,
+            "photo_yes": 2,
+            "fever_no": 2,
+            "onset_gradual": -6,
+            "fever_high": -2
+          }
+        },
+        {
+          "condition": "stroke.ischemic",
+          "base": 3,
+          "weights": {
+            "focal_yes": 6,
+            "onset_sudden": 4,
+            "hbp_high": 2,
+            "focal_no": -4
+          }
+        },
+        {
+          "condition": "cerebral.venous.thrombosis",
+          "base": 2,
+          "weights": {
+            "focal_yes": 3,
+            "vomit_yes": 2,
+            "dur_d13": 2,
+            "dur_d47": 2,
+            "onset_sudden": -1
+          }
+        },
+        {
+          "condition": "migraine",
+          "base": 3,
+          "weights": {
+            "photo_yes": 4,
+            "vomit_yes": 2,
+            "onset_fast": 2,
+            "stiff_no": -4,
+            "focal_yes": -2
+          }
+        },
+        {
+          "condition": "hypertension.crisis",
+          "base": 3,
+          "weights": {
+            "hbp_high": 5,
+            "vomit_yes": 1,
+            "hbp_normal": -4
+          }
+        },
+        {
+          "condition": "carotid.dissection",
+          "base": 2,
+          "weights": {
+            "trauma_yes": 5,
+            "onset_sudden": 3,
+            "focal_yes": 3
+          }
+        },
+        {
+          "condition": "subdural.hematoma",
+          "base": 2,
+          "weights": {
+            "trauma_yes": 5,
+            "focal_yes": 3,
+            "vomit_yes": 2,
+            "trauma_no": -3
+          }
+        },
+        {
+          "condition": "glaucoma.acute",
+          "base": 1,
+          "weights": {
+            "eyered_yes": 5,
+            "vomit_yes": 3,
+            "vision_blur": 4
+          }
+        },
+        {
+          "condition": "meningitis",
+          "base": 2,
+          "weights": {
+            "fever_high": 5,
+            "stiff_no": 4,
+            "photo_yes": 3,
+            "fever_no": -4
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Головная боль, достигшая максимума за секунды — это состояние не разбирают по справочнику вообще",
+        "Любое сочетание внезапной боли со рвотой, скованностью шеи или нарушением сознания"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.dizzy.spin",
+      "zone": "head",
+      "name": "Головокружение с ощущением вращения",
+      "priority": 1,
+      "aka": [
+        "всё кружится",
+        "земля уходит из-под ног",
+        "укачивает на месте"
+      ],
+      "feelings": [
+        "Всё вращается вокруг",
+        "Проваливаюсь",
+        "Шатает при ходьбе",
+        "Дурнота и слабость"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "position",
+        "hearing",
+        "attacks",
+        "focal",
+        "fever",
+        "tired",
+        "progress",
+        "vomit",
+        "hbp"
+      ],
+      "candidates": [
+        {
+          "condition": "bppv",
+          "base": 8,
+          "weights": {
+            "position_yes": 6,
+            "attacks_seconds": 4,
+            "hearing_no": 2,
+            "attacks_repeat": 2,
+            "position_no": -4,
+            "hearing_yes": -3,
+            "focal_yes": -4
+          }
+        },
+        {
+          "condition": "vestibular.neuritis",
+          "base": 5,
+          "weights": {
+            "attacks_hours": 3,
+            "onset_sudden": 3,
+            "vomit_yes": 3,
+            "hearing_no": 3,
+            "dur_d13": 2,
+            "position_yes": -2,
+            "hearing_yes": -3,
+            "focal_yes": -3
+          }
+        },
+        {
+          "condition": "meniere",
+          "base": 4,
+          "weights": {
+            "hearing_yes": 6,
+            "attacks_hours": 3,
+            "attacks_repeat": 3,
+            "hearing_no": -4
+          }
+        },
+        {
+          "condition": "orthostatic.hypotension",
+          "base": 5,
+          "weights": {
+            "position_stand": 6,
+            "attacks_seconds": 2,
+            "hearing_no": 2,
+            "position_yes": -2,
+            "vomit_yes": -2
+          }
+        },
+        {
+          "condition": "anemia",
+          "base": 4,
+          "weights": {
+            "tired_strong": 4,
+            "position_stand": 3,
+            "onset_gradual": 3,
+            "dur_mon": 2,
+            "attacks_seconds": -1
+          }
+        },
+        {
+          "condition": "panic.attack",
+          "base": 3,
+          "weights": {
+            "attacks_repeat": 2,
+            "attacks_hours": 1,
+            "hearing_no": 1,
+            "focal_yes": -3,
+            "position_yes": -2
+          }
+        },
+        {
+          "condition": "hypoglycemia",
+          "base": 2,
+          "weights": {
+            "attacks_repeat": 2,
+            "tired_strong": 2,
+            "onset_fast": 2,
+            "position_yes": -2
+          }
+        },
+        {
+          "condition": "stroke.ischemic",
+          "base": 2,
+          "weights": {
+            "focal_yes": 6,
+            "onset_sudden": 3,
+            "position_no": 2,
+            "focal_no": -3,
+            "position_yes": -3
+          }
+        },
+        {
+          "condition": "tia",
+          "base": 1,
+          "weights": {
+            "focal_yes": 5,
+            "attacks_seconds": 2,
+            "attacks_hours": 2,
+            "progress_better": 2,
+            "focal_no": -3
+          }
+        },
+        {
+          "condition": "hypertension.crisis",
+          "base": 2,
+          "weights": {
+            "hbp_high": 4,
+            "onset_fast": 1
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Головокружение вместе с двоением, слабостью в конечностях или невнятной речью",
+        "Не можете стоять и идти совсем",
+        "Первый в жизни приступ сильного головокружения, не зависящий от положения головы"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.face.asym",
+      "zone": "head",
+      "name": "Асимметрия лица, онемение",
+      "priority": 1,
+      "aka": [
+        "перекосило лицо",
+        "не закрывается глаз",
+        "онемела половина лица"
+      ],
+      "feelings": [
+        "Не двигается половина лица",
+        "Онемела щека",
+        "Опустился угол рта",
+        "Не закрывается глаз"
+      ],
+      "questions": [
+        "onset",
+        "dur",
+        "forehead",
+        "focal",
+        "trauma",
+        "ear",
+        "fever",
+        "progress",
+        "attacks"
+      ],
+      "candidates": [
+        {
+          "condition": "bells.palsy",
+          "base": 6,
+          "weights": {
+            "forehead_affected": 6,
+            "onset_fast": 3,
+            "ear_yes": 2,
+            "focal_no": 3,
+            "forehead_spared": -5,
+            "focal_yes": -4
+          }
+        },
+        {
+          "condition": "stroke.ischemic",
+          "base": 5,
+          "weights": {
+            "forehead_spared": 6,
+            "focal_yes": 6,
+            "onset_sudden": 4,
+            "forehead_affected": -3,
+            "focal_no": -2
+          }
+        },
+        {
+          "condition": "tia",
+          "base": 3,
+          "weights": {
+            "progress_better": 4,
+            "focal_yes": 4,
+            "onset_sudden": 3,
+            "dur_hours": 2,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "otitis.media",
+          "base": 2,
+          "weights": {
+            "ear_yes": 4,
+            "fever_mid": 2,
+            "forehead_affected": 2,
+            "onset_gradual": 1
+          }
+        },
+        {
+          "condition": "brain.tumor",
+          "base": 2,
+          "weights": {
+            "progress_worse": 4,
+            "onset_gradual": 4,
+            "dur_w12": 2,
+            "dur_mon": 3,
+            "onset_sudden": -4
+          }
+        },
+        {
+          "condition": "trigeminal.neuralgia",
+          "base": 2,
+          "weights": {
+            "attacks_seconds": 5,
+            "focal_no": 2,
+            "forehead_spared": -2
+          }
+        },
+        {
+          "condition": "concussion",
+          "base": 1,
+          "weights": {
+            "trauma_yes": 5,
+            "onset_fast": 2,
+            "trauma_no": -5
+          }
+        },
+        {
+          "condition": "subdural.hematoma",
+          "base": 1,
+          "weights": {
+            "trauma_yes": 4,
+            "progress_worse": 3,
+            "onset_gradual": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Перекос лица появился внезапно — это всегда оценивают как возможный инсульт",
+        "Вместе с асимметрией есть слабость в руке или ноге, нарушение речи",
+        "Лоб на больной стороне морщится нормально, а нижняя половина лица не работает"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.eye.vision",
+      "zone": "head",
+      "name": "Внезапное ухудшение зрения",
+      "priority": 1,
+      "aka": [
+        "пропало зрение",
+        "пелена перед глазом",
+        "выпало поле зрения"
+      ],
+      "feelings": [
+        "Зрение пропало полностью",
+        "Тёмная завеса сбоку",
+        "Всё расплылось",
+        "Вспышки и точки"
+      ],
+      "questions": [
+        "onset",
+        "dur",
+        "eyeside",
+        "eyepain",
+        "eyered",
+        "floaters",
+        "focal",
+        "chewpain",
+        "progress",
+        "vision",
+        "vomit"
+      ],
+      "candidates": [
+        {
+          "condition": "retinal.detachment",
+          "base": 4,
+          "weights": {
+            "floaters_yes": 6,
+            "eyepain_no": 3,
+            "eyeside_one": 3,
+            "onset_fast": 2,
+            "progress_worse": 2,
+            "eyered_yes": -3,
+            "eyepain_yes": -3,
+            "vision_no": -3,
+            "progress_same": -3,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "retinal.artery.occlusion",
+          "base": 3,
+          "weights": {
+            "onset_sudden": 6,
+            "eyepain_no": 4,
+            "eyeside_one": 3,
+            "eyered_no": 2,
+            "floaters_yes": -2,
+            "eyepain_yes": -3,
+            "onset_gradual": -5,
+            "vision_no": -4,
+            "progress_same": -3,
+            "dur_mon": -4
+          }
+        },
+        {
+          "condition": "glaucoma.acute",
+          "base": 3,
+          "weights": {
+            "eyepain_yes": 5,
+            "eyered_yes": 5,
+            "onset_fast": 2,
+            "eyeside_one": 2,
+            "eyepain_no": -4,
+            "vision_no": -4
+          }
+        },
+        {
+          "condition": "optic.neuritis",
+          "base": 3,
+          "weights": {
+            "eyepain_move": 6,
+            "eyeside_one": 3,
+            "progress_worse": 2,
+            "dur_d13": 2,
+            "eyered_yes": -2,
+            "vision_no": -3,
+            "dur_mon": -2
+          }
+        },
+        {
+          "condition": "vitreous.floaters",
+          "base": 4,
+          "weights": {
+            "floaters_yes": 4,
+            "eyepain_no": 3,
+            "progress_same": 3,
+            "eyered_no": 2,
+            "onset_sudden": -2,
+            "focal_yes": -3,
+            "vision_no": 3,
+            "dur_mon": 2
+          }
+        },
+        {
+          "condition": "migraine",
+          "base": 4,
+          "weights": {
+            "dur_hours": 3,
+            "progress_better": 4,
+            "eyepain_no": 2,
+            "eyered_no": 1,
+            "eyeside_both": 2,
+            "onset_sudden": -1
+          }
+        },
+        {
+          "condition": "giant.cell.arteritis",
+          "base": 2,
+          "weights": {
+            "chewpain_yes": 6,
+            "eyeside_one": 2,
+            "eyepain_no": 1,
+            "chewpain_no": -2
+          }
+        },
+        {
+          "condition": "tia",
+          "base": 2,
+          "weights": {
+            "progress_better": 4,
+            "onset_sudden": 3,
+            "eyeside_one": 2,
+            "focal_yes": 3
+          }
+        },
+        {
+          "condition": "stroke.ischemic",
+          "base": 2,
+          "weights": {
+            "focal_yes": 6,
+            "onset_sudden": 3,
+            "eyeside_both": 3,
+            "eyepain_no": 2,
+            "focal_no": -2,
+            "vision_no": -3
+          }
+        },
+        {
+          "condition": "conjunctivitis",
+          "base": 2,
+          "weights": {
+            "eyered_yes": 4,
+            "eyepain_no": 2,
+            "onset_gradual": 2,
+            "focal_yes": -3,
+            "onset_sudden": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Зрение на одном глазу пропало внезапно — этот случай не разбирают по справочнику",
+        "Тёмная завеса наползает сбоку, есть вспышки света",
+        "Сильная боль в глазу с покраснением и рвотой",
+        "Нарушение зрения вместе со слабостью в конечностях или речью"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "head.ear.pain",
+      "zone": "head",
+      "name": "Боль в ухе",
+      "priority": 1,
+      "aka": [
+        "стреляет в ухе",
+        "заложило ухо и болит"
+      ],
+      "feelings": [
+        "Стреляет",
+        "Ноет и давит",
+        "Заложенность с болью",
+        "Болит при прикосновении"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "fever",
+        "runny",
+        "hearing",
+        "tragus",
+        "discharge",
+        "swell",
+        "chewpain",
+        "side",
+        "progress",
+        "smoke",
+        "weight",
+        "forehead"
+      ],
+      "candidates": [
+        {
+          "condition": "otitis.media",
+          "base": 9,
+          "weights": {
+            "runny_yes": 4,
+            "fever_mid": 3,
+            "fever_high": 2,
+            "hearing_yes": 3,
+            "onset_fast": 2,
+            "side_one": 2,
+            "tragus_yes": -3,
+            "dur_mon": -3
+          }
+        },
+        {
+          "condition": "otitis.externa",
+          "base": 7,
+          "weights": {
+            "tragus_yes": 6,
+            "discharge_yes": 3,
+            "fever_no": 2,
+            "runny_no": 2,
+            "tragus_no": -4,
+            "runny_yes": -2
+          }
+        },
+        {
+          "condition": "eustachitis",
+          "base": 6,
+          "weights": {
+            "hearing_yes": 4,
+            "runny_yes": 3,
+            "fever_no": 3,
+            "discharge_no": 2,
+            "fever_high": -3,
+            "discharge_yes": -3
+          }
+        },
+        {
+          "condition": "tmj.dysfunction",
+          "base": 4,
+          "weights": {
+            "chewpain_yes": 6,
+            "fever_no": 3,
+            "dur_mon": 2,
+            "hearing_no": 2,
+            "fever_high": -3,
+            "discharge_yes": -3
+          }
+        },
+        {
+          "condition": "dental.pulpitis",
+          "base": 3,
+          "weights": {
+            "chewpain_yes": 4,
+            "fever_no": 2,
+            "hearing_no": 2,
+            "discharge_yes": -3,
+            "tragus_yes": -2
+          }
+        },
+        {
+          "condition": "sialadenitis",
+          "base": 2,
+          "weights": {
+            "swell_side": 5,
+            "chewpain_yes": 3,
+            "side_one": 2,
+            "hearing_no": 1
+          }
+        },
+        {
+          "condition": "mumps",
+          "base": 2,
+          "weights": {
+            "swell_side": 5,
+            "fever_mid": 2,
+            "chewpain_yes": 2,
+            "hearing_no": 1
+          }
+        },
+        {
+          "condition": "mastoiditis",
+          "base": 1,
+          "weights": {
+            "swell_side": 5,
+            "fever_high": 4,
+            "dur_d47": 3,
+            "discharge_yes": 2,
+            "progress_worse": 3,
+            "fever_no": -4
+          }
+        },
+        {
+          "condition": "oropharynx.cancer",
+          "base": 1,
+          "weights": {
+            "dur_mon": 4,
+            "side_one": 2,
+            "smoke_both": 3,
+            "weight_yes": 3,
+            "fever_no": 1,
+            "dur_d13": -4
+          }
+        },
+        {
+          "condition": "bells.palsy",
+          "base": 1,
+          "weights": {
+            "forehead_affected": 5,
+            "side_one": 2,
+            "fever_no": 1
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Припухлость и покраснение кости за ухом, ушная раковина оттопырена",
+        "Боль в ухе с высокой температурой и нарастающим ухудшением",
+        "Боль в ухе вместе с перекосом лица",
+        "Боль в одном ухе дольше месяца у курящего человека"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    }
+  ]
+}

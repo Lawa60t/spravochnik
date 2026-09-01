@@ -1,0 +1,1041 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-08-27",
+  "_комментарий": [
+    "СЛОЙ ЯКОРЕЙ. Связывает точку на модели тела с разделом справочника.",
+    "",
+    "Главное решение: координаты НЕ в пикселях и НЕ в viewBox конкретной картинки.",
+    "Они заданы в долях от габарита фигуры: u — по горизонтали, v — по вертикали, оба от 0 до 1.",
+    "u = 0.5 — осевая линия тела. v = 0 — макушка, v = 1 — подошвы.",
+    "",
+    "Поэтому базу можно прикрепить к ЛЮБОЙ будущей модели — вектору, пререндеру, 3D.",
+    "Требуется одно: калибровка, то есть указать, где на картинке макушка, подошвы и осевая линия.",
+    "После этого все якоря пересчитываются формулой, а не перерисовываются руками.",
+    "",
+    "Дополнительно у каждой зоны указан landmark — анатомический ориентир словами.",
+    "Если пропорции новой модели отличаются от расчётных, зона восстанавливается по ориентиру,",
+    "а не по числам: «под рёберной дугой» останется под рёберной дугой на любой фигуре.",
+    "",
+    "ВАЖНО ПРО СТОРОНЫ: right и left — стороны ТЕЛА, а не экрана.",
+    "На виде спереди правая сторона тела находится слева на экране. Поле mirrorOnFront=true",
+    "означает, что при отрисовке вида спереди u надо заменить на 1-u."
+  ],
+  "landmarks": {
+    "_комментарий": "Опорные уровни по вертикали в долях роста. Используются для восстановления зон на новой модели.",
+    "crown": 0,
+    "eyes": 0.065,
+    "chin": 0.13,
+    "throat": 0.165,
+    "shoulders": 0.215,
+    "nipple": 0.32,
+    "costalArch": 0.4,
+    "navel": 0.48,
+    "iliacCrest": 0.535,
+    "crotch": 0.58,
+    "knee": 0.755,
+    "ankle": 0.95,
+    "sole": 1,
+    "shoulderEdgeU": 0.175,
+    "waistEdgeU": 0.33,
+    "hipEdgeU": 0.3
+  },
+  "calibration": {
+    "_комментарий": [
+      "Как прикрепить базу к новой модели. Заполняется один раз на каждую картинку.",
+      "crownY и soleY — координаты макушки и подошв в системе координат картинки.",
+      "axisX — горизонтальная координата осевой линии тела.",
+      "halfWidth — расстояние от осевой линии до края фигуры на уровне плеч.",
+      "Формула: X = axisX + (u - 0.5) * 2 * halfWidth ; Y = crownY + v * (soleY - crownY)"
+    ],
+    "example": {
+      "asset": "figure-male-front.svg",
+      "crownY": 20,
+      "soleY": 700,
+      "axisX": 140,
+      "halfWidth": 75
+    }
+  },
+  "zones": [
+    {
+      "id": "head",
+      "view": "front",
+      "label": "Голова и лицо",
+      "landmark": "От макушки до нижней челюсти",
+      "box": {
+        "u0": 0.38,
+        "v0": 0,
+        "u1": 0.62,
+        "v1": 0.135
+      },
+      "subzones": [
+        {
+          "id": "head.whole",
+          "label": "Вся голова, разлитая боль",
+          "landmark": "Обхватывает голову целиком",
+          "box": {
+            "u0": 0.38,
+            "v0": 0.005,
+            "u1": 0.62,
+            "v1": 0.06
+          },
+          "syndromes": [
+            "head.pain.diffuse"
+          ]
+        },
+        {
+          "id": "head.oneside",
+          "label": "Половина головы",
+          "landmark": "Одна сторона от виска до затылка",
+          "box": {
+            "u0": 0.38,
+            "v0": 0.01,
+            "u1": 0.5,
+            "v1": 0.075
+          },
+          "syndromes": [
+            "head.pain.onesided"
+          ],
+          "side": "left"
+        },
+        {
+          "id": "head.temple",
+          "label": "Висок",
+          "landmark": "Сбоку, на уровне глаз, выше уха",
+          "box": {
+            "u0": 0.385,
+            "v0": 0.04,
+            "u1": 0.435,
+            "v1": 0.072
+          },
+          "syndromes": [
+            "head.pain.temple",
+            "head.pain.onesided"
+          ]
+        },
+        {
+          "id": "head.forehead",
+          "label": "Лоб и переносица",
+          "landmark": "Над бровями и между глазами",
+          "box": {
+            "u0": 0.42,
+            "v0": 0.022,
+            "u1": 0.58,
+            "v1": 0.055
+          },
+          "syndromes": [
+            "head.pain.sinus",
+            "head.pain.diffuse"
+          ]
+        },
+        {
+          "id": "head.eye",
+          "label": "Глаз",
+          "landmark": "Глазница",
+          "box": {
+            "u0": 0.425,
+            "v0": 0.055,
+            "u1": 0.475,
+            "v1": 0.078
+          },
+          "syndromes": [
+            "head.eye.pain",
+            "head.eye.red",
+            "head.eye.vision"
+          ]
+        },
+        {
+          "id": "head.ear",
+          "label": "Ухо",
+          "landmark": "Сбоку головы, на уровне носа",
+          "box": {
+            "u0": 0.375,
+            "v0": 0.062,
+            "u1": 0.412,
+            "v1": 0.098
+          },
+          "syndromes": [
+            "head.ear.pain",
+            "head.ear.hearing"
+          ]
+        },
+        {
+          "id": "head.face",
+          "label": "Лицо, щека",
+          "landmark": "Щека между глазом и челюстью",
+          "box": {
+            "u0": 0.415,
+            "v0": 0.08,
+            "u1": 0.475,
+            "v1": 0.115
+          },
+          "syndromes": [
+            "head.face.pain",
+            "head.face.asym"
+          ]
+        },
+        {
+          "id": "head.jaw",
+          "label": "Челюсть и зубы",
+          "landmark": "Нижняя челюсть",
+          "box": {
+            "u0": 0.42,
+            "v0": 0.108,
+            "u1": 0.58,
+            "v1": 0.135
+          },
+          "syndromes": [
+            "head.jaw",
+            "head.tooth"
+          ]
+        },
+        {
+          "id": "head.nose",
+          "label": "Нос",
+          "landmark": "Спинка носа",
+          "box": {
+            "u0": 0.475,
+            "v0": 0.055,
+            "u1": 0.525,
+            "v1": 0.09
+          },
+          "syndromes": [
+            "head.nose.block",
+            "head.nose.bleed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "head.back",
+      "view": "back",
+      "label": "Затылок",
+      "landmark": "Задняя поверхность головы ниже темени",
+      "box": {
+        "u0": 0.4,
+        "v0": 0.045,
+        "u1": 0.6,
+        "v1": 0.14
+      },
+      "subzones": [
+        {
+          "id": "head.occiput",
+          "label": "Затылок и основание черепа",
+          "landmark": "Там, где череп переходит в шею",
+          "box": {
+            "u0": 0.4,
+            "v0": 0.07,
+            "u1": 0.6,
+            "v1": 0.14
+          },
+          "syndromes": [
+            "head.pain.occiput",
+            "head.pain.diffuse"
+          ]
+        },
+        {
+          "id": "head.crown",
+          "label": "Темя",
+          "landmark": "Верхушка головы",
+          "box": {
+            "u0": 0.42,
+            "v0": 0,
+            "u1": 0.58,
+            "v1": 0.045
+          },
+          "syndromes": [
+            "head.pain.diffuse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neck",
+      "view": "front",
+      "label": "Шея и горло",
+      "landmark": "От нижней челюсти до ключиц",
+      "box": {
+        "u0": 0.42,
+        "v0": 0.135,
+        "u1": 0.58,
+        "v1": 0.215
+      },
+      "subzones": [
+        {
+          "id": "neck.throat",
+          "label": "Горло, глотка",
+          "landmark": "Передняя поверхность шеи над щитовидным хрящом",
+          "box": {
+            "u0": 0.44,
+            "v0": 0.14,
+            "u1": 0.56,
+            "v1": 0.175
+          },
+          "syndromes": [
+            "neck.throat.swallow",
+            "neck.throat.raw",
+            "neck.throat.lump",
+            "neck.dysphagia",
+            "neck.voice",
+            "neck.breath"
+          ]
+        },
+        {
+          "id": "neck.thyroid",
+          "label": "Передняя поверхность шеи ниже кадыка",
+          "landmark": "Уровень щитовидной железы",
+          "box": {
+            "u0": 0.44,
+            "v0": 0.175,
+            "u1": 0.56,
+            "v1": 0.212
+          },
+          "syndromes": [
+            "neck.lump",
+            "neck.throat.lump",
+            "neck.voice"
+          ]
+        },
+        {
+          "id": "neck.side",
+          "label": "Боковая поверхность шеи",
+          "landmark": "По ходу грудино-ключично-сосцевидной мышцы",
+          "box": {
+            "u0": 0.405,
+            "v0": 0.14,
+            "u1": 0.44,
+            "v1": 0.212
+          },
+          "syndromes": [
+            "neck.lump",
+            "neck.pain.move"
+          ]
+        },
+        {
+          "id": "neck.submand",
+          "label": "Под нижней челюстью",
+          "landmark": "Подчелюстная область",
+          "box": {
+            "u0": 0.43,
+            "v0": 0.128,
+            "u1": 0.57,
+            "v1": 0.15
+          },
+          "syndromes": [
+            "neck.lump",
+            "neck.throat.swallow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neck.back",
+      "view": "back",
+      "label": "Задняя поверхность шеи",
+      "landmark": "От основания черепа до надплечий",
+      "box": {
+        "u0": 0.4,
+        "v0": 0.135,
+        "u1": 0.6,
+        "v1": 0.225
+      },
+      "subzones": [
+        {
+          "id": "neck.nape",
+          "label": "Задняя поверхность шеи",
+          "landmark": "Между затылком и надплечьями",
+          "box": {
+            "u0": 0.42,
+            "v0": 0.14,
+            "u1": 0.58,
+            "v1": 0.215
+          },
+          "syndromes": [
+            "neck.pain.move",
+            "neck.stiff.fever",
+            "head.pain.occiput"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "back",
+      "view": "back",
+      "label": "Спина и поясница",
+      "landmark": "От надплечий до крестца",
+      "box": {
+        "u0": 0.3,
+        "v0": 0.215,
+        "u1": 0.7,
+        "v1": 0.58
+      },
+      "subzones": [
+        {
+          "id": "back.interscap",
+          "label": "Между лопатками",
+          "landmark": "Середина спины на уровне лопаток",
+          "box": {
+            "u0": 0.42,
+            "v0": 0.24,
+            "u1": 0.58,
+            "v1": 0.33
+          },
+          "syndromes": [
+            "back.upper"
+          ]
+        },
+        {
+          "id": "back.scapula.r",
+          "label": "Под правой лопаткой",
+          "landmark": "Ниже угла лопатки",
+          "side": "right",
+          "box": {
+            "u0": 0.58,
+            "v0": 0.3,
+            "u1": 0.68,
+            "v1": 0.375
+          },
+          "syndromes": [
+            "back.scapula"
+          ]
+        },
+        {
+          "id": "back.scapula.l",
+          "label": "Под левой лопаткой",
+          "landmark": "Ниже угла лопатки",
+          "side": "left",
+          "box": {
+            "u0": 0.32,
+            "v0": 0.3,
+            "u1": 0.42,
+            "v1": 0.375
+          },
+          "syndromes": [
+            "back.scapula"
+          ]
+        },
+        {
+          "id": "back.lumbar",
+          "label": "Поясница",
+          "landmark": "Между нижними рёбрами и гребнями таза",
+          "box": {
+            "u0": 0.38,
+            "v0": 0.4,
+            "u1": 0.62,
+            "v1": 0.52
+          },
+          "syndromes": [
+            "back.lumbar.acute",
+            "back.lumbar.chronic",
+            "back.sciatica",
+            "back.cauda"
+          ]
+        },
+        {
+          "id": "back.flank.r",
+          "label": "Поясница справа, под рёбрами",
+          "landmark": "Рёберно-позвоночный угол",
+          "side": "right",
+          "box": {
+            "u0": 0.6,
+            "v0": 0.385,
+            "u1": 0.7,
+            "v1": 0.47
+          },
+          "syndromes": [
+            "back.colic",
+            "back.lumbar.acute"
+          ]
+        },
+        {
+          "id": "back.flank.l",
+          "label": "Поясница слева, под рёбрами",
+          "landmark": "Рёберно-позвоночный угол",
+          "side": "left",
+          "box": {
+            "u0": 0.3,
+            "v0": 0.385,
+            "u1": 0.4,
+            "v1": 0.47
+          },
+          "syndromes": [
+            "back.colic",
+            "back.lumbar.acute"
+          ]
+        },
+        {
+          "id": "back.sacrum",
+          "label": "Крестец и ягодицы",
+          "landmark": "Ниже гребней таза",
+          "box": {
+            "u0": 0.38,
+            "v0": 0.52,
+            "u1": 0.62,
+            "v1": 0.6
+          },
+          "syndromes": [
+            "back.sciatica",
+            "back.coccyx",
+            "back.cauda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chest",
+      "view": "front",
+      "label": "Грудь",
+      "landmark": "От ключиц до рёберной дуги",
+      "box": {
+        "u0": 0.3,
+        "v0": 0.215,
+        "u1": 0.7,
+        "v1": 0.4
+      },
+      "subzones": [
+        {
+          "id": "chest.sternum",
+          "label": "За грудиной",
+          "landmark": "По средней линии между ключицами и мечевидным отростком",
+          "box": {
+            "u0": 0.455,
+            "v0": 0.23,
+            "u1": 0.545,
+            "v1": 0.39
+          },
+          "syndromes": [
+            "chest.pain.press",
+            "chest.palpit"
+          ]
+        },
+        {
+          "id": "chest.rib.r",
+          "label": "Рёбра и подреберье справа",
+          "landmark": "Ниже правого соска до края рёберной дуги",
+          "side": "right",
+          "box": {
+            "u0": 0.545,
+            "v0": 0.3,
+            "u1": 0.68,
+            "v1": 0.4
+          },
+          "syndromes": [
+            "chest.rib.right"
+          ]
+        },
+        {
+          "id": "chest.rib.l",
+          "label": "Рёбра и подреберье слева",
+          "landmark": "Ниже левого соска до края рёберной дуги",
+          "side": "left",
+          "box": {
+            "u0": 0.32,
+            "v0": 0.3,
+            "u1": 0.455,
+            "v1": 0.4
+          },
+          "syndromes": [
+            "chest.rib.left"
+          ]
+        },
+        {
+          "id": "chest.upper",
+          "label": "Верхняя часть груди",
+          "landmark": "Под ключицами",
+          "box": {
+            "u0": 0.33,
+            "v0": 0.218,
+            "u1": 0.67,
+            "v1": 0.3
+          },
+          "syndromes": [
+            "chest.pain.breath",
+            "chest.pain.move",
+            "chest.dyspnea",
+            "chest.cough.dry",
+            "chest.cough.wet"
+          ]
+        },
+        {
+          "id": "chest.breast.r",
+          "label": "Правая молочная железа",
+          "landmark": "Уровень соска",
+          "side": "right",
+          "box": {
+            "u0": 0.545,
+            "v0": 0.29,
+            "u1": 0.65,
+            "v1": 0.35
+          },
+          "syndromes": [
+            "chest.breast.pain",
+            "chest.breast.lump"
+          ],
+          "sexOnly": "f"
+        },
+        {
+          "id": "chest.breast.l",
+          "label": "Левая молочная железа",
+          "landmark": "Уровень соска",
+          "side": "left",
+          "box": {
+            "u0": 0.35,
+            "v0": 0.29,
+            "u1": 0.455,
+            "v1": 0.35
+          },
+          "syndromes": [
+            "chest.breast.pain",
+            "chest.breast.lump"
+          ],
+          "sexOnly": "f"
+        }
+      ]
+    },
+    {
+      "id": "abd",
+      "view": "front",
+      "label": "Живот",
+      "landmark": "От рёберной дуги до паховых складок, девять квадрантов",
+      "box": {
+        "u0": 0.32,
+        "v0": 0.4,
+        "u1": 0.68,
+        "v1": 0.58
+      },
+      "subzones": [
+        {
+          "id": "abd.ruq",
+          "label": "Правое подреберье",
+          "side": "right",
+          "landmark": "Верхний правый квадрант",
+          "box": {
+            "u0": 0.56,
+            "v0": 0.4,
+            "u1": 0.68,
+            "v1": 0.455
+          },
+          "syndromes": [
+            "abd.rflank",
+            "chest.rib.right"
+          ]
+        },
+        {
+          "id": "abd.epi",
+          "label": "Под ложечкой",
+          "landmark": "Верхний средний квадрант, под мечевидным отростком",
+          "box": {
+            "u0": 0.44,
+            "v0": 0.4,
+            "u1": 0.56,
+            "v1": 0.455
+          },
+          "syndromes": [
+            "abd.epi",
+            "abd.heartburn"
+          ]
+        },
+        {
+          "id": "abd.luq",
+          "label": "Левое подреберье",
+          "side": "left",
+          "landmark": "Верхний левый квадрант",
+          "box": {
+            "u0": 0.32,
+            "v0": 0.4,
+            "u1": 0.44,
+            "v1": 0.455
+          },
+          "syndromes": [
+            "abd.luq"
+          ]
+        },
+        {
+          "id": "abd.rf",
+          "label": "Правый бок",
+          "side": "right",
+          "landmark": "Средний правый квадрант",
+          "box": {
+            "u0": 0.56,
+            "v0": 0.455,
+            "u1": 0.68,
+            "v1": 0.505
+          },
+          "syndromes": [
+            "abd.rflank"
+          ]
+        },
+        {
+          "id": "abd.umb",
+          "label": "Вокруг пупка",
+          "landmark": "Средний центральный квадрант",
+          "box": {
+            "u0": 0.44,
+            "v0": 0.455,
+            "u1": 0.56,
+            "v1": 0.505
+          },
+          "syndromes": [
+            "abd.umb",
+            "abd.bloat",
+            "abd.diffuse"
+          ]
+        },
+        {
+          "id": "abd.lf",
+          "label": "Левый бок",
+          "side": "left",
+          "landmark": "Средний левый квадрант",
+          "box": {
+            "u0": 0.32,
+            "v0": 0.455,
+            "u1": 0.44,
+            "v1": 0.505
+          },
+          "syndromes": [
+            "abd.lflank"
+          ]
+        },
+        {
+          "id": "abd.rlq",
+          "label": "Правая нижняя часть живота",
+          "side": "right",
+          "landmark": "Правая подвздошная область",
+          "box": {
+            "u0": 0.56,
+            "v0": 0.505,
+            "u1": 0.68,
+            "v1": 0.565
+          },
+          "syndromes": [
+            "abd.rlq"
+          ]
+        },
+        {
+          "id": "abd.hypo",
+          "label": "Низ живота посередине",
+          "landmark": "Надлобковая область",
+          "box": {
+            "u0": 0.44,
+            "v0": 0.505,
+            "u1": 0.56,
+            "v1": 0.565
+          },
+          "syndromes": [
+            "abd.hypo",
+            "pelv.uro.dysuria",
+            "pelv.gyn.pain"
+          ]
+        },
+        {
+          "id": "abd.llq",
+          "label": "Левая нижняя часть живота",
+          "side": "left",
+          "landmark": "Левая подвздошная область",
+          "box": {
+            "u0": 0.32,
+            "v0": 0.505,
+            "u1": 0.44,
+            "v1": 0.565
+          },
+          "syndromes": [
+            "abd.llq"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arm",
+      "view": "front",
+      "label": "Руки",
+      "mirrorPair": true,
+      "landmark": "От плечевого сустава до кисти",
+      "box": {
+        "u0": 0.1,
+        "v0": 0.215,
+        "u1": 0.32,
+        "v1": 0.68
+      },
+      "subzones": [
+        {
+          "id": "arm.shoulder",
+          "label": "Плечо, плечевой сустав",
+          "landmark": "Дельтовидная область",
+          "box": {
+            "u0": 0.2,
+            "v0": 0.215,
+            "u1": 0.32,
+            "v1": 0.29
+          },
+          "syndromes": [
+            "arm.shoulder"
+          ]
+        },
+        {
+          "id": "arm.upper",
+          "label": "Плечо, между суставами",
+          "landmark": "От дельтовидной области до локтя",
+          "box": {
+            "u0": 0.17,
+            "v0": 0.29,
+            "u1": 0.28,
+            "v1": 0.43
+          },
+          "syndromes": [
+            "arm.numb",
+            "arm.weak",
+            "arm.swell"
+          ]
+        },
+        {
+          "id": "arm.elbow",
+          "label": "Локоть",
+          "landmark": "Локтевой сустав",
+          "box": {
+            "u0": 0.16,
+            "v0": 0.43,
+            "u1": 0.26,
+            "v1": 0.48
+          },
+          "syndromes": [
+            "arm.elbow"
+          ]
+        },
+        {
+          "id": "arm.forearm",
+          "label": "Предплечье",
+          "landmark": "От локтя до запястья",
+          "box": {
+            "u0": 0.13,
+            "v0": 0.48,
+            "u1": 0.24,
+            "v1": 0.6
+          },
+          "syndromes": [
+            "arm.numb",
+            "arm.weak"
+          ]
+        },
+        {
+          "id": "arm.wrist",
+          "label": "Запястье и кисть",
+          "landmark": "Лучезапястный сустав и кисть",
+          "box": {
+            "u0": 0.1,
+            "v0": 0.6,
+            "u1": 0.22,
+            "v1": 0.69
+          },
+          "syndromes": [
+            "arm.wrist",
+            "arm.numb"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leg",
+      "view": "front",
+      "label": "Ноги",
+      "mirrorPair": true,
+      "landmark": "От тазобедренного сустава до стопы",
+      "box": {
+        "u0": 0.3,
+        "v0": 0.56,
+        "u1": 0.5,
+        "v1": 1
+      },
+      "subzones": [
+        {
+          "id": "leg.hip",
+          "label": "Тазобедренный сустав и пах",
+          "landmark": "Паховая складка и большой вертел",
+          "box": {
+            "u0": 0.34,
+            "v0": 0.545,
+            "u1": 0.47,
+            "v1": 0.61
+          },
+          "syndromes": [
+            "leg.hip",
+            "pelv.groin.lump"
+          ]
+        },
+        {
+          "id": "leg.thigh",
+          "label": "Бедро",
+          "landmark": "От паха до колена",
+          "box": {
+            "u0": 0.33,
+            "v0": 0.61,
+            "u1": 0.47,
+            "v1": 0.735
+          },
+          "syndromes": [
+            "leg.numb",
+            "back.sciatica"
+          ]
+        },
+        {
+          "id": "leg.knee",
+          "label": "Колено",
+          "landmark": "Коленный сустав",
+          "box": {
+            "u0": 0.34,
+            "v0": 0.735,
+            "u1": 0.46,
+            "v1": 0.79
+          },
+          "syndromes": [
+            "leg.knee.pain",
+            "leg.knee.swell"
+          ]
+        },
+        {
+          "id": "leg.calf",
+          "label": "Голень и икра",
+          "landmark": "От колена до лодыжки",
+          "box": {
+            "u0": 0.34,
+            "v0": 0.79,
+            "u1": 0.46,
+            "v1": 0.94
+          },
+          "syndromes": [
+            "leg.calf",
+            "leg.swell",
+            "leg.claudication",
+            "leg.veins"
+          ]
+        },
+        {
+          "id": "leg.foot",
+          "label": "Стопа и пятка",
+          "landmark": "Ниже лодыжки",
+          "box": {
+            "u0": 0.32,
+            "v0": 0.94,
+            "u1": 0.48,
+            "v1": 1
+          },
+          "syndromes": [
+            "leg.foot",
+            "leg.heel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pelv",
+      "view": "front",
+      "label": "Таз, пах, мочеполовая область",
+      "landmark": "Ниже надлобковой области",
+      "box": {
+        "u0": 0.4,
+        "v0": 0.545,
+        "u1": 0.6,
+        "v1": 0.6
+      },
+      "subzones": [
+        {
+          "id": "pelv.genital",
+          "label": "Наружные половые органы и пах",
+          "landmark": "Лобковая и паховая область",
+          "box": {
+            "u0": 0.43,
+            "v0": 0.55,
+            "u1": 0.57,
+            "v1": 0.6
+          },
+          "syndromes": [
+            "pelv.uro.dysuria",
+            "pelv.uro.frequency",
+            "pelv.uro.retention",
+            "pelv.uro.blood",
+            "pelv.gyn.discharge",
+            "pelv.andr.testis",
+            "pelv.groin.lump"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gen",
+      "view": "any",
+      "label": "Общее самочувствие",
+      "landmark": "Не привязано к месту — отдельный вход из меню",
+      "noAnchor": true,
+      "subzones": [
+        {
+          "id": "gen.all",
+          "label": "Общие жалобы",
+          "landmark": "Без привязки к телу",
+          "syndromes": [
+            "gen.fever.acute",
+            "gen.fever.long",
+            "gen.fatigue",
+            "gen.weightloss",
+            "gen.sweats",
+            "gen.lymph",
+            "gen.edema",
+            "gen.sleep",
+            "gen.anxiety",
+            "gen.thirst"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skin",
+      "view": "any",
+      "label": "Кожа, волосы, ногти",
+      "landmark": "Не привязано к месту — отдельный вход из меню",
+      "noAnchor": true,
+      "subzones": [
+        {
+          "id": "skin.all",
+          "label": "Кожа и придатки",
+          "landmark": "Без привязки к телу",
+          "syndromes": [
+            "skin.rash.itch",
+            "skin.rash.fever",
+            "skin.mole",
+            "skin.wound",
+            "skin.hives",
+            "skin.hair",
+            "skin.nail"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "symptom",
+      "view": "any",
+      "label": "Жалобы без привязки к месту",
+      "landmark": "Отдельный вход из меню: человек не может показать пальцем, где это",
+      "noAnchor": true,
+      "subzones": [
+        {
+          "id": "symptom.list",
+          "label": "Выбрать из списка жалоб",
+          "landmark": "Без привязки к телу",
+          "syndromes": [
+            "head.pain.thunder",
+            "head.dizzy.spin",
+            "head.dizzy.faint",
+            "chest.cough.blood",
+            "abd.nausea",
+            "abd.vomit.blood",
+            "abd.diarrhea",
+            "abd.constip",
+            "abd.stool.blood",
+            "abd.stool.black",
+            "abd.jaundice",
+            "pelv.gyn.cycle",
+            "pelv.gyn.pregnancy",
+            "pelv.anal.pain"
+          ]
+        }
+      ]
+    }
+  ]
+}

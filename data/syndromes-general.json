@@ -1,0 +1,1025 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-08-27",
+  "zone": "gen",
+  "syndromes": [
+    {
+      "id": "gen.fever.acute",
+      "zone": "gen",
+      "name": "Температура несколько дней",
+      "priority": 1,
+      "aka": [
+        "поднялась температура",
+        "жар",
+        "лихорадка"
+      ],
+      "feelings": [
+        "Жар и озноб",
+        "Ломота во всём теле",
+        "Слабость и разбитость",
+        "Температура без других жалоб"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "fever",
+        "cough",
+        "runny",
+        "plaque",
+        "stiff",
+        "photo",
+        "rash",
+        "tapback",
+        "urine",
+        "bowel",
+        "vomit",
+        "dysp",
+        "travel",
+        "tick",
+        "nodes",
+        "contact",
+        "immuno",
+        "swell",
+        "focal",
+        "tired"
+      ],
+      "candidates": [
+        {
+          "condition": "arvi",
+          "base": 9,
+          "weights": {
+            "runny_yes": 4,
+            "cough_dry": 3,
+            "fever_low": 2,
+            "fever_mid": 2,
+            "dur_d13": 3,
+            "fever_high": -2,
+            "dur_w12": -3,
+            "stiff_no": -4,
+            "rash_dark": -4,
+            "travel_tropic": -2
+          }
+        },
+        {
+          "condition": "influenza",
+          "base": 7,
+          "weights": {
+            "onset_sudden": 4,
+            "fever_high": 4,
+            "tired_strong": 3,
+            "cough_dry": 2,
+            "dur_d13": 2,
+            "runny_yes": -1,
+            "dur_w12": -3,
+            "rash_dark": -3
+          }
+        },
+        {
+          "condition": "gastroenteritis.acute",
+          "base": 6,
+          "weights": {
+            "bowel_loose": 5,
+            "vomit_yes": 4,
+            "contact_yes": 2,
+            "dur_d13": 2,
+            "runny_yes": -3,
+            "cough_dry": -2
+          }
+        },
+        {
+          "condition": "tonsillitis.strep",
+          "base": 5,
+          "weights": {
+            "plaque_white": 5,
+            "fever_high": 3,
+            "nodes_front": 3,
+            "cough_no": 2,
+            "runny_yes": -3,
+            "bowel_loose": -2
+          }
+        },
+        {
+          "condition": "pyelonephritis.acute",
+          "base": 4,
+          "weights": {
+            "tapback_yes": 5,
+            "urine_burn": 5,
+            "fever_high": 3,
+            "vomit_yes": 1,
+            "runny_yes": -3,
+            "cough_dry": -3
+          }
+        },
+        {
+          "condition": "pneumonia",
+          "base": 4,
+          "weights": {
+            "cough_wet": 5,
+            "dysp_yes": 4,
+            "fever_high": 3,
+            "dur_d47": 2,
+            "runny_yes": -1,
+            "bowel_loose": -2
+          }
+        },
+        {
+          "condition": "sinusitis.acute",
+          "base": 4,
+          "weights": {
+            "runny_yes": 4,
+            "dur_d47": 3,
+            "dur_w12": 2,
+            "fever_mid": 2,
+            "bowel_loose": -3,
+            "dysp_yes": -2
+          }
+        },
+        {
+          "condition": "mononucleosis",
+          "base": 3,
+          "weights": {
+            "nodes_back": 5,
+            "plaque_white": 3,
+            "tired_strong": 3,
+            "dur_w12": 3,
+            "dur_d13": -2
+          }
+        },
+        {
+          "condition": "erysipelas",
+          "base": 3,
+          "weights": {
+            "swell_side": 4,
+            "rash_spots": 3,
+            "fever_high": 3,
+            "onset_sudden": 2,
+            "runny_yes": -3
+          }
+        },
+        {
+          "condition": "borreliosis",
+          "base": 2,
+          "weights": {
+            "tick_bite": 5,
+            "tick_forest": 4,
+            "rash_spots": 4,
+            "fever_low": 2,
+            "runny_yes": -3
+          }
+        },
+        {
+          "condition": "tickborne.encephalitis",
+          "base": 1,
+          "weights": {
+            "tick_bite": 5,
+            "tick_forest": 3,
+            "stiff_no": 4,
+            "vomit_yes": 3,
+            "fever_high": 2,
+            "runny_yes": -3
+          }
+        },
+        {
+          "condition": "malaria",
+          "base": 1,
+          "weights": {
+            "travel_tropic": 6,
+            "fever_high": 3,
+            "vomit_yes": 1,
+            "travel_no": -5,
+            "runny_yes": -3
+          }
+        },
+        {
+          "condition": "meningitis",
+          "base": 1,
+          "weights": {
+            "stiff_no": 6,
+            "photo_yes": 4,
+            "rash_dark": 6,
+            "fever_high": 3,
+            "vomit_yes": 2,
+            "stiff_yes": -4,
+            "runny_yes": -2
+          }
+        },
+        {
+          "condition": "sepsis",
+          "base": 1,
+          "weights": {
+            "focal_yes": 3,
+            "dysp_yes": 3,
+            "immuno_yes": 4,
+            "fever_high": 2,
+            "tired_strong": 3,
+            "dur_d13": 1
+          }
+        },
+        {
+          "condition": "cholecystitis.acute",
+          "base": 2,
+          "weights": {
+            "vomit_yes": 3,
+            "fever_mid": 2,
+            "fever_high": 2,
+            "runny_yes": -3,
+            "cough_dry": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Температура вместе с невозможностью прижать подбородок к груди",
+        "Сыпь, не бледнеющая при надавливании прозрачным стеклом",
+        "Спутанность, необычная сонливость, трудно разбудить",
+        "Одышка в покое или частое поверхностное дыхание",
+        "Любая температура после поездки в тропические страны"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "gen.fever.long",
+      "zone": "gen",
+      "name": "Длительная невысокая температура",
+      "priority": 2,
+      "aka": [
+        "субфебрилитет",
+        "температура 37 держится неделями"
+      ],
+      "feelings": [
+        "37 с небольшим неделями",
+        "Жар к вечеру",
+        "Знобит без причины",
+        "Температура и слабость"
+      ],
+      "questions": [
+        "dur",
+        "fever",
+        "sweats",
+        "weight",
+        "cough",
+        "nodes",
+        "nodesmany",
+        "night",
+        "immuno",
+        "travel",
+        "animals",
+        "tired",
+        "appetite",
+        "rash",
+        "bruise",
+        "oncohist",
+        "progress"
+      ],
+      "candidates": [
+        {
+          "condition": "postviral.asthenia",
+          "base": 6,
+          "weights": {
+            "tired_strong": 3,
+            "fever_low": 3,
+            "sweats_no": 3,
+            "weight_no": 3,
+            "weight_yes": -4,
+            "sweats_yes": -4,
+            "nodes_hard": -4
+          }
+        },
+        {
+          "condition": "tuberculosis.pulmonary",
+          "base": 4,
+          "weights": {
+            "cough_dry": 4,
+            "cough_wet": 4,
+            "sweats_yes": 5,
+            "weight_yes": 4,
+            "dur_mon": 3,
+            "immuno_yes": 3,
+            "cough_no": -3,
+            "sweats_no": -3
+          }
+        },
+        {
+          "condition": "lymphoma",
+          "base": 3,
+          "weights": {
+            "nodes_hard": 6,
+            "sweats_yes": 5,
+            "weight_yes": 5,
+            "nodesmany_many": 4,
+            "dur_mon": 2,
+            "sweats_no": -3,
+            "weight_no": -3
+          }
+        },
+        {
+          "condition": "sle",
+          "base": 3,
+          "weights": {
+            "rash_spots": 4,
+            "dur_mon": 3,
+            "tired_strong": 2,
+            "weight_no": 1,
+            "cough_wet": -2
+          }
+        },
+        {
+          "condition": "infective.endocarditis",
+          "base": 2,
+          "weights": {
+            "sweats_yes": 4,
+            "weight_yes": 3,
+            "immuno_yes": 3,
+            "dur_mon": 3,
+            "bruise_yes": 2,
+            "cough_wet": -2
+          }
+        },
+        {
+          "condition": "hiv",
+          "base": 2,
+          "weights": {
+            "nodesmany_many": 5,
+            "weight_yes": 4,
+            "dur_mon": 3,
+            "immuno_yes": 2,
+            "nodes_hard": 2
+          }
+        },
+        {
+          "condition": "toxoplasmosis",
+          "base": 2,
+          "weights": {
+            "animals_yes": 4,
+            "nodes_back": 4,
+            "fever_low": 2,
+            "weight_no": 2,
+            "weight_yes": -2
+          }
+        },
+        {
+          "condition": "thyrotoxicosis",
+          "base": 2,
+          "weights": {
+            "weight_yes": 4,
+            "appetite_up": 5,
+            "sweats_yes": 3,
+            "tired_some": 1,
+            "cough_wet": -3
+          }
+        },
+        {
+          "condition": "spondylodiscitis",
+          "base": 1,
+          "weights": {
+            "night_yes": 4,
+            "immuno_yes": 4,
+            "dur_mon": 2,
+            "cough_wet": -2
+          }
+        },
+        {
+          "condition": "leukemia",
+          "base": 1,
+          "weights": {
+            "bruise_yes": 6,
+            "tired_strong": 4,
+            "nodesmany_many": 3,
+            "weight_yes": 3,
+            "bruise_no": -2
+          }
+        },
+        {
+          "condition": "spine.metastases",
+          "base": 1,
+          "weights": {
+            "oncohist_yes": 6,
+            "night_yes": 4,
+            "weight_yes": 3,
+            "progress_worse": 2
+          }
+        },
+        {
+          "condition": "tb.lymphadenitis",
+          "base": 1,
+          "weights": {
+            "nodes_hard": 4,
+            "sweats_yes": 3,
+            "dur_mon": 3,
+            "weight_yes": 2,
+            "immuno_yes": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Температура держится больше трёх недель без объяснения",
+        "Температура вместе с потерей веса и ночной потливостью",
+        "Температура и синяки от лёгких ударов или кровоточивость дёсен",
+        "Температура у человека со сниженным иммунитетом"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27",
+      "implies": {
+        "fever": "low"
+      }
+    },
+    {
+      "id": "gen.fatigue",
+      "zone": "gen",
+      "name": "Слабость и утомляемость",
+      "priority": 1,
+      "aka": [
+        "нет сил",
+        "постоянно устаю",
+        "разбитость"
+      ],
+      "feelings": [
+        "Не хватает сил на обычные дела",
+        "Просыпаюсь уже уставшим",
+        "Быстро выдыхаюсь",
+        "Сонливость днём"
+      ],
+      "questions": [
+        "dur",
+        "onset",
+        "tired",
+        "mood",
+        "snore",
+        "temperature",
+        "appetite",
+        "weight",
+        "sweats",
+        "fever",
+        "dysp",
+        "position",
+        "bowel",
+        "thirst",
+        "nodes",
+        "bruise",
+        "immuno",
+        "progress",
+        "edema"
+      ],
+      "candidates": [
+        {
+          "condition": "anemia",
+          "base": 8,
+          "weights": {
+            "position_stand": 4,
+            "dysp_yes": 3,
+            "onset_gradual": 3,
+            "dur_mon": 2,
+            "bowel_blood": 4,
+            "temperature_cold": 2,
+            "weight_yes": -1,
+            "sweats_yes": -2
+          }
+        },
+        {
+          "condition": "depression",
+          "base": 7,
+          "weights": {
+            "mood_low": 6,
+            "appetite_down": 3,
+            "dur_mon": 3,
+            "onset_gradual": 2,
+            "fever_no": 2,
+            "fever_high": -4,
+            "sweats_yes": -3,
+            "nodes_hard": -3
+          }
+        },
+        {
+          "condition": "hypothyroidism",
+          "base": 6,
+          "weights": {
+            "temperature_cold": 5,
+            "bowel_hard": 3,
+            "onset_gradual": 3,
+            "dur_mon": 3,
+            "edema_face": 4,
+            "appetite_no": 1,
+            "temperature_hot": -4,
+            "weight_yes": -2
+          }
+        },
+        {
+          "condition": "sleep.apnea",
+          "base": 5,
+          "weights": {
+            "snore_yes": 6,
+            "snore_snore": 3,
+            "dur_mon": 2,
+            "mood_low": 1,
+            "snore_no": -3
+          }
+        },
+        {
+          "condition": "postviral.asthenia",
+          "base": 5,
+          "weights": {
+            "onset_fast": 3,
+            "dur_w12": 3,
+            "fever_no": 2,
+            "weight_no": 2,
+            "progress_better": 3,
+            "dur_mon": -1,
+            "weight_yes": -3
+          }
+        },
+        {
+          "condition": "diabetes",
+          "base": 4,
+          "weights": {
+            "thirst_yes": 6,
+            "weight_yes": 3,
+            "appetite_up": 3,
+            "dur_mon": 2,
+            "thirst_no": -3
+          }
+        },
+        {
+          "condition": "b12.deficiency",
+          "base": 3,
+          "weights": {
+            "temperature_cold": 2,
+            "onset_gradual": 3,
+            "dur_mon": 3,
+            "position_stand": 2,
+            "appetite_down": 1
+          }
+        },
+        {
+          "condition": "thyrotoxicosis",
+          "base": 3,
+          "weights": {
+            "temperature_hot": 5,
+            "weight_yes": 4,
+            "appetite_up": 4,
+            "sweats_yes": 3,
+            "bowel_loose": 2,
+            "temperature_cold": -4
+          }
+        },
+        {
+          "condition": "heart.failure",
+          "base": 3,
+          "weights": {
+            "dysp_yes": 5,
+            "edema_legs": 5,
+            "onset_gradual": 2,
+            "dur_mon": 2,
+            "position_stand": -1,
+            "dysp_no": -4
+          }
+        },
+        {
+          "condition": "ckd",
+          "base": 2,
+          "weights": {
+            "edema_face": 4,
+            "edema_legs": 3,
+            "appetite_down": 3,
+            "dur_mon": 3,
+            "temperature_cold": 1
+          }
+        },
+        {
+          "condition": "lymphoma",
+          "base": 2,
+          "weights": {
+            "nodes_hard": 6,
+            "sweats_yes": 5,
+            "weight_yes": 4,
+            "fever_low": 2,
+            "sweats_no": -3
+          }
+        },
+        {
+          "condition": "leukemia",
+          "base": 1,
+          "weights": {
+            "bruise_yes": 6,
+            "fever_mid": 3,
+            "nodes_hard": 3,
+            "weight_yes": 2,
+            "bruise_no": -2
+          }
+        },
+        {
+          "condition": "hiv",
+          "base": 1,
+          "weights": {
+            "nodes_hard": 3,
+            "weight_yes": 4,
+            "dur_mon": 2,
+            "fever_low": 2,
+            "immuno_yes": 2
+          }
+        },
+        {
+          "condition": "tuberculosis.pulmonary",
+          "base": 1,
+          "weights": {
+            "sweats_yes": 5,
+            "weight_yes": 4,
+            "fever_low": 3,
+            "immuno_yes": 3,
+            "sweats_no": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Слабость вместе с потерей веса и ночной потливостью",
+        "Слабость с синяками от лёгких ударов или кровоточивостью дёсен",
+        "Внезапная слабость в руке или ноге с одной стороны",
+        "Мысли о нежелании жить — это повод обратиться за помощью сегодня, а не откладывать"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    },
+    {
+      "id": "gen.weightloss",
+      "zone": "gen",
+      "name": "Потеря веса без причины",
+      "priority": 1,
+      "aka": [
+        "худею без диеты",
+        "теряю вес"
+      ],
+      "feelings": [
+        "Худею, хотя ем как обычно",
+        "Пропал аппетит и вес уходит",
+        "Ем много, но худею",
+        "Одежда стала велика"
+      ],
+      "questions": [
+        "dur",
+        "appetite",
+        "temperature",
+        "sweats",
+        "fever",
+        "bowel",
+        "thirst",
+        "mood",
+        "nodes",
+        "nodesmany",
+        "cough",
+        "vomit",
+        "immuno",
+        "oncohist",
+        "smoke",
+        "tired",
+        "progress",
+        "bruise",
+        "reflux"
+      ],
+      "candidates": [
+        {
+          "condition": "thyrotoxicosis",
+          "base": 6,
+          "weights": {
+            "appetite_up": 6,
+            "temperature_hot": 5,
+            "sweats_yes": 3,
+            "bowel_loose": 3,
+            "appetite_down": -3,
+            "temperature_cold": -4
+          }
+        },
+        {
+          "condition": "diabetes",
+          "base": 5,
+          "weights": {
+            "thirst_yes": 6,
+            "appetite_up": 4,
+            "dur_w12": 2,
+            "dur_mon": 2,
+            "thirst_no": -3
+          }
+        },
+        {
+          "condition": "depression",
+          "base": 5,
+          "weights": {
+            "mood_low": 6,
+            "appetite_down": 4,
+            "dur_mon": 2,
+            "fever_no": 2,
+            "fever_high": -3,
+            "sweats_yes": -3,
+            "nodes_hard": -3
+          }
+        },
+        {
+          "condition": "tuberculosis.pulmonary",
+          "base": 4,
+          "weights": {
+            "cough_dry": 4,
+            "cough_wet": 4,
+            "sweats_yes": 5,
+            "fever_low": 3,
+            "immuno_yes": 3,
+            "cough_no": -3
+          }
+        },
+        {
+          "condition": "colorectal.cancer",
+          "base": 3,
+          "weights": {
+            "bowel_blood": 6,
+            "bowel_alt": 5,
+            "appetite_down": 2,
+            "dur_mon": 2,
+            "tired_strong": 2,
+            "bowel_no": -3
+          }
+        },
+        {
+          "condition": "stomach.cancer",
+          "base": 3,
+          "weights": {
+            "appetite_down": 5,
+            "vomit_yes": 3,
+            "dur_mon": 2,
+            "smoke_both": 2,
+            "appetite_up": -4
+          }
+        },
+        {
+          "condition": "lymphoma",
+          "base": 3,
+          "weights": {
+            "nodes_hard": 6,
+            "sweats_yes": 5,
+            "nodesmany_many": 4,
+            "fever_low": 2,
+            "sweats_no": -3
+          }
+        },
+        {
+          "condition": "lung.cancer",
+          "base": 3,
+          "weights": {
+            "smoke_both": 5,
+            "cough_dry": 4,
+            "cough_wet": 3,
+            "dur_mon": 2,
+            "smoke_no": -3
+          }
+        },
+        {
+          "condition": "ibd",
+          "base": 3,
+          "weights": {
+            "bowel_loose": 5,
+            "bowel_blood": 5,
+            "fever_low": 2,
+            "dur_mon": 2,
+            "appetite_down": 2,
+            "bowel_no": -3
+          }
+        },
+        {
+          "condition": "celiac",
+          "base": 2,
+          "weights": {
+            "bowel_loose": 4,
+            "dur_mon": 3,
+            "tired_strong": 2,
+            "fever_high": -3,
+            "bowel_no": -3
+          }
+        },
+        {
+          "condition": "hiv",
+          "base": 2,
+          "weights": {
+            "nodesmany_many": 5,
+            "fever_low": 3,
+            "immuno_yes": 3,
+            "dur_mon": 2
+          }
+        },
+        {
+          "condition": "ckd",
+          "base": 1,
+          "weights": {
+            "appetite_down": 4,
+            "vomit_yes": 2,
+            "dur_mon": 3,
+            "temperature_cold": 1
+          }
+        },
+        {
+          "condition": "leukemia",
+          "base": 1,
+          "weights": {
+            "bruise_yes": 5,
+            "fever_mid": 3,
+            "nodes_hard": 3,
+            "tired_strong": 3
+          }
+        },
+        {
+          "condition": "peptic.ulcer",
+          "base": 2,
+          "weights": {
+            "appetite_down": 3,
+            "vomit_yes": 2,
+            "reflux_yes": 4,
+            "dur_mon": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Потеря больше пяти килограммов за полгода без диеты и нагрузок — это всегда повод обследоваться, а не наблюдать",
+        "Потеря веса вместе с кровью в стуле или чёрным стулом",
+        "Потеря веса с ночной потливостью и плотными лимфоузлами"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27",
+      "implies": {
+        "weight": "yes"
+      }
+    },
+    {
+      "id": "gen.lymph",
+      "zone": "gen",
+      "name": "Увеличенные лимфоузлы",
+      "priority": 1,
+      "aka": [
+        "воспалились лимфоузлы",
+        "шишки под мышкой",
+        "узлы на шее"
+      ],
+      "feelings": [
+        "Болезненный узел",
+        "Плотный безболезненный узел",
+        "Узлы в нескольких местах",
+        "Узел растёт"
+      ],
+      "questions": [
+        "dur",
+        "nodes",
+        "nodesmany",
+        "fever",
+        "sweats",
+        "weight",
+        "progress",
+        "animals",
+        "contact",
+        "immuno",
+        "plaque",
+        "tired",
+        "bruise",
+        "rash",
+        "oncohist",
+        "travel",
+        "smoke",
+        "swell"
+      ],
+      "candidates": [
+        {
+          "condition": "lymphadenitis",
+          "base": 9,
+          "weights": {
+            "nodes_front": 4,
+            "nodesmany_one": 4,
+            "fever_mid": 2,
+            "dur_d13": 2,
+            "dur_d47": 2,
+            "progress_better": 3,
+            "nodes_hard": -4,
+            "nodesmany_many": -3,
+            "weight_yes": -3,
+            "sweats_yes": -3,
+            "dur_mon": -2
+          }
+        },
+        {
+          "condition": "mononucleosis",
+          "base": 6,
+          "weights": {
+            "nodes_back": 5,
+            "tired_strong": 4,
+            "plaque_white": 3,
+            "dur_w12": 3,
+            "contact_yes": 2,
+            "nodes_hard": -2
+          }
+        },
+        {
+          "condition": "cat.scratch",
+          "base": 4,
+          "weights": {
+            "animals_catscratch": 6,
+            "nodesmany_one": 3,
+            "fever_low": 2,
+            "dur_w12": 2,
+            "animals_no": -3
+          }
+        },
+        {
+          "condition": "toxoplasmosis",
+          "base": 3,
+          "weights": {
+            "animals_yes": 4,
+            "nodes_back": 3,
+            "fever_low": 2,
+            "dur_w12": 2,
+            "weight_yes": -2
+          }
+        },
+        {
+          "condition": "lymphoma",
+          "base": 3,
+          "weights": {
+            "nodes_hard": 6,
+            "sweats_yes": 5,
+            "weight_yes": 5,
+            "progress_worse": 4,
+            "dur_mon": 3,
+            "nodesmany_many": 3,
+            "progress_better": -4,
+            "sweats_no": -3,
+            "weight_no": -3
+          }
+        },
+        {
+          "condition": "hiv",
+          "base": 2,
+          "weights": {
+            "nodesmany_many": 5,
+            "dur_mon": 4,
+            "weight_yes": 3,
+            "fever_low": 2,
+            "immuno_yes": 2
+          }
+        },
+        {
+          "condition": "tb.lymphadenitis",
+          "base": 2,
+          "weights": {
+            "nodes_hard": 4,
+            "dur_mon": 4,
+            "sweats_yes": 3,
+            "weight_yes": 2,
+            "immuno_yes": 3,
+            "progress_better": -3
+          }
+        },
+        {
+          "condition": "leukemia",
+          "base": 1,
+          "weights": {
+            "bruise_yes": 6,
+            "nodesmany_many": 3,
+            "tired_strong": 3,
+            "fever_mid": 2,
+            "bruise_no": -2
+          }
+        },
+        {
+          "condition": "sle",
+          "base": 1,
+          "weights": {
+            "rash_spots": 4,
+            "dur_mon": 2,
+            "fever_low": 2,
+            "nodes_hard": -1
+          }
+        },
+        {
+          "condition": "oropharynx.cancer",
+          "base": 1,
+          "weights": {
+            "nodes_hard": 5,
+            "smoke_both": 4,
+            "weight_yes": 3,
+            "dur_mon": 3,
+            "progress_worse": 2
+          }
+        },
+        {
+          "condition": "thyroid.cancer",
+          "base": 1,
+          "weights": {
+            "nodes_hard": 4,
+            "swell_neckfront": 5,
+            "progress_worse": 2,
+            "dur_mon": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Узел плотный, безболезненный, не сдвигается и растёт больше месяца",
+        "Узлы увеличены сразу в нескольких местах: шея, подмышки, пах",
+        "Увеличенные узлы вместе с потерей веса или ночной потливостью",
+        "Узлы вместе с синяками от лёгких ударов"
+      ],
+      "status": "drafted",
+      "updated": "2026-08-27"
+    }
+  ]
+}

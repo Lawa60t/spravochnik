@@ -1,0 +1,139 @@
+{
+  "version": "1.0.0",
+  "_комментарий": [
+    "Тестовые случаи с известным ответом. Прогоняются через движок после любой правки весов.",
+    "expect — что должно оказаться в первой пятёрке. expectTop — что должно быть первым.",
+    "expectAlarm — должен ли сработать слой красных флагов.",
+    "notExpect — чего в первой тройке быть НЕ должно (проверка на ложные срабатывания)."
+  ],
+  "cases": [
+    { "id": "v01", "syndrome": "neck.throat.swallow", "sex": "m", "age": 9,
+      "note": "Классическая стрептококковая ангина у ребёнка",
+      "feel": 1, "answers": { "dur": "d13", "fever": "high", "plaque": "white", "cough": "no", "runny": "no", "nodes": "front", "side": "both" },
+      "expectTop": "tonsillitis.strep", "expectAlarm": false },
+
+    { "id": "v02", "syndrome": "neck.throat.swallow", "sex": "f", "age": 31,
+      "note": "Обычная вирусная простуда с больным горлом",
+      "feel": 0, "answers": { "dur": "d13", "fever": "low", "plaque": "no", "cough": "dry", "runny": "yes", "nodes": "no", "side": "both" },
+      "expect": ["pharyngitis.viral"], "expectTop": "pharyngitis.viral", "expectAlarm": false,
+      "notExpect": ["oropharynx.cancer", "diphtheria"] },
+
+    { "id": "v03", "syndrome": "neck.throat.swallow", "sex": "m", "age": 24,
+      "note": "Паратонзиллярный абсцесс: односторонне, тризм, глухой голос",
+      "feel": 2, "answers": { "dur": "d47", "fever": "high", "side": "one", "mouth": "hard", "voice": "muffled", "saliva": "hard", "plaque": "white" },
+      "expect": ["peritonsillar.abscess"], "expectAlarm": true },
+
+    { "id": "v04", "syndrome": "neck.throat.swallow", "sex": "m", "age": 44,
+      "note": "Эпиглоттит: слюнотечение, стридор, поза треножника",
+      "feel": 2, "answers": { "dur": "hours", "onset": "fast", "fever": "high", "saliva": "drool", "stridor": "hard", "posture": "tripod", "voice": "muffled", "plaque": "no" },
+      "expect": ["epiglottitis"], "expectAlarm": true },
+
+    { "id": "v05", "syndrome": "neck.throat.swallow", "sex": "f", "age": 19,
+      "note": "Мононуклеоз: заднешейные узлы, разбитость, вторая неделя",
+      "feel": 1, "answers": { "dur": "w12", "fever": "mid", "plaque": "white", "nodes": "back", "tired": "strong", "cough": "no" },
+      "expect": ["mononucleosis"], "expectTop": "mononucleosis", "expectAlarm": false },
+
+    { "id": "v06", "syndrome": "neck.throat.swallow", "sex": "m", "age": 58,
+      "note": "Опухоль ротоглотки: месяцами, односторонне, в ухо, курит и пьёт, похудел",
+      "feel": 0, "answers": { "dur": "mon", "side": "one", "ear": "yes", "smoke": "both", "weight": "yes", "nodes": "hard", "progress": "worse", "fever": "no" },
+      "expect": ["oropharynx.cancer"], "expectAlarm": true },
+
+    { "id": "v07", "syndrome": "neck.throat.swallow", "sex": "f", "age": 6,
+      "note": "Скарлатина: мелкоточечная сыпь плюс ангина",
+      "feel": 1, "answers": { "dur": "d13", "fever": "high", "plaque": "white", "rash": "fine", "nodes": "front", "cough": "no" },
+      "expect": ["scarlet.fever"], "expectAlarm": false },
+
+    { "id": "v08", "syndrome": "neck.throat.swallow", "sex": "m", "age": 37,
+      "note": "Дифтерия: серые плёнки, давно не прививался",
+      "feel": 1, "answers": { "dur": "d13", "fever": "mid", "plaque": "grey", "vaccine": "no", "swell": "neckfront", "voice": "muffled" },
+      "expect": ["diphtheria"], "expectAlarm": true },
+
+    { "id": "v09", "syndrome": "neck.throat.raw", "sex": "m", "age": 46,
+      "note": "Рефлюкс: месяцами, хуже утром, изжога",
+      "feel": 0, "answers": { "dur": "mon", "fever": "no", "reflux": "yes", "voice": "hoarse", "plaque": "no", "runny": "no", "weight": "no" },
+      "expect": ["lpr.reflux"], "expectAlarm": false, "notExpect": ["tonsillitis.strep"] },
+
+    { "id": "v10", "syndrome": "neck.throat.raw", "sex": "f", "age": 28,
+      "note": "Постназальный затёк на фоне хронического насморка",
+      "feel": 3, "answers": { "dur": "mon", "fever": "no", "runny": "yes", "reflux": "morn", "cough": "dry", "plaque": "no" },
+      "expect": ["postnasal.drip"], "expectAlarm": false },
+
+    { "id": "v11", "syndrome": "neck.dysphagia", "sex": "m", "age": 63,
+      "note": "Опухоль пищевода: нарастает, твёрдое, похудел, курит",
+      "feel": 0, "answers": { "dur": "mon", "swallow": "solid", "stuck": "yes", "progress": "worse", "weight": "yes", "smoke": "both" },
+      "expect": ["esophagus.cancer"], "expectAlarm": true },
+
+    { "id": "v12", "syndrome": "neck.dysphagia", "sex": "f", "age": 41,
+      "note": "Ахалазия: и твёрдое, и жидкое, регургитация, годами",
+      "feel": 0, "answers": { "dur": "mon", "swallow": "both", "stuck": "regur", "progress": "same", "weight": "no", "smoke": "no" },
+      "expect": ["achalasia"], "expectTop": "achalasia", "expectAlarm": false },
+
+    { "id": "v13", "syndrome": "neck.dysphagia", "sex": "f", "age": 34,
+      "note": "Миастения: хуже к вечеру, гнусавый голос, поперхивание",
+      "feel": 2, "answers": { "dur": "mon", "swallow": "liquid", "daytime": "yes", "voice": "nasal", "progress": "wave", "weight": "no" },
+      "expect": ["myasthenia"], "expectAlarm": true },
+
+    { "id": "v14", "syndrome": "neck.voice", "sex": "f", "age": 33,
+      "note": "Острый ларингит после простуды",
+      "feel": 0, "answers": { "dur": "d13", "cough": "dry", "fever": "low", "runny": "yes", "progress": "better", "smoke": "no", "weight": "no" },
+      "expect": ["laryngitis.acute"], "expectTop": "laryngitis.acute", "expectAlarm": false },
+
+    { "id": "v15", "syndrome": "neck.voice", "sex": "m", "age": 61,
+      "note": "Опухоль гортани: охриплость месяцами, нарастает, курит и пьёт",
+      "feel": 0, "answers": { "dur": "mon", "progress": "worse", "smoke": "both", "weight": "yes", "fever": "no", "cough": "dry" },
+      "expect": ["larynx.cancer"], "expectAlarm": true },
+
+    { "id": "v16", "syndrome": "neck.breath", "sex": "m", "age": 3,
+      "note": "Круп у ребёнка: лающий кашель, стридор ночью",
+      "feel": 0, "answers": { "onset": "fast", "dur": "hours", "cough": "bark", "stridor": "hard", "voice": "hoarse", "fever": "mid" },
+      "expect": ["croup"], "expectAlarm": true },
+
+    { "id": "v17", "syndrome": "neck.breath", "sex": "f", "age": 29,
+      "note": "Отёк Квинке: за минуты, отекли губы",
+      "feel": 3, "answers": { "onset": "sudden", "dur": "hours", "swell": "lips", "stridor": "hard", "voice": "hoarse", "fever": "no" },
+      "expect": ["anaphylaxis.angioedema"], "expectAlarm": true },
+
+    { "id": "v18", "syndrome": "neck.breath", "sex": "m", "age": 22,
+      "note": "Астма: свист на выдохе, приступами, годами",
+      "feel": 1, "answers": { "stridor": "wheeze", "dur": "mon", "progress": "wave", "cough": "dry", "fever": "no", "onset": "gradual" },
+      "expect": ["asthma"], "expectTop": "asthma", "expectAlarm": false },
+
+    { "id": "v19", "syndrome": "neck.pain.move", "sex": "m", "age": 35,
+      "note": "Обычный мышечный спазм: продуло, поворачивать больно, температуры нет",
+      "feel": 0, "answers": { "dur": "d13", "move": "turn", "fever": "no", "stiff": "yes", "trauma": "no", "photo": "no", "side": "one" },
+      "expect": ["cervical.myofascial"], "expectTop": "cervical.myofascial", "expectAlarm": false,
+      "notExpect": ["meningitis", "subarachnoid.hemorrhage"] },
+
+    { "id": "v20", "syndrome": "neck.stiff.fever", "sex": "m", "age": 17,
+      "note": "Менингит: температура, шея не гнётся, светобоязнь, сыпь не бледнеет",
+      "feel": 0, "answers": { "onset": "fast", "dur": "hours", "fever": "high", "stiff": "no", "photo": "yes", "rash": "dark" },
+      "expect": ["meningitis"], "expectTop": "meningitis", "expectAlarm": true },
+
+    { "id": "v21", "syndrome": "neck.stiff.fever", "sex": "f", "age": 52,
+      "note": "Субарахноидальное кровоизлияние: мгновенная боль, шея скована, температуры нет",
+      "feel": 1, "answers": { "onset": "sudden", "dur": "hours", "fever": "no", "stiff": "no", "photo": "yes", "trauma": "no" },
+      "expect": ["subarachnoid.hemorrhage"], "expectAlarm": true },
+
+    { "id": "v22", "syndrome": "neck.lump", "sex": "m", "age": 27,
+      "note": "Лимфома: плотный безболезненный узел, потливость, похудел",
+      "feel": 3, "answers": { "dur": "mon", "nodes": "hard", "weight": "yes", "sweats": "yes", "progress": "worse", "fever": "low" },
+      "expect": ["lymphoma"], "expectTop": "lymphoma", "expectAlarm": true },
+
+    { "id": "v23", "syndrome": "neck.lump", "sex": "f", "age": 11,
+      "note": "Обычный реактивный лимфаденит после ангины",
+      "feel": 2, "answers": { "dur": "d47", "nodes": "front", "fever": "mid", "weight": "no", "sweats": "no", "side": "one", "progress": "better" },
+      "expect": ["lymphadenitis"], "expectTop": "lymphadenitis", "expectAlarm": false,
+      "notExpect": ["lymphoma", "thyroid.cancer"] },
+
+    { "id": "v24", "syndrome": "neck.throat.lump", "sex": "f", "age": 45,
+      "note": "Globus: еда проходит нормально, вес стабилен",
+      "feel": 0, "answers": { "dur": "mon", "swallow": "none", "stuck": "no", "weight": "no", "reflux": "no", "progress": "same" },
+      "expect": ["globus"], "expectTop": "globus", "expectAlarm": false,
+      "notExpect": ["esophagus.cancer"] },
+
+    { "id": "v25", "syndrome": "neck.throat.swallow", "sex": "f", "age": 38,
+      "note": "Кандидоз после антибиотиков: белый налёт, температуры нет, две недели",
+      "feel": 0, "answers": { "dur": "w12", "fever": "no", "plaque": "white", "nodes": "no", "cough": "no", "runny": "no" },
+      "expect": ["candida.oral"], "expectAlarm": false }
+  ]
+}

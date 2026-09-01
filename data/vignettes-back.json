@@ -1,0 +1,134 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    { "id": "b01", "syndrome": "back.lumbar.acute", "sex": "m", "age": 38,
+      "note": "Обычный прострел после подъёма тяжести — ничего страшного, тревоги быть не должно",
+      "feel": 0, "answers": { "dur": "d13", "onset": "fast", "lift": "yes", "radleg": "no", "movebetter": "rest", "night": "no", "fever": "no", "urine": "no", "saddle": "no", "legweak": "no", "trauma": "no", "restless": "still", "tapback": "no", "weight": "no", "oncohist": "no", "immuno": "no", "rash": "no" },
+      "expectTop": "lumbago.nonspecific", "expectAlarm": false,
+      "notExpect": ["cauda.equina", "spine.metastases", "spondylodiscitis"] },
+
+    { "id": "b02", "syndrome": "back.lumbar.acute", "sex": "f", "age": 44,
+      "note": "Грыжа диска: отдаёт ниже колена, слабость в одной стопе",
+      "feel": 3, "answers": { "dur": "w12", "onset": "fast", "lift": "yes", "radleg": "below", "legweak": "one", "movebetter": "rest", "urine": "no", "saddle": "no", "fever": "no", "restless": "still", "progress": "same" },
+      "expectTop": "disc.herniation.lumbar", "expectAlarm": false },
+
+    { "id": "b03", "syndrome": "back.lumbar.acute", "sex": "m", "age": 51,
+      "note": "Синдром конского хвоста: задержка мочи, седловидное онемение, обе ноги",
+      "feel": 0, "answers": { "dur": "d13", "onset": "fast", "urine": "retention", "saddle": "yes", "legweak": "both", "radleg": "below", "fever": "no", "lift": "yes", "trauma": "no" },
+      "expectTop": "cauda.equina", "expectAlarm": true },
+
+    { "id": "b04", "syndrome": "back.lumbar.acute", "sex": "f", "age": 29,
+      "note": "Пиелонефрит: температура, постукивание резко болезненно, рези при мочеиспускании",
+      "feel": 1, "answers": { "dur": "d13", "onset": "fast", "fever": "high", "tapback": "yes", "urine": "burn", "side": "one", "lift": "no", "radleg": "no", "saddle": "no", "legweak": "no", "restless": "still" },
+      "expect": ["pyelonephritis.acute"], "expectAlarm": true },
+
+    { "id": "b05", "syndrome": "back.lumbar.acute", "sex": "m", "age": 67,
+      "note": "Метастазы в позвоночник: ночная боль, похудел, была опухоль",
+      "feel": 1, "answers": { "dur": "mon", "onset": "gradual", "night": "yes", "weight": "yes", "oncohist": "yes", "progress": "worse", "movebetter": "none", "lift": "no", "fever": "no", "urine": "no", "saddle": "no", "legweak": "no" },
+      "expect": ["spine.metastases"], "expectAlarm": true },
+
+    { "id": "b06", "syndrome": "back.lumbar.acute", "sex": "f", "age": 74,
+      "note": "Компрессионный перелом на фоне остеопороза: резко, от небольшого усилия, легче лёжа",
+      "feel": 0, "answers": { "dur": "d13", "onset": "sudden", "trauma": "yes", "movebetter": "rest", "immuno": "yes", "lift": "yes", "radleg": "no", "fever": "no", "urine": "no", "saddle": "no", "legweak": "no", "night": "no" },
+      "expect": ["vertebral.fracture"], "expectAlarm": false },
+
+    { "id": "b07", "syndrome": "back.lumbar.chronic", "sex": "m", "age": 27,
+      "note": "Воспалительная боль в спине: скованность больше получаса, легче от движения, будит ночью",
+      "feel": 2, "answers": { "dur": "mon", "stiffam": "long", "movebetter": "move", "night": "yes", "radleg": "no", "legweak": "no", "weight": "no", "oncohist": "no", "fever": "no", "progress": "same", "urine": "no", "saddle": "no" },
+      "expectTop": "axial.spondyloarthritis", "expectAlarm": false,
+      "notExpect": ["spine.metastases"] },
+
+    { "id": "b08", "syndrome": "back.lumbar.chronic", "sex": "m", "age": 71,
+      "note": "Стеноз канала: ноги слабеют через сто метров, легче при наклоне вперёд",
+      "feel": 3, "answers": { "dur": "mon", "movebetter": "bend", "walkdist": "short", "legweak": "both", "stiffam": "short", "night": "no", "weight": "no", "oncohist": "no", "urine": "no", "saddle": "no", "fever": "no" },
+      "expectTop": "spinal.stenosis", "expectAlarm": false },
+
+    { "id": "b09", "syndrome": "back.lumbar.chronic", "sex": "f", "age": 55,
+      "note": "Обычные возрастные изменения: легче в покое, скованность короткая, вес стабилен",
+      "feel": 0, "answers": { "dur": "mon", "movebetter": "rest", "stiffam": "short", "night": "no", "radleg": "no", "legweak": "no", "weight": "no", "oncohist": "no", "fever": "no", "urine": "no", "saddle": "no", "walkdist": "ok" },
+      "expectTop": "lumbar.degenerative", "expectAlarm": false,
+      "notExpect": ["axial.spondyloarthritis", "spine.metastases", "spondylodiscitis"] },
+
+    { "id": "b10", "syndrome": "back.sciatica", "sex": "m", "age": 41,
+      "note": "Классический ишиас от грыжи: ниже колена, одна нога, после нагрузки",
+      "feel": 0, "answers": { "dur": "w12", "onset": "fast", "radleg": "below", "legweak": "one", "urine": "no", "saddle": "no", "movebetter": "rest", "lift": "yes", "side": "one", "fever": "no", "weight": "no", "oncohist": "no" },
+      "expectTop": "disc.herniation.lumbar", "expectAlarm": false },
+
+    { "id": "b11", "syndrome": "back.sciatica", "sex": "f", "age": 36,
+      "note": "Синдром грушевидной мышцы: только ягодица, слабости нет, легче от движения",
+      "feel": 2, "answers": { "dur": "mon", "radleg": "buttock", "legweak": "no", "movebetter": "move", "urine": "no", "saddle": "no", "lift": "no", "fever": "no", "walkdist": "ok" },
+      "expect": ["piriformis.syndrome"], "expectAlarm": false },
+
+    { "id": "b12", "syndrome": "back.sciatica", "sex": "m", "age": 58,
+      "note": "Конский хвост на фоне ишиаса: моча подтекает, промежность онемела",
+      "feel": 0, "answers": { "dur": "d13", "onset": "fast", "radleg": "below", "urine": "incont", "saddle": "yes", "legweak": "both", "movebetter": "none", "lift": "yes", "fever": "no" },
+      "expectTop": "cauda.equina", "expectAlarm": true },
+
+    { "id": "b13", "syndrome": "back.colic", "sex": "m", "age": 43,
+      "note": "Почечная колика: волнами, отдаёт в пах, не находит места",
+      "feel": 1, "answers": { "dur": "hours", "onset": "fast", "radleg": "groin", "restless": "restless", "tapback": "yes", "fever": "no", "vomit": "yes", "side": "one", "lift": "no", "urine": "no" },
+      "expectTop": "renal.colic", "expectAlarm": false,
+      "notExpect": ["lumbago.nonspecific"] },
+
+    { "id": "b14", "syndrome": "back.colic", "sex": "f", "age": 35,
+      "note": "Колика с температурой — уже не колика, нужна помощь сегодня",
+      "feel": 1, "answers": { "dur": "d13", "onset": "fast", "radleg": "groin", "restless": "restless", "tapback": "yes", "fever": "high", "urine": "burn", "vomit": "yes", "side": "one" },
+      "expect": ["pyelonephritis.acute", "renal.colic"], "expectAlarm": true },
+
+    { "id": "b15", "syndrome": "back.colic", "sex": "m", "age": 72,
+      "note": "Аневризма аорты: внезапно, ничем не облегчается, отдаёт вперёд в живот",
+      "feel": 2, "answers": { "onset": "sudden", "dur": "hours", "radleg": "front", "movebetter": "none", "restless": "restless", "lift": "no", "fever": "no", "tapback": "no", "trauma": "no" },
+      "expect": ["aortic.aneurysm"], "expectAlarm": false },
+
+    { "id": "b16", "syndrome": "back.colic", "sex": "m", "age": 49,
+      "note": "Панкреатит: опоясывающая, легче сидя с наклоном вперёд, рвота",
+      "feel": 0, "answers": { "radleg": "front", "movebetter": "bend", "vomit": "yes", "onset": "fast", "dur": "d13", "restless": "restless", "lift": "no", "fever": "mid", "tapback": "no" },
+      "expect": ["pancreatitis.acute"], "expectAlarm": false },
+
+    { "id": "b17", "syndrome": "back.cauda", "sex": "m", "age": 46,
+      "note": "Прямой вход в раздел конского хвоста",
+      "feel": 0, "answers": { "urine": "retention", "saddle": "yes", "legweak": "both", "dur": "hours", "onset": "fast", "radleg": "below", "fever": "no", "oncohist": "no", "trauma": "no", "immuno": "no" },
+      "expectTop": "cauda.equina", "expectAlarm": true },
+
+    { "id": "b18", "syndrome": "back.upper", "sex": "f", "age": 33,
+      "note": "Мышечная боль между лопатками от работы за компьютером",
+      "feel": 0, "answers": { "dur": "w12", "move": "press", "fever": "no", "night": "no", "breath": "no", "cough": "no", "weight": "no", "oncohist": "no", "auto": "no", "restless": "still", "movebetter": "move", "rash": "no" },
+      "expectTop": "thoracic.myofascial", "expectAlarm": false,
+      "notExpect": ["myocardial.infarction", "aortic.dissection"] },
+
+    { "id": "b19", "syndrome": "back.upper", "sex": "m", "age": 63,
+      "note": "Инфаркт с болью между лопатками: от позы не зависит, холодный пот",
+      "feel": 3, "answers": { "dur": "hours", "onset": "fast", "move": "no", "auto": "yes", "movebetter": "none", "fever": "no", "breath": "no", "cough": "no", "restless": "restless", "night": "no" },
+      "expectTop": "myocardial.infarction", "expectAlarm": true },
+
+    { "id": "b20", "syndrome": "back.upper", "sex": "m", "age": 59,
+      "note": "Расслоение аорты: мгновенно, разрывающая, ничем не облегчается",
+      "feel": 3, "answers": { "onset": "sudden", "dur": "hours", "movebetter": "none", "auto": "yes", "move": "no", "fever": "no", "breath": "no", "restless": "restless" },
+      "expect": ["aortic.dissection"], "expectAlarm": true },
+
+    { "id": "b21", "syndrome": "back.scapula", "sex": "f", "age": 47,
+      "note": "Желчная колика с отдачей под правую лопатку после жирной еды",
+      "feel": 2, "answers": { "dur": "hours", "onset": "fast", "side": "one", "reflux": "yes", "vomit": "yes", "restless": "restless", "move": "no", "fever": "no", "breath": "no", "auto": "no", "night": "no" },
+      "expectTop": "cholelithiasis.colic", "expectAlarm": false },
+
+    { "id": "b22", "syndrome": "back.scapula", "sex": "m", "age": 40,
+      "note": "Опоясывающий лишай: сыпь полосой с одной стороны",
+      "feel": 3, "answers": { "dur": "d13", "rash": "spots", "side": "one", "fever": "low", "move": "no", "breath": "no", "auto": "no", "vomit": "no" },
+      "expect": ["herpes.zoster"], "expectAlarm": false },
+
+    { "id": "b23", "syndrome": "back.scapula", "sex": "m", "age": 68,
+      "note": "Пневмония нижней доли: боль под лопаткой, кашель, температура, одышка",
+      "feel": 1, "answers": { "dur": "d47", "cough": "wet", "fever": "high", "dysp": "yes", "breath": "yes", "move": "no", "side": "one", "auto": "no", "vomit": "no" },
+      "expect": ["pneumonia"], "expectAlarm": false },
+
+    { "id": "b24", "syndrome": "back.coccyx", "sex": "f", "age": 34,
+      "note": "Кокцигодиния после падения: больно сидеть, температуры нет",
+      "feel": 0, "answers": { "dur": "w12", "trauma": "yes", "fever": "no", "swell": "no", "progress": "same", "weight": "no", "oncohist": "no", "night": "no" },
+      "expectTop": "coccydynia", "expectAlarm": false },
+
+    { "id": "b25", "syndrome": "back.coccyx", "sex": "m", "age": 24,
+      "note": "Нагноившийся копчиковый ход: припухло, температура, ухудшается",
+      "feel": 3, "answers": { "dur": "d13", "onset": "fast", "fever": "mid", "progress": "worse", "trauma": "no", "weight": "no", "oncohist": "no", "night": "no" },
+      "expect": ["pilonidal.disease"], "expectAlarm": false }
+  ]
+}
