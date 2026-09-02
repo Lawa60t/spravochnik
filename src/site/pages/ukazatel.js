@@ -6,6 +6,7 @@ const { page, esc, attr } = require("../layout");
 const meta = require("../meta");
 const T = require("../text");
 const D = require("../data");
+const A = require("../assets");
 
 function letterOf(s) {
   const ch = String(s).trim().charAt(0).toUpperCase();
@@ -101,6 +102,6 @@ module.exports = function ukazatelPage(updated) {
     body,
     updated,
     bodyClass: "page-ukazatel",
-    scripts: ["/profil.js", "/search.js"]
+    scripts: [A.profil.url, A.search.url]
   });
 };

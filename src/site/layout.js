@@ -3,6 +3,7 @@
    Скриптов вообще нет — первый уровень доступа обязан работать без JavaScript. */
 const cfg = require("./config");
 const T = require("./text");
+const A = require("./assets");
 
 const esc = s =>
   String(s)
@@ -32,7 +33,7 @@ function head({ title, description, canonical, ogType }) {
     `<meta property="og:title" content="${attr(title)}">`,
     `<meta property="og:description" content="${attr(description)}">`,
     `<meta property="og:url" content="${attr(canonical)}">`,
-    '<link rel="stylesheet" href="/style.css">'
+    `<link rel="stylesheet" href="${attr(A.style.url)}">`
   ].join("\n  ");
 }
 

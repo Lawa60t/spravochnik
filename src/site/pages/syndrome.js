@@ -11,6 +11,8 @@ const { page, esc, attr } = require("../layout");
 const meta = require("../meta");
 const T = require("../text");
 const D = require("../data");
+const A = require("../assets");
+const PAYLOAD = require("../payload");
 
 const OFTEN_FROM = 5; /* base 5 и выше — «часто», ниже — «реже». */
 
@@ -72,7 +74,8 @@ function refineBlock(s) {
 
   return `<section class="refine" data-refine
     data-syndrome="${attr(s.id)}"
-    data-payload="/dannye/${attr(D.slug(s.id))}.js"
+    data-payload="${attr(PAYLOAD.get(s.id).url)}"
+    data-engine="${attr(A.engine.url)}"
     data-max="${MAX}"
     data-step-tpl="${attr(R.stepOf)}"
     data-sex-line="${attr(R.sexLine)}"
@@ -201,6 +204,6 @@ ${refineBlock(s)}`;
     body,
     updated,
     bodyClass: "page-syndrome",
-    scripts: ["/profil.js", "/utochnenie.js"]
+    scripts: [A.profil.url, A.utochnenie.url]
   });
 };

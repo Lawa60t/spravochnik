@@ -12,6 +12,8 @@ const path = require("path");
 const cfg = require("./config");
 const D = require("./data");
 const meta = require("./meta");
+const A = require("./assets");
+const PAYLOAD = require("./payload");
 const SEXQ = require("../questions-sex.json");
 const conditionPage = require("./pages/condition");
 const syndromePage = require("./pages/syndrome");
@@ -26,6 +28,7 @@ const dist = path.join(root, "dist");
 
 const L = "─".repeat(58);
 const written = [];
+const assetUrls = new Set();
 
 function write(urlPath, html) {
   const rel = urlPath === "/" ? "index.html" : path.join(urlPath.replace(/^\/|\/$/g, ""), "index.html");
@@ -116,17 +119,18 @@ let plannedLinks = new Map();
    превращается в 404 внутри оглавления. */
 function verifyLinks() {
   const targets = new Set(written.map(w => w.urlPath));
-  targets.add("/style.css");
-  targets.add("/search.js");
-  targets.add("/profil.js");
+  assetUrls.forEach(u => targets.add(u));
   const broken = new Map();
   const planned = new Map();
   let total = 0;
 
   written.forEach(w => {
     const html = fs.readFileSync(w.file, "utf8");
-    (html.match(/href="([^"]+)"/g) || []).forEach(m => {
-      const url = m.slice(6, -1);
+    /* Проверяем и href, и src, и адреса в data-атрибутах острова: с отпечатком
+       в имени опечатка в шаблоне даёт молчаливый 404, которого раньше быть
+       не могло — имена были постоянными. */
+    (html.match(/(?:href|src|data-payload|data-engine)="([^"]+)"/g) || []).forEach(m => {
+      const url = m.slice(m.indexOf('"') + 1, -1);
       if (!url.startsWith("/") || url.startsWith("//")) return;
       total++;
       if (targets.has(url)) return;
@@ -145,34 +149,6 @@ function verifyLinks() {
     process.exit(1);
   }
   return total;
-}
-
-/* ---------- данные для уточнения ----------
-   На страницу раздела едет только то, что нужно этому разделу: сам раздел,
-   его состояния, только его вопросы (9–29 из 138) и правила тревоги,
-   отфильтрованные по зоне. Всю базу в браузер не отдаём — это мегабайты,
-   а человек на медленном мобильном интернете ждать их не станет.
-   Грузится по нажатию кнопки, а не при первой отрисовке страницы. */
-function payload(s) {
-  const questions = D.questions.filter(q => s.questions.includes(q.id));
-  const conditions = s.candidates
-    .map(c => D.conditionById.get(c.condition))
-    .filter(Boolean)
-    .map(c => ({
-      /* поля движка */
-      id: c.id, name: c.name, redflag: !!c.redflag,
-      sexOnly: c.sexOnly, ageMin: c.ageMin, ageMax: c.ageMax,
-      /* поля показа */
-      icd: c.icd,
-      path: D.conditionPath(c.id),
-      gist: meta.clamp(meta.firstSentence(c.what), 110)
-    }));
-  const redflags = {
-    global: D.redflags.global.filter(r => !r.zones || r.zones.includes(s.zone))
-  };
-
-  const data = { questions, redflags, conditions, syndromes: [s], sexQuestions: SEXQ };
-  return `window.EZ_DATA=${JSON.stringify(data)};\n`;
 }
 
 /* ---------- sitemap и robots ---------- */
@@ -240,23 +216,23 @@ function build() {
   D.conditions.forEach(c => write(D.conditionPath(c.id), conditionPage(c, updated)));
   D.syndromes.forEach(s => write(D.syndromePath(s.id), syndromePage(s, updated)));
 
-  /* Движок уезжает в браузер тем же файлом, что гоняют тесты. */
-  fs.copyFileSync(path.join(root, "src", "engine.js"), path.join(dist, "engine.js"));
-  fs.copyFileSync(path.join(__dirname, "assets", "utochnenie.js"), path.join(dist, "utochnenie.js"));
+  /* Стили и скрипты пишутся под именами с отпечатком содержимого: иначе
+     кеш на сутки отдаёт старый файл, и правка до человека не доезжает.
+     Движок уезжает в браузер тем же файлом, что гоняют тесты. */
+  [A.style, A.search, A.profil, A.utochnenie, A.engine].forEach(a => {
+    fs.writeFileSync(path.join(dist, a.file), a.content);
+    assetUrls.add(a.url);
+  });
 
   const dataDir = path.join(dist, "dannye");
   fs.mkdirSync(dataDir, { recursive: true });
   let payloadMax = 0;
-  D.syndromes.forEach(s => {
-    const js = payload(s);
-    payloadMax = Math.max(payloadMax, Buffer.byteLength(js));
-    fs.writeFileSync(path.join(dataDir, D.slug(s.id) + ".js"), js, "utf8");
+  PAYLOAD.all().forEach(pl => {
+    payloadMax = Math.max(payloadMax, Buffer.byteLength(pl.content));
+    fs.writeFileSync(path.join(dataDir, pl.file), pl.content, "utf8");
+    assetUrls.add(pl.url);
   });
   build.payloadMax = payloadMax;
-
-  fs.copyFileSync(path.join(__dirname, "assets", "style.css"), path.join(dist, "style.css"));
-  fs.copyFileSync(path.join(__dirname, "assets", "search.js"), path.join(dist, "search.js"));
-  fs.copyFileSync(path.join(__dirname, "assets", "profil.js"), path.join(dist, "profil.js"));
   fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap(cfg.origin, updated), "utf8");
   fs.writeFileSync(path.join(dist, "robots.txt"), robots(cfg.origin), "utf8");
 
@@ -276,6 +252,7 @@ function build() {
   console.log(`Внутренних ссылок          ${links}, битых нет`);
   console.log(`Объём HTML                 ${(bytes / 1024 / 1024).toFixed(2)} МБ`);
   console.log(`Данные уточнения           ${D.syndromes.length} файлов, самый большой ${Math.round(build.payloadMax / 1024)} КБ`);
+  console.log(`Файлы с отпечатком         ${[A.style, A.search, A.profil, A.utochnenie, A.engine].map(a => a.file).join(", ")}`);
   const scripted = written.filter(w => /<script\b/i.test(fs.readFileSync(w.file, "utf8")));
   const kinds = [...new Set(scripted.map(s => s.urlPath.split("/")[1] || "/"))];
   console.log(`Страниц со скриптом        ${scripted.length} из ${written.length}${kinds.length ? ` (${kinds.join(", ")})` : ""}`);

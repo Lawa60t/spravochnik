@@ -78,7 +78,7 @@
   function start() {
     if (window.EZ) return begin();
     loadScript(root.getAttribute("data-payload"), function () {
-      loadScript("/engine.js", begin);
+      loadScript(root.getAttribute("data-engine"), begin);
     });
   }
 

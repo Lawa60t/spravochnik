@@ -7,6 +7,7 @@ const { page, esc } = require("../layout");
 const meta = require("../meta");
 const T = require("../text");
 const D = require("../data");
+const A = require("../assets");
 
 /* Экран пола и возраста. В разметке он есть всегда, но скрыт атрибутом hidden:
    без JavaScript кнопка входного экрана остаётся обычной ссылкой на список
@@ -92,6 +93,6 @@ module.exports = function homePage(updated) {
     body,
     updated,
     bodyClass: "page-home",
-    script: "/profil.js"
+    scripts: [A.profil.url]
   });
 };
