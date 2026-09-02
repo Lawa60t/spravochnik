@@ -113,6 +113,9 @@ function refineBlock(s) {
     <h2>${esc(R.resultTitle)}</h2>
     <p class="note">${esc(R.resultNote)}</p>
     <div data-slot="blocks"></div>
+    <p class="note shown-of" data-slot="shown-of" data-tpl="${attr(R.shownOf)}" hidden>
+      <span data-slot="shown-of-text"></span> <a href="#main">${esc(R.showAll)}</a>
+    </p>
 
     <section class="tell">
       <h3>${esc(R.tellTitle)}</h3>

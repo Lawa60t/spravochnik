@@ -232,6 +232,22 @@
       box.appendChild(sec);
     });
 
+    /* Сколько состояний раздела осталось за пределами показанного.
+       Без этой строки девять статей читаются как весь раздел. */
+    var shown = box.querySelectorAll("li").length;
+    var total = res.all.length;
+    var line = slot("shown-of");
+    if (line) {
+      if (shown < total) {
+        slot("shown-of-text").textContent = (line.getAttribute("data-tpl") || "")
+          .replace("{n}", shown)
+          .replace("{total}", total);
+        line.hidden = false;
+      } else {
+        line.hidden = true;
+      }
+    }
+
     slot("tell").textContent = tell();
     checkAlarms();
     show("result");
