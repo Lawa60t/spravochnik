@@ -52,22 +52,57 @@ p { margin: 0 0 .9rem; }
 
 /* ---------- каркас ---------- */
 .top {
-  display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; align-items: baseline;
+  display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; align-items: center;
+  justify-content: space-between;
   padding: .9rem 1.25rem; border-bottom: 1px solid var(--line);
   background: var(--card);
 }
-.brand { font-weight: 650; color: var(--ink); text-decoration: none; }
-/* Имя сайта назначения не несёт, поэтому рядом с ним стоит пояснение.
-   Оно часть ссылки, а не отдельная строка: так не съедает высоту на телефоне. */
-.brand .tagline {
-  font-weight: 400;
-  color: var(--ink-3);
-  font-size: .82rem;
-  margin-left: .5rem;
-  white-space: nowrap;
+.brandbox { display: flex; flex-direction: column; gap: .1rem; }
+.brand {
+  font-weight: 700;
+  font-size: 1.45rem;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.1;
 }
-.topnav { display: flex; gap: 1rem; font-size: .92rem; }
+/* Отдельная ссылка «На главную»: логотип как ссылка очевиден не всем. */
+.homelink { font-size: .9rem; color: var(--accent); }
+
+.topnav { display: flex; gap: 1rem; font-size: .95rem; flex-wrap: wrap; }
 .topnav a { color: var(--ink-2); }
+
+/* Меню на <details>: открывается без JavaScript. */
+.topmenu { position: relative; }
+.topmenu > summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .4rem .7rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  font-size: .95rem;
+}
+.topmenu[open] > summary { border-color: var(--accent); }
+.topmenu .topnav-narrow {
+  position: absolute; right: 0; z-index: 5;
+  flex-direction: column; gap: 0;
+  min-width: 13rem;
+  margin-top: .4rem;
+  padding: .3rem 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .12);
+}
+.topmenu .topnav-narrow a { padding: .6rem .9rem; min-height: 44px; display: flex; align-items: center; }
+
+/* Широкий экран показывает разделы строкой, узкий — только меню. */
+.topnav-wide { display: none; }
+@media (min-width: 46rem) {
+  .topnav-wide { display: flex; }
+  .topmenu { display: none; }
+}
 
 /* Ссылку «к содержанию» прячем обрезкой, а не выносом за левый край:
    элемент шириной 213px на позиции -9999px в части браузеров сам даёт

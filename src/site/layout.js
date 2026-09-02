@@ -36,15 +36,34 @@ function head({ title, description, canonical, ogType }) {
   ].join("\n  ");
 }
 
-function header() {
-  return `<header class="top">
-    <a class="skip" href="#main">${esc(T.skipToContent)}</a>
-    <a class="brand" href="/">${esc(cfg.siteName)}<span class="tagline">${esc(cfg.tagline)}</span></a>
-    <nav class="topnav">
+/* Шапка. Имя сайта крупно, под ним отдельная ссылка «На главную»:
+   логотип как ссылка очевиден не всем, а читатель здесь бывает пожилой.
+
+   Разделы показаны двумя способами. На широком экране — строкой,
+   на узком — выпадающим списком на <details>, то есть без единой строки
+   JavaScript: меню обязано открываться и на первом уровне доступа.
+   Списка два, и они дублируют друг друга намеренно — переключение
+   отдаёт медиазапросу, а не скрипту. */
+function nav(cls) {
+  return `<nav class="${cls}">
       <a href="/oblasti/">${esc(T.navZones)}</a>
       <a href="/ukazatel/">${esc(T.navIndex)}</a>
       <a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a>
-    </nav>
+    </nav>`;
+}
+
+function header() {
+  return `<header class="top">
+    <a class="skip" href="#main">${esc(T.skipToContent)}</a>
+    <div class="brandbox">
+      <a class="brand" href="/">${esc(cfg.siteName)}</a>
+      <a class="homelink" href="/">${esc(T.homeLink)}</a>
+    </div>
+    ${nav("topnav topnav-wide")}
+    <details class="topmenu">
+      <summary>${esc(T.menu)}</summary>
+      ${nav("topnav topnav-narrow")}
+    </details>
   </header>`;
 }
 
