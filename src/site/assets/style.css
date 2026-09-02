@@ -233,6 +233,10 @@ ul.index li.ref { color: var(--ink-3); }
   padding: 1.4rem 1.25rem .9rem;
 }
 .entry h1 { font-size: 1.5rem; }
+/* Перечни входного экрана: тире вместо маркера, как в исходном тексте. */
+ul.dashed { list-style: none; padding-left: .2rem; margin: 0 0 .9rem; }
+ul.dashed li { padding-left: 1.1rem; text-indent: -1.1rem; margin-bottom: .3rem; }
+ul.dashed li::before { content: "— "; }
 .cta { margin: 1.2rem 0 .4rem; }
 .button {
   display: inline-block;

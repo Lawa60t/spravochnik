@@ -14,9 +14,15 @@ module.exports = function homePage(updated) {
   const body = `<div class="home">
   <section class="entry">
     <h1>${esc(T.entry.title)}</h1>
-    ${T.entry.body.map(p => `<p>${esc(p)}</p>`).join("\n    ")}
+    ${T.entry.blocks
+      .map(b =>
+        b.list
+          ? `<ul class="dashed">\n      ${b.list.map(x => `<li>${esc(x)}</li>`).join("\n      ")}\n    </ul>`
+          : `<p>${esc(b.p)}</p>`
+      )
+      .join("\n    ")}
     <p class="cta"><a class="button" href="/oblasti/">${esc(T.entry.button)}</a></p>
-    <p class="note">${esc(T.entry.note)} <a href="/ukazatel/">${esc(T.index.title)}</a> — если знаете название.</p>
+    <p class="note">${esc(T.entry.note)}</p>
     <p class="note"><a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a></p>
   </section>
 
