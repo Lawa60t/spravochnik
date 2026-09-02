@@ -163,6 +163,12 @@
       li.textContent = a.say;
       list.appendChild(li);
     });
+
+    /* Сводку для врача показываем прямо здесь: если сказано звонить 103,
+       она нужна сейчас, а не после того, как человек доберётся до конца. */
+    var here = slot("tell-alarm");
+    if (here) here.textContent = tell();
+
     box.hidden = false;
   }
 
@@ -280,8 +286,11 @@
      его просто нет, и кнопка молча ничего не делает. Поэтому запасной путь —
      выделить текст в самой странице. Даже если и execCommand не сработает,
      сводка остаётся выделенной и человек копирует её сам. */
+  /* Кнопок «скопировать» две — в тревожном блоке и в выдаче.
+     Копируем ту сводку, рядом с которой нажали. */
   function copyTell(btn) {
-    var el = slot("tell");
+    var wrap = btn.closest ? btn.closest(".tell") : null;
+    var el = (wrap && wrap.querySelector("pre")) || slot("tell");
     var was = btn.textContent;
     var flash = function (label) {
       btn.textContent = label;

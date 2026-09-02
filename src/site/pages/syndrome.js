@@ -134,6 +134,16 @@ function refineBlock(s) {
     <p class="phone">${esc(R.alarmPhone)}</p>
     <p>${esc(R.alarmNote)}</p>
     <p class="note">${esc(R.alarmStill)}</p>
+
+    ${/* Сводка нужна в ту же секунду, когда человеку сказано звонить,
+         а не только тому, кто дошёл до конца уточнения. */ ""}
+    <section class="tell">
+      <h3>${esc(R.tellTitle)}</h3>
+      <pre data-slot="tell-alarm"></pre>
+      <p>
+        <button type="button" data-act="copy" data-copied="${attr(R.copied)}" data-selected="${attr(R.selected)}">${esc(R.copy)}</button>
+      </p>
+    </section>
   </div>
 </section>`;
 }
