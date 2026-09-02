@@ -66,6 +66,11 @@ module.exports = function homePage(updated) {
           : `<p>${esc(b.p)}</p>`
       )
       .join("\n    ")}
+    <ul class="counts">
+      <li><b>${D.conditions.length}</b> статей о состояниях</li>
+      <li><b>${D.syndromes.length}</b> разделов справочника</li>
+      <li><b>${D.map.zones.length}</b> областей тела</li>
+    </ul>
     <p class="note"><a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a></p>
 
     ${/* Кнопка закреплена у нижнего края экрана: текст длинный, и человек,
@@ -81,21 +86,6 @@ module.exports = function homePage(updated) {
 
   ${forkScreen()}
 
-  <section class="about">
-    <p class="lead">${esc(T.pages.homeLead)}</p>
-    <ul class="counts">
-      <li><b>${D.conditions.length}</b> статей о состояниях</li>
-      <li><b>${D.syndromes.length}</b> разделов справочника</li>
-      <li><b>${D.map.zones.length}</b> областей тела</li>
-    </ul>
-  </section>
-
-  <section class="doesnot">
-    <h2>${esc(T.doesNot.title)}</h2>
-    <ul>
-      ${T.doesNot.items.map(x => `<li>${esc(x)}</li>`).join("\n      ")}
-    </ul>
-  </section>
 </div>`;
 
   return page({

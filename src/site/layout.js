@@ -49,6 +49,7 @@ function nav(cls) {
       <a href="/oblasti/">${esc(T.navZones)}</a>
       <a href="/ukazatel/">${esc(T.navIndex)}</a>
       <a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a>
+      <a href="/chto-ne-delaem/">${esc(T.navDoesNot)}</a>
     </nav>`;
 }
 
@@ -75,6 +76,12 @@ function footer(updated) {
     <p>${esc(f.sources)} ${esc(f.updatedPrefix)} ${esc(dateRu(updated))}</p>
     <p class="tel">${esc(f.emergency)}</p>
     <p>${esc(f.ownerPrefix)} ${esc(cfg.owner.name)}. ${esc(f.mailPrefix)} <a href="mailto:${attr(cfg.owner.mail)}">${esc(cfg.owner.mail)}</a></p>
+    <p class="footlinks">
+      <a href="/oblasti/">${esc(T.navZones)}</a>
+      <a href="/ukazatel/">${esc(T.navIndex)}</a>
+      <a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a>
+      <a href="/chto-ne-delaem/">${esc(T.navDoesNot)}</a>
+    </p>
     <p class="age">${esc(f.age)}</p>
   </footer>`;
 }

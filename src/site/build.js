@@ -17,7 +17,7 @@ const conditionPage = require("./pages/condition");
 const syndromePage = require("./pages/syndrome");
 const ukazatelPage = require("./pages/ukazatel");
 const homePage = require("./pages/home");
-const { notSearchedHerePage, noMatchPage } = require("./pages/plain");
+const { notSearchedHerePage, noMatchPage, doesNotPage } = require("./pages/plain");
 const { zonesPage, zonePage, zhalobyPage } = require("./pages/oblasti");
 
 const root = path.join(__dirname, "..", "..");
@@ -184,6 +184,7 @@ function sitemap(origin, updated) {
     ...D.map.zones.map(z => ({ loc: D.zonePath(z.id), lastmod: D.anatomy.updated || updated })),
     { loc: "/chto-ne-razbiraem/", lastmod: D.redflags.updated || updated },
     { loc: "/moego-sluchaya-net/", lastmod: D.redflags.updated || updated },
+    { loc: "/chto-ne-delaem/", lastmod: updated },
     ...D.conditions.map(c => ({ loc: D.conditionPath(c.id), lastmod: c.updated })),
     ...D.syndromes.map(s => ({ loc: D.syndromePath(s.id), lastmod: s.updated }))
   ];
@@ -225,6 +226,7 @@ function build() {
   write("/zhaloby/", zhalobyPage(updated));
   write("/chto-ne-razbiraem/", notSearchedHerePage(updated));
   write("/moego-sluchaya-net/", noMatchPage(updated));
+  write("/chto-ne-delaem/", doesNotPage(updated));
   D.map.zones.forEach(z => write(D.zonePath(z.id), zonePage(z, updated)));
   D.conditions.forEach(c => write(D.conditionPath(c.id), conditionPage(c, updated)));
   D.syndromes.forEach(s => write(D.syndromePath(s.id), syndromePage(s, updated)));

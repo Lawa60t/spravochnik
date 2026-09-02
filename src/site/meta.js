@@ -75,6 +75,13 @@ module.exports = {
     )
   }),
 
+  doesNot: title => ({
+    title: withSite(title),
+    description: clamp(
+      "Чего справочник не делает: не просит регистрироваться, не сохраняет ответы, не использует файлы cookie, не ставит диагнозов."
+    )
+  }),
+
   ukazatel: (nConditions, nSyndromes) => ({
     title: withSite("Алфавитный указатель"),
     description: clamp(

@@ -49,4 +49,27 @@ function noMatchPage(updated) {
   });
 }
 
-module.exports = { notSearchedHerePage, noMatchPage };
+/* Блок уехал с главной на свою страницу: на телефоне он занимал больше места,
+   чем то, ради чего человек пришёл. Ссылки на него — в меню и в подвале. */
+function doesNotPage(updated) {
+  const d = T.doesNot;
+  const m = meta.doesNot(d.title);
+
+  const body = `<article class="plain">
+  <h1>${esc(d.title)}</h1>
+  <ul class="big">
+    ${d.items.map(x => `<li>${esc(x)}</li>`).join("\n    ")}
+  </ul>
+</article>`;
+
+  return page({
+    title: m.title,
+    description: m.description,
+    path: "/chto-ne-delaem/",
+    body,
+    updated,
+    bodyClass: "page-plain"
+  });
+}
+
+module.exports = { notSearchedHerePage, noMatchPage, doesNotPage };
