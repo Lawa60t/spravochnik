@@ -21,13 +21,21 @@
   var maxSteps = parseInt(root.getAttribute("data-max"), 10) || 10;
 
   var steps = {};
-  ["start", "sex", "age", "q", "result"].forEach(function (name) {
+  ["feel", "sex", "age", "q", "result"].forEach(function (name) {
     steps[name] = root.querySelector('[data-step="' + name + '"]');
   });
   var slot = function (name) { return root.querySelector('[data-slot="' + name + '"]'); };
 
   /* Состояние диалога. Ровно эти три поля — и только в памяти. */
-  var state = { sex: null, age: null, answers: {}, asked: 0 };
+  /* feeling — номер выбранного ощущения, первый шаг уточнения.
+     null означает «затрудняюсь ответить»: движок тогда ничего не подставляет. */
+  var state = { feeling: null, sex: null, age: null, answers: {}, asked: 0 };
+
+  function ask3(extra) {
+    var o = { sex: state.sex, age: state.age, answers: state.answers, feeling: state.feeling };
+    if (extra) for (var k in extra) o[k] = extra[k];
+    return o;
+  }
 
   function show(name) {
     Object.keys(steps).forEach(function (k) {
@@ -39,17 +47,18 @@
     var el = document.createElement("script");
     el.src = src;
     el.onload = done;
-    el.onerror = function () { show("start"); };
+    el.onerror = function () { show("feel"); };
     document.head.appendChild(el);
   }
 
   /* ---------- шаги ---------- */
   root.addEventListener("click", function (e) {
-    var el = e.target.closest ? e.target.closest("[data-act],[data-sex],[data-opt]") : null;
+    var el = e.target.closest ? e.target.closest("[data-act],[data-sex],[data-opt],[data-feel]") : null;
     if (!el || !root.contains(el)) return;
 
+    if (el.hasAttribute("data-feel")) return pickFeeling(el.getAttribute("data-feel"));
+
     var act = el.getAttribute("data-act");
-    if (act === "start") return start();
     if (act === "age") return pickAge();
     if (act === "age-skip") return pickAge(true);
     if (act === "copy") return copyTell(el);
@@ -73,6 +82,13 @@
   function begin() {
     if (fromProfil()) ask();
     else show("sex");
+  }
+
+  /* Выбор ощущения — первый шаг. Данные и движок грузятся здесь, а не при
+     открытии страницы: до этого момента раздел читается обычным списком. */
+  function pickFeeling(value) {
+    state.feeling = value === "" ? null : parseInt(value, 10);
+    start();
   }
 
   function start() {
@@ -108,19 +124,17 @@
   }
 
   function restart() {
-    state = { sex: null, age: null, answers: {}, asked: 0 };
+    state = { feeling: null, sex: null, age: null, answers: {}, asked: 0 };
     var alarm = slot("alarm");
     if (alarm) alarm.hidden = true;
-    begin();
+    show("feel");
   }
 
   /* ---------- вопрос ---------- */
   function ask() {
     if (state.asked >= maxSteps) return finish();
 
-    var q = window.EZ.nextQuestion(synId, {
-      sex: state.sex, age: state.age, answers: state.answers
-    });
+    var q = window.EZ.nextQuestion(synId, ask3());
     if (!q) return finish();
 
     slot("count").textContent = (root.getAttribute("data-step-tpl") || "")
@@ -150,7 +164,9 @@
   /* ---------- тревога ---------- */
   function checkAlarms() {
     var syn = window.EZ.sById.get(synId);
-    var merged = Object.assign({}, syn.implies || {}, state.answers);
+    /* Ответы, подставленные разделом и выбранным ощущением, входят в проверку
+       тревог наравне с ответами человека. */
+    var merged = window.EZ.answersOf(syn, ask3());
     var alarms = window.EZ.checkRedflags(merged, state.age, syn.zone);
 
     var box = slot("alarm");
@@ -174,9 +190,7 @@
 
   /* ---------- выдача ---------- */
   function finish() {
-    var res = window.EZ.present(synId, {
-      sex: state.sex, age: state.age, answers: state.answers
-    });
+    var res = window.EZ.present(synId, ask3());
 
     var box = slot("blocks");
     box.textContent = "";
@@ -270,6 +284,12 @@
       head += ", " + (root.getAttribute("data-age-line") || "").toLowerCase() + " " + state.age;
     }
     lines.push(head);
+
+    /* Выбранное ощущение — часть сводки: врачу важно, как человек описал боль. */
+    if (state.feeling !== null) {
+      var btn = root.querySelector('[data-feel="' + state.feeling + '"]');
+      if (btn) lines.push((root.getAttribute("data-feel-line") || "") + ": " + btn.textContent.toLowerCase());
+    }
 
     window.EZ.QUESTIONS.forEach(function (q) {
       var a = state.answers[q.id];

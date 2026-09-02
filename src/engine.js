@@ -45,20 +45,42 @@ function checkRedflags(answers, age, zone) {
   });
 }
 
+/* ---------- выбранное ощущение ----------
+   Ощущение — первый шаг уточнения, а не подпись. Схема 1.1: у него могут быть
+   `implies` — ответы, которые оно означает буквально, и `favors` — прямая
+   надбавка состоянию, когда подходящего вопроса в разделе нет.
+
+   implies подставляются туда же, куда и implies самого раздела: до расчёта
+   и до проверки тревог. Ответ человека всегда сильнее — он идёт последним. */
+function feelingOf(s, input) {
+  const i = input.feeling;
+  if (i === undefined || i === null) return null;
+  const f = (s.feelings || [])[i];
+  return f && typeof f === "object" ? f : null;
+}
+
+function answersOf(s, input) {
+  const f = feelingOf(s, input);
+  return Object.assign({}, s.implies || {}, (f && f.implies) || {}, input.answers);
+}
+
 /* ---------- ранжирование ---------- */
 function rank(syndromeId, input) {
   const { sex, age } = input;
   const s = sById.get(syndromeId);
   if (!s) throw new Error("нет раздела " + syndromeId);
 
-  const answers = Object.assign({}, s.implies || {}, input.answers);
+  const feel = feelingOf(s, input);
+  const answers = answersOf(s, input);
   const keys = Object.entries(answers)
     .filter(([, v]) => v && v !== "unk")
     .map(([q, v]) => `${q}_${v}`);
 
   return s.candidates.map(cand => {
     const c = cById.get(cand.condition);
-    let v = cand.base;
+    /* Надбавка от ощущения — к базовой частоте, а не к весам:
+       ощущение слабее прямого признака, и 3–5 это его потолок. */
+    let v = cand.base + ((feel && feel.favors && feel.favors[cand.condition]) || 0);
     const hits = [], against = [];
 
     keys.forEach(k => {
@@ -85,7 +107,7 @@ function rank(syndromeId, input) {
 function present(syndromeId, input) {
   const list = rank(syndromeId, input);
   const syn = sById.get(syndromeId);
-  const alarms = checkRedflags(Object.assign({}, syn.implies || {}, input.answers), input.age, syn.zone);
+  const alarms = checkRedflags(answersOf(syn, input), input.age, syn.zone);
   const crit = list.filter(r => r.redflag).slice(0, 4);
   const rest = list.filter(r => !r.redflag);
   return {
@@ -194,7 +216,9 @@ function nextQuestion(syndromeId, input) {
   const s = sById.get(syndromeId);
   if (!s) throw new Error("нет раздела " + syndromeId);
 
-  const answers = Object.assign({}, s.implies || {}, input.answers);
+  /* Вопросы, на которые ответ уже получен через implies раздела или ощущения,
+     повторно не задаются. */
+  const answers = answersOf(s, input);
   const leaders = contenders(rank(syndromeId, input));
   if (leaders.length < 2) return null;
 
@@ -255,7 +279,7 @@ function nextQuestion(syndromeId, input) {
   return bestScore >= NEXT_MIN ? best : null;
 }
 
-return { rank, present, checkRedflags, nextQuestion, QUESTIONS, CONDITIONS, SYNDROMES, cById, sById, qById };
+return { rank, present, checkRedflags, nextQuestion, feelingOf, answersOf, QUESTIONS, CONDITIONS, SYNDROMES, cById, sById, qById };
 });
 
 /* ---------- прогон тестовых случаев ---------- */

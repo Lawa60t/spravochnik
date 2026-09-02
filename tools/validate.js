@@ -56,6 +56,36 @@ syndromes.forEach(s => {
 
   s.questions.forEach(qid => { if (!qById.has(qid)) E(`${s.id}: неизвестный вопрос «${qid}»`); });
 
+  /* --- разметка ощущений, схема 1.1 ---
+     Ощущение — первый шаг уточнения, поэтому его разметка проверяется так же
+     строго, как веса: ответ не из своего раздела молча не сработает,
+     а надбавка сверх пяти сделает ощущение сильнее прямого признака. */
+  const ownQuestions = new Set(s.questions);
+  const ownConditions = new Set(s.candidates.map(c => c.condition));
+
+  s.feelings.forEach((f, i) => {
+    if (typeof f !== "object" || !f.text) {
+      E(`${s.id}: ощущение №${i} должно быть объектом с полем text (схема 1.1)`);
+      return;
+    }
+    const where = `${s.id}[${i}] «${f.text}»`;
+
+    Object.entries(f.implies || {}).forEach(([qid, opt]) => {
+      const q = qById.get(qid);
+      if (!q) return E(`${where}: implies ссылается на неизвестный вопрос «${qid}»`);
+      if (!ownQuestions.has(qid)) E(`${where}: вопрос «${qid}» не входит в вопросы этого раздела`);
+      if (!q.options.some(o => o.id === opt)) E(`${where}: у вопроса «${qid}» нет варианта «${opt}»`);
+      if (opt === "unk") E(`${where}: «не знаю» не может быть подставленным ответом`);
+    });
+
+    Object.entries(f.favors || {}).forEach(([cid, value]) => {
+      if (!cById.has(cid)) return E(`${where}: favors ссылается на несуществующее состояние «${cid}»`);
+      if (!ownConditions.has(cid)) E(`${where}: состояние «${cid}» не входит в кандидатов этого раздела`);
+      if (!Number.isInteger(value) || value < 3 || value > 5)
+        E(`${where}: надбавка «${cid}» равна ${value}, допустимо от 3 до 5`);
+    });
+  });
+
   let rf = 0;
   s.candidates.forEach(cand => {
     const c = cById.get(cand.condition);

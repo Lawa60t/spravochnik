@@ -1,0 +1,361 @@
+{
+  "_комментарий": [
+    "Тестовые случаи для разметки ощущений. Один случай на одно размеченное ощущение.",
+    "",
+    "Ожидаемое состояние указано ЯВНО и вручную: это то, ради чего ощущение написано.",
+    "Выводить его из кода нельзя — тест тогда проверял бы сам себя.",
+    "",
+    "Три вида проверки, и первый из них главный:",
+    "  expectRise — названное состояние обязано ВЫРАСТИ в очках от выбора ощущения.",
+    "               Без этого проверка «оказалось в тройке» ничего не значит:",
+    "               состояние могло быть первым и до выбора.",
+    "  expect     — названное состояние обязано оказаться в первой тройке.",
+    "  onlySaves  — разметка порядок не меняет и меняться не должна: весов",
+    "               на этом ответе в разделе нет. Проверяется только то,",
+    "               что вопрос больше не задаётся.",
+    "",
+    "Для всякого ощущения с implies отдельно проверяется, что подставленные",
+    "вопросы селектор больше не задаёт: это работает всегда, даже когда",
+    "порядок не меняется."
+  ],
+  "cases": [
+    {
+      "syndrome": "leg.heel",
+      "feeling": 0,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "plantar.fasciitis"
+      ],
+      "expect": [
+        "plantar.fasciitis"
+      ],
+      "note": "первые шаги утром: walkpain_first +6 фасцииту, короткая скованность отсекает артриты"
+    },
+    {
+      "syndrome": "leg.heel",
+      "feeling": 1,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "achilles.tendinopathy"
+      ],
+      "expect": [
+        "achilles.tendinopathy"
+      ],
+      "note": "боль сзади над пяткой — ахилл, надбавкой, потому что вопроса про место нет"
+    },
+    {
+      "syndrome": "leg.heel",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "plantar.fasciitis",
+        "achilles.tendinopathy"
+      ],
+      "expect": [
+        "plantar.fasciitis",
+        "achilles.tendinopathy"
+      ],
+      "note": "болезненность при нажатии не различает их, но поднимает обоих"
+    },
+    {
+      "syndrome": "abd.rlq",
+      "feeling": 0,
+      "sex": "f",
+      "age": 28,
+      "expectRise": [
+        "appendicitis.acute"
+      ],
+      "expect": [
+        "appendicitis.acute"
+      ],
+      "note": "нарастающая постоянная боль — аппендицит"
+    },
+    {
+      "syndrome": "abd.rlq",
+      "feeling": 1,
+      "sex": "f",
+      "age": 28,
+      "expectRise": [
+        "ovarian.torsion"
+      ],
+      "note": "схватки волнами: единственный вес на progress_wave в разделе — у перекрута яичника"
+    },
+    {
+      "syndrome": "abd.rlq",
+      "feeling": 2,
+      "sex": "f",
+      "age": 28,
+      "expectRise": [
+        "ectopic.pregnancy",
+        "ovarian.cyst",
+        "ovarian.torsion"
+      ],
+      "expect": [
+        "ectopic.pregnancy"
+      ],
+      "note": "резкое начало поднимает всю группу, которую нельзя пропустить"
+    },
+    {
+      "syndrome": "abd.rlq",
+      "feeling": 3,
+      "sex": "f",
+      "age": 28,
+      "expectRise": [
+        "pid"
+      ],
+      "note": "постепенно и без динамики — воспаление придатков; аппендицит при этом не растёт"
+    },
+    {
+      "syndrome": "head.pain.thunder",
+      "feeling": 0,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "subarachnoid.hemorrhage"
+      ],
+      "expect": [
+        "subarachnoid.hemorrhage"
+      ]
+    },
+    {
+      "syndrome": "head.pain.thunder",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "subarachnoid.hemorrhage"
+      ],
+      "expect": [
+        "subarachnoid.hemorrhage"
+      ]
+    },
+    {
+      "syndrome": "head.pain.thunder",
+      "feeling": 2,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "subarachnoid.hemorrhage",
+        "stroke.ischemic"
+      ],
+      "expect": [
+        "subarachnoid.hemorrhage"
+      ],
+      "note": "все три означают внезапное начало и поднимают кровоизлияние на +6"
+    },
+    {
+      "syndrome": "head.pain.onesided",
+      "feeling": 1,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "cluster.headache"
+      ],
+      "expect": [
+        "cluster.headache"
+      ],
+      "note": "сверлит за глазом — кластерная, надбавкой"
+    },
+    {
+      "syndrome": "head.pain.onesided",
+      "feeling": 2,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "trigeminal.neuralgia"
+      ],
+      "expect": [
+        "trigeminal.neuralgia"
+      ],
+      "note": "простреливает — вариант так и называется «секундные прострелы»"
+    },
+    {
+      "syndrome": "head.pain.occiput",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "cervical.radiculopathy"
+      ],
+      "expect": [
+        "cervical.radiculopathy"
+      ],
+      "note": "прострел вверх от шеи — корешок"
+    },
+    {
+      "syndrome": "abd.epi",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "perforated.ulcer"
+      ],
+      "expect": [
+        "perforated.ulcer"
+      ],
+      "note": "кинжальная боль — прободение, с девятого места в тройку"
+    },
+    {
+      "syndrome": "abd.epi",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "onlySaves": true,
+      "note": "«схватывает и отпускает» — правда, но веса на progress_wave в этом разделе нет ни у кого, включая желчную колику. Разметка снимает вопрос и только"
+    },
+    {
+      "syndrome": "abd.umb",
+      "feeling": 0,
+      "sex": "m",
+      "age": 40,
+      "onlySaves": true,
+      "note": "progress_wave в разделе не весит ни у кого"
+    },
+    {
+      "syndrome": "abd.umb",
+      "feeling": 1,
+      "sex": "m",
+      "age": 40,
+      "onlySaves": true,
+      "note": "progress_same в разделе не весит ни у кого"
+    },
+    {
+      "syndrome": "abd.hypo",
+      "feeling": 1,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "cystitis",
+        "prostatitis"
+      ],
+      "expect": [
+        "cystitis"
+      ],
+      "note": "резь при мочеиспускании — вариант urine_burn так и называется"
+    },
+    {
+      "syndrome": "abd.hypo",
+      "feeling": 2,
+      "sex": "m",
+      "age": 40,
+      "onlySaves": true,
+      "note": "progress_wave в разделе не весит ни у кого"
+    },
+    {
+      "syndrome": "abd.diffuse",
+      "feeling": 1,
+      "sex": "m",
+      "age": 40,
+      "onlySaves": true,
+      "note": "progress_wave в разделе не весит ни у кого"
+    },
+    {
+      "syndrome": "abd.diffuse",
+      "feeling": 2,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "perforated.ulcer"
+      ],
+      "expect": [
+        "perforated.ulcer"
+      ],
+      "note": "твёрдый живот — вариант guarding_board так и называется, прободение +6"
+    },
+    {
+      "syndrome": "back.lumbar.acute",
+      "feeling": 0,
+      "sex": "m",
+      "age": 70,
+      "expectRise": [
+        "vertebral.fracture"
+      ],
+      "note": "прострел — внезапное начало; поднимает перелом позвонка, у пожилого это и есть цена ошибки"
+    },
+    {
+      "syndrome": "back.lumbar.acute",
+      "feeling": 2,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "herpes.zoster"
+      ],
+      "expect": [
+        "herpes.zoster"
+      ],
+      "note": "жжение полосой — дерматом, надбавкой: боль опережает сыпь"
+    },
+    {
+      "syndrome": "back.lumbar.acute",
+      "feeling": 4,
+      "sex": "m",
+      "age": 40,
+      "onlySaves": true,
+      "note": "progress_wave в разделе не весит ни у кого, включая почечную колику"
+    },
+    {
+      "syndrome": "back.sciatica",
+      "feeling": 0,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "disc.herniation.lumbar"
+      ],
+      "expect": [
+        "disc.herniation.lumbar"
+      ],
+      "note": "простреливает ниже колена — грыжа диска"
+    },
+    {
+      "syndrome": "back.sciatica",
+      "feeling": 2,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "piriformis.syndrome"
+      ],
+      "expect": [
+        "piriformis.syndrome"
+      ],
+      "note": "тянет от ягодицы — грушевидная мышца"
+    },
+    {
+      "syndrome": "back.colic",
+      "feeling": 1,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "renal.colic"
+      ],
+      "expect": [
+        "renal.colic"
+      ],
+      "note": "не находит места — главный признак колики против боли, при которой замирают"
+    },
+    {
+      "syndrome": "neck.throat.raw",
+      "feeling": 1,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "dry.irritation"
+      ],
+      "expect": [
+        "dry.irritation"
+      ]
+    },
+    {
+      "syndrome": "neck.throat.raw",
+      "feeling": 3,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "globus"
+      ],
+      "note": "надбавка 3 поднимает globus с 3 до 6 и на две позиции, но в тройку из десяти состояний не выводит — и не должна"
+    }
+  ]
+}

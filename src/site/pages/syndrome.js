@@ -78,12 +78,20 @@ function refineBlock(s) {
     data-engine="${attr(A.engine.url)}"
     data-max="${MAX}"
     data-step-tpl="${attr(R.stepOf)}"
+    data-feel-line="${attr(R.feelLine)}"
     data-sex-line="${attr(R.sexLine)}"
     data-age-line="${attr(R.ageLine)}" hidden>
 
-  <div data-step="start">
-    <p><button type="button" class="button" data-act="start">${esc(R.start)}</button></p>
-    <p class="note">${esc(R.startNote)}</p>
+  ${/* Ощущения — первый шаг уточнения, а не подпись под названием раздела.
+       Кнопки существуют в разметке всегда; без JavaScript блок скрыт,
+       и раздел читается обычным списком. */ ""}
+  <div data-step="feel">
+    <h2>${esc(R.feelTitle)}</h2>
+    <div class="choices">
+      ${s.feelings.map((f, i) => `<button type="button" data-feel="${i}">${esc(f.text)}</button>`).join("\n      ")}
+      <button type="button" data-feel="" class="muted">${esc(R.feelSkip)}</button>
+    </div>
+    <p class="note">${esc(R.feelNote)}</p>
   </div>
 
   <div data-step="sex" hidden>
@@ -171,6 +179,8 @@ module.exports = function syndromePage(s, updated) {
   <h1>${esc(s.name)}</h1>
   ${s.aka && s.aka.length ? `<p class="alt"><span>${esc(T.syndrome.alsoSaid)}:</span> ${esc(s.aka.join(" · "))}</p>` : ""}
 
+  ${refineBlock(s)}
+
   <p class="lead">${esc(T.syndrome.listTitle)}. ${esc(T.syndrome.listNote)}</p>
 
   ${
@@ -187,11 +197,10 @@ module.exports = function syndromePage(s, updated) {
   <p class="nomatch"><a href="/moego-sluchaya-net/">${esc(T.syndrome.noMatch)}</a></p>
 </article>`;
 
-  /* Правая колонка: то, что и раньше стояло под списком. Разметка та же,
-     меняется только расположение — без стилей всё читается подряд. */
-  const rail = `${refineBlock(s)}
-
-  <section class="notsearched">
+  /* Правая колонка. Уточнение переехало отсюда наверх основной колонки:
+     раздел должен открываться вопросом «что больше похоже?», а не находить
+     его сбоку. Здесь остаётся то, что и раньше стояло под списком. */
+  const rail = `<section class="notsearched">
     <h2>${esc(T.syndrome.notSearchedTitle)}</h2>
     <p class="note">${esc(T.syndrome.notSearchedNote)}</p>
     <ul>
