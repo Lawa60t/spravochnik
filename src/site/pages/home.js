@@ -66,11 +66,8 @@ module.exports = function homePage(updated) {
           : `<p>${esc(b.p)}</p>`
       )
       .join("\n    ")}
-    <ul class="counts">
-      <li><b>${D.conditions.length}</b> статей о состояниях</li>
-      <li><b>${D.syndromes.length}</b> разделов справочника</li>
-      <li><b>${D.map.zones.length}</b> областей тела</li>
-    </ul>
+    ${/* Одной строкой и мелко: это справка об объёме, а не витрина. */ ""}
+    <p class="counts">${D.conditions.length} статей · ${D.syndromes.length} разделов · ${D.map.zones.length} областей тела</p>
     <p class="note"><a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a></p>
 
     ${/* Кнопка закреплена у нижнего края экрана: текст длинный, и человек,

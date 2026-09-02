@@ -303,12 +303,13 @@ ul.dashed li::before { content: "— "; }
   min-height: 44px;
   line-height: 1.9;
 }
-.about { margin-top: 2rem; }
-ul.counts { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 1.4rem; }
-ul.counts b { display: block; font-size: 1.4rem; }
-ul.counts li { font-size: .85rem; color: var(--ink-3); }
-.doesnot ul { padding-left: 1.1rem; }
-.doesnot li { margin-bottom: .35rem; }
+/* Счётчики — одна мелкая строка. Крупные цифры обещали витрину,
+   а это всего лишь справка об объёме. */
+.counts {
+  font-size: .85rem;
+  color: var(--ink-3);
+  margin: .2rem 0 .55rem;
+}
 
 /* ---------- области ---------- */
 .zonelist .count {
