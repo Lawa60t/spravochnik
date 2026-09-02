@@ -41,14 +41,15 @@ module.exports = function ukazatelPage(updated) {
   /* статьи + синонимы */
   const condEntries = [];
   D.conditions.forEach(c => {
+    const mark = c.sexOnly ? ` data-sex-only="${attr(c.sexOnly)}"` : "";
     condEntries.push({
       sortKey: c.name,
-      html: `<li><a href="${attr(D.conditionPath(c.id))}">${esc(c.name)}</a></li>`
+      html: `<li${mark}><a href="${attr(D.conditionPath(c.id))}">${esc(c.name)}</a></li>`
     });
     (c.alt || []).forEach(alt => {
       condEntries.push({
         sortKey: alt,
-        html: `<li class="ref">${esc(alt)} — ${esc(T.index.seeAlso)} <a href="${attr(D.conditionPath(c.id))}">${esc(c.name)}</a></li>`
+        html: `<li class="ref"${mark}>${esc(alt)} — ${esc(T.index.seeAlso)} <a href="${attr(D.conditionPath(c.id))}">${esc(c.name)}</a></li>`
       });
     });
   });
@@ -100,6 +101,6 @@ module.exports = function ukazatelPage(updated) {
     body,
     updated,
     bodyClass: "page-ukazatel",
-    script: "/search.js"
+    scripts: ["/profil.js", "/search.js"]
   });
 };

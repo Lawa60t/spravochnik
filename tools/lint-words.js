@@ -76,7 +76,7 @@ const TITLE_FIXED_MAX = 65;
 /* Страницы, которым разрешена надстройка на JavaScript. Список растёт только
    осознанно: на третьем этапе сюда добавятся страницы разделов с уточнением.
    Всё, чего нет в списке, обязано быть полным без единого скрипта. */
-const SCRIPTED = [/^\/ukazatel\/index\.html$/, /^\/razdely\/[a-z0-9-]+\/index\.html$/];
+const SCRIPTED = [/^\/index\.html$/, /^\/ukazatel\/index\.html$/, /^\/razdely\/[a-z0-9-]+\/index\.html$/];
 const isScripted = rel => SCRIPTED.some(re => re.test(rel));
 
 /* ---------- исключения ---------- */

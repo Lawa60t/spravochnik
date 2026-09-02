@@ -59,10 +59,26 @@
     if (el.hasAttribute("data-opt")) return answer(el.getAttribute("data-q"), el.getAttribute("data-opt"));
   });
 
+  /* Пол и возраст спрашиваются один раз на входе и лежат в sessionStorage.
+     Здесь их переспрашивают только у того, кто пришёл из поиска прямо на раздел
+     и потому ни на что не отвечал. */
+  function fromProfil() {
+    var p = window.EZ_PROFIL;
+    if (!p || !p.known) return false;
+    state.sex = p.sex;
+    state.age = p.age;
+    return true;
+  }
+
+  function begin() {
+    if (fromProfil()) ask();
+    else show("sex");
+  }
+
   function start() {
-    if (window.EZ) return show("sex");
+    if (window.EZ) return begin();
     loadScript(root.getAttribute("data-payload"), function () {
-      loadScript("/engine.js", function () { show("sex"); });
+      loadScript("/engine.js", begin);
     });
   }
 
@@ -95,7 +111,7 @@
     state = { sex: null, age: null, answers: {}, asked: 0 };
     var alarm = slot("alarm");
     if (alarm) alarm.hidden = true;
-    show("sex");
+    begin();
   }
 
   /* ---------- вопрос ---------- */

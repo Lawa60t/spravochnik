@@ -28,7 +28,7 @@ function sortItems(a, b) {
 const GIST = 90;
 
 function renderItem({ c }) {
-  return `<li>
+  return `<li${c.sexOnly ? ` data-sex-only="${attr(c.sexOnly)}"` : ""}>
         <a href="${attr(D.conditionPath(c.id))}">${esc(c.name)}</a>
         <span class="icd">${esc(c.icd)}</span>
         <span class="gist">${esc(meta.clamp(meta.firstSentence(c.what), GIST))}</span>
@@ -43,7 +43,7 @@ function list(items) {
 
 function block(title, items, cls) {
   if (!items.length) return "";
-  return `<section class="block ${attr(cls)}">
+  return `<section class="block ${attr(cls)}" data-group>
     <h2>${esc(title)}</h2>
     ${list(items)}
   </section>`;
@@ -55,7 +55,7 @@ function block(title, items, cls) {
    превращают оглавление в предупреждение. */
 function rareBlock(title, items, note) {
   if (!items.length) return "";
-  return `<details class="block rare">
+  return `<details class="block rare" data-group>
     <summary><span class="sum">${esc(title)}</span> <span class="count">${items.length}</span></summary>
     <p class="note">${esc(note)}</p>
     ${list(items)}
@@ -163,7 +163,7 @@ module.exports = function syndromePage(s, updated) {
        поломка вёрстки, а назвать слитый список «часто» было бы неправдой —
        в нём и редкие. Так на 24 разделах из 110. */
     often.length <= 1
-      ? `<section class="block">${list(often.concat(seldom))}</section>`
+      ? `<section class="block" data-group>${list(often.concat(seldom))}</section>`
       : block(T.syndrome.blockOften, often, "often") + "\n  " + block(T.syndrome.blockSeldom, seldom, "seldom")
   }
   ${rareBlock(T.syndrome.blockRare, rare, T.syndrome.blockRareNote)}
@@ -188,6 +188,6 @@ ${refineBlock(s)}`;
     body,
     updated,
     bodyClass: "page-syndrome",
-    script: "/utochnenie.js"
+    scripts: ["/profil.js", "/utochnenie.js"]
   });
 };

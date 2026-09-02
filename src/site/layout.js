@@ -61,9 +61,11 @@ function footer(updated) {
 }
 
 /* Полная страница. body — уже готовый HTML. */
-/* script — только свой файл по корневому пути и только там, где надстройка
-   действительно нужна. Страница обязана быть полной и без него. */
-function page({ title, description, path, body, updated, bodyClass, ogType, script }) {
+/* scripts — только свои файлы по корневым путям и только там, где надстройка
+   действительно нужна. Порядок важен: profil.js кладёт window.EZ_PROFIL,
+   остальные его читают. Страница обязана быть полной и без них. */
+function page({ title, description, path, body, updated, bodyClass, ogType, script, scripts }) {
+  const js = scripts && scripts.length ? scripts : script ? [script] : [];
   const canonical = cfg.origin.replace(/\/$/, "") + path;
   return `<!doctype html>
 <html lang="ru">
@@ -76,7 +78,7 @@ ${header()}
 ${body}
 </main>
 ${footer(updated)}
-${script ? `<script src="${attr(script)}" defer></script>` : ""}
+${js.map(src => `<script src="${attr(src)}" defer></script>`).join("\n")}
 </body>
 </html>
 `;

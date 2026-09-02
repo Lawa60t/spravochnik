@@ -117,6 +117,7 @@ function verifyLinks() {
   const targets = new Set(written.map(w => w.urlPath));
   targets.add("/style.css");
   targets.add("/search.js");
+  targets.add("/profil.js");
   const broken = new Map();
   const planned = new Map();
   let total = 0;
@@ -244,6 +245,7 @@ function build() {
 
   fs.copyFileSync(path.join(__dirname, "assets", "style.css"), path.join(dist, "style.css"));
   fs.copyFileSync(path.join(__dirname, "assets", "search.js"), path.join(dist, "search.js"));
+  fs.copyFileSync(path.join(__dirname, "assets", "profil.js"), path.join(dist, "profil.js"));
   fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap(cfg.origin, updated), "utf8");
   fs.writeFileSync(path.join(dist, "robots.txt"), robots(cfg.origin), "utf8");
 
