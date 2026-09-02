@@ -72,7 +72,12 @@ module.exports = function conditionPage(c, updated) {
     ${row(T.condition.tests, c.tests)}
   </dl>
 
-  ${inSections(c)}
+</article>`;
+
+  /* Правая колонка: то, что и раньше лежало под текстом. Разметка не
+     дублируется и не теряется — меняется только расположение, поэтому
+     без стилей и для поисковика всё остаётся на месте, следом за статьёй. */
+  const rail = `${inSections(c)}
 
   <section class="origin">
     <h2>${esc(T.condition.sources)}</h2>
@@ -87,14 +92,14 @@ module.exports = function conditionPage(c, updated) {
       <a href="mailto:${attr(cfg.errorMail)}?subject=${encodeURIComponent(mailSubject)}">${esc(T.condition.reportError)}</a>
       <span class="note">${esc(T.condition.reportErrorNote)}</span>
     </p>
-  </section>
-</article>`;
+  </section>`;
 
   return page({
     title: m.title,
     description: m.description,
     path: D.conditionPath(c.id),
     body,
+    rail,
     updated,
     bodyClass: "page-condition",
     ogType: "article"

@@ -45,14 +45,37 @@ function head({ title, description, canonical, ogType }) {
    JavaScript: меню обязано открываться и на первом уровне доступа.
    Списка два, и они дублируют друг друга намеренно — переключение
    отдаёт медиазапросу, а не скрипту. */
+/* Один список ссылок на три места: строка в шапке, меню на узком экране
+   и левая колонка на широком. Переключение отдано медиазапросу, а не скрипту,
+   поэтому списки существуют в разметке одновременно. */
+const LINKS = [
+  ["/oblasti/", "navZones"],
+  ["/ukazatel/", "navIndex"],
+  ["/chto-ne-razbiraem/", "navNotSearched"],
+  ["/chto-ne-delaem/", "navDoesNot"],
+  ["/o-spravochnike/", "navAbout"],
+  ["/kak-sostavleny/", "navHowMade"],
+  ["/soglashenie/", "navTerms"]
+];
+
+function navLinks() {
+  return LINKS.map(([href, key]) => `<a href="${attr(href)}">${esc(T[key])}</a>`).join("\n      ");
+}
+
 function nav(cls) {
   return `<nav class="${cls}">
-      <a href="/oblasti/">${esc(T.navZones)}</a>
-      <a href="/ukazatel/">${esc(T.navIndex)}</a>
-      <a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a>
-      <a href="/chto-ne-delaem/">${esc(T.navDoesNot)}</a>
-      <a href="/o-spravochnike/">${esc(T.navAbout)}</a>
+      ${navLinks()}
     </nav>`;
+}
+
+/* Левая колонка: прилипает при прокрутке средствами CSS, без JavaScript.
+   Ниже 1200 точек скрыта — там те же ссылки лежат в меню шапки. */
+function sideNav() {
+  return `<nav class="side">
+    <div class="side-inner">
+      ${navLinks()}
+    </div>
+  </nav>`;
 }
 
 function header() {
@@ -105,7 +128,7 @@ function footer(updated, path) {
 /* scripts — только свои файлы по корневым путям и только там, где надстройка
    действительно нужна. Порядок важен: profil.js кладёт window.EZ_PROFIL,
    остальные его читают. Страница обязана быть полной и без них. */
-function page({ title, description, path, body, updated, bodyClass, ogType, script, scripts }) {
+function page({ title, description, path, body, rail, updated, bodyClass, ogType, script, scripts }) {
   const js = scripts && scripts.length ? scripts : script ? [script] : [];
   const canonical = cfg.origin.replace(/\/$/, "") + path;
   return `<!doctype html>
@@ -115,9 +138,13 @@ function page({ title, description, path, body, updated, bodyClass, ogType, scri
 </head>
 <body${bodyClass ? ` class="${attr(bodyClass)}"` : ""}>
 ${header()}
+<div class="layout">
+${sideNav()}
 <main id="main">
 ${body}
 </main>
+${rail ? `<aside class="rail"><div class="rail-inner">\n${rail}\n</div></aside>` : ""}
+</div>
 ${footer(updated, path)}
 ${js.map(src => `<script src="${attr(src)}" defer></script>`).join("\n")}
 </body>

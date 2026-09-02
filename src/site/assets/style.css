@@ -13,6 +13,7 @@
   --alarm-line: #e0bdb4;
   --shadow: rgba(0, 0, 0, .12);
   --measure: 38rem;
+  --measure-wide: 38rem; /* ширина колонки текста на широком экране */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -130,6 +131,60 @@ main {
   padding: 1.8rem 1.25rem 3rem;
 }
 .page-ukazatel main { max-width: 62rem; }
+
+/* ---------- три колонки от 1200 точек ----------
+   Разметка одна: ниже 1200 всё идёт потоком, как раньше. Левая колонка там
+   скрыта — те же ссылки лежат в меню шапки; правая просто следует за текстом,
+   ровно там, где эти блоки стояли всегда. Отдельной версии для телефона нет. */
+.side { display: none; }
+.rail { padding: 0 1.25rem; max-width: var(--measure); margin: 0 auto; }
+
+@media (min-width: 1200px) {
+  .layout {
+    display: grid;
+    /* Крайние колонки тянутся, средняя ограничена: текст держит свою ширину,
+       а пустых полей по краям экрана не остаётся. */
+    grid-template-columns: minmax(15rem, 1fr) minmax(0, var(--measure-wide)) minmax(17rem, 1fr);
+    gap: 0 2rem;
+    align-items: start;
+    padding: 0 1.5rem;
+  }
+
+  .side {
+    display: block;
+    position: sticky;
+    top: 1.5rem;
+    padding: 2rem 0;
+  }
+  .side-inner {
+    max-width: 280px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .1rem;
+  }
+  .side-inner a {
+    color: var(--ink-2);
+    padding: .5rem .6rem;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  .side-inner a:hover { background: var(--card); text-decoration: underline; }
+
+  main { max-width: none; margin: 0; padding: 2rem 0 4rem; }
+  .page-ukazatel main { max-width: none; }
+
+  .rail { max-width: none; margin: 0; padding: 2rem 0 4rem; }
+  .rail-inner { max-width: 320px; }
+  .rail .block, .rail .refine, .rail .notsearched, .rail .insections, .rail .origin {
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+  .rail .refine { border-top: 0; padding-top: 0; }
+
+  /* На широком экране навигация живёт в левой колонке, в шапке она лишняя. */
+  .topnav-wide, .topmenu { display: none; }
+}
 
 .bottom {
   border-top: 1px solid var(--line);

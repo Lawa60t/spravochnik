@@ -184,24 +184,27 @@ module.exports = function syndromePage(s, updated) {
   }
   ${rareBlock(T.syndrome.blockRare, rare, T.syndrome.blockRareNote)}
 
+  <p class="nomatch"><a href="/moego-sluchaya-net/">${esc(T.syndrome.noMatch)}</a></p>
+</article>`;
+
+  /* Правая колонка: то, что и раньше стояло под списком. Разметка та же,
+     меняется только расположение — без стилей всё читается подряд. */
+  const rail = `${refineBlock(s)}
+
   <section class="notsearched">
     <h2>${esc(T.syndrome.notSearchedTitle)}</h2>
     <p class="note">${esc(T.syndrome.notSearchedNote)}</p>
     <ul>
       ${s.notSearchedHere.map(x => `<li>${esc(x)}</li>`).join("\n      ")}
     </ul>
-  </section>
-
-  <p class="nomatch"><a href="/moego-sluchaya-net/">${esc(T.syndrome.noMatch)}</a></p>
-</article>
-
-${refineBlock(s)}`;
+  </section>`;
 
   return page({
     title: m.title,
     description: m.description,
     path: D.syndromePath(s.id),
     body,
+    rail,
     updated,
     bodyClass: "page-syndrome",
     scripts: [A.profil.url, A.utochnenie.url]
