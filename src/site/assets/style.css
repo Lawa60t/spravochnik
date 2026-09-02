@@ -132,25 +132,29 @@ main {
 }
 .page-ukazatel main { max-width: 62rem; }
 
-/* ---------- три колонки от 1200 точек ----------
-   Разметка одна: ниже 1200 всё идёт потоком, как раньше. Левая колонка там
-   скрыта — те же ссылки лежат в меню шапки; правая просто следует за текстом,
-   ровно там, где эти блоки стояли всегда. Отдельной версии для телефона нет. */
+/* ---------- колонки ----------
+   Разметка одна на все ширины, отдельной версии для телефона нет.
+
+   до 1200   — одна колонка, как было: 608 точек и 17 пикселей;
+   1200–1500 — две: слева навигация, текст 760, правая колонка уходит под текст.
+               Три колонки здесь не помещаются: 1280 и 1366 — самые частые
+               разрешения ноутбуков, и на них колонка текста сжималась
+               до 561 точки, то есть уже, чем на телефоне до всех правок;
+   от 1500   — три колонки, крайние тянутся, средняя держит 760. */
 .side { display: none; }
 .rail { padding: 0 1.25rem; max-width: var(--measure); margin: 0 auto; }
 
 @media (min-width: 1200px) {
   /* Ширину колонки и кегль меняем вместе. Растянуть колонку, не увеличив
      шрифт, значило бы получить около девяноста знаков в строке — читать тяжело.
-     При 760 точках и 19 пикселях остаётся примерно восемьдесят, как сейчас. */
+     При 760 точках и 19 пикселях остаётся примерно восемьдесят. */
   :root { --measure-wide: 47.5rem; }
   body { font-size: 19px; }
 
   .layout {
     display: grid;
-    /* Крайние колонки тянутся, средняя ограничена: текст держит свою ширину,
-       а пустых полей по краям экрана не остаётся. */
-    grid-template-columns: minmax(15rem, 1fr) minmax(0, var(--measure-wide)) minmax(17rem, 1fr);
+    grid-template-columns: 17.5rem minmax(0, var(--measure-wide));
+    justify-content: center;
     gap: 0 2rem;
     align-items: start;
     padding: 0 1.5rem;
@@ -180,16 +184,28 @@ main {
   main { max-width: none; margin: 0; padding: 2rem 0 4rem; }
   .page-ukazatel main { max-width: none; }
 
-  .rail { max-width: none; margin: 0; padding: 2rem 0 4rem; }
+  /* В две колонки правая идёт под текстом и по его ширине. */
+  .rail { grid-column: 2; max-width: none; margin: 0; padding: 0 0 4rem; }
+  .rail-inner { max-width: none; }
+
+  /* Навигация живёт в левой колонке, в шапке она лишняя. */
+  .topnav-wide, .topmenu { display: none; }
+}
+
+@media (min-width: 1500px) {
+  .layout {
+    /* Крайние колонки тянутся, средняя ограничена: текст держит свою ширину,
+       а пустых полей по краям экрана не остаётся. */
+    grid-template-columns: minmax(15rem, 1fr) minmax(0, var(--measure-wide)) minmax(17rem, 1fr);
+    justify-content: normal;
+  }
+  .rail { grid-column: 3; padding: 2rem 0 4rem; }
   .rail-inner { max-width: 320px; }
   .rail .block, .rail .refine, .rail .notsearched, .rail .insections, .rail .origin {
     margin-top: 0;
     margin-bottom: 2rem;
   }
   .rail .refine { border-top: 0; padding-top: 0; }
-
-  /* На широком экране навигация живёт в левой колонке, в шапке она лишняя. */
-  .topnav-wide, .topmenu { display: none; }
 }
 
 .bottom {
