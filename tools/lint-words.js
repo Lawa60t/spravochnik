@@ -67,6 +67,10 @@ const SOFT = [
    назначения не несёт, поэтому жанр приходится называть словами прямо в title. */
 const TITLE_OVERHEAD = 32;
 
+/* Чужие домены, на которые разрешено ссылаться. Только адреса перехода:
+   загружать с них что-либо нельзя всё равно. Список ведётся вручную. */
+const EXTERNAL_LINKS = ["pay.cloudtips.ru"];
+
 /* Примерно столько показывает поисковик, дальше обрезает. */
 const TITLE_DISPLAY = 60;
 
@@ -164,11 +168,39 @@ function run() {
       if (!src) errors.push(`${rel}: встроенный скрипт — код должен лежать своим файлом`);
       else if (!/^\/[^/]/.test(src)) errors.push(`${rel}: скрипт с чужого адреса — ${src}`);
     });
-    if (/https?:\/\/(?!схема|www\.sitemaps\.org)/.test(html.replace(/<link rel="canonical"[^>]*>|<meta property="og:url"[^>]*>/g, ""))) {
-      const ext = html.match(/https?:\/\/[^"'\s>]+/g) || [];
-      const foreign = ext.filter(u => !u.startsWith("http://www.sitemaps.org") && !u.startsWith(originOf(html)));
-      if (foreign.length) warnings.push(`${rel}: внешний адрес ${foreign[0]}`);
-    }
+    /* Внешние адреса. Различаем две вещи, и это принципиально:
+
+       ЗАГРУЗКА чего-либо с чужого домена запрещена всегда — встроенный чужой
+       ресурс передаёт IP посетителя третьей стороне, и заявление «не используем
+       cookie» перестаёт быть правдой. Скрипты, стили, картинки, шрифты, рамки.
+
+       ПЕРЕХОД по обычной ссылке кук не ставит и приватности не нарушает.
+       Разрешённые адреса перехода перечислены поимённо: список короткий
+       и должен таким остаться. Каждая такая ссылка обязана открываться
+       в новой вкладке с rel="noopener noreferrer".
+
+       Когда в базе появятся URL источников, они всплывут здесь ошибкой —
+       и это правильно: решение пускать чужой домен принимается осознанно. */
+    const loadTags = []
+      .concat(html.match(/<(?:script|img|iframe|video|audio|source|embed|object|track)\b[^>]*>/gi) || [])
+      .concat(html.match(/<link\b[^>]*rel="(?:stylesheet|preload|prefetch|icon|manifest|apple-touch-icon)"[^>]*>/gi) || []);
+    loadTags.forEach(tag => {
+      const url = (tag.match(/\s(?:src|href)="([^"]*)"/i) || [, ""])[1];
+      if (url && !/^\/[^/]/.test(url)) errors.push(`${rel}: загрузка не со своего адреса — ${url}`);
+    });
+
+    (html.match(/<a\b[^>]*>/gi) || []).forEach(tag => {
+      const url = (tag.match(/\shref="([^"]*)"/i) || [, ""])[1];
+      if (!/^https?:\/\//i.test(url)) return;
+      const host = (url.match(/^https?:\/\/([^/]+)/i) || [, ""])[1];
+      if (!EXTERNAL_LINKS.includes(host)) {
+        errors.push(`${rel}: ссылка на чужой домен ${host} — разрешённых адресов перехода немного, и этот в список не внесён`);
+        return;
+      }
+      if (!/target="_blank"/i.test(tag) || !/rel="[^"]*noopener[^"]*"/i.test(tag) || !/rel="[^"]*noreferrer[^"]*"/i.test(tag)) {
+        errors.push(`${rel}: внешняя ссылка на ${host} без target="_blank" и rel="noopener noreferrer"`);
+      }
+    });
 
     /* Меряем не длину title, а накладные расходы шаблона: title минус заголовок страницы.
        Длинное название болезни — это данные, их не сократить и незачем о них напоминать.

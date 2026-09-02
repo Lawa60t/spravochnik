@@ -82,6 +82,34 @@ module.exports = {
     )
   }),
 
+  about: title => ({
+    title: withSite(title),
+    description: clamp(
+      "Что такое Викитело, зачем он нужен, кто его ведёт и как прислать поправку. Справочно-информационный ресурс о состояниях тела."
+    )
+  }),
+
+  howMade: title => ({
+    title: withSite(title),
+    description: clamp(
+      "Источники, состав статьи, что означает статус «сверено с источником, врачом не проверялось», как устроены разделы и как исправляются ошибки."
+    )
+  }),
+
+  terms: title => ({
+    title: withSite(title),
+    description: clamp(
+      "Назначение сайта, ограничения содержания, персональные данные, права на материалы и обратная связь."
+    )
+  }),
+
+  support: title => ({
+    title: withSite(title),
+    description: clamp(
+      "Викитело сделан одним человеком и существует без рекламы, подписок и платных разделов. Поддержка ни на что в справочнике не влияет."
+    )
+  }),
+
   ukazatel: (nConditions, nSyndromes) => ({
     title: withSite("Алфавитный указатель"),
     description: clamp(

@@ -19,6 +19,7 @@ const ukazatelPage = require("./pages/ukazatel");
 const homePage = require("./pages/home");
 const { notSearchedHerePage, noMatchPage, doesNotPage } = require("./pages/plain");
 const { zonesPage, zonePage, zhalobyPage } = require("./pages/oblasti");
+const { aboutPage, howMadePage, termsPage, supportPage } = require("./pages/service");
 
 const root = path.join(__dirname, "..", "..");
 const dist = path.join(root, "dist");
@@ -185,6 +186,10 @@ function sitemap(origin, updated) {
     { loc: "/chto-ne-razbiraem/", lastmod: D.redflags.updated || updated },
     { loc: "/moego-sluchaya-net/", lastmod: D.redflags.updated || updated },
     { loc: "/chto-ne-delaem/", lastmod: updated },
+    { loc: "/o-spravochnike/", lastmod: updated },
+    { loc: "/kak-sostavleny/", lastmod: updated },
+    { loc: "/soglashenie/", lastmod: updated },
+    { loc: "/podderzhat/", lastmod: updated },
     ...D.conditions.map(c => ({ loc: D.conditionPath(c.id), lastmod: c.updated })),
     ...D.syndromes.map(s => ({ loc: D.syndromePath(s.id), lastmod: s.updated }))
   ];
@@ -227,6 +232,10 @@ function build() {
   write("/chto-ne-razbiraem/", notSearchedHerePage(updated));
   write("/moego-sluchaya-net/", noMatchPage(updated));
   write("/chto-ne-delaem/", doesNotPage(updated));
+  write("/o-spravochnike/", aboutPage(updated));
+  write("/kak-sostavleny/", howMadePage(updated));
+  write("/soglashenie/", termsPage(updated));
+  write("/podderzhat/", supportPage(updated));
   D.map.zones.forEach(z => write(D.zonePath(z.id), zonePage(z, updated)));
   D.conditions.forEach(c => write(D.conditionPath(c.id), conditionPage(c, updated)));
   D.syndromes.forEach(s => write(D.syndromePath(s.id), syndromePage(s, updated)));

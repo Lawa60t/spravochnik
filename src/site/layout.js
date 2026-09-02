@@ -50,6 +50,7 @@ function nav(cls) {
       <a href="/ukazatel/">${esc(T.navIndex)}</a>
       <a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a>
       <a href="/chto-ne-delaem/">${esc(T.navDoesNot)}</a>
+      <a href="/o-spravochnike/">${esc(T.navAbout)}</a>
     </nav>`;
 }
 
@@ -68,7 +69,15 @@ function header() {
   </header>`;
 }
 
-function footer(updated) {
+/* Где просьбы о поддержке быть не должно.
+   «Только в подвале» и «ни на страницах статей» — требования совместимые:
+   подвал общий, поэтому строку убираем там, где она читалась бы неуместно.
+   Страницы статей: рядом стоит поле «когда бывает неотложным».
+   Страницы про неотложные состояния: там человеку сказано звонить 103. */
+const NO_SUPPORT = ["/sostoyaniya/", "/chto-ne-razbiraem/", "/moego-sluchaya-net/"];
+const showSupport = path => !NO_SUPPORT.some(p => path.startsWith(p));
+
+function footer(updated, path) {
   const f = T.footer;
   return `<footer class="bottom">
     <p><strong>${esc(cfg.siteName)} — ${esc(f.lead)}</strong></p>
@@ -81,7 +90,12 @@ function footer(updated) {
       <a href="/ukazatel/">${esc(T.navIndex)}</a>
       <a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a>
       <a href="/chto-ne-delaem/">${esc(T.navDoesNot)}</a>
+      <a href="/o-spravochnike/">${esc(T.navAbout)}</a>
+      <a href="/kak-sostavleny/">${esc(T.navHowMade)}</a>
+      <a href="/soglashenie/">${esc(T.navTerms)}</a>
     </p>
+    ${/* Отдельной неприметной строкой и внизу: ни в шапке, ни в меню её нет. */ ""}
+    ${showSupport(path) ? `<p class="footsupport"><a href="/podderzhat/">${esc(T.navSupport)}</a></p>` : ""}
     <p class="age">${esc(f.age)}</p>
   </footer>`;
 }
@@ -103,7 +117,7 @@ ${header()}
 <main id="main">
 ${body}
 </main>
-${footer(updated)}
+${footer(updated, path)}
 ${js.map(src => `<script src="${attr(src)}" defer></script>`).join("\n")}
 </body>
 </html>
