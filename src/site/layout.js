@@ -109,18 +109,9 @@ function footer(updated, path) {
     <p>${esc(f.sources)} ${esc(f.updatedPrefix)} ${esc(dateRu(updated))}</p>
     <p class="tel">${esc(f.emergency)}</p>
     <p>${esc(f.ownerPrefix)} ${esc(cfg.owner.name)}. ${esc(f.mailPrefix)} <a href="mailto:${attr(cfg.owner.mail)}">${esc(cfg.owner.mail)}</a></p>
-    <p class="footlinks">
-      <a href="/oblasti/">${esc(T.navZones)}</a>
-      <a href="/ukazatel/">${esc(T.navIndex)}</a>
-      <a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a>
-      <a href="/chto-ne-delaem/">${esc(T.navDoesNot)}</a>
-      <a href="/o-spravochnike/">${esc(T.navAbout)}</a>
-      <a href="/kak-sostavleny/">${esc(T.navHowMade)}</a>
-      <a href="/soglashenie/">${esc(T.navTerms)}</a>
-    </p>
     ${/* Отдельной неприметной строкой и внизу: ни в шапке, ни в меню её нет. */ ""}
-    ${showSupport(path) ? `<p class="footsupport"><a href="/podderzhat/">${esc(T.navSupport)}</a></p>` : ""}
     <p class="age">${esc(f.age)}</p>
+    ${showSupport(path) ? `<p class="footsupport"><a href="/podderzhat/">${esc(T.navSupport)}</a></p>` : ""}
   </footer>`;
 }
 
