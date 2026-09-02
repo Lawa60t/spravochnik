@@ -66,9 +66,15 @@ module.exports = function homePage(updated) {
           : `<p>${esc(b.p)}</p>`
       )
       .join("\n    ")}
-    <p class="cta"><a class="button" href="/oblasti/" data-act="profil-open">${esc(T.entry.button)}</a></p>
-    <p class="note">${esc(T.entry.note)}</p>
     <p class="note"><a href="/chto-ne-razbiraem/">${esc(T.navNotSearched)}</a></p>
+
+    ${/* Кнопка закреплена у нижнего края экрана: текст длинный, и человек,
+         не догадавшийся прокрутить, решил бы, что на сайте ничего нет.
+         Текст прокручивается под полосой, поэтому у неё свой фон. */ ""}
+    <div class="entry-cta">
+      <a class="button" href="/oblasti/" data-act="profil-open">${esc(T.entry.button)}</a>
+      <p class="note">${esc(T.entry.note)}</p>
+    </div>
   </section>
 
   ${profilScreen()}

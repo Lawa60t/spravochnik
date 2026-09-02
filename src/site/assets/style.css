@@ -269,7 +269,23 @@ ul.index li.ref { color: var(--ink-3); }
   border-radius: 4px;
   padding: 1.4rem 1.25rem .9rem;
 }
-.entry h1 { font-size: 1.5rem; }
+.entry h1 { font-size: 1.5rem; margin-bottom: .6rem; }
+/* Отступы между абзацами уплотнены, межстрочный интервал не тронут:
+   читаемость строки важнее числа экранов. */
+.entry p { margin-bottom: .55rem; }
+.entry ul.dashed { margin-bottom: .55rem; }
+
+/* Полоса с кнопкой прилипает к низу экрана, пока входной текст на виду. */
+.entry-cta {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+  margin: .9rem -1.25rem 0;
+  padding: .8rem 1.25rem .5rem;
+  background: var(--card);
+  border-top: 1px solid var(--line);
+}
+.entry-cta .note { margin: .5rem 0 0; }
 /* Перечни входного экрана: тире вместо маркера, как в исходном тексте. */
 ul.dashed { list-style: none; padding-left: .2rem; margin: 0 0 .9rem; }
 ul.dashed li { padding-left: 1.1rem; text-indent: -1.1rem; margin-bottom: .3rem; }
