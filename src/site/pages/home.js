@@ -34,6 +34,25 @@ function profilScreen() {
   </section>`;
 }
 
+/* Развилка. Показывается после ответа о поле и возрасте, поэтому в разметке
+   скрыта. Левая половина неактивна намеренно: модели пока нет, и вместо
+   мёртвой кнопки там сказано, чего ждать. */
+function forkScreen() {
+  const F = T.fork;
+  return `<section class="fork" data-fork hidden>
+    <div class="fork-half fork-off">
+      <h2>${esc(F.bodyTitle)}</h2>
+      <p class="fork-soon">${esc(F.bodySoon)}</p>
+    </div>
+    <a class="fork-half fork-on" href="/oblasti/">
+      <h2>${esc(F.listTitle)}</h2>
+      <ul class="fork-list" aria-hidden="true">
+        ${D.map.zones.map(z => `<li>${esc(z.name)}</li>`).join("\n        ")}
+      </ul>
+    </a>
+  </section>`;
+}
+
 module.exports = function homePage(updated) {
   const m = meta.home();
 
@@ -53,6 +72,8 @@ module.exports = function homePage(updated) {
   </section>
 
   ${profilScreen()}
+
+  ${forkScreen()}
 
   <section class="about">
     <p class="lead">${esc(T.pages.homeLead)}</p>

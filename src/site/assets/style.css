@@ -389,6 +389,36 @@ ul.counts li { font-size: .85rem; color: var(--ink-3); }
 .checkline { margin: .5rem 0 .2rem; }
 .checkline label { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; cursor: pointer; }
 
+/* ---------- развилка ---------- */
+.fork {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+.fork-half { padding: 1.4rem 1.25rem; min-height: 15rem; }
+/* Разделительная линия: между колонками на широком экране,
+   между строками — когда половины встают друг под друга. */
+.fork-half + .fork-half { border-left: 1px solid var(--line); }
+@media (max-width: 34rem) {
+  .fork { grid-template-columns: 1fr; }
+  .fork-half { min-height: 0; }
+  .fork-half + .fork-half { border-left: 0; border-top: 1px solid var(--line); }
+}
+.fork h2 { margin: 0 0 .6rem; font-size: 1.1rem; color: #1b1a18; }
+.fork-off { background: #fff; }
+.fork-off h2 { color: #78736b; }
+.fork-soon { color: #9a948a; font-size: .92rem; margin: 0; }
+.fork-on { display: block; text-decoration: none; background: #fff; }
+.fork-on:hover { background: #fbfaf7; }
+.fork-on h2 { text-decoration: underline; text-underline-offset: 3px; }
+.fork-list {
+  list-style: none; padding: 0; margin: 0;
+  color: #b6b0a6; font-size: .9rem; line-height: 1.5;
+}
+
 /* ---------- простые страницы ---------- */
 .plain ul.big { padding-left: 1.1rem; }
 .plain ul.big li { margin-bottom: .45rem; }
