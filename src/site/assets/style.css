@@ -11,6 +11,7 @@
   --accent: #7a3b2e;
   --alarm-bg: #fdf3f1;
   --alarm-line: #e0bdb4;
+  --shadow: rgba(0, 0, 0, .12);
   --measure: 38rem;
 }
 
@@ -25,6 +26,7 @@
     --accent: #d99183;
     --alarm-bg: #2a1f1c;
     --alarm-line: #5c3a32;
+    --shadow: rgba(0, 0, 0, .5);
   }
 }
 
@@ -93,7 +95,7 @@ p { margin: 0 0 .9rem; }
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 3px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, .12);
+  box-shadow: 0 6px 20px var(--shadow);
 }
 .topmenu .topnav-narrow a { padding: .6rem .9rem; min-height: 44px; display: flex; align-items: center; }
 
@@ -424,9 +426,11 @@ ul.counts li { font-size: .85rem; color: var(--ink-3); }
 .checkline { margin: .5rem 0 .2rem; }
 .checkline label { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; cursor: pointer; }
 
-/* ---------- развилка ---------- */
+/* ---------- развилка ----------
+   Цвета только из переменных: блок должен быть чистым, а не белым.
+   Литеральный #fff светился белым прямоугольником посреди тёмной страницы. */
 .fork {
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 4px;
   display: grid;
@@ -442,16 +446,16 @@ ul.counts li { font-size: .85rem; color: var(--ink-3); }
   .fork-half { min-height: 0; }
   .fork-half + .fork-half { border-left: 0; border-top: 1px solid var(--line); }
 }
-.fork h2 { margin: 0 0 .6rem; font-size: 1.1rem; color: #1b1a18; }
-.fork-off { background: #fff; }
-.fork-off h2 { color: #78736b; }
-.fork-soon { color: #9a948a; font-size: .92rem; margin: 0; }
-.fork-on { display: block; text-decoration: none; background: #fff; }
-.fork-on:hover { background: #fbfaf7; }
+.fork h2 { margin: 0 0 .6rem; font-size: 1.1rem; color: var(--ink); }
+.fork-off { background: var(--card); }
+.fork-off h2 { color: var(--ink-3); }
+.fork-soon { color: var(--ink-3); font-size: .92rem; margin: 0; }
+.fork-on { display: block; text-decoration: none; background: var(--card); }
+.fork-on:hover { background: var(--bg); }
 .fork-on h2 { text-decoration: underline; text-underline-offset: 3px; }
 .fork-list {
   list-style: none; padding: 0; margin: 0;
-  color: #b6b0a6; font-size: .9rem; line-height: 1.5;
+  color: var(--ink-3); font-size: .9rem; line-height: 1.5;
 }
 
 /* ---------- простые страницы ---------- */
