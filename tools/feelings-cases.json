@@ -2586,6 +2586,533 @@
         "mallory.weiss"
       ],
       "note": "кровь после нескольких рвот — синдром Маллори-Вейса, надбавкой"
+    },
+    {
+      "syndrome": "back.cauda",
+      "feeling": 0,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "cauda.equina"
+      ],
+      "expect": [
+        "cauda.equina"
+      ],
+      "note": "онемение в промежности — конский хвост +6"
+    },
+    {
+      "syndrome": "back.cauda",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "cauda.equina"
+      ],
+      "expect": [
+        "cauda.equina"
+      ],
+      "note": "не чувствую позыва — конский хвост +5"
+    },
+    {
+      "syndrome": "back.cauda",
+      "feeling": 2,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "cauda.equina",
+        "spine.metastases"
+      ],
+      "expect": [
+        "cauda.equina"
+      ],
+      "note": "слабость в ногах — конский хвост +5"
+    },
+    {
+      "syndrome": "back.cauda",
+      "feeling": 3,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "cauda.equina"
+      ],
+      "expect": [
+        "cauda.equina"
+      ],
+      "note": "боль и невозможность помочиться — конский хвост +6"
+    },
+    {
+      "syndrome": "chest.rib.left",
+      "feeling": 1,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "pleurisy",
+        "pericarditis"
+      ],
+      "expect": [
+        "pleurisy"
+      ],
+      "note": "колет при вдохе — плеврит ↑6"
+    },
+    {
+      "syndrome": "chest.rib.left",
+      "feeling": 3,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "herpes.zoster"
+      ],
+      "note": "жжёт полосой по ребру — опоясывающий лишай ↑7"
+    },
+    {
+      "syndrome": "chest.rib.left",
+      "feeling": 4,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "costochondritis",
+        "thoracic.myofascial",
+        "rib.fracture"
+      ],
+      "expect": [
+        "costochondritis"
+      ],
+      "note": "болит при нажатии — стенка грудной клетки, стенокардия вниз"
+    },
+    {
+      "syndrome": "chest.breast.lump",
+      "feeling": 0,
+      "sex": "f",
+      "age": 55,
+      "expectRise": [
+        "breast.cancer"
+      ],
+      "expect": [
+        "breast.cancer"
+      ],
+      "note": "плотный безболезненный узел — рак ↑3"
+    },
+    {
+      "syndrome": "chest.breast.lump",
+      "feeling": 1,
+      "sex": "f",
+      "age": 35,
+      "expectRise": [
+        "breast.cyst"
+      ],
+      "expect": [
+        "breast.cyst"
+      ],
+      "note": "гладкое подвижное — киста +6"
+    },
+    {
+      "syndrome": "chest.breast.lump",
+      "feeling": 2,
+      "sex": "f",
+      "age": 40,
+      "expectRise": [
+        "mastopathy"
+      ],
+      "expect": [
+        "mastopathy"
+      ],
+      "note": "обе железы бугристые — мастопатия +6"
+    },
+    {
+      "syndrome": "chest.breast.lump",
+      "feeling": 3,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "mastitis"
+      ],
+      "expect": [
+        "mastitis"
+      ],
+      "note": "горячий болезненный участок — мастит +6"
+    },
+    {
+      "syndrome": "chest.breast.pain",
+      "feeling": 0,
+      "sex": "f",
+      "age": 35,
+      "expectRise": [
+        "mastopathy"
+      ],
+      "expect": [
+        "mastopathy"
+      ],
+      "note": "обе железы — мастопатия +5"
+    },
+    {
+      "syndrome": "chest.breast.pain",
+      "feeling": 1,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "mastitis",
+        "herpes.zoster"
+      ],
+      "note": "одна железа точечно"
+    },
+    {
+      "syndrome": "chest.breast.pain",
+      "feeling": 2,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "mastitis"
+      ],
+      "expect": [
+        "mastitis"
+      ],
+      "note": "горячий болезненный участок — мастит +6"
+    },
+    {
+      "syndrome": "chest.breast.pain",
+      "feeling": 3,
+      "sex": "f",
+      "age": 60,
+      "expectRise": [
+        "herpes.zoster"
+      ],
+      "note": "жжёт по ребру — опоясывающий лишай ↑3"
+    },
+    {
+      "syndrome": "gen.fever.acute",
+      "feeling": 1,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "influenza"
+      ],
+      "expect": [
+        "influenza"
+      ],
+      "note": "ломота во всём теле — грипп, надбавкой"
+    },
+    {
+      "syndrome": "gen.fever.acute",
+      "feeling": 2,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "influenza",
+        "sepsis"
+      ],
+      "note": "слабость и разбитость"
+    },
+    {
+      "syndrome": "gen.fever.long",
+      "feeling": 3,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "postviral.asthenia",
+        "leukemia"
+      ],
+      "note": "температура и слабость"
+    },
+    {
+      "syndrome": "gen.fatigue",
+      "feeling": 3,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "sleep.apnea"
+      ],
+      "note": "сонливость днём — апноэ сна, надбавкой"
+    },
+    {
+      "syndrome": "gen.weightloss",
+      "feeling": 1,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "stomach.cancer",
+        "depression"
+      ],
+      "note": "пропал аппетит и вес уходит"
+    },
+    {
+      "syndrome": "gen.weightloss",
+      "feeling": 2,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "thyrotoxicosis",
+        "diabetes"
+      ],
+      "expect": [
+        "thyrotoxicosis"
+      ],
+      "note": "ем много, но худею — тиреотоксикоз +6"
+    },
+    {
+      "syndrome": "gen.lymph",
+      "feeling": 1,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "lymphoma",
+        "oropharynx.cancer",
+        "tb.lymphadenitis"
+      ],
+      "expect": [
+        "lymphoma"
+      ],
+      "note": "плотный безболезненный узел — лимфома ↑4"
+    },
+    {
+      "syndrome": "gen.lymph",
+      "feeling": 2,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "hiv",
+        "lymphoma"
+      ],
+      "expect": [
+        "hiv"
+      ],
+      "note": "узлы в нескольких местах — ВИЧ +5"
+    },
+    {
+      "syndrome": "gen.lymph",
+      "feeling": 3,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "lymphoma"
+      ],
+      "note": "узел растёт — лимфома ↑3"
+    },
+    {
+      "syndrome": "head.face.pain",
+      "feeling": 0,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "trigeminal.neuralgia"
+      ],
+      "expect": [
+        "trigeminal.neuralgia"
+      ],
+      "note": "прострелы как удар током — невралгия +6"
+    },
+    {
+      "syndrome": "head.face.pain",
+      "feeling": 2,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "herpes.zoster"
+      ],
+      "note": "жжёт полосой — опоясывающий лишай ↑3"
+    },
+    {
+      "syndrome": "head.face.pain",
+      "feeling": 3,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "sinusitis.acute"
+      ],
+      "note": "давит под глазом — гайморит, надбавкой"
+    },
+    {
+      "syndrome": "neck.stiff.fever",
+      "feeling": 0,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "meningitis",
+        "subarachnoid.hemorrhage"
+      ],
+      "expect": [
+        "meningitis"
+      ],
+      "note": "шея не сгибается — менингит ↑1"
+    },
+    {
+      "syndrome": "neck.stiff.fever",
+      "feeling": 1,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "meningitis",
+        "subarachnoid.hemorrhage"
+      ],
+      "expect": [
+        "meningitis"
+      ],
+      "note": "резкая боль в затылке при наклоне — менингеальный симптом"
+    },
+    {
+      "syndrome": "pelv.gyn.pregnancy",
+      "feeling": 0,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "miscarriage",
+        "ectopic.pregnancy"
+      ],
+      "expect": [
+        "miscarriage"
+      ],
+      "note": "мажущие выделения — угроза выкидыша +6"
+    },
+    {
+      "syndrome": "pelv.gyn.pregnancy",
+      "feeling": 3,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "placental.abruption"
+      ],
+      "expect": [
+        "placental.abruption"
+      ],
+      "note": "живот твёрдый — отслойка плаценты +6"
+    },
+    {
+      "syndrome": "abd.bloat",
+      "feeling": 0,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "gastritis.acute"
+      ],
+      "expect": [
+        "gastritis.acute"
+      ],
+      "note": "распирает после еды — гастрит ↑4"
+    },
+    {
+      "syndrome": "abd.bloat",
+      "feeling": 3,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "bowel.obstruction"
+      ],
+      "expect": [
+        "bowel.obstruction"
+      ],
+      "note": "газы не отходят — непроходимость ↑6"
+    },
+    {
+      "syndrome": "gen.sweats",
+      "feeling": 1,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "thyrotoxicosis"
+      ],
+      "expect": [
+        "thyrotoxicosis"
+      ],
+      "note": "приливы жара — тиреотоксикоз ↑4"
+    },
+    {
+      "syndrome": "gen.sweats",
+      "feeling": 2,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "hyperhidrosis"
+      ],
+      "note": "потеют ладони и стопы — гипергидроз, надбавкой"
+    },
+    {
+      "syndrome": "gen.edema",
+      "feeling": 0,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "heart.failure",
+        "varicose.veins"
+      ],
+      "expect": [
+        "heart.failure"
+      ],
+      "note": "ноги к вечеру — сердечная недостаточность +5"
+    },
+    {
+      "syndrome": "gen.edema",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "ckd",
+        "glomerulonephritis",
+        "hypothyroidism"
+      ],
+      "expect": [
+        "ckd"
+      ],
+      "note": "лицо по утрам — почки +6"
+    },
+    {
+      "syndrome": "gen.edema",
+      "feeling": 2,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "dvt.leg",
+        "lymphedema"
+      ],
+      "expect": [
+        "dvt.leg"
+      ],
+      "note": "одна конечность — тромбоз глубоких вен +6"
+    },
+    {
+      "syndrome": "gen.edema",
+      "feeling": 3,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "heart.failure",
+        "ckd"
+      ],
+      "expect": [
+        "heart.failure"
+      ],
+      "note": "отекаю везде"
+    },
+    {
+      "syndrome": "gen.sleep",
+      "feeling": 2,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "depression"
+      ],
+      "note": "рано и разбитым — депрессия, надбавкой"
+    },
+    {
+      "syndrome": "gen.sleep",
+      "feeling": 3,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "restless.legs"
+      ],
+      "note": "ноги не дают уснуть — беспокойные ноги, надбавкой"
+    },
+    {
+      "syndrome": "gen.anxiety",
+      "feeling": 1,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "gad"
+      ],
+      "expect": [
+        "gad"
+      ],
+      "note": "тревожно постоянно — генерализованное тревожное +6"
     }
   ]
 }

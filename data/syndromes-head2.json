@@ -516,16 +516,25 @@
       ],
       "feelings": [
         {
-          "text": "Прострелы как удар током"
+          "text": "Прострелы как удар током",
+          "implies": {
+            "attacks": "seconds"
+          }
         },
         {
           "text": "Ноет в щеке"
         },
         {
-          "text": "Жжёт полосой"
+          "text": "Жжёт полосой",
+          "favors": {
+            "herpes.zoster": 4
+          }
         },
         {
-          "text": "Давит под глазом"
+          "text": "Давит под глазом",
+          "favors": {
+            "sinusitis.acute": 4
+          }
         }
       ],
       "questions": [
