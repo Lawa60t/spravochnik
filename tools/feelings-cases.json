@@ -723,6 +723,639 @@
         "cervical.myofascial"
       ],
       "note": "болит при надавливании — миофасциальная боль"
+    },
+    {
+      "syndrome": "head.eye.red",
+      "feeling": 0,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "conjunctivitis"
+      ],
+      "expect": [
+        "conjunctivitis"
+      ],
+      "note": "вся склера равномерно — конъюнктивит +6, увеит −4"
+    },
+    {
+      "syndrome": "head.eye.red",
+      "feeling": 1,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "subconjunctival.hemorrhage"
+      ],
+      "expect": [
+        "subconjunctival.hemorrhage"
+      ],
+      "note": "одно пятно с чёткими границами — кровоизлияние +6"
+    },
+    {
+      "syndrome": "head.eye.red",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "conjunctivitis",
+        "blepharitis"
+      ],
+      "expect": [
+        "conjunctivitis",
+        "blepharitis"
+      ],
+      "note": "гной — это слипающиеся веки"
+    },
+    {
+      "syndrome": "head.eye.red",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "uveitis",
+        "glaucoma.acute"
+      ],
+      "expect": [
+        "uveitis"
+      ],
+      "note": "кольцо вокруг радужки поднимает увеит на шесть мест и острую глаукому на четыре"
+    },
+    {
+      "syndrome": "head.nose.block",
+      "feeling": 0,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "rhinitis.medicamentosa",
+        "nasal.polyps"
+      ],
+      "expect": [
+        "rhinitis.medicamentosa",
+        "nasal.polyps"
+      ],
+      "note": "с обеих сторон — полипы и медикаментозный ринит"
+    },
+    {
+      "syndrome": "head.nose.block",
+      "feeling": 1,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "deviated.septum",
+        "sinonasal.tumor",
+        "oropharynx.cancer"
+      ],
+      "expect": [
+        "deviated.septum",
+        "sinonasal.tumor"
+      ],
+      "note": "стойко с одной стороны: перегородка, но и опухоль полости носа на шесть мест выше"
+    },
+    {
+      "syndrome": "head.nose.block",
+      "feeling": 2,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "allergic.pharyngitis",
+        "postnasal.drip"
+      ],
+      "expect": [
+        "allergic.pharyngitis",
+        "postnasal.drip"
+      ],
+      "note": "насморк как таковой"
+    },
+    {
+      "syndrome": "head.nose.block",
+      "feeling": 3,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "rhinitis.medicamentosa"
+      ],
+      "expect": [
+        "rhinitis.medicamentosa"
+      ],
+      "note": "зависимость от капель — медикаментозный ринит +6"
+    },
+    {
+      "syndrome": "head.jaw",
+      "feeling": 0,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "tmj.dysfunction"
+      ],
+      "expect": [
+        "tmj.dysfunction"
+      ],
+      "note": "щелчок при открывании — дисфункция сустава +6 и минусы у девяти прочих"
+    },
+    {
+      "syndrome": "head.jaw",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "giant.cell.arteritis",
+        "sialadenitis",
+        "tmj.dysfunction"
+      ],
+      "expect": [
+        "giant.cell.arteritis"
+      ],
+      "note": "боль при жевании поднимает гигантоклеточный артериит на четыре места"
+    },
+    {
+      "syndrome": "head.jaw",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "pericoronitis",
+        "ludwig.angina"
+      ],
+      "expect": [
+        "pericoronitis"
+      ],
+      "note": "рот не открывается — перикоронит и ангина Людвига, последняя на пять мест выше"
+    },
+    {
+      "syndrome": "neck.dysphagia",
+      "feeling": 0,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "esophagus.stricture",
+        "eosinophilic.esophagitis",
+        "esophagus.cancer"
+      ],
+      "expect": [
+        "esophagus.stricture",
+        "esophagus.cancer"
+      ],
+      "note": "еда останавливается — рак пищевода на шесть мест выше"
+    },
+    {
+      "syndrome": "neck.dysphagia",
+      "feeling": 2,
+      "sex": "m",
+      "age": 70,
+      "expectRise": [
+        "stroke.dysphagia",
+        "myasthenia"
+      ],
+      "expect": [
+        "stroke.dysphagia"
+      ],
+      "note": "поперхивание жидкостью поднимает дисфагию после инсульта на девять мест — самый большой сдвиг во всей разметке"
+    },
+    {
+      "syndrome": "neck.dysphagia",
+      "feeling": 3,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "achalasia",
+        "zenker.diverticulum"
+      ],
+      "expect": [
+        "achalasia",
+        "zenker.diverticulum"
+      ],
+      "note": "пища возвращается непереваренной"
+    },
+    {
+      "syndrome": "neck.breath",
+      "feeling": 0,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "epiglottitis",
+        "anaphylaxis.angioedema",
+        "croup"
+      ],
+      "expect": [
+        "anaphylaxis.angioedema"
+      ],
+      "note": "трудно вдохнуть — поднимается всё, что перекрывает верхние дыхательные пути"
+    },
+    {
+      "syndrome": "neck.breath",
+      "feeling": 1,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "asthma"
+      ],
+      "expect": [
+        "asthma"
+      ],
+      "note": "трудно выдохнуть — астма +5"
+    },
+    {
+      "syndrome": "chest.pain.move",
+      "feeling": 0,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "costochondritis",
+        "thoracic.myofascial",
+        "rib.fracture"
+      ],
+      "expect": [
+        "costochondritis"
+      ],
+      "note": "болит при нажатии: стенка грудной клетки вверх, инфаркт −6"
+    },
+    {
+      "syndrome": "chest.pain.move",
+      "feeling": 1,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "thoracic.myofascial",
+        "thoracic.degenerative"
+      ],
+      "expect": [
+        "thoracic.myofascial",
+        "thoracic.degenerative"
+      ],
+      "note": "поворот корпуса"
+    },
+    {
+      "syndrome": "chest.pain.move",
+      "feeling": 2,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "herpes.zoster",
+        "rib.fracture"
+      ],
+      "expect": [
+        "rib.fracture"
+      ],
+      "note": "простреливает по одному ребру"
+    },
+    {
+      "syndrome": "chest.pain.move",
+      "feeling": 3,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "costochondritis",
+        "thoracic.myofascial"
+      ],
+      "expect": [
+        "costochondritis",
+        "thoracic.myofascial"
+      ],
+      "note": "после непривычной нагрузки"
+    },
+    {
+      "syndrome": "arm.numb",
+      "feeling": 1,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "carpal.tunnel",
+        "cubital.tunnel"
+      ],
+      "expect": [
+        "carpal.tunnel",
+        "cubital.tunnel"
+      ],
+      "note": "будит ночью — туннельный синдром запястья +5"
+    },
+    {
+      "syndrome": "arm.numb",
+      "feeling": 2,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "diabetic.neuropathy",
+        "b12.deficiency",
+        "stroke.ischemic"
+      ],
+      "expect": [
+        "diabetic.neuropathy",
+        "b12.deficiency"
+      ],
+      "note": "вся кисть целиком — уже не один нерв"
+    },
+    {
+      "syndrome": "arm.numb",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "cervical.radiculopathy",
+        "cervical.degenerative"
+      ],
+      "expect": [
+        "cervical.radiculopathy",
+        "cervical.degenerative"
+      ],
+      "note": "полоса от шеи вниз — корешок +6, запястье −4"
+    },
+    {
+      "syndrome": "abd.constip",
+      "feeling": 3,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "bowel.obstruction"
+      ],
+      "expect": [
+        "bowel.obstruction"
+      ],
+      "note": "ни стула, ни газов: непроходимость с седьмого места на первое"
+    },
+    {
+      "syndrome": "leg.swell",
+      "feeling": 0,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "varicose.veins",
+        "heart.failure"
+      ],
+      "expect": [
+        "varicose.veins",
+        "heart.failure"
+      ],
+      "note": "к вечеру нарастает, за ночь спадает"
+    },
+    {
+      "syndrome": "leg.swell",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "lymphedema",
+        "dvt.leg"
+      ],
+      "expect": [
+        "lymphedema",
+        "dvt.leg"
+      ],
+      "note": "держится постоянно — лимфедема +6"
+    },
+    {
+      "syndrome": "leg.swell",
+      "feeling": 2,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "dvt.leg",
+        "cellulitis",
+        "lymphedema"
+      ],
+      "expect": [
+        "dvt.leg",
+        "lymphedema"
+      ],
+      "note": "одна нога — тромбоз глубоких вен на первое место"
+    },
+    {
+      "syndrome": "leg.swell",
+      "feeling": 3,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "heart.failure",
+        "ckd",
+        "hypothyroidism",
+        "cirrhosis"
+      ],
+      "expect": [
+        "heart.failure",
+        "ckd"
+      ],
+      "note": "и ноги, и лицо — значит обе ноги; тромбоз −5"
+    },
+    {
+      "syndrome": "leg.claudication",
+      "feeling": 0,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "pad",
+        "spinal.stenosis"
+      ],
+      "expect": [
+        "pad",
+        "spinal.stenosis"
+      ],
+      "note": "через определённое расстояние приходится встать"
+    },
+    {
+      "syndrome": "leg.claudication",
+      "feeling": 1,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "spinal.stenosis"
+      ],
+      "expect": [
+        "spinal.stenosis"
+      ],
+      "note": "наклон вперёд облегчает — стеноз +6, атеросклероз −5: единственный признак, разводящий две главные причины"
+    },
+    {
+      "syndrome": "leg.claudication",
+      "feeling": 2,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "spinal.stenosis"
+      ],
+      "expect": [
+        "spinal.stenosis"
+      ],
+      "note": "слабость в обеих ногах"
+    },
+    {
+      "syndrome": "pelv.uro.frequency",
+      "feeling": 3,
+      "sex": "f",
+      "age": 45,
+      "expectRise": [
+        "overactive.bladder",
+        "stress.incontinence"
+      ],
+      "expect": [
+        "overactive.bladder",
+        "stress.incontinence"
+      ],
+      "note": "подтекает при кашле — без позыва"
+    },
+    {
+      "syndrome": "pelv.andr.testis",
+      "feeling": 0,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "testicular.torsion"
+      ],
+      "expect": [
+        "testicular.torsion"
+      ],
+      "note": "внезапная сильная боль — перекрут яичка +6"
+    },
+    {
+      "syndrome": "pelv.andr.testis",
+      "feeling": 1,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "epididymitis"
+      ],
+      "expect": [
+        "epididymitis"
+      ],
+      "note": "нарастало день-два — эпидидимит +6, перекрут −5"
+    },
+    {
+      "syndrome": "pelv.andr.testis",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "hydrocele",
+        "inguinal.hernia"
+      ],
+      "expect": [
+        "hydrocele",
+        "inguinal.hernia"
+      ],
+      "note": "безболезненное увеличение"
+    },
+    {
+      "syndrome": "pelv.andr.testis",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "varicocele"
+      ],
+      "expect": [
+        "varicocele"
+      ],
+      "note": "тянет к вечеру — варикоцеле +6"
+    },
+    {
+      "syndrome": "skin.mole",
+      "feeling": 0,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "melanoma"
+      ],
+      "expect": [
+        "melanoma"
+      ],
+      "note": "выросла или изменила цвет — меланома с третьего места на первое"
+    },
+    {
+      "syndrome": "skin.mole",
+      "feeling": 1,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "melanoma",
+        "bcc"
+      ],
+      "expect": [
+        "melanoma",
+        "bcc"
+      ],
+      "note": "кровоточит и не заживает"
+    },
+    {
+      "syndrome": "skin.mole",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "melanoma"
+      ],
+      "expect": [
+        "melanoma"
+      ],
+      "note": "стало зудеть — меланома +3"
+    },
+    {
+      "syndrome": "skin.hives",
+      "feeling": 1,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "urticaria"
+      ],
+      "expect": [
+        "urticaria"
+      ],
+      "note": "каждый элемент исчезает за сутки — крапивница +6"
+    },
+    {
+      "syndrome": "skin.hives",
+      "feeling": 2,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "anaphylaxis.angioedema"
+      ],
+      "expect": [
+        "anaphylaxis.angioedema"
+      ],
+      "note": "отекли губы и веки — отёк Квинке на первое место"
+    },
+    {
+      "syndrome": "gen.thirst",
+      "feeling": 0,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "diabetes",
+        "dka"
+      ],
+      "expect": [
+        "diabetes",
+        "dka"
+      ],
+      "note": "пью намного больше обычного"
+    },
+    {
+      "syndrome": "gen.thirst",
+      "feeling": 2,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "diabetes",
+        "dka"
+      ],
+      "expect": [
+        "diabetes",
+        "dka"
+      ],
+      "note": "встаю ночью пить — это тот же признак, так написано в подсказке к вопросу"
+    },
+    {
+      "syndrome": "gen.thirst",
+      "feeling": 3,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "diabetes",
+        "thyrotoxicosis",
+        "multiple.myeloma"
+      ],
+      "expect": [
+        "diabetes",
+        "thyrotoxicosis"
+      ],
+      "note": "пью и худею — два буквальных утверждения, диабет +11"
     }
   ]
 }

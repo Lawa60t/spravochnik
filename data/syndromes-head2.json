@@ -649,16 +649,25 @@
       ],
       "feelings": [
         {
-          "text": "Щёлкает при открывании"
+          "text": "Щёлкает при открывании",
+          "implies": {
+            "jawopen": "click"
+          }
         },
         {
           "text": "Ноет перед ухом"
         },
         {
-          "text": "Больно жевать"
+          "text": "Больно жевать",
+          "implies": {
+            "chewpain": "yes"
+          }
         },
         {
-          "text": "Не открывается рот"
+          "text": "Не открывается рот",
+          "implies": {
+            "mouth": "hard"
+          }
         }
       ],
       "questions": [
@@ -1103,16 +1112,28 @@
       ],
       "feelings": [
         {
-          "text": "Весь белок красный"
+          "text": "Весь белок красный",
+          "implies": {
+            "eyered.where": "diffuse"
+          }
         },
         {
-          "text": "Одно красное пятно"
+          "text": "Одно красное пятно",
+          "implies": {
+            "eyered.where": "patch"
+          }
         },
         {
-          "text": "Красный с гноем"
+          "text": "Красный с гноем",
+          "implies": {
+            "eyedisch": "sticky"
+          }
         },
         {
-          "text": "Красный вокруг радужки"
+          "text": "Красный вокруг радужки",
+          "implies": {
+            "eyered.where": "ring"
+          }
         }
       ],
       "questions": [
@@ -1412,16 +1433,28 @@
       ],
       "feelings": [
         {
-          "text": "Заложено с обеих сторон"
+          "text": "Заложено с обеих сторон",
+          "implies": {
+            "blocked": "both"
+          }
         },
         {
-          "text": "Постоянно с одной стороны"
+          "text": "Постоянно с одной стороны",
+          "implies": {
+            "blocked": "one"
+          }
         },
         {
-          "text": "Течёт из носа"
+          "text": "Течёт из носа",
+          "implies": {
+            "runny": "yes"
+          }
         },
         {
-          "text": "Без капель дышать невозможно"
+          "text": "Без капель дышать невозможно",
+          "implies": {
+            "drops": "long"
+          }
         }
       ],
       "questions": [

@@ -530,13 +530,22 @@
           "text": "Немеет и покалывает"
         },
         {
-          "text": "Будит ночью"
+          "text": "Будит ночью",
+          "implies": {
+            "nightwake": "yes"
+          }
         },
         {
-          "text": "Немеет вся кисть"
+          "text": "Немеет вся кисть",
+          "implies": {
+            "numbwhere": "all"
+          }
         },
         {
-          "text": "Полосой от шеи вниз"
+          "text": "Полосой от шеи вниз",
+          "implies": {
+            "numbwhere": "radial"
+          }
         }
       ],
       "questions": [

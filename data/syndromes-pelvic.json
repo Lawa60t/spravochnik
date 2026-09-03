@@ -734,16 +734,28 @@
       ],
       "feelings": [
         {
-          "text": "Внезапная сильная боль"
+          "text": "Внезапная сильная боль",
+          "implies": {
+            "scrotum": "suddenpain"
+          }
         },
         {
-          "text": "Нарастало день-два"
+          "text": "Нарастало день-два",
+          "implies": {
+            "scrotum": "gradual"
+          }
         },
         {
-          "text": "Безболезненное увеличение"
+          "text": "Безболезненное увеличение",
+          "implies": {
+            "scrotum": "painless"
+          }
         },
         {
-          "text": "Тянет к вечеру"
+          "text": "Тянет к вечеру",
+          "implies": {
+            "scrotum": "veins"
+          }
         }
       ],
       "questions": [
