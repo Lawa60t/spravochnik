@@ -356,6 +356,373 @@
         "globus"
       ],
       "note": "надбавка 3 поднимает globus с 3 до 6 и на две позиции, но в тройку из десяти состояний не выводит — и не должна"
+    },
+    {
+      "syndrome": "chest.pain.breath",
+      "feeling": 0,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "pleurisy"
+      ],
+      "expect": [
+        "pleurisy"
+      ],
+      "note": "колет при вдохе — плеврит +6"
+    },
+    {
+      "syndrome": "chest.pain.breath",
+      "feeling": 1,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "herpes.zoster",
+        "rib.fracture"
+      ],
+      "note": "«сбоку» — буквально с одной стороны; поднимает опоясывающий лишай и перелом ребра"
+    },
+    {
+      "syndrome": "chest.pain.breath",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "pleurisy"
+      ],
+      "expect": [
+        "pleurisy"
+      ]
+    },
+    {
+      "syndrome": "chest.pain.breath",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "pleurisy"
+      ],
+      "expect": [
+        "pleurisy"
+      ]
+    },
+    {
+      "syndrome": "chest.rib.right",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "pleurisy"
+      ],
+      "expect": [
+        "pleurisy"
+      ],
+      "note": "плеврит с четвёртого места в первое"
+    },
+    {
+      "syndrome": "chest.rib.right",
+      "feeling": 3,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "herpes.zoster"
+      ],
+      "note": "жжение полосой по ребру — дерматом"
+    },
+    {
+      "syndrome": "chest.rib.right",
+      "feeling": 4,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "costochondritis",
+        "thoracic.myofascial"
+      ],
+      "expect": [
+        "thoracic.myofascial"
+      ],
+      "note": "болезненность при нажатии — стенка грудной клетки, а не желчный"
+    },
+    {
+      "syndrome": "chest.palpit",
+      "feeling": 0,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "svt"
+      ],
+      "expect": [
+        "svt"
+      ],
+      "note": "часто и ровно — наджелудочковая тахикардия"
+    },
+    {
+      "syndrome": "chest.palpit",
+      "feeling": 1,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "atrial.fibrillation"
+      ],
+      "expect": [
+        "atrial.fibrillation"
+      ],
+      "note": "беспорядочно — мерцательная аритмия"
+    },
+    {
+      "syndrome": "chest.palpit",
+      "feeling": 2,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "extrasystole"
+      ],
+      "expect": [
+        "extrasystole"
+      ],
+      "note": "замирает и толкает — вариант так и называется"
+    },
+    {
+      "syndrome": "chest.dyspnea",
+      "feeling": 0,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "anemia"
+      ],
+      "note": "одышка при нагрузке: единственный вес на exertion_onload в разделе — у анемии"
+    },
+    {
+      "syndrome": "chest.dyspnea",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "onlySaves": true,
+      "note": "exertion_rest в разделе не весит ни у кого: сердечная недостаточность весит exertion_worse, а это другой ответ"
+    },
+    {
+      "syndrome": "chest.dyspnea",
+      "feeling": 2,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "asthma"
+      ],
+      "expect": [
+        "asthma"
+      ],
+      "note": "свист на выдохе — астма +6"
+    },
+    {
+      "syndrome": "chest.dyspnea",
+      "feeling": 3,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "heart.failure"
+      ],
+      "expect": [
+        "heart.failure"
+      ],
+      "note": "ортопноэ — сердечная недостаточность, надбавкой"
+    },
+    {
+      "syndrome": "abd.diarrhea",
+      "feeling": 0,
+      "sex": "m",
+      "age": 40,
+      "onlySaves": true,
+      "note": "bowel_loose в разделе не весит ни у кого: понос и так его определение"
+    },
+    {
+      "syndrome": "abd.diarrhea",
+      "feeling": 1,
+      "sex": "m",
+      "age": 40,
+      "onlySaves": true,
+      "note": "то же самое"
+    },
+    {
+      "syndrome": "abd.diarrhea",
+      "feeling": 3,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "ibd",
+        "colorectal.cancer"
+      ],
+      "expect": [
+        "ibd"
+      ],
+      "note": "стул с кровью — воспалительное заболевание кишечника +6, рак +5"
+    },
+    {
+      "syndrome": "abd.stool.blood",
+      "feeling": 3,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "diverticular.bleeding"
+      ],
+      "expect": [
+        "diverticular.bleeding"
+      ],
+      "note": "обильная тёмная кровь — дивертикулярное кровотечение, надбавкой"
+    },
+    {
+      "syndrome": "head.ear.pain",
+      "feeling": 2,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "eustachitis"
+      ],
+      "expect": [
+        "eustachitis"
+      ],
+      "note": "заложенность — это снижение слуха на этой стороне"
+    },
+    {
+      "syndrome": "head.ear.pain",
+      "feeling": 3,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "otitis.externa"
+      ],
+      "expect": [
+        "otitis.externa"
+      ],
+      "note": "болит при прикосновении — вопрос tragus про это и спрашивает"
+    },
+    {
+      "syndrome": "leg.knee.pain",
+      "feeling": 0,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "knee.oa",
+        "patellofemoral"
+      ],
+      "expect": [
+        "knee.oa"
+      ],
+      "note": "по лестнице — артроз +5"
+    },
+    {
+      "syndrome": "leg.knee.pain",
+      "feeling": 1,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "meniscus.tear"
+      ],
+      "expect": [
+        "meniscus.tear"
+      ],
+      "note": "заклинивает — вариант так и называется, мениск +6"
+    },
+    {
+      "syndrome": "leg.knee.pain",
+      "feeling": 3,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "gout",
+        "septic.arthritis",
+        "cellulitis"
+      ],
+      "expect": [
+        "gout"
+      ],
+      "note": "красное и горячее поднимает всю тройку, где цена ошибки высока: подагра, септический артрит, флегмона"
+    },
+    {
+      "syndrome": "leg.knee.pain",
+      "feeling": 4,
+      "sex": "m",
+      "age": 25,
+      "expectRise": [
+        "patellofemoral"
+      ],
+      "expect": [
+        "patellofemoral"
+      ],
+      "note": "вокруг чашечки — пателлофеморальный синдром, надбавкой"
+    },
+    {
+      "syndrome": "pelv.uro.dysuria",
+      "feeling": 0,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "cystitis"
+      ],
+      "expect": [
+        "cystitis"
+      ],
+      "note": "режет и жжёт — цистит +6"
+    },
+    {
+      "syndrome": "pelv.uro.dysuria",
+      "feeling": 1,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "cystitis"
+      ],
+      "expect": [
+        "cystitis"
+      ],
+      "note": "вторая половина того же варианта ответа"
+    },
+    {
+      "syndrome": "pelv.uro.dysuria",
+      "feeling": 3,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "prostatitis"
+      ],
+      "expect": [
+        "prostatitis"
+      ],
+      "note": "боль в промежности — простатит, надбавкой"
+    },
+    {
+      "syndrome": "neck.pain.move",
+      "feeling": 1,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "cervical.radiculopathy"
+      ],
+      "expect": [
+        "cervical.radiculopathy"
+      ],
+      "note": "прострел — корешок, надбавкой"
+    },
+    {
+      "syndrome": "neck.pain.move",
+      "feeling": 2,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "torticollis.acute"
+      ],
+      "note": "голова не поворачивается: различает слабо, поднимает всю мышечно-суставную группу над тревожными"
+    },
+    {
+      "syndrome": "neck.pain.move",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "cervical.myofascial"
+      ],
+      "expect": [
+        "cervical.myofascial"
+      ],
+      "note": "болит при надавливании — миофасциальная боль"
     }
   ]
 }
