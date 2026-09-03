@@ -4,7 +4,7 @@
   "private": true,
   "description": "Медицинская энциклопедия с оглавлением в виде модели тела",
   "scripts": {
-    "validate": "node tools/validate.js",
+    "validate": "node tools/validate.js && node tools/check-weights.js",
     "test": "node src/engine.js && node tools/test-selector.js && node tools/test-feelings.js",
     "check:anatomy": "node tools/check-anatomy.js",
     "lint:words": "node tools/lint-words.js",
