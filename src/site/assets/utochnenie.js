@@ -12,13 +12,21 @@
       проверяет линт формулировок, а скрипт — нет.
 
    Данные раздела и движок грузятся по нажатию кнопки, а не при открытии
-   страницы: до этого момента раздел читается как обычный список. */
+   страницы: до этого момента раздел читается как обычный список. Исключение —
+   раздел без разметки ощущений: там нажимать нечего, и загрузка начинается
+   сразу. Отрисовку это не задерживает — скрипт добавляется после неё. */
 (function () {
   var root = document.querySelector("[data-refine]");
   if (!root) return;
 
   var synId = root.getAttribute("data-syndrome");
   var maxSteps = parseInt(root.getAttribute("data-max"), 10) || 10;
+
+  /* Раздел без разметки ощущений: шага «что больше похоже?» в разметке нет,
+     уточнение начинается сразу с первого вопроса. Данные и движок грузятся
+     тогда без нажатия — отрисовку страницы это не задерживает, скрипт
+     подставляется уже после неё. */
+  var auto = root.hasAttribute("data-autostart");
 
   var steps = {};
   ["feel", "sex", "age", "q", "result"].forEach(function (name) {
@@ -47,7 +55,12 @@
     var el = document.createElement("script");
     el.src = src;
     el.onload = done;
-    el.onerror = function () { show("feel"); };
+    /* Не загрузилось — возвращаемся к выбору ощущения, а где его нет,
+       убираем остров совсем: список раздела ниже читается и без движка. */
+    el.onerror = function () {
+      if (steps.feel) show("feel");
+      else root.hidden = true;
+    };
     document.head.appendChild(el);
   }
 
@@ -80,6 +93,7 @@
   }
 
   function begin() {
+    root.hidden = false;
     if (fromProfil()) ask();
     else show("sex");
   }
@@ -127,7 +141,8 @@
     state = { feeling: null, sex: null, age: null, answers: {}, asked: 0 };
     var alarm = slot("alarm");
     if (alarm) alarm.hidden = true;
-    show("feel");
+    if (steps.feel) show("feel");
+    else ask();
   }
 
   /* ---------- вопрос ---------- */
@@ -339,5 +354,6 @@
     selectAndCopy();
   }
 
-  root.hidden = false;
+  if (auto) start();
+  else root.hidden = false;
 })();

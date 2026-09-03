@@ -68,11 +68,23 @@ function rareBlock(title, items, note) {
    остаётся под линтом формулировок и переводится вместе с остальным сайтом.
    Блок скрыт атрибутом hidden — без JavaScript он не появляется вовсе,
    и мёртвой кнопки, которая никуда не ведёт, на странице не возникает. */
+
+/* Размечено ли в разделе хоть одно ощущение. Ощущение без implies и favors
+   ничего не подставляет и ничего не двигает: выбор из четырёх таких строк
+   ничего не меняет в списке и читается как поломка. Хуже всего это в разделах
+   с инфарктом — человек нажимает «давит» и не видит никакой реакции.
+   Разметка с одним лишь implies считается рабочей, даже если она не меняет
+   порядок: она снимает вопрос, и следующий шаг всё равно будет другим. */
+function marked(s) {
+  return (s.feelings || []).some(f => f && (f.implies || f.favors));
+}
+
 function refineBlock(s) {
   const R = T.refine;
   const MAX = 10;
+  const feel = marked(s);
 
-  return `<section class="refine" data-refine
+  return `<section class="refine" data-refine${feel ? "" : " data-autostart"}
     data-syndrome="${attr(s.id)}"
     data-payload="${attr(PAYLOAD.get(s.id).url)}"
     data-engine="${attr(A.engine.url)}"
@@ -84,15 +96,23 @@ function refineBlock(s) {
 
   ${/* Ощущения — первый шаг уточнения, а не подпись под названием раздела.
        Кнопки существуют в разметке всегда; без JavaScript блок скрыт,
-       и раздел читается обычным списком. */ ""}
-  <div data-step="feel">
+       и раздел читается обычным списком.
+
+       В неразмеченном разделе шага нет вовсе: там уточнение начинается сразу
+       с первого вопроса (атрибут data-autostart выше). Показать выбор, который
+       ни на что не влияет, хуже, чем не показать ничего. */ ""}
+  ${
+    feel
+      ? `<div data-step="feel">
     <h2>${esc(R.feelTitle)}</h2>
     <div class="choices">
       ${s.feelings.map((f, i) => `<button type="button" data-feel="${i}">${esc(f.text)}</button>`).join("\n      ")}
       <button type="button" data-feel="" class="muted">${esc(R.feelSkip)}</button>
     </div>
     <p class="note">${esc(R.feelNote)}</p>
-  </div>
+  </div>`
+      : ""
+  }
 
   <div data-step="sex" hidden>
     <h2>${esc(R.sexTitle)}</h2>
@@ -159,7 +179,7 @@ function refineBlock(s) {
 </section>`;
 }
 
-module.exports = function syndromePage(s, updated) {
+function syndromePage(s, updated) {
   const items = s.candidates.map(itemOf).filter(i => i.c);
   const rare = items.filter(i => i.c.redflag).sort(sortItems);
   const rest = items.filter(i => !i.c.redflag);
@@ -219,3 +239,6 @@ module.exports = function syndromePage(s, updated) {
     scripts: [A.profil.url, A.utochnenie.url]
   });
 };
+
+module.exports = syndromePage;
+module.exports.marked = marked;

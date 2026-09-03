@@ -252,6 +252,13 @@ function build() {
   console.log(`Внутренних ссылок          ${links}, битых нет`);
   console.log(`Объём HTML                 ${(bytes / 1024 / 1024).toFixed(2)} МБ`);
   console.log(`Данные уточнения           ${D.syndromes.length} файлов, самый большой ${Math.round(build.payloadMax / 1024)} КБ`);
+  {
+    /* Раздел с размеченными ощущениями начинается с вопроса «что больше похоже?»,
+       неразмеченный — сразу с первого уточняющего вопроса. Выбор, который ничего
+       не меняет, показывать нельзя. */
+    const withFeel = D.syndromes.filter(syndromePage.marked).length;
+    console.log(`Уточнение начинается       с выбора ощущения в ${withFeel} разделах, с вопроса в ${D.syndromes.length - withFeel}`);
+  }
   console.log(`Файлы с отпечатком         ${[A.style, A.search, A.profil, A.utochnenie, A.engine].map(a => a.file).join(", ")}`);
   const scripted = written.filter(w => /<script\b/i.test(fs.readFileSync(w.file, "utf8")));
   const kinds = [...new Set(scripted.map(s => s.urlPath.split("/")[1] || "/"))];
