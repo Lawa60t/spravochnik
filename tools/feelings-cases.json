@@ -1356,6 +1356,430 @@
         "thyrotoxicosis"
       ],
       "note": "пью и худею — два буквальных утверждения, диабет +11"
+    },
+    {
+      "syndrome": "arm.shoulder",
+      "feeling": 1,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "rotator.cuff"
+      ],
+      "expect": [
+        "rotator.cuff"
+      ],
+      "note": "болезненная дуга — разрыв манжеты +6"
+    },
+    {
+      "syndrome": "arm.shoulder",
+      "feeling": 2,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "adhesive.capsulitis"
+      ],
+      "expect": [
+        "adhesive.capsulitis"
+      ],
+      "note": "плечо не двигается — замороженное плечо +6"
+    },
+    {
+      "syndrome": "arm.shoulder",
+      "feeling": 3,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "cervical.radiculopathy"
+      ],
+      "expect": [
+        "cervical.radiculopathy"
+      ],
+      "note": "простреливает от шеи — корешок, надбавкой"
+    },
+    {
+      "syndrome": "arm.elbow",
+      "feeling": 0,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "epicondylitis"
+      ],
+      "expect": [
+        "epicondylitis"
+      ],
+      "note": "боль в точке при надавливании — эпикондилит +6"
+    },
+    {
+      "syndrome": "arm.elbow",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "olecranon.bursitis",
+        "rheumatoid.arthritis"
+      ],
+      "expect": [
+        "olecranon.bursitis"
+      ],
+      "note": "припухло на кончике локтя — бурсит +6"
+    },
+    {
+      "syndrome": "arm.elbow",
+      "feeling": 3,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "gout",
+        "septic.arthritis",
+        "cellulitis"
+      ],
+      "expect": [
+        "gout"
+      ],
+      "note": "красный и горячий поднимает всю опасную тройку"
+    },
+    {
+      "syndrome": "arm.wrist",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "ganglion"
+      ],
+      "expect": [
+        "ganglion"
+      ],
+      "note": "шишка на запястье — гигрома, надбавкой"
+    },
+    {
+      "syndrome": "back.upper",
+      "feeling": 2,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "pleurisy",
+        "pneumonia"
+      ],
+      "expect": [
+        "pleurisy"
+      ],
+      "note": "простреливает при вдохе — плеврит +5"
+    },
+    {
+      "syndrome": "back.coccyx",
+      "feeling": 3,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "pilonidal.disease"
+      ],
+      "expect": [
+        "pilonidal.disease"
+      ],
+      "note": "припухло и болит над копчиком — пилонидальная болезнь, надбавкой"
+    },
+    {
+      "syndrome": "chest.cough.dry",
+      "feeling": 1,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "whooping.cough"
+      ],
+      "expect": [
+        "whooping.cough"
+      ],
+      "note": "приступами до рвоты — коклюш с шестого места на первое"
+    },
+    {
+      "syndrome": "chest.cough.wet",
+      "feeling": 0,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "bronchitis.acute"
+      ],
+      "expect": [
+        "bronchitis.acute"
+      ],
+      "note": "светлая мокрота — острый бронхит +5"
+    },
+    {
+      "syndrome": "chest.cough.wet",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "pneumonia",
+        "bronchiectasis"
+      ],
+      "expect": [
+        "pneumonia"
+      ],
+      "note": "жёлто-зелёная — пневмония +5"
+    },
+    {
+      "syndrome": "chest.cough.wet",
+      "feeling": 2,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "bronchiectasis",
+        "copd"
+      ],
+      "expect": [
+        "bronchiectasis"
+      ],
+      "note": "обильная по утрам — бронхоэктазы +6"
+    },
+    {
+      "syndrome": "chest.cough.wet",
+      "feeling": 3,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "lung.cancer",
+        "tuberculosis.pulmonary"
+      ],
+      "expect": [
+        "lung.cancer"
+      ],
+      "note": "с кровью — рак лёгкого с восьмого места на первое"
+    },
+    {
+      "syndrome": "leg.hip",
+      "feeling": 1,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "trochanteric.bursitis"
+      ],
+      "expect": [
+        "trochanteric.bursitis"
+      ],
+      "note": "ноет сбоку бедра — вертельный бурсит, надбавкой"
+    },
+    {
+      "syndrome": "leg.foot",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "morton.neuroma"
+      ],
+      "expect": [
+        "morton.neuroma"
+      ],
+      "note": "жжёт и немеет между пальцами — неврома Мортона, надбавкой"
+    },
+    {
+      "syndrome": "leg.foot",
+      "feeling": 2,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "hallux.valgus"
+      ],
+      "expect": [
+        "hallux.valgus"
+      ],
+      "note": "косточка натирает — вальгусная деформация, надбавкой"
+    },
+    {
+      "syndrome": "leg.foot",
+      "feeling": 3,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "gout",
+        "septic.arthritis"
+      ],
+      "expect": [
+        "gout"
+      ],
+      "note": "красный горячий сустав — подагра, септический артрит ↑9"
+    },
+    {
+      "syndrome": "leg.veins",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "varicose.veins"
+      ],
+      "expect": [
+        "varicose.veins"
+      ],
+      "note": "тяжесть к вечеру — варикоз +6"
+    },
+    {
+      "syndrome": "leg.veins",
+      "feeling": 2,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "superficial.thrombophlebitis"
+      ],
+      "note": "плотный болезненный тяж — тромбофлебит, надбавкой (варикоз всё равно выше по частоте)"
+    },
+    {
+      "syndrome": "leg.veins",
+      "feeling": 3,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "venous.ulcer"
+      ],
+      "expect": [
+        "venous.ulcer"
+      ],
+      "note": "потемнела кожа голени — трофические изменения, венозная язва +6"
+    },
+    {
+      "syndrome": "leg.knee.swell",
+      "feeling": 0,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "gout",
+        "septic.arthritis",
+        "cellulitis"
+      ],
+      "expect": [
+        "gout"
+      ],
+      "note": "распухло и горячее — опасная тройка"
+    },
+    {
+      "syndrome": "leg.knee.swell",
+      "feeling": 1,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "knee.oa",
+        "baker.cyst",
+        "prepatellar.bursitis"
+      ],
+      "expect": [
+        "knee.oa"
+      ],
+      "note": "припухло без покраснения"
+    },
+    {
+      "syndrome": "leg.knee.swell",
+      "feeling": 2,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "baker.cyst"
+      ],
+      "expect": [
+        "baker.cyst"
+      ],
+      "note": "шарик под коленом сзади — киста Бейкера, надбавкой"
+    },
+    {
+      "syndrome": "leg.knee.swell",
+      "feeling": 3,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "acl.tear"
+      ],
+      "expect": [
+        "acl.tear"
+      ],
+      "note": "отёк сразу после травмы — гемартроз, разрыв ПКС"
+    },
+    {
+      "syndrome": "abd.rflank",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "pleurisy"
+      ],
+      "expect": [
+        "pleurisy"
+      ],
+      "note": "колет при вдохе — плеврит с восьмого места на первое"
+    },
+    {
+      "syndrome": "abd.rflank",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "renal.colic"
+      ],
+      "expect": [
+        "renal.colic"
+      ],
+      "note": "тянет вниз, в пах — почечная колика +6"
+    },
+    {
+      "syndrome": "abd.lflank",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "renal.colic"
+      ],
+      "expect": [
+        "renal.colic"
+      ],
+      "note": "тянет вниз, в пах — почечная колика +6"
+    },
+    {
+      "syndrome": "abd.llq",
+      "feeling": 2,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "ovarian.cyst",
+        "ectopic.pregnancy"
+      ],
+      "note": "резко с одной стороны у женщины — киста яичника +4, внематочная +3"
+    },
+    {
+      "syndrome": "abd.luq",
+      "feeling": 2,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "splenic.rupture"
+      ],
+      "expect": [
+        "splenic.rupture"
+      ],
+      "note": "резко после удара — разрыв селезёнки с десятого места на первое"
+    },
+    {
+      "syndrome": "abd.luq",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "pleurisy",
+        "pneumonia"
+      ],
+      "expect": [
+        "pleurisy"
+      ],
+      "note": "колет при вдохе — плеврит +6"
+    },
+    {
+      "syndrome": "abd.luq",
+      "feeling": 4,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "pancreatitis.acute"
+      ],
+      "expect": [
+        "pancreatitis.acute"
+      ],
+      "note": "опоясывает и отдаёт в спину — панкреатит, надбавкой"
     }
   ]
 }
