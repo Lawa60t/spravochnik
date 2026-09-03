@@ -21,6 +21,28 @@ function syndromeLinks(list) {
       </ul>`;
 }
 
+/* Пояснение, дословно повторяющее название, читается как сбой генератора:
+   «Руки — Руки», «Ноги — Ноги», «Кожа, волосы, ногти — Кожа, волосы, ногти».
+   Так выходит там, где область целиком укладывается в один участок слоя якорей
+   и его подпись совпадает с названием области.
+
+   Сравниваем не строки, а смысл: регистр, ё/е, знаки препинания и лишние
+   пробелы не считаются различием. Слово «область» на конце пояснения тоже
+   не считается: «Таз, пах, мочеполовая область» ничего не добавляет
+   к названию «Таз, пах, мочеполовая». */
+function norm(s) {
+  return String(s || "")
+    .toLowerCase()
+    .replace(/ё/g, "е")
+    .replace(/[^0-9a-zа-я]+/g, " ")
+    .trim();
+}
+
+function addsNothing(explanation, name) {
+  const e = norm(explanation).replace(/\s+область$/, "");
+  return !e || e === norm(name);
+}
+
 /* ---------- /oblasti/ ---------- */
 function zonesPage(updated) {
   const m = meta.zones(D.map.zones.length);
@@ -30,10 +52,11 @@ function zonesPage(updated) {
       const n = D.syndromesOfZone(z.id).length;
       const az = D.anatomyZonesOf(z.id);
       const parts = az.map(a => a.label).join(" · ");
+      const gist = addsNothing(parts, z.name) ? "" : parts;
       return `<li>
         <a href="${attr(D.zonePath(z.id))}">${esc(z.name)}</a>
         <span class="count">${n} ${esc(T.zones.sectionsWord)}</span>
-        ${parts ? `<span class="gist">${esc(parts)}</span>` : ""}
+        ${gist ? `<span class="gist">${esc(gist)}</span>` : ""}
       </li>`;
     })
     .join("\n      ");
@@ -85,7 +108,9 @@ function zonePage(zone, updated) {
       ${/* Заголовок — имя участка, а не ориентир: «Стопа», а не «Ниже лодыжки».
            Ориентир идёт второй строкой мельче — он отвечает на другой вопрос,
            «где это на теле», и нужен тому, кто не уверен, туда ли попал. */ ""}
-      <h3>${esc(sz.name)}</h3>
+      ${/* Тот же случай, что и в списке областей: у зоны с единственным
+           участком его имя может дословно повторять заголовок страницы. */ ""}
+      ${addsNothing(sz.name, zone.name) ? "" : `<h3>${esc(sz.name)}</h3>`}
       ${sz.landmark ? `<p class="note">${esc(sz.landmark)}</p>` : ""}
       ${syndromeLinks(sz.syndromes)}
     </div>`
