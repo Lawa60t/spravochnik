@@ -83,6 +83,17 @@ const TITLE_FIXED_MAX = 65;
 const SCRIPTED = [/^\/index\.html$/, /^\/ukazatel\/index\.html$/, /^\/razdely\/[a-z0-9-]+\/index\.html$/];
 const isScripted = rel => SCRIPTED.some(re => re.test(rel));
 
+/* Единственное исключение из списка выше — поиск в шапке. Он стоит на всех
+   страницах, потому что иначе его не находят: указатель существует, но до него
+   надо додуматься дойти. Правило при этом не ослаблено — оно осталось тем же,
+   каким было задумано: страница обязана быть полной без единого скрипта.
+   Поле поиска создаётся скриптом и без него не появляется вовсе; на его месте
+   остаётся обычная ссылка на указатель, а весь текст страницы уже отрисован.
+
+   Любой другой скрипт на нестраничном списке по-прежнему роняет сборку:
+   если уточнение случайно уедет на страницу статьи, это будет видно сразу. */
+const HEADER_SEARCH = /^\/poisk\.[0-9a-f]{8}\.js$/;
+
 /* ---------- исключения ---------- */
 const allowPath = path.join(__dirname, "lint-allow.json");
 const allow = fs.existsSync(allowPath) ? JSON.parse(fs.readFileSync(allowPath, "utf8")).allow || [] : [];
@@ -161,12 +172,12 @@ function run() {
        код лежит в своём файле по корневому пути, встроенного кода нет.
        Чужой домен в src означал бы передачу IP читателя третьей стороне. */
     const scripts = html.match(/<script\b[^>]*>/gi) || [];
-    if (scripts.length && !isScripted(rel))
-      errors.push(`${rel}: скрипт на странице, которая обязана работать без JavaScript`);
     scripts.forEach(tag => {
       const src = (tag.match(/\ssrc="([^"]*)"/i) || [, ""])[1];
-      if (!src) errors.push(`${rel}: встроенный скрипт — код должен лежать своим файлом`);
-      else if (!/^\/[^/]/.test(src)) errors.push(`${rel}: скрипт с чужого адреса — ${src}`);
+      if (!src) { errors.push(`${rel}: встроенный скрипт — код должен лежать своим файлом`); return; }
+      if (!/^\/[^/]/.test(src)) { errors.push(`${rel}: скрипт с чужого адреса — ${src}`); return; }
+      if (!HEADER_SEARCH.test(src) && !isScripted(rel))
+        errors.push(`${rel}: скрипт ${src} на странице, которая обязана работать без JavaScript`);
     });
     /* Внешние адреса. Различаем две вещи, и это принципиально:
 

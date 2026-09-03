@@ -14,6 +14,7 @@ const D = require("./data");
 const meta = require("./meta");
 const A = require("./assets");
 const PAYLOAD = require("./payload");
+const POISK = require("./poisk-index");
 const SEXQ = require("../questions-sex.json");
 const conditionPage = require("./pages/condition");
 const syndromePage = require("./pages/syndrome");
@@ -219,10 +220,15 @@ function build() {
   /* Стили и скрипты пишутся под именами с отпечатком содержимого: иначе
      кеш на сутки отдаёт старый файл, и правка до человека не доезжает.
      Движок уезжает в браузер тем же файлом, что гоняют тесты. */
-  [A.style, A.search, A.profil, A.utochnenie, A.engine].forEach(a => {
+  [A.style, A.search, A.poisk, A.profil, A.utochnenie, A.engine].forEach(a => {
     fs.writeFileSync(path.join(dist, a.file), a.content);
     assetUrls.add(a.url);
   });
+
+  /* Индекс поиска в шапке. Отдельным файлом и с отпечатком: он нужен всем
+     страницам, но грузится только тому, кто начал набирать. */
+  fs.writeFileSync(path.join(dist, POISK.file), POISK.content, "utf8");
+  assetUrls.add(POISK.url);
 
   const dataDir = path.join(dist, "dannye");
   fs.mkdirSync(dataDir, { recursive: true });
@@ -259,7 +265,8 @@ function build() {
     const withFeel = D.syndromes.filter(syndromePage.marked).length;
     console.log(`Уточнение начинается       с выбора ощущения в ${withFeel} разделах, с вопроса в ${D.syndromes.length - withFeel}`);
   }
-  console.log(`Файлы с отпечатком         ${[A.style, A.search, A.profil, A.utochnenie, A.engine].map(a => a.file).join(", ")}`);
+  console.log(`Файлы с отпечатком         ${[A.style, A.search, A.poisk, A.profil, A.utochnenie, A.engine].map(a => a.file).join(", ")}`);
+  console.log(`Индекс поиска в шапке      ${POISK.file}, ${POISK.count} строк, ${(POISK.bytes / 1024).toFixed(1)} КБ; грузится по первому нажатию клавиши`);
   const scripted = written.filter(w => /<script\b/i.test(fs.readFileSync(w.file, "utf8")));
   const kinds = [...new Set(scripted.map(s => s.urlPath.split("/")[1] || "/"))];
   console.log(`Страниц со скриптом        ${scripted.length} из ${written.length}${kinds.length ? ` (${kinds.join(", ")})` : ""}`);

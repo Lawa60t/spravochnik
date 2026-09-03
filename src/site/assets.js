@@ -34,6 +34,7 @@ module.exports = {
   fingerprint,
   style: asset("style.css", path.join(assetsDir, "style.css")),
   search: asset("search.js", path.join(assetsDir, "search.js")),
+  poisk: asset("poisk.js", path.join(assetsDir, "poisk.js")),
   profil: asset("profil.js", path.join(assetsDir, "profil.js")),
   utochnenie: asset("utochnenie.js", path.join(assetsDir, "utochnenie.js")),
   /* Движок уезжает в браузер тем же файлом, что гоняют тесты. */

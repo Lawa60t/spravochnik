@@ -432,6 +432,60 @@ ul.dashed li::before { content: "— "; }
 }
 .poisk-empty p { margin-bottom: .4rem; }
 
+/* ---------- поиск в шапке ---------- */
+/* Слот скрыт в разметке и раскрывается скриптом. Без JavaScript внутри
+   остаётся видимой обычная ссылка на указатель, поэтому скрывать сам слот
+   нельзя — прячется только то, что скрипт заменил. */
+.topsearch { flex: 1 1 100%; order: 5; position: relative; }
+.poisk-fallback { font-size: .95rem; color: var(--ink-2); }
+.poisk-top-box { position: relative; }
+.poisk-top-label {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+.poisk-top-input {
+  width: 100%;
+  min-height: 44px;
+  padding: .5rem .7rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+.poisk-top-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* Выпадающий список ложится поверх страницы, а не раздвигает её:
+   иначе при каждом нажатии клавиши текст под шапкой прыгает вниз. */
+.poisk-out {
+  position: absolute; z-index: 20; left: 0; right: 0;
+  margin: .3rem 0 0; padding: .25rem 0;
+  list-style: none;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  box-shadow: 0 6px 20px var(--shadow);
+  max-height: 60vh; overflow-y: auto;
+}
+.poisk-out li { margin: 0; }
+.poisk-out a {
+  display: flex; align-items: baseline; justify-content: space-between; gap: .8rem;
+  min-height: 44px;
+  padding: .5rem .8rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.poisk-out a:hover, .poisk-out a:focus { background: var(--bg); outline: none; }
+.poisk-out .kind { font-size: .78rem; color: var(--ink-3); flex: none; }
+.poisk-top-status { font-size: .8rem; color: var(--ink-3); margin: .3rem 0 0; }
+
+@media (min-width: 46rem) {
+  /* На широком экране поле встаёт в строку шапки между названием и разделами
+     и не растягивается на всю ширину: строка поиска длиной в экран читается
+     как поле для текста, а не для одного слова. */
+  .topsearch { flex: 1 1 14rem; max-width: 24rem; order: 0; }
+}
+
 /* ---------- уточнение ---------- */
 .refine {
   margin-top: 2.4rem;

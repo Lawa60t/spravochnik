@@ -4,6 +4,7 @@
 const cfg = require("./config");
 const T = require("./text");
 const A = require("./assets");
+const POISK = require("./poisk-index");
 
 const esc = s =>
   String(s)
@@ -78,6 +79,27 @@ function sideNav() {
   </nav>`;
 }
 
+/* Поиск в шапке. Поле создаёт скрипт, поэтому в разметке лежит только слот
+   со строками и адресом индекса, а внутри — обычная ссылка на указатель:
+   без JavaScript она и остаётся, мёртвого поля на странице не возникает.
+
+   Формы здесь нет намеренно. Форма отправила бы запрос адресом (?q=…),
+   а названия болезней не должны попадать ни в историю браузера, ни в логи
+   хостинга — сайт объявляет, что ничего о читателе не собирает. */
+function topSearch() {
+  const S = T.search;
+  return `<div class="topsearch" data-poisk-top
+      data-index="${attr(POISK.url)}"
+      data-label="${attr(S.topLabel)}"
+      data-placeholder="${attr(S.topPlaceholder)}"
+      data-found="${attr(S.topFound)}"
+      data-nothing="${attr(S.topNothing)}"
+      data-kind-condition="${attr(S.topKindCondition)}"
+      data-kind-syndrome="${attr(S.topKindSyndrome)}">
+      <a class="poisk-fallback" href="/ukazatel/" data-poisk-fallback>${esc(T.navIndex)}</a>
+    </div>`;
+}
+
 function header() {
   return `<header class="top">
     <a class="skip" href="#main">${esc(T.skipToContent)}</a>
@@ -85,6 +107,7 @@ function header() {
       <a class="brand" href="/">${esc(cfg.siteName)}</a>
       <a class="homelink" href="/">${esc(T.homeLink)}</a>
     </div>
+    ${topSearch()}
     ${nav("topnav topnav-wide")}
     <details class="topmenu">
       <summary>${esc(T.menu)}</summary>
@@ -120,7 +143,10 @@ function footer(updated, path) {
    действительно нужна. Порядок важен: profil.js кладёт window.EZ_PROFIL,
    остальные его читают. Страница обязана быть полной и без них. */
 function page({ title, description, path, body, rail, updated, bodyClass, ogType, script, scripts }) {
-  const js = scripts && scripts.length ? scripts : script ? [script] : [];
+  /* Поиск в шапке стоит на каждой странице, поэтому его скрипт добавляется
+     здесь, а не перечисляется в каждом шаблоне. Он идёт первым и ни от чего
+     не зависит: индекс он грузит сам и только по первому нажатию клавиши. */
+  const js = [A.poisk.url].concat(scripts && scripts.length ? scripts : script ? [script] : []);
   const canonical = cfg.origin.replace(/\/$/, "") + path;
   return `<!doctype html>
 <html lang="ru">
