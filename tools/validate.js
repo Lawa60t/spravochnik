@@ -24,6 +24,10 @@ const err = [], warn = [];
 const E = m => err.push(m);
 const W = m => warn.push(m);
 
+/* Нормализация синонима для сравнения: регистр, ё/е, лишние пробелы и
+   знаки не должны считаться различием. «ГЭРБ» и «гэрб» — одно слово. */
+const normSyn = s => String(s || "").toLowerCase().replace(/ё/g, "е").replace(/[^0-9a-zа-я]+/g, " ").trim();
+
 /* --- индексы --- */
 const qById = new Map(questions.map(q => [q.id, q]));
 const cById = new Map();
@@ -45,7 +49,45 @@ conditions.forEach(c => {
   if (TREATMENT.test(all)) E(`${c.id}: похоже на упоминание лечения — проверить вручную`);
   if (!["draft","compiled","reviewed","published"].includes(c.status))
     E(`${c.id}: неизвестный статус «${c.status}»`);
+
+  /* --- обиходные синонимы (alt) ---
+     alt влияет только на находимость: поиск по сайту и выдача поисковика.
+     На веса, ранжирование и структуру не влияет. Проверяем гигиену списка:
+     не пустые строки, без дублей внутри статьи и без дословного повтора
+     самого названия — синоним, равный названию, поиску ничего не даёт. */
+  if (c.alt !== undefined) {
+    if (!Array.isArray(c.alt)) E(`${c.id}: alt должен быть массивом`);
+    else {
+      const seen = new Set();
+      c.alt.forEach(a => {
+        if (typeof a !== "string" || !a.trim()) E(`${c.id}: пустой синоним в alt`);
+        else {
+          const n = normSyn(a);
+          if (n === normSyn(c.name)) E(`${c.id}: синоним дословно повторяет название — «${a}»`);
+          if (seen.has(n)) E(`${c.id}: синоним повторяется внутри статьи — «${a}»`);
+          seen.add(n);
+        }
+      });
+    }
+  }
 });
+
+/* Один синоним у нескольких статей — не всегда ошибка («грыжа» законно
+   ведёт и к паховой, и к межпозвонковой), но бессмысленный повтор редкого
+   клинического слова у разных болезней означает копипасту. Предупреждаем,
+   когда один и тот же синоним встречается больше чем у трёх статей: живое
+   обиходное слово так широко не расходится. */
+{
+  const synHome = new Map();
+  conditions.forEach(c => (c.alt || []).forEach(a => {
+    const n = normSyn(a);
+    if (!synHome.has(n)) synHome.set(n, []);
+    synHome.get(n).push(c.id);
+  }));
+  synHome.forEach((ids, n) => {
+    if (ids.length > 3) W(`синоним «${n}» повторяется у ${ids.length} статей: ${ids.join(", ")}`);
+  });
+}
 
 /* --- разделы --- */
 syndromes.forEach(s => {
