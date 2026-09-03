@@ -50,6 +50,7 @@ function head({ title, description, canonical, ogType }) {
    и левая колонка на широком. Переключение отдано медиазапросу, а не скрипту,
    поэтому списки существуют в разметке одновременно. */
 const LINKS = [
+  ["/vybor/", "navChoose"],
   ["/oblasti/", "navZones"],
   ["/ukazatel/", "navIndex"],
   ["/chto-ne-razbiraem/", "navNotSearched"],

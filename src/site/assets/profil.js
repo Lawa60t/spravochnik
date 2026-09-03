@@ -139,16 +139,10 @@
     }
   });
 
-  /* Куда идти после ответа. Развилку добавляет следующая правка;
-     пока её нет — сразу к списку областей. */
+  /* Куда идти после ответа — на развилку. Она живёт отдельной страницей,
+     а не третьим экраном здесь: экран, который существует только внутри
+     скрипта, нельзя ни открыть ссылкой, ни положить в меню. */
   function next(button) {
-    var fork = document.querySelector("[data-fork]");
-    if (fork) {
-      screen.hidden = true;
-      fork.hidden = false;
-      fork.scrollIntoView({ block: "start" });
-      return;
-    }
-    window.location.href = button.getAttribute("data-next") || "/oblasti/";
+    window.location.href = button.getAttribute("data-next") || "/vybor/";
   }
 })();

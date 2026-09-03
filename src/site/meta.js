@@ -52,6 +52,13 @@ module.exports = {
     )
   }),
 
+  vybor: title => ({
+    title: withSite(title),
+    description: clamp(
+      "Два входа в оглавление справочника: область на модели тела или тот же список словами. Ничего не сохраняется и никуда не отправляется."
+    )
+  }),
+
   zones: nZones => ({
     title: `Области тела — оглавление справочника · ${SITE}`,
     description: clamp(

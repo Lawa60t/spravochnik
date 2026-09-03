@@ -1,5 +1,10 @@
 "use strict";
-/* Главная. Предупреждение показано обычным блоком, а не модальным окном:
+/* Главная: вход с предупреждением и экран пола и возраста. Развилка живёт
+   отдельной страницей /vybor/ — порядок такой, каким он и задуман:
+   вход → пол и возраст → развилка. Без JavaScript кнопка входа ведёт на неё
+   прямо, минуя вопрос, который без скрипта всё равно негде задать.
+
+   Предупреждение показано обычным блоком, а не модальным окном:
    модалка с запоминанием флажка — это уже JavaScript, второй уровень доступа.
    Кнопка «Понятно» здесь честная ссылка, а не имитация согласия:
    формула «беру риски на себя» не используется нигде (docs/teksty-ekranov.md). */
@@ -10,8 +15,8 @@ const D = require("../data");
 const A = require("../assets");
 
 /* Экран пола и возраста. В разметке он есть всегда, но скрыт атрибутом hidden:
-   без JavaScript кнопка входного экрана остаётся обычной ссылкой на список
-   областей, и ни одного вопроса человеку не задаётся. */
+   без JavaScript кнопка входного экрана остаётся обычной ссылкой на развилку,
+   и ни одного вопроса человеку не задаётся. */
 function profilScreen() {
   const P = T.profil;
   return `<section class="profil" data-profil hidden>
@@ -29,28 +34,9 @@ function profilScreen() {
     </p>
 
     <p class="note" data-slot="hint" hidden>${esc(P.needSex)}</p>
-    <p class="cta"><button type="button" class="button" data-act="profil-save" data-next="/oblasti/">${esc(P.next)}</button></p>
+    <p class="cta"><button type="button" class="button" data-act="profil-save" data-next="/vybor/">${esc(P.next)}</button></p>
     <p class="note">${esc(P.why)}</p>
     <p class="note">${esc(P.note)}</p>
-  </section>`;
-}
-
-/* Развилка. Показывается после ответа о поле и возрасте, поэтому в разметке
-   скрыта. Левая половина неактивна намеренно: модели пока нет, и вместо
-   мёртвой кнопки там сказано, чего ждать. */
-function forkScreen() {
-  const F = T.fork;
-  return `<section class="fork" data-fork hidden>
-    <div class="fork-half fork-off">
-      <h2>${esc(F.bodyTitle)}</h2>
-      <p class="fork-soon">${esc(F.bodySoon)}</p>
-    </div>
-    <a class="fork-half fork-on" href="/oblasti/">
-      <h2>${esc(F.listTitle)}</h2>
-      <ul class="fork-list" aria-hidden="true">
-        ${D.map.zones.map(z => `<li>${esc(z.name)}</li>`).join("\n        ")}
-      </ul>
-    </a>
   </section>`;
 }
 
@@ -75,14 +61,12 @@ module.exports = function homePage(updated) {
          не догадавшийся прокрутить, решил бы, что на сайте ничего нет.
          Текст прокручивается под полосой, поэтому у неё свой фон. */ ""}
     <div class="entry-cta">
-      <a class="button" href="/oblasti/" data-act="profil-open">${esc(T.entry.button)}</a>
+      <a class="button" href="/vybor/" data-act="profil-open">${esc(T.entry.button)}</a>
       <p class="note">${esc(T.entry.note)}</p>
     </div>
   </section>
 
   ${profilScreen()}
-
-  ${forkScreen()}
 
 </div>`;
 

@@ -20,6 +20,7 @@ const conditionPage = require("./pages/condition");
 const syndromePage = require("./pages/syndrome");
 const ukazatelPage = require("./pages/ukazatel");
 const homePage = require("./pages/home");
+const vyborPage = require("./pages/vybor");
 const { notSearchedHerePage, noMatchPage, doesNotPage } = require("./pages/plain");
 const { zonesPage, zonePage, zhalobyPage } = require("./pages/oblasti");
 const { aboutPage, howMadePage, termsPage, supportPage } = require("./pages/service");
@@ -156,6 +157,7 @@ function verifyLinks() {
 function sitemap(origin, updated) {
   const urls = [
     { loc: "/", lastmod: updated },
+    { loc: "/vybor/", lastmod: updated },
     { loc: "/ukazatel/", lastmod: updated },
     { loc: "/oblasti/", lastmod: D.anatomy.updated || updated },
     { loc: "/zhaloby/", lastmod: D.anatomy.updated || updated },
@@ -203,6 +205,7 @@ function build() {
     .pop();
 
   write("/", homePage(updated));
+  write("/vybor/", vyborPage(updated));
   write("/ukazatel/", ukazatelPage(updated));
   write("/oblasti/", zonesPage(updated));
   write("/zhaloby/", zhalobyPage(updated));
