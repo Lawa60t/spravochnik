@@ -208,15 +208,28 @@ main {
   .rail .refine { border-top: 0; padding-top: 0; }
 }
 
+/* ---------- подвал ----------
+   Подвал повторяет сетку страницы. Отступы отданы обёртке .bottom-inner,
+   а не самому подвалу: у main тоже max-width считается вместе с внутренним
+   полем (box-sizing: border-box), и без этого левый край подвала не совпадал
+   бы с левым краем текста даже на телефоне.
+
+   Сам текст выравнивается по левому краю всегда. Центрировать его нельзя:
+   юридический абзац в пять строк, набранный по центру, не читается. */
 .bottom {
   border-top: 1px solid var(--line);
   background: var(--card);
   color: var(--ink-2);
   font-size: .87rem;
   line-height: 1.45;
-  padding: 1.2rem 1.25rem 1.6rem;
+  padding: 1.2rem 0 1.6rem;
+  text-align: left;
 }
-.bottom > * { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.bottom-inner {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
 
 /* Подвал — связный текст, а не семь отдельных абзацев. Полный межабзацный
    интервал разгонял его на пол-экрана телефона, хотя читается он подряд
@@ -224,7 +237,7 @@ main {
    только там, где меняется смысл: перед телефоном неотложной помощи
    и перед служебным низом. */
 .bottom p { margin: 0 0 .35rem; }
-.bottom p:last-child { margin-bottom: 0; }
+.footcol > p:last-child { margin-bottom: 0; }
 .bottom .tel { color: var(--ink); margin-top: .7rem; }
 .footlinks { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
 /* Строка про поддержку намеренно тише остальных ссылок подвала. */
@@ -236,6 +249,49 @@ main {
   display: inline-block; border: 1px solid var(--line);
   padding: .05rem .4rem; border-radius: 3px; font-size: .8rem;
   margin-top: .7rem;
+}
+
+/* От 1200 подвал встаёт на ту же сетку, что и .layout, а обёртка попадает
+   в колонку текста: левый край подвала и левый край статьи — одна линия.
+   Внутри обёртки две колонки; левая шире, потому что в ней сплошной текст,
+   правая — короткие служебные строки. */
+@media (min-width: 1200px) {
+  .bottom {
+    display: grid;
+    grid-template-columns: 17.5rem minmax(0, var(--measure-wide));
+    justify-content: center;
+    gap: 0 2rem;
+    padding: 1.6rem 1.5rem 2rem;
+  }
+  .bottom-inner {
+    grid-column: 2;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 0 2rem;
+    align-items: start;
+  }
+  /* В своей колонке телефону неотложной помощи отделяться уже не от чего. */
+  .bottom .tel { margin-top: 0; }
+}
+
+/* От 1500 у страницы три колонки, и содержимое занимает вторую и третью.
+   Подвал повторяет это: текст под текстом, служебная колонка под правой. */
+@media (min-width: 1500px) {
+  .bottom {
+    grid-template-columns: minmax(15rem, 1fr) minmax(0, var(--measure-wide)) minmax(17rem, 1fr);
+    justify-content: normal;
+  }
+  .bottom-inner {
+    grid-column: 2 / 4;
+    /* Левая колонка не шире колонки текста сайта: юридический абзац читают
+       подряд, и строка длиной в полтора экрана здесь не нужна. Правая
+       ограничена тоже — иначе на очень широком мониторе она растянула бы
+       короткие служебные строки через всю страницу. */
+    grid-template-columns: minmax(0, var(--measure-wide)) minmax(15rem, 22rem);
+  }
 }
 
 /* ---------- общие мелочи ---------- */

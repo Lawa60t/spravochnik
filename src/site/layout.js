@@ -125,17 +125,32 @@ function header() {
 const NO_SUPPORT = ["/sostoyaniya/", "/chto-ne-razbiraem/", "/moego-sluchaya-net/"];
 const showSupport = path => !NO_SUPPORT.some(p => path.startsWith(p));
 
+/* Подвал стоит на той же сетке, что и страница: обёртка .bottom-inner
+   попадает в ту же колонку, где идёт текст, поэтому левый край подвала
+   и левый край статьи — одна линия на любой ширине. Раньше подвал центрировался
+   сам по себе и на широком мониторе оказывался левее содержимого.
+
+   Внутри две колонки. Слева то, что читают подряд: чем этот сайт является
+   и откуда взяты материалы. Справа то, к чему обращаются точечно: телефон
+   неотложной помощи, владелец, маркировка возраста. Порядок в разметке —
+   порядок чтения на телефоне, где колонка одна. */
 function footer(updated, path) {
   const f = T.footer;
   return `<footer class="bottom">
-    <p><strong>${esc(cfg.siteName)} — ${esc(f.lead)}</strong></p>
-    <p>${esc(f.body)}</p>
-    <p>${esc(f.sources)} ${esc(f.updatedPrefix)} ${esc(dateRu(updated))}</p>
-    <p class="tel">${esc(f.emergency)}</p>
-    <p>${esc(f.ownerPrefix)} ${esc(cfg.owner.name)}. ${esc(f.mailPrefix)} <a href="mailto:${attr(cfg.owner.mail)}">${esc(cfg.owner.mail)}</a></p>
-    ${/* Отдельной неприметной строкой и внизу: ни в шапке, ни в меню её нет. */ ""}
-    <p class="age">${esc(f.age)}</p>
-    ${showSupport(path) ? `<p class="footsupport"><a href="/podderzhat/">${esc(T.navSupport)}</a></p>` : ""}
+    <div class="bottom-inner">
+      <div class="footcol">
+        <p><strong>${esc(cfg.siteName)} — ${esc(f.lead)}</strong></p>
+        <p>${esc(f.body)}</p>
+        <p>${esc(f.sources)} ${esc(f.updatedPrefix)} ${esc(dateRu(updated))}</p>
+      </div>
+      <div class="footcol">
+        <p class="tel">${esc(f.emergency)}</p>
+        <p>${esc(f.ownerPrefix)} ${esc(cfg.owner.name)}. ${esc(f.mailPrefix)} <a href="mailto:${attr(cfg.owner.mail)}">${esc(cfg.owner.mail)}</a></p>
+        ${/* Отдельной неприметной строкой и внизу: ни в шапке, ни в меню её нет. */ ""}
+        <p class="age">${esc(f.age)}</p>
+        ${showSupport(path) ? `<p class="footsupport"><a href="/podderzhat/">${esc(T.navSupport)}</a></p>` : ""}
+      </div>
+    </div>
   </footer>`;
 }
 
