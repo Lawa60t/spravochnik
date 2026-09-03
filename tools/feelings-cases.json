@@ -2190,6 +2190,402 @@
         "globus"
       ],
       "note": "мешает, но еда проходит — globus, пища не застревает"
+    },
+    {
+      "syndrome": "arm.weak",
+      "feeling": 2,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "myasthenia"
+      ],
+      "expect": [
+        "myasthenia"
+      ],
+      "note": "слабеет к вечеру — миастения ↑6"
+    },
+    {
+      "syndrome": "arm.swell",
+      "feeling": 2,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "cellulitis",
+        "septic.arthritis"
+      ],
+      "expect": [
+        "cellulitis"
+      ],
+      "note": "отёк с покраснением — флегмона"
+    },
+    {
+      "syndrome": "leg.numb",
+      "feeling": 1,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "diabetic.neuropathy",
+        "b12.deficiency"
+      ],
+      "expect": [
+        "diabetic.neuropathy"
+      ],
+      "note": "немеют обе стопы — полинейропатия +5"
+    },
+    {
+      "syndrome": "leg.numb",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "disc.herniation.lumbar"
+      ],
+      "expect": [
+        "disc.herniation.lumbar"
+      ],
+      "note": "полосой от поясницы вниз — грыжа диска +6"
+    },
+    {
+      "syndrome": "chest.cough.blood",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "pneumonia"
+      ],
+      "note": "ржавая мокрота — пневмония, надбавкой"
+    },
+    {
+      "syndrome": "pelv.uro.retention",
+      "feeling": 0,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "bph",
+        "cauda.equina"
+      ],
+      "expect": [
+        "bph"
+      ],
+      "note": "позывы есть, а мочи нет — аденома +5, конский хвост +4"
+    },
+    {
+      "syndrome": "pelv.uro.retention",
+      "feeling": 1,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "bph",
+        "prostate.cancer"
+      ],
+      "expect": [
+        "bph"
+      ],
+      "note": "идёт по каплям — вялая струя +6"
+    },
+    {
+      "syndrome": "pelv.anal.pain",
+      "feeling": 0,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "anal.fissure"
+      ],
+      "expect": [
+        "anal.fissure"
+      ],
+      "note": "резко при дефекации — трещина +6"
+    },
+    {
+      "syndrome": "pelv.anal.pain",
+      "feeling": 2,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "pruritus.ani",
+        "hemorrhoids"
+      ],
+      "expect": [
+        "pruritus.ani"
+      ],
+      "note": "зудит — анальный зуд +4"
+    },
+    {
+      "syndrome": "pelv.groin.lump",
+      "feeling": 0,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "inguinal.hernia"
+      ],
+      "expect": [
+        "inguinal.hernia"
+      ],
+      "note": "мягкая, вправляется лёжа — паховая грыжа +6"
+    },
+    {
+      "syndrome": "pelv.groin.lump",
+      "feeling": 3,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "strangulated.hernia"
+      ],
+      "expect": [
+        "strangulated.hernia"
+      ],
+      "note": "не вправляется и болит — ущемление +6"
+    },
+    {
+      "syndrome": "skin.wound",
+      "feeling": 0,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "venous.ulcer",
+        "bcc"
+      ],
+      "expect": [
+        "venous.ulcer"
+      ],
+      "note": "не заживает месяцами — хронические язвы и опухоли"
+    },
+    {
+      "syndrome": "skin.wound",
+      "feeling": 2,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "bcc",
+        "scc.skin",
+        "melanoma"
+      ],
+      "expect": [
+        "bcc"
+      ],
+      "note": "корочка отходит и снова кровит — рак кожи"
+    },
+    {
+      "syndrome": "skin.hair",
+      "feeling": 1,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "alopecia.areata"
+      ],
+      "expect": [
+        "alopecia.areata"
+      ],
+      "note": "круглые залысины — гнёздная алопеция, надбавкой"
+    },
+    {
+      "syndrome": "skin.hair",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "androgenetic.alopecia"
+      ],
+      "expect": [
+        "androgenetic.alopecia"
+      ],
+      "note": "редеет макушка — андрогенная, надбавкой"
+    },
+    {
+      "syndrome": "skin.hair",
+      "feeling": 3,
+      "sex": "f",
+      "age": 40,
+      "expectRise": [
+        "androgenetic.alopecia"
+      ],
+      "expect": [
+        "androgenetic.alopecia"
+      ],
+      "note": "расширился пробор — андрогенная (женский тип)"
+    },
+    {
+      "syndrome": "skin.nail",
+      "feeling": 2,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "ingrown.nail"
+      ],
+      "expect": [
+        "ingrown.nail"
+      ],
+      "note": "врос в валик — вросший ноготь, надбавкой"
+    },
+    {
+      "syndrome": "skin.nail",
+      "feeling": 3,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "psoriasis"
+      ],
+      "expect": [
+        "psoriasis"
+      ],
+      "note": "ямки на ногтях — псориаз ногтей, надбавкой"
+    },
+    {
+      "syndrome": "neck.lump",
+      "feeling": 3,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "lymphoma",
+        "tb.lymphadenitis",
+        "oropharynx.cancer"
+      ],
+      "expect": [
+        "lymphoma"
+      ],
+      "note": "безболезненный плотный узел — лимфома ↑7"
+    },
+    {
+      "syndrome": "pelv.gyn.discharge",
+      "feeling": 0,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "vaginitis"
+      ],
+      "expect": [
+        "vaginitis"
+      ],
+      "note": "творожистые с зудом — вагинит +6"
+    },
+    {
+      "syndrome": "pelv.gyn.discharge",
+      "feeling": 1,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "vaginitis"
+      ],
+      "expect": [
+        "vaginitis"
+      ],
+      "note": "обильные с запахом — бактериальный вагиноз +6"
+    },
+    {
+      "syndrome": "pelv.gyn.discharge",
+      "feeling": 2,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "urethritis",
+        "pid"
+      ],
+      "expect": [
+        "urethritis"
+      ],
+      "note": "жёлто-зелёные — уретрит +5, придатки +5"
+    },
+    {
+      "syndrome": "pelv.gyn.discharge",
+      "feeling": 3,
+      "sex": "f",
+      "age": 55,
+      "expectRise": [
+        "cervical.cancer",
+        "endometrial.cancer"
+      ],
+      "expect": [
+        "cervical.cancer"
+      ],
+      "note": "кровянистые вне цикла — рак шейки +6, тела матки +6"
+    },
+    {
+      "syndrome": "pelv.gyn.pain",
+      "feeling": 2,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "ovarian.torsion",
+        "ovarian.cyst"
+      ],
+      "expect": [
+        "ovarian.torsion"
+      ],
+      "note": "резко с одной стороны — перекрут яичника +6"
+    },
+    {
+      "syndrome": "pelv.gyn.pain",
+      "feeling": 3,
+      "sex": "f",
+      "age": 35,
+      "expectRise": [
+        "endometriosis"
+      ],
+      "expect": [
+        "endometriosis"
+      ],
+      "note": "боль при близости — эндометриоз, надбавкой"
+    },
+    {
+      "syndrome": "pelv.gyn.cycle",
+      "feeling": 1,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "pcos",
+        "pregnancy.early"
+      ],
+      "expect": [
+        "pcos"
+      ],
+      "note": "редкие или отсутствуют — поликистоз +5"
+    },
+    {
+      "syndrome": "pelv.gyn.cycle",
+      "feeling": 2,
+      "sex": "f",
+      "age": 45,
+      "expectRise": [
+        "endometrial.cancer",
+        "cervical.cancer"
+      ],
+      "expect": [
+        "endometrial.cancer"
+      ],
+      "note": "кровит между менструациями — рак тела матки ↑7"
+    },
+    {
+      "syndrome": "pelv.gyn.cycle",
+      "feeling": 3,
+      "sex": "f",
+      "age": 60,
+      "expectRise": [
+        "endometrial.cancer"
+      ],
+      "expect": [
+        "endometrial.cancer"
+      ],
+      "note": "кровотечение после менопаузы — рак тела матки ↑8"
+    },
+    {
+      "syndrome": "abd.vomit.blood",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "mallory.weiss"
+      ],
+      "note": "как кофейная гуща — надрыв слизистой"
+    },
+    {
+      "syndrome": "abd.vomit.blood",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "mallory.weiss"
+      ],
+      "note": "кровь после нескольких рвот — синдром Маллори-Вейса, надбавкой"
     }
   ]
 }
