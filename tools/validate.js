@@ -127,8 +127,18 @@ syndromes.forEach(s => { if (!mapIds.has(s.id)) W(`${s.id}: раздела не�
 const mapAll = new Set(map.syndromes.map(s => s.id));
 let subCount = 0, anchorLinks = 0;
 const anchored = new Set();
+/* Имя участка и ориентир — разные вещи, и путать их нельзя.
+   name — то, как участок называется в списке: «Стопа», «Поясница слева».
+   landmark — где он находится: «Ниже лодыжки», «Рёберно-позвоночный угол».
+   Ориентир писался для калибровки под модель тела, заголовком он читается
+   как сбой генератора, поэтому проверяем, что имя есть и что оно не повторяет
+   ориентир дословно. */
+const norm = s => String(s || "").toLowerCase().replace(/ё/g, "е").replace(/\s+/g, " ").trim();
+
 anatomy.zones.forEach(z => z.subzones.forEach(sz => {
   subCount++;
+  if (!sz.name || !String(sz.name).trim()) E(`участок ${sz.id}: нет имени (поле name)`);
+  else if (norm(sz.name) === norm(sz.landmark)) E(`участок ${sz.id}: имя дословно повторяет ориентир — «${sz.name}»`);
   if (!sz.noAnchor && !z.noAnchor && !sz.box) E(`якорь ${sz.id}: нет координат box`);
   if (sz.box) {
     const b = sz.box;

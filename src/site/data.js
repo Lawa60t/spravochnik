@@ -75,6 +75,7 @@ function zoneGroups(zoneId) {
         .map(sz => ({
           id: sz.id,
           label: sz.label,
+          name: sz.name,
           landmark: sz.landmark,
           syndromes: (sz.syndromes || [])
             .map(id => syndromeById.get(id))

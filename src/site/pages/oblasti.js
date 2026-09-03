@@ -82,7 +82,10 @@ function zonePage(zone, updated) {
     ${g.subzones
       .map(
         sz => `<div class="subzone">
-      <h3>${esc(sz.label)}</h3>
+      ${/* Заголовок — имя участка, а не ориентир: «Стопа», а не «Ниже лодыжки».
+           Ориентир идёт второй строкой мельче — он отвечает на другой вопрос,
+           «где это на теле», и нужен тому, кто не уверен, туда ли попал. */ ""}
+      <h3>${esc(sz.name)}</h3>
       ${sz.landmark ? `<p class="note">${esc(sz.landmark)}</p>` : ""}
       ${syndromeLinks(sz.syndromes)}
     </div>`
