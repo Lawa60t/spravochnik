@@ -214,10 +214,16 @@
           "text": "Кровь только в конце"
         },
         {
-          "text": "Сгустки"
+          "text": "Сгустки",
+          "implies": {
+            "bloodurine": "clots"
+          }
         },
         {
-          "text": "Цвет мясных помоев"
+          "text": "Цвет мясных помоев",
+          "implies": {
+            "bloodurine": "meat"
+          }
         }
       ],
       "questions": [

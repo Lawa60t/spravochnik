@@ -1780,6 +1780,416 @@
         "pancreatitis.acute"
       ],
       "note": "опоясывает и отдаёт в спину — панкреатит, надбавкой"
+    },
+    {
+      "syndrome": "head.eye.vision",
+      "feeling": 1,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "retinal.detachment"
+      ],
+      "expect": [
+        "retinal.detachment"
+      ],
+      "note": "тёмная завеса сбоку — отслойка сетчатки, надбавкой"
+    },
+    {
+      "syndrome": "head.eye.vision",
+      "feeling": 3,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "retinal.detachment",
+        "vitreous.floaters"
+      ],
+      "expect": [
+        "retinal.detachment"
+      ],
+      "note": "вспышки и точки — отслойка +6"
+    },
+    {
+      "syndrome": "head.pain.temple",
+      "feeling": 0,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "tension.headache"
+      ],
+      "expect": [
+        "tension.headache"
+      ],
+      "note": "давит с двух сторон — головная боль напряжения"
+    },
+    {
+      "syndrome": "head.pain.temple",
+      "feeling": 1,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "migraine",
+        "cluster.headache"
+      ],
+      "expect": [
+        "migraine"
+      ],
+      "note": "пульсирует в одном виске"
+    },
+    {
+      "syndrome": "head.pain.temple",
+      "feeling": 2,
+      "sex": "m",
+      "age": 70,
+      "expectRise": [
+        "giant.cell.arteritis"
+      ],
+      "expect": [
+        "giant.cell.arteritis"
+      ],
+      "note": "болезненный висок — височный артериит ↑3"
+    },
+    {
+      "syndrome": "head.pain.temple",
+      "feeling": 3,
+      "sex": "m",
+      "age": 70,
+      "expectRise": [
+        "giant.cell.arteritis"
+      ],
+      "expect": [
+        "giant.cell.arteritis"
+      ],
+      "note": "боль при жевании — челюстная хромота, артериит +6"
+    },
+    {
+      "syndrome": "head.tooth",
+      "feeling": 1,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "dental.pulpitis"
+      ],
+      "expect": [
+        "dental.pulpitis"
+      ],
+      "note": "больно накусывать — пульпит +5"
+    },
+    {
+      "syndrome": "head.tooth",
+      "feeling": 2,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "dental.pulpitis"
+      ],
+      "expect": [
+        "dental.pulpitis"
+      ],
+      "note": "стреляет от холодного — пульпит +6"
+    },
+    {
+      "syndrome": "head.eye.pain",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "glaucoma.acute",
+        "keratitis"
+      ],
+      "expect": [
+        "glaucoma.acute"
+      ],
+      "note": "глубокая боль в глазу — глаукома ↑5"
+    },
+    {
+      "syndrome": "head.eye.pain",
+      "feeling": 2,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "optic.neuritis"
+      ],
+      "expect": [
+        "optic.neuritis"
+      ],
+      "note": "больно двигать глазом — неврит зрительного нерва ↑5"
+    },
+    {
+      "syndrome": "head.eye.pain",
+      "feeling": 3,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "uveitis",
+        "keratitis"
+      ],
+      "expect": [
+        "uveitis"
+      ],
+      "note": "режет на свету — увеит +5"
+    },
+    {
+      "syndrome": "head.nose.bleed",
+      "feeling": 0,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "deviated.septum",
+        "sinonasal.tumor"
+      ],
+      "expect": [
+        "deviated.septum"
+      ],
+      "note": "из одной ноздри — перегородка, но и опухоль ↑5"
+    },
+    {
+      "syndrome": "head.face.asym",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "bells.palsy"
+      ],
+      "expect": [
+        "bells.palsy"
+      ],
+      "note": "не закрывается глаз — паралич Белла, надбавкой"
+    },
+    {
+      "syndrome": "head.ear.hearing",
+      "feeling": 0,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "sudden.hearing.loss",
+        "cerumen"
+      ],
+      "expect": [
+        "cerumen"
+      ],
+      "note": "заложило одно ухо — пробка, внезапная потеря ↑2"
+    },
+    {
+      "syndrome": "head.ear.hearing",
+      "feeling": 1,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "presbycusis"
+      ],
+      "expect": [
+        "presbycusis"
+      ],
+      "note": "снижается постепенно — пресбиакузис +6"
+    },
+    {
+      "syndrome": "head.ear.hearing",
+      "feeling": 3,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "sudden.hearing.loss",
+        "stroke.ischemic"
+      ],
+      "expect": [
+        "sudden.hearing.loss"
+      ],
+      "note": "пропал внезапно — внезапная нейросенсорная потеря +6"
+    },
+    {
+      "syndrome": "head.dizzy.faint",
+      "feeling": 0,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "orthostatic.hypotension"
+      ],
+      "expect": [
+        "orthostatic.hypotension"
+      ],
+      "note": "темнеет при вставании — ортостатика +6"
+    },
+    {
+      "syndrome": "head.dizzy.faint",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "hypoglycemia"
+      ],
+      "expect": [
+        "hypoglycemia"
+      ],
+      "note": "дурнота и холодный пот — гипогликемия +5"
+    },
+    {
+      "syndrome": "skin.rash.itch",
+      "feeling": 2,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "urticaria"
+      ],
+      "expect": [
+        "urticaria"
+      ],
+      "note": "волдыри — крапивница, надбавкой"
+    },
+    {
+      "syndrome": "skin.rash.itch",
+      "feeling": 4,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "psoriasis"
+      ],
+      "expect": [
+        "psoriasis"
+      ],
+      "note": "плотные бляшки с чешуйками — псориаз, надбавкой"
+    },
+    {
+      "syndrome": "skin.rash.fever",
+      "feeling": 0,
+      "sex": "m",
+      "age": 25,
+      "expectRise": [
+        "scarlet.fever"
+      ],
+      "expect": [
+        "scarlet.fever"
+      ],
+      "note": "мелкоточечная сыпь — скарлатина +6"
+    },
+    {
+      "syndrome": "skin.rash.fever",
+      "feeling": 1,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "chickenpox",
+        "borreliosis"
+      ],
+      "note": "пятна по всему телу — поднимает пятнистую группу"
+    },
+    {
+      "syndrome": "skin.rash.fever",
+      "feeling": 2,
+      "sex": "m",
+      "age": 25,
+      "expectRise": [
+        "chickenpox"
+      ],
+      "expect": [
+        "chickenpox"
+      ],
+      "note": "пузырьки разного возраста — ветряная оспа, надбавкой"
+    },
+    {
+      "syndrome": "skin.rash.fever",
+      "feeling": 3,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "meningitis",
+        "sepsis"
+      ],
+      "expect": [
+        "meningitis"
+      ],
+      "note": "тёмные точки не бледнеют — менингит ↑9, сепсис ↑10"
+    },
+    {
+      "syndrome": "neck.voice",
+      "feeling": 2,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "myasthenia"
+      ],
+      "note": "голос быстро устаёт — миастения, надбавкой (ларингит всё равно выше по частоте)"
+    },
+    {
+      "syndrome": "abd.jaundice",
+      "feeling": 2,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "pancreatic.cancer",
+        "choledocholithiasis"
+      ],
+      "expect": [
+        "pancreatic.cancer"
+      ],
+      "note": "кожа зудит — холестатический зуд, рак головки поджелудочной +5"
+    },
+    {
+      "syndrome": "abd.jaundice",
+      "feeling": 3,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "hemolytic.anemia",
+        "hepatitis.viral",
+        "cirrhosis"
+      ],
+      "expect": [
+        "hemolytic.anemia"
+      ],
+      "note": "желтизна и слабость"
+    },
+    {
+      "syndrome": "abd.stool.black",
+      "feeling": 2,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "anemia",
+        "colorectal.cancer"
+      ],
+      "expect": [
+        "anemia"
+      ],
+      "note": "чёрный стул и слабость — анемия +5"
+    },
+    {
+      "syndrome": "pelv.uro.blood",
+      "feeling": 2,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "bladder.cancer"
+      ],
+      "expect": [
+        "bladder.cancer"
+      ],
+      "note": "сгустки — рак мочевого пузыря ↑3"
+    },
+    {
+      "syndrome": "pelv.uro.blood",
+      "feeling": 3,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "glomerulonephritis"
+      ],
+      "expect": [
+        "glomerulonephritis"
+      ],
+      "note": "цвет мясных помоев — гломерулонефрит +6"
+    },
+    {
+      "syndrome": "neck.throat.lump",
+      "feeling": 3,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "globus"
+      ],
+      "expect": [
+        "globus"
+      ],
+      "note": "мешает, но еда проходит — globus, пища не застревает"
     }
   ]
 }
