@@ -213,20 +213,29 @@ main {
   background: var(--card);
   color: var(--ink-2);
   font-size: .87rem;
-  line-height: 1.55;
-  padding: 1.5rem 1.25rem 2.5rem;
+  line-height: 1.45;
+  padding: 1.2rem 1.25rem 1.6rem;
 }
 .bottom > * { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.bottom .tel { color: var(--ink); }
+
+/* Подвал — связный текст, а не семь отдельных абзацев. Полный межабзацный
+   интервал разгонял его на пол-экрана телефона, хотя читается он подряд
+   и целиком служебный. Поэтому строки идут плотно, а воздух остаётся
+   только там, где меняется смысл: перед телефоном неотложной помощи
+   и перед служебным низом. */
+.bottom p { margin: 0 0 .35rem; }
+.bottom p:last-child { margin-bottom: 0; }
+.bottom .tel { color: var(--ink); margin-top: .7rem; }
 .footlinks { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
 /* Строка про поддержку намеренно тише остальных ссылок подвала. */
-.footsupport { font-size: .8rem; margin-top: -.3rem; }
+.footsupport { font-size: .8rem; margin-top: .35rem; }
 .footsupport a { color: var(--ink-3); }
 .service h2 { font-size: 1.1rem; margin-top: 1.8rem; }
 .service h2:first-of-type { margin-top: 1.2rem; }
 .bottom .age {
   display: inline-block; border: 1px solid var(--line);
   padding: .05rem .4rem; border-radius: 3px; font-size: .8rem;
+  margin-top: .7rem;
 }
 
 /* ---------- общие мелочи ---------- */
