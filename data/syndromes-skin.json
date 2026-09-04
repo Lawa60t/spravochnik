@@ -27,7 +27,11 @@
           }
         },
         {
-          "text": "Пузырьки"
+          "text": "Пузырьки",
+          "favors": {
+            "herpes.zoster": 3,
+            "herpes.labial": 3
+          }
         },
         {
           "text": "Плотные бляшки с чешуйками",
@@ -201,6 +205,26 @@
             "rashlife_day": 2,
             "swell_no": -4,
             "dur_mon": -4
+          }
+        },
+        {
+          "condition": "herpes.labial",
+          "base": 4,
+          "weights": {
+            "rashwhere_handsfeet": 3,
+            "rashlife_stay": 2,
+            "rashlife_day": -3,
+            "onset_fast": 2,
+            "onset_gradual": -1,
+            "dur_d47": 2,
+            "dur_w12": 2,
+            "dur_min": -2,
+            "dur_mon": -3,
+            "progress_wave": 2,
+            "progress_better": 1,
+            "itch_some": 1,
+            "fever_no": 1,
+            "fever_high": -2
           }
         }
       ],

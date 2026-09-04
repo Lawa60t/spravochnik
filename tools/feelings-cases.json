@@ -3113,6 +3113,20 @@
         "gad"
       ],
       "note": "тревожно постоянно — генерализованное тревожное +6"
+    },
+    {
+      "syndrome": "skin.rash.itch",
+      "feeling": 3,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "herpes.labial",
+        "herpes.zoster"
+      ],
+      "expect": [
+        "herpes.labial"
+      ],
+      "note": "пузырьки — герпетическая сыпь: простой герпес на губах и опоясывающий лишай, надбавкой"
     }
   ]
 }

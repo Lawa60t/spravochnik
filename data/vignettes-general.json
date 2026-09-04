@@ -809,6 +809,28 @@
         "covid19"
       ],
       "expectAlarm": false
+    },
+    {
+      "id": "s15",
+      "syndrome": "skin.rash.itch",
+      "sex": "m",
+      "age": 35,
+      "note": "Простой герпес на губах: вокруг рта, пузырьки за пару часов, держатся, бывало волнами, температуры нет — герпес в тройке, тревоги нет",
+      "feel": 3,
+      "answers": {
+        "rashwhere": "handsfeet",
+        "rashlife": "stay",
+        "onset": "fast",
+        "dur": "d47",
+        "progress": "wave",
+        "itch": "some",
+        "fever": "no",
+        "mucosa": "no"
+      },
+      "expect": [
+        "herpes.labial"
+      ],
+      "expectAlarm": false
     }
   ]
 }
