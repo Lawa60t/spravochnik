@@ -446,6 +446,18 @@
             "progress_worse": 2,
             "dur_d13": -3
           }
+        },
+        {
+          "condition": "covid19",
+          "base": 4,
+          "weights": {
+            "cough_dry": 2,
+            "fever_mid": 1,
+            "fever_low": 1,
+            "runny_yes": 1,
+            "plaque_white": -3,
+            "dur_mon": -3
+          }
         }
       ],
       "notSearchedHere": [

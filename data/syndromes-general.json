@@ -239,6 +239,22 @@
             "runny_yes": -3,
             "cough_dry": -3
           }
+        },
+        {
+          "condition": "covid19",
+          "base": 5,
+          "weights": {
+            "onset_gradual": 3,
+            "cough_dry": 2,
+            "tired_strong": 2,
+            "dysp_yes": 3,
+            "fever_mid": 2,
+            "fever_low": 1,
+            "runny_yes": -1,
+            "plaque_white": -3,
+            "bowel_loose": -2,
+            "dur_w12": 2
+          }
         }
       ],
       "notSearchedHere": [
@@ -662,6 +678,15 @@
             "fever_low": 3,
             "immuno_yes": 3,
             "sweats_no": -3
+          }
+        },
+        {
+          "condition": "covid19",
+          "base": 3,
+          "weights": {
+            "fever_low": 2,
+            "dysp_yes": 2,
+            "onset_gradual": 1
           }
         }
       ],

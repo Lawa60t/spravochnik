@@ -161,6 +161,25 @@
     { "id": "c31", "syndrome": "chest.breast.lump", "sex": "f", "age": 28,
       "note": "Мастит у кормящей: горячий красный участок, высокая температура",
       "feel": 3, "answers": { "dur": "d13", "lump": "hotred", "fever": "high", "side": "one", "onset": "fast", "nipple": "no", "nodes": "front", "progress": "worse", "period": "none", "weight": "no", "oncohist": "no", "sweats": "no", "trauma": "no" },
-      "expectTop": "mastitis", "expectAlarm": false }
+      "expectTop": "mastitis", "expectAlarm": false },
+    {
+      "id": "c32",
+      "syndrome": "chest.cough.dry",
+      "sex": "m",
+      "age": 40,
+      "note": "COVID-19: сухой кашель, контакт с заболевшим, вторая неделя — ковид первым",
+      "feel": 0,
+      "answers": {
+        "dur": "w12",
+        "fever": "mid",
+        "cough": "dry",
+        "sputum": "none",
+        "runny": "no",
+        "contact": "yes",
+        "dysp": "no"
+      },
+      "expectTop": "covid19",
+      "expectAlarm": false
+    }
   ]
 }

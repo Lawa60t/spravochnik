@@ -785,6 +785,30 @@
       "notExpect": [
         "sjs.ten"
       ]
+    },
+    {
+      "id": "g20",
+      "syndrome": "gen.fever.acute",
+      "sex": "m",
+      "age": 40,
+      "note": "COVID-19: температура и слабость нарастают исподволь, сухой кашель — ковид в тройке",
+      "feel": 0,
+      "answers": {
+        "dur": "d47",
+        "onset": "gradual",
+        "fever": "mid",
+        "cough": "dry",
+        "runny": "no",
+        "tired": "strong",
+        "plaque": "no",
+        "stiff": "yes",
+        "rash": "no",
+        "dysp": "no"
+      },
+      "expect": [
+        "covid19"
+      ],
+      "expectAlarm": false
     }
   ]
 }

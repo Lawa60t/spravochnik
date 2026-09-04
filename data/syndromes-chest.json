@@ -1313,6 +1313,17 @@
             "progress_worse": 3,
             "dur_mon": 2
           }
+        },
+        {
+          "condition": "covid19",
+          "base": 4,
+          "weights": {
+            "cough_dry": 3,
+            "fever_mid": 2,
+            "fever_high": 2,
+            "onset_gradual": 2,
+            "tired_strong": 1
+          }
         }
       ],
       "notSearchedHere": [
@@ -1522,6 +1533,19 @@
             "dysp_yes": 4,
             "onset_gradual": 2,
             "dysp_no": -4
+          }
+        },
+        {
+          "condition": "covid19",
+          "base": 5,
+          "weights": {
+            "fever_low": 2,
+            "fever_mid": 2,
+            "dysp_yes": 3,
+            "contact_yes": 2,
+            "dur_d47": 1,
+            "dur_w12": 2,
+            "runny_yes": -1
           }
         }
       ],
