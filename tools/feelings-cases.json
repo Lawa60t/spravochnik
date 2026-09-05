@@ -3810,6 +3810,45 @@
         "pad"
       ],
       "note": "боль в ногах при ходьбе — атеросклероз артерий ног +6 (кросс)"
+    },
+    {
+      "syndrome": "gen.folk",
+      "feeling": 0,
+      "sex": "m",
+      "age": 25,
+      "expectRise": [
+        "vsd"
+      ],
+      "expect": [
+        "vsd"
+      ],
+      "note": "ВСД — статья-разъяснение"
+    },
+    {
+      "syndrome": "gen.folk",
+      "feeling": 1,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "dysbiosis"
+      ],
+      "expect": [
+        "dysbiosis"
+      ],
+      "note": "дисбактериоз — статья-разъяснение"
+    },
+    {
+      "syndrome": "gen.folk",
+      "feeling": 2,
+      "sex": "f",
+      "age": 35,
+      "expectRise": [
+        "neurosis"
+      ],
+      "expect": [
+        "neurosis"
+      ],
+      "note": "невроз — статья-разъяснение"
     }
   ]
 }

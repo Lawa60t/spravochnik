@@ -210,6 +210,21 @@
     { "id": "r40", "syndrome": "head.eye.pain", "sex": "m", "age": 40,
       "note": "Плотный безболезненный узелок в толще века, не краснеет резко — халязион присутствует",
       "feel": 0, "answers": { "eyepain": "no", "eyered.where": "lid", "vision": "no", "eyedisch": "no", "trauma": "no" },
-      "expect": ["chalazion"], "expectAlarm": false }
+      "expect": ["chalazion"], "expectAlarm": false },
+
+    { "id": "r41", "syndrome": "gen.folk", "sex": "m", "age": 25,
+      "note": "Называли ВСД — ведём к статье-разъяснению",
+      "feel": 0, "answers": { "folkterm": "vsd" },
+      "expectTop": "vsd", "expectAlarm": false },
+
+    { "id": "r42", "syndrome": "gen.folk", "sex": "m", "age": 30,
+      "note": "Называли дисбактериоз — ведём к статье-разъяснению",
+      "feel": 1, "answers": { "folkterm": "dysbiosis" },
+      "expectTop": "dysbiosis", "expectAlarm": false },
+
+    { "id": "r43", "syndrome": "gen.folk", "sex": "f", "age": 35,
+      "note": "Называли невроз — ведём к статье-разъяснению",
+      "feel": 2, "answers": { "folkterm": "neurosis" },
+      "expectTop": "neurosis", "expectAlarm": false }
   ]
 }

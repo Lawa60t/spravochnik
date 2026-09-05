@@ -153,6 +153,7 @@
     { "id": "gen.sleep",           "zone": "gen", "name": "Нарушения сна",                                "priority": 3, "est": 9 },
     { "id": "gen.anxiety",         "zone": "gen", "name": "Тревога и панические эпизоды",                 "priority": 2, "est": 8 },
     { "id": "gen.thirst",          "zone": "gen", "name": "Жажда и обильное мочеиспускание",              "priority": 2, "est": 7 },
-    { "id": "gen.silent",          "zone": "gen", "name": "Болезни, которые не дают о себе знать",       "priority": 3, "est": 7 }
+    { "id": "gen.silent",          "zone": "gen", "name": "Болезни, которые не дают о себе знать",       "priority": 3, "est": 7 },
+    { "id": "gen.folk",            "zone": "gen", "name": "Народные и устаревшие названия: что за ними стоит", "priority": 4, "est": 6 }
   ]
 }

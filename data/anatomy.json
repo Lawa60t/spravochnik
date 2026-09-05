@@ -1051,7 +1051,8 @@
             "gen.sleep",
             "gen.anxiety",
             "gen.thirst",
-            "gen.silent"
+            "gen.silent",
+            "gen.folk"
           ]
         }
       ]

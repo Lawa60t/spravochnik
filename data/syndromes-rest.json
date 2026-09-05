@@ -4427,6 +4427,71 @@
       ],
       "status": "compiled",
       "updated": "2026-09-05"
+    },
+    {
+      "id": "gen.folk",
+      "zone": "gen",
+      "name": "Народные и устаревшие названия: что за ними стоит",
+      "priority": 4,
+      "focused": true,
+      "aka": [
+        "народные диагнозы",
+        "устаревшие диагнозы",
+        "всд",
+        "дисбактериоз",
+        "невроз"
+      ],
+      "feelings": [
+        {
+          "text": "ВСД, вегетососудистая дистония",
+          "implies": {
+            "folkterm": "vsd"
+          }
+        },
+        {
+          "text": "Дисбактериоз",
+          "implies": {
+            "folkterm": "dysbiosis"
+          }
+        },
+        {
+          "text": "Невроз",
+          "implies": {
+            "folkterm": "neurosis"
+          }
+        }
+      ],
+      "questions": [
+        "folkterm"
+      ],
+      "candidates": [
+        {
+          "condition": "vsd",
+          "base": 5,
+          "weights": {
+            "folkterm_vsd": 6
+          }
+        },
+        {
+          "condition": "dysbiosis",
+          "base": 5,
+          "weights": {
+            "folkterm_dysbiosis": 6
+          }
+        },
+        {
+          "condition": "neurosis",
+          "base": 5,
+          "weights": {
+            "folkterm_neurosis": 6
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Настоящие состояния за этими словами разбираются в разделах о конкретных жалобах и в статьях о тревожном и паническом расстройстве, депрессии, синдроме раздражённого кишечника."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-05"
     }
   ]
 }
