@@ -905,6 +905,122 @@
       ],
       "status": "drafted",
       "updated": "2026-08-27"
+    },
+    {
+      "id": "pelv.genital.lesion",
+      "zone": "pelv",
+      "name": "Высыпания и болячки на половых органах",
+      "priority": 2,
+      "focused": true,
+      "aka": [
+        "высыпания на половых органах",
+        "болячки на половых органах",
+        "язвочки на половых органах",
+        "сыпь в паху"
+      ],
+      "feelings": [
+        {
+          "text": "Болезненные пузырьки, жжёт",
+          "implies": {
+            "genlesion": "blisters"
+          }
+        },
+        {
+          "text": "Бородавчатые выросты",
+          "implies": {
+            "genlesion": "growths"
+          }
+        },
+        {
+          "text": "Покраснение и зуд головки",
+          "implies": {
+            "genlesion": "redsore"
+          }
+        },
+        {
+          "text": "Безболезненная плотная язвочка",
+          "implies": {
+            "genlesion": "ulcer"
+          }
+        },
+        {
+          "text": "Зуд, жжение и выделения",
+          "implies": {
+            "genlesion": "dischargeitch"
+          }
+        }
+      ],
+      "questions": [
+        "genlesion",
+        "genrecur"
+      ],
+      "candidates": [
+        {
+          "condition": "genital.herpes",
+          "base": 5,
+          "weights": {
+            "genlesion_blisters": 6,
+            "genlesion_ulcer": 1,
+            "genlesion_growths": -3,
+            "genlesion_redsore": -2,
+            "genlesion_dischargeitch": -2,
+            "genrecur_recur": 2
+          }
+        },
+        {
+          "condition": "genital.warts",
+          "base": 5,
+          "weights": {
+            "genlesion_growths": 6,
+            "genlesion_blisters": -3,
+            "genlesion_ulcer": -2,
+            "genlesion_redsore": -2,
+            "genrecur_persist": 1
+          }
+        },
+        {
+          "condition": "balanoposthitis",
+          "base": 5,
+          "weights": {
+            "genlesion_redsore": 6,
+            "genlesion_dischargeitch": 1,
+            "genlesion_blisters": -2,
+            "genlesion_growths": -2,
+            "genlesion_ulcer": -2
+          }
+        },
+        {
+          "condition": "syphilis.primary",
+          "base": 3,
+          "weights": {
+            "genlesion_ulcer": 6,
+            "genlesion_blisters": -1,
+            "genlesion_growths": -2,
+            "genlesion_redsore": -2,
+            "genrecur_once": 2,
+            "genrecur_persist": 2,
+            "genrecur_recur": -3
+          }
+        },
+        {
+          "condition": "vaginitis",
+          "base": 4,
+          "weights": {
+            "genlesion_dischargeitch": 6,
+            "genlesion_redsore": 1,
+            "genlesion_blisters": -1,
+            "genlesion_growths": -2,
+            "genlesion_ulcer": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль и резь при мочеиспускании, выделения из мочеиспускательного канала — в разделе «Боль и резь при мочеиспускании».",
+        "Боль и изменения в мошонке — в разделе «Боль и изменения в мошонке».",
+        "Уплотнение или припухлость в паху — в разделе «Припухлость в паху»."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-05"
     }
   ]
 }

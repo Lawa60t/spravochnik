@@ -4,7 +4,7 @@
     "Меняются только вместе с осознанной правкой весов — см. tools/check-weights.js.",
     "Пересчитать: node tools/check-weights.js --write"
   ],
-  "разделов": 116,
+  "разделов": 117,
   "отпечатки": {
     "abd.rlq": "d6a21e10d35b",
     "abd.epi": "c13fa82b33f6",
@@ -88,6 +88,7 @@
     "pelv.gyn.pain": "6a51eca566cc",
     "pelv.gyn.pregnancy": "14e54eff66b7",
     "pelv.andr.testis": "4889ee90b1dd",
+    "pelv.genital.lesion": "438c079d68ec",
     "chest.pain.move": "0fb3128efedf",
     "chest.cough.blood": "95c7e5881ce0",
     "chest.breast.pain": "3a2ed3bd47e4",

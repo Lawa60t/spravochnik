@@ -1018,7 +1018,8 @@
             "pelv.uro.blood",
             "pelv.gyn.discharge",
             "pelv.andr.testis",
-            "pelv.groin.lump"
+            "pelv.groin.lump",
+            "pelv.genital.lesion"
           ]
         }
       ]
@@ -1104,6 +1105,35 @@
             "abd.jaundice",
             "pelv.gyn.cycle",
             "pelv.gyn.pregnancy",
+            "pelv.anal.pain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pelv.back",
+      "view": "back",
+      "label": "Ягодицы и задний проход",
+      "landmark": "Между ягодицами, вид сзади",
+      "box": {
+        "u0": 0.38,
+        "v0": 0.58,
+        "u1": 0.62,
+        "v1": 0.7
+      },
+      "subzones": [
+        {
+          "id": "glut.anal",
+          "label": "Задний проход",
+          "name": "Задний проход и ягодицы",
+          "landmark": "Между ягодицами",
+          "box": {
+            "u0": 0.44,
+            "v0": 0.6,
+            "u1": 0.56,
+            "v1": 0.68
+          },
+          "syndromes": [
             "pelv.anal.pain"
           ]
         }

@@ -108,6 +108,7 @@
     { "id": "pelv.andr.testis",    "zone": "pelv", "name": "Боль в яичке",                                "priority": 1, "est": 7, "redflagZone": true },
     { "id": "pelv.groin.lump",     "zone": "pelv", "name": "Припухлость в паху",                          "priority": 2, "est": 8 },
     { "id": "pelv.anal.pain",      "zone": "pelv", "name": "Боль в области заднего прохода",              "priority": 2, "est": 8 },
+    { "id": "pelv.genital.lesion", "zone": "pelv", "name": "Высыпания и болячки на половых органах",     "priority": 2, "est": 8 },
 
     { "id": "arm.shoulder",        "zone": "arm", "name": "Боль в плече",                                 "priority": 1, "est": 10 },
     { "id": "arm.elbow",           "zone": "arm", "name": "Боль в локте",                                 "priority": 2, "est": 8 },

@@ -91,12 +91,13 @@ conditions.forEach(c => {
 
 /* --- разделы --- */
 syndromes.forEach(s => {
-  /* focused: true — кожный раздел-витрина (названные состояния, находятся
-     поиском). Освобождён от «≥5 состояний» и «≥2 тревог», но не от
-     notSearchedHere. Разрешён только в зоне skin: на 110 диагностических
+  /* focused: true — раздел-витрина (названные состояния, находятся поиском).
+     Освобождён от «≥5 состояний» и «≥2 тревог», но не от notSearchedHere.
+     Разрешён только в витринных зонах skin и pelv: на диагностических
      разделах дифференциальный ряд и тревоги обязательны. */
-  if (s.focused && s.zone !== "skin")
-    E(`${s.id}: focused разрешён только в зоне skin, а зона «${s.zone}»`);
+  const focusedZones = ["skin", "pelv"];
+  if (s.focused && !focusedZones.includes(s.zone))
+    E(`${s.id}: focused разрешён только в зонах ${focusedZones.join(", ")}, а зона «${s.zone}»`);
   if (s.candidates.length < 5 && !s.focused) E(`${s.id}: меньше пяти состояний в разделе`);
   if (s.feelings.length < 2)   E(`${s.id}: меньше двух вариантов ощущения`);
   if (!s.notSearchedHere || !s.notSearchedHere.length)

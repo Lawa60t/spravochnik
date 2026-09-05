@@ -97,6 +97,31 @@
     { "id": "p19", "syndrome": "pelv.andr.testis", "sex": "m", "age": 58,
       "note": "Водянка: безболезненное увеличение, месяцами",
       "feel": 2, "answers": { "dur": "mon", "scrotum": "painless", "fever": "no", "progress": "same", "onset": "gradual", "urine": "no", "trauma": "no", "contact": "no", "side": "one", "vomitwhat": "none" },
-      "expectTop": "hydrocele", "expectAlarm": false }
+      "expectTop": "hydrocele", "expectAlarm": false },
+
+    { "id": "p20", "syndrome": "pelv.genital.lesion", "sex": "m", "age": 30,
+      "note": "Группа болезненных пузырьков на половых органах, жжёт — генитальный герпес первым",
+      "feel": 0, "answers": { "genlesion": "blisters", "genrecur": "recur" },
+      "expectTop": "genital.herpes", "expectAlarm": false },
+
+    { "id": "p21", "syndrome": "pelv.genital.lesion", "sex": "m", "age": 32,
+      "note": "Мягкие бородавчатые выросты, как цветная капуста — аногенитальные бородавки первыми",
+      "feel": 1, "answers": { "genlesion": "growths" },
+      "expectTop": "genital.warts", "expectAlarm": false },
+
+    { "id": "p22", "syndrome": "pelv.genital.lesion", "sex": "m", "age": 45,
+      "note": "Покраснение, зуд и налёт на головке — баланопостит первым (мужской профиль)",
+      "feel": 2, "answers": { "genlesion": "redsore" },
+      "expectTop": "balanoposthitis", "expectAlarm": false },
+
+    { "id": "p23", "syndrome": "pelv.genital.lesion", "sex": "f", "age": 28,
+      "note": "Зуд, жжение и выделения — вагинит первым (женский профиль, кросс-привязка); баланопостит у женщины не показывается",
+      "feel": 4, "answers": { "genlesion": "dischargeitch" },
+      "expectTop": "vaginitis", "expectAlarm": false },
+
+    { "id": "p24", "syndrome": "pelv.genital.lesion", "sex": "m", "age": 40,
+      "note": "Одна безболезненная плотная язвочка, впервые — первичный сифилис первым, сработало правило тревоги",
+      "feel": 3, "answers": { "genlesion": "ulcer", "genrecur": "once" },
+      "expectTop": "syphilis.primary", "expectAlarm": true }
   ]
 }

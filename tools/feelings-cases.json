@@ -3482,6 +3482,71 @@
         "oropharynx.cancer"
       ],
       "note": "незаживающая язва во рту — рак ротоглотки +6 (кросс)"
+    },
+    {
+      "syndrome": "pelv.genital.lesion",
+      "feeling": 0,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "genital.herpes"
+      ],
+      "expect": [
+        "genital.herpes"
+      ],
+      "note": "болезненные пузырьки — генитальный герпес +6"
+    },
+    {
+      "syndrome": "pelv.genital.lesion",
+      "feeling": 1,
+      "sex": "m",
+      "age": 32,
+      "expectRise": [
+        "genital.warts"
+      ],
+      "expect": [
+        "genital.warts"
+      ],
+      "note": "бородавчатые выросты — кондиломы +6"
+    },
+    {
+      "syndrome": "pelv.genital.lesion",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "balanoposthitis"
+      ],
+      "expect": [
+        "balanoposthitis"
+      ],
+      "note": "покраснение и зуд головки — баланопостит +6 (мужской профиль)"
+    },
+    {
+      "syndrome": "pelv.genital.lesion",
+      "feeling": 3,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "syphilis.primary"
+      ],
+      "expect": [
+        "syphilis.primary"
+      ],
+      "note": "безболезненная плотная язвочка — первичный сифилис +6"
+    },
+    {
+      "syndrome": "pelv.genital.lesion",
+      "feeling": 4,
+      "sex": "f",
+      "age": 28,
+      "expectRise": [
+        "vaginitis"
+      ],
+      "expect": [
+        "vaginitis"
+      ],
+      "note": "зуд, жжение и выделения — вагинит +6 (женский профиль, кросс)"
     }
   ]
 }
