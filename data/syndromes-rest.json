@@ -1429,7 +1429,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "bowel",
         "bowelrhythm",
@@ -1453,7 +1453,7 @@
           "base": 9,
           "weights": {
             "bowel_hard": 5,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "fever_no": 3,
             "weight_no": 3,
             "bowelrhythm_same": 4,
@@ -1469,7 +1469,7 @@
           "base": 6,
           "weights": {
             "stoolrel_better": 6,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "fever_no": 3,
             "weight_no": 2,
             "bowel_blood": -4
@@ -1480,7 +1480,7 @@
           "base": 4,
           "weights": {
             "temperature_cold": 6,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "onset_gradual": 3,
             "temperature_hot": -4
           }
@@ -1502,7 +1502,7 @@
             "painanal_no": 3,
             "bowel_blood": 4,
             "bowel_hard": 3,
-            "dur_mon": 2
+            "durlong_mon": 2
           }
         },
         {
@@ -1513,7 +1513,7 @@
             "bowel_alt": 5,
             "weight_yes": 5,
             "bowel_blood": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "progress_worse": 3,
             "bowelrhythm_same": -3,
             "weight_no": -2
@@ -1546,7 +1546,7 @@
           "base": 1,
           "weights": {
             "temperature_cold": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "appetite_down": 3
           }
         },
@@ -1555,7 +1555,7 @@
           "base": 1,
           "weights": {
             "diabetes_yes": 6,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "diabetes_no": -4
           }
         }
@@ -1881,7 +1881,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "yellow",
         "fever",
@@ -1906,9 +1906,9 @@
           "weights": {
             "appetite_down": 5,
             "tired_strong": 4,
-            "dur_w12": 4,
+            "durlong_w12": 4,
             "fever_low": 3,
-            "dur_d47": 2,
+            "durlong_d47": 2,
             "weight_yes": -1,
             "eatrel_fatty": -2
           }
@@ -1930,7 +1930,7 @@
           "base": 5,
           "weights": {
             "bowel_no": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "fever_no": 4,
             "tired_no": 3,
             "progress_wave": 4,
@@ -1945,7 +1945,7 @@
           "base": 4,
           "weights": {
             "tired_strong": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "onset_gradual": 3,
             "itch_some": 3,
             "weight_yes": 2
@@ -1992,7 +1992,7 @@
           "base": 2,
           "weights": {
             "newmeds_yes": 6,
-            "dur_w12": 3,
+            "durlong_w12": 3,
             "newmeds_no": -4
           }
         },
@@ -2002,7 +2002,7 @@
           "weights": {
             "weight_yes": 5,
             "appetite_down": 4,
-            "dur_mon": 3
+            "durlong_mon": 3
           }
         }
       ],
@@ -2042,7 +2042,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "urine",
         "stream",
@@ -2063,10 +2063,10 @@
           "base": 7,
           "weights": {
             "urine_burn": 6,
-            "dur_d13": 4,
+            "durlong_d13": 4,
             "fever_no": 3,
             "bloodurine_withpain": 3,
-            "dur_mon": -3,
+            "durlong_mon": -3,
             "stream_weak": -2,
             "thirst_yes": -3
           }
@@ -2076,7 +2076,7 @@
           "base": 6,
           "weights": {
             "urine_incont": 5,
-            "dur_mon": 5,
+            "durlong_mon": 5,
             "fever_no": 3,
             "urine_no": 2,
             "urine_burn": -4,
@@ -2090,7 +2090,7 @@
           "weights": {
             "stream_weak": 6,
             "urine_retention": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "onset_gradual": 3,
             "urine_burn": -2,
             "thirst_yes": -3
@@ -2103,8 +2103,8 @@
             "thirst_yes": 6,
             "weight_yes": 4,
             "diabetes_yes": 4,
-            "dur_w12": 3,
-            "dur_mon": 2,
+            "durlong_w12": 3,
+            "durlong_mon": 2,
             "thirst_no": -4,
             "urine_burn": -3
           }
@@ -2114,7 +2114,7 @@
           "base": 4,
           "weights": {
             "urine_incont": 5,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "fever_no": 3,
             "urine_burn": -3,
             "thirst_yes": -3
@@ -2127,7 +2127,7 @@
             "stream_weak": 4,
             "urine_burn": 3,
             "fever_mid": 3,
-            "dur_mon": 2
+            "durlong_mon": 2
           }
         },
         {
@@ -2145,7 +2145,7 @@
           "base": 2,
           "weights": {
             "swelltime_morning": 5,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "onset_gradual": 3,
             "urine_burn": -3
           }
@@ -2156,7 +2156,7 @@
           "weights": {
             "bloodurine_painless": 6,
             "smoke_both": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "weight_yes": 2,
             "urine_burn": -2
           }
@@ -2166,7 +2166,7 @@
           "base": 2,
           "weights": {
             "period_now": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "swelltime_constant": 3,
             "thirst_yes": -3
           }
@@ -2364,7 +2364,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "period",
         "vagdischarge",
         "weight",
@@ -2387,7 +2387,7 @@
           "base": 6,
           "weights": {
             "vagdischarge_bloody": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "tired_strong": 3,
             "swelltime_constant": 3,
             "period_now": 3
@@ -2398,7 +2398,7 @@
           "base": 5,
           "weights": {
             "period_delay": 5,
-            "dur_mon": 5,
+            "durlong_mon": 5,
             "weight_yes": -1,
             "temperature_no": 2,
             "progress_same": 3
@@ -2410,7 +2410,7 @@
           "weights": {
             "temperature_hot": 6,
             "period_delay": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "sweats_yes": 4,
             "mood_low": 2,
             "pregnant_early": -5
@@ -2453,7 +2453,7 @@
           "weights": {
             "tired_strong": 5,
             "vagdischarge_bloody": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "temperature_cold": 2
           }
         },
@@ -2462,7 +2462,7 @@
           "base": 3,
           "weights": {
             "period_now": 5,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "vagdischarge_bloody": 2
           }
         },
@@ -2473,7 +2473,7 @@
             "vagdischarge_bloody": 6,
             "weight_yes": 3,
             "progress_worse": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "pregnant_early": -5,
             "period_now": -2
           }
@@ -2486,7 +2486,7 @@
             "contact_yes": 3,
             "weight_yes": 3,
             "progress_worse": 3,
-            "dur_mon": 2
+            "durlong_mon": 2
           }
         },
         {
@@ -2546,7 +2546,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "vagdischarge",
         "itch",
         "fever",
@@ -2593,7 +2593,7 @@
             "vagdischarge_purulent": 5,
             "fever_mid": 4,
             "contact_yes": 3,
-            "dur_d47": 3,
+            "durlong_d47": 3,
             "vagdischarge_curd": -3
           }
         },
@@ -2613,7 +2613,7 @@
           "weights": {
             "temperature_hot": 5,
             "period_delay": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "itch_some": 2,
             "vagdischarge_purulent": -3
           }
@@ -2626,7 +2626,7 @@
             "contact_yes": 3,
             "weight_yes": 4,
             "progress_worse": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "vagdischarge_curd": -4
           }
         },
@@ -2636,7 +2636,7 @@
           "weights": {
             "vagdischarge_bloody": 6,
             "weight_yes": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "vagdischarge_curd": -4
           }
         },
@@ -2645,7 +2645,7 @@
           "base": 2,
           "weights": {
             "itch_night": 5,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "vagdischarge_no": 3,
             "fever_high": -3
           }
@@ -2690,7 +2690,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "bulge",
         "nodes",
@@ -2713,7 +2713,7 @@
           "base": 7,
           "weights": {
             "bulge_soft": 6,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "fever_no": 3,
             "nodes_no": 2,
             "bulge_stuck": -2,
@@ -2728,7 +2728,7 @@
             "nodes_front": 4,
             "nodesmany_one": 4,
             "fever_mid": 3,
-            "dur_d47": 3,
+            "durlong_d47": 3,
             "bulge_no": 2,
             "skinchange_red": 3,
             "bulge_soft": -3,
@@ -2776,7 +2776,7 @@
             "nodesmany_many": 5,
             "sweats_yes": 5,
             "weight_yes": 5,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "progress_worse": 3,
             "bulge_soft": -4,
             "sweats_no": -3
@@ -2787,7 +2787,7 @@
           "base": 2,
           "weights": {
             "bulge_soft": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "fever_no": 3,
             "nodes_hard": -3
           }
@@ -2798,7 +2798,7 @@
           "weights": {
             "nodesmany_many": 5,
             "weight_yes": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "contact_yes": 3
           }
         },
@@ -2808,7 +2808,7 @@
           "weights": {
             "animals_catscratch": 6,
             "nodesmany_one": 3,
-            "dur_w12": 2
+            "durlong_w12": 2
           }
         }
       ],
@@ -2989,7 +2989,7 @@
         {
           "text": "Ранка не заживает месяцами",
           "implies": {
-            "durskin": "mon"
+            "durlong": "mon"
           }
         },
         {
@@ -3006,7 +3006,7 @@
         }
       ],
       "questions": [
-        "durskin",
+        "durlong",
         "onset",
         "skinchange",
         "diabetes",
@@ -3029,7 +3029,7 @@
           "weights": {
             "skinchange_dark": 6,
             "swelltime_evening": 5,
-            "durskin_mon": 4,
+            "durlong_mon": 4,
             "footcold_warm": 3,
             "footcold_cold": -4,
             "diabetes_yes": -1
@@ -3053,7 +3053,7 @@
           "weights": {
             "moleedge_pearl": 6,
             "molechange_bleed": 5,
-            "durskin_mon": 4,
+            "durlong_mon": 4,
             "skinchange_no": 3,
             "diabetes_yes": -2,
             "skinchange_dark": -3
@@ -3066,7 +3066,7 @@
             "molechange_grow": 5,
             "molechange_bleed": 5,
             "progress_worse": 4,
-            "durskin_mon": 3,
+            "durlong_mon": 3,
             "smoke_both": 2,
             "skinchange_dark": -3
           }
@@ -3078,7 +3078,7 @@
             "footcold_cold": 6,
             "smoke_both": 4,
             "diabetes_yes": 3,
-            "durskin_mon": 3,
+            "durlong_mon": 3,
             "footcold_warm": -4
           }
         },
@@ -3111,9 +3111,9 @@
           "base": 1,
           "weights": {
             "rashwhere_band": 6,
-            "durskin_d13": 3,
+            "durlong_d13": 3,
             "itch_some": 2,
-            "durskin_mon": -4
+            "durlong_mon": -4
           }
         },
         {
@@ -3121,7 +3121,7 @@
           "base": 2,
           "weights": {
             "skinchange_red": 4,
-            "durskin_w12": 3,
+            "durlong_w12": 3,
             "diabetes_yes": 2,
             "moleedge_pearl": -3
           }
@@ -3170,7 +3170,7 @@
         }
       ],
       "questions": [
-        "durskin",
+        "durlong",
         "onset",
         "symmetry",
         "temperature",
@@ -3193,12 +3193,12 @@
           "base": 7,
           "weights": {
             "onset_fast": 4,
-            "durskin_w12": 4,
-            "durskin_d47": 3,
+            "durlong_w12": 4,
+            "durlong_d47": 3,
             "weight_yes": 4,
             "progress_better": 3,
             "newmeds_yes": 3,
-            "durskin_mon": -2,
+            "durlong_mon": -2,
             "itch_some": -2
           }
         },
@@ -3207,7 +3207,7 @@
           "base": 6,
           "weights": {
             "onset_gradual": 5,
-            "durskin_mon": 5,
+            "durlong_mon": 5,
             "progress_worse": 3,
             "symmetry_both": 3,
             "onset_fast": -4,
@@ -3232,7 +3232,7 @@
           "weights": {
             "temperature_cold": 6,
             "tired_strong": 4,
-            "durskin_mon": 3,
+            "durlong_mon": 3,
             "mood_low": 3,
             "temperature_hot": -4
           }
@@ -3244,7 +3244,7 @@
             "tired_strong": 5,
             "temperature_cold": 3,
             "period_now": 3,
-            "durskin_mon": 2
+            "durlong_mon": 2
           }
         },
         {
@@ -3263,7 +3263,7 @@
           "weights": {
             "skinchange_dry": 5,
             "itch_some": 3,
-            "durskin_mon": 3
+            "durlong_mon": 3
           }
         },
         {
@@ -3272,7 +3272,7 @@
           "weights": {
             "rash_spots": 5,
             "tired_strong": 3,
-            "durskin_mon": 3,
+            "durlong_mon": 3,
             "fever_low": 2
           }
         },
@@ -3292,7 +3292,7 @@
             "bowel_blood": 6,
             "bowel_alt": 5,
             "weight_yes": 5,
-            "durskin_mon": 3,
+            "durlong_mon": 3,
             "tired_strong": 3,
             "bowel_no": -3,
             "weight_no": -2
@@ -3338,7 +3338,7 @@
         }
       ],
       "questions": [
-        "durskin",
+        "durlong",
         "onset",
         "symmetry",
         "diabetes",
@@ -3360,7 +3360,7 @@
           "base": 8,
           "weights": {
             "onset_gradual": 5,
-            "durskin_mon": 5,
+            "durlong_mon": 5,
             "symmetry_one": 3,
             "progress_worse": 3,
             "diabetes_yes": 2,
@@ -3374,10 +3374,10 @@
           "weights": {
             "skinchange_red": 5,
             "symmetry_one": 4,
-            "durskin_w12": 3,
+            "durlong_w12": 3,
             "onset_fast": 3,
             "diabetes_yes": 2,
-            "durskin_mon": -1
+            "durlong_mon": -1
           }
         },
         {
@@ -3386,7 +3386,7 @@
           "weights": {
             "skinchange_dry": 5,
             "symmetry_both": 4,
-            "durskin_mon": 4,
+            "durlong_mon": 4,
             "itch_some": 2
           }
         },
@@ -3405,7 +3405,7 @@
           "base": 3,
           "weights": {
             "symmetry_both": 4,
-            "durskin_mon": 3,
+            "durlong_mon": 3,
             "tired_strong": 4
           }
         },
@@ -3415,7 +3415,7 @@
           "weights": {
             "footcold_cold": 6,
             "smoke_both": 3,
-            "durskin_mon": 3,
+            "durlong_mon": 3,
             "footcold_warm": -4
           }
         },
@@ -3446,7 +3446,7 @@
           "weights": {
             "temperature_cold": 6,
             "symmetry_both": 3,
-            "durskin_mon": 3
+            "durlong_mon": 3
           }
         }
       ],
@@ -3489,7 +3489,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "sweats",
         "weight",
@@ -3514,7 +3514,7 @@
           "weights": {
             "temperature_hot": 6,
             "period_delay": 5,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "mood_low": 2,
             "weight_no": 2,
             "weight_yes": -3,
@@ -3527,7 +3527,7 @@
           "base": 5,
           "weights": {
             "symmetry_both": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "weight_no": 3,
             "fever_no": 4,
             "onset_gradual": 3,
@@ -3540,7 +3540,7 @@
           "condition": "postviral.asthenia",
           "base": 4,
           "weights": {
-            "dur_w12": 4,
+            "durlong_w12": 4,
             "weight_no": 3,
             "fever_low": 2,
             "progress_better": 4,
@@ -3555,7 +3555,7 @@
             "cough_wet": 4,
             "weight_yes": 5,
             "fever_low": 3,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "immuno_yes": 3,
             "cough_no": -3,
             "weight_no": -3
@@ -3568,7 +3568,7 @@
             "nodes_hard": 6,
             "weight_yes": 5,
             "nodesmany_many": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "fever_low": 2,
             "weight_no": -3,
             "nodes_no": -3
@@ -3590,7 +3590,7 @@
           "weights": {
             "nodesmany_many": 5,
             "weight_yes": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "immuno_yes": 2
           }
         },
@@ -3601,7 +3601,7 @@
             "fever_low": 4,
             "weight_yes": 3,
             "immuno_yes": 3,
-            "dur_mon": 3
+            "durlong_mon": 3
           }
         },
         {
@@ -3621,7 +3621,7 @@
             "mood_anx": 6,
             "fever_no": 3,
             "weight_no": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "nodes_hard": -4
           }
         }
@@ -3671,7 +3671,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "swellside",
         "swelltime",
@@ -3724,7 +3724,7 @@
           "weights": {
             "swelltime_evening": 5,
             "swellside_both": 3,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "dysp_no": 3,
             "dysp_yes": -3
           }
@@ -3736,7 +3736,7 @@
             "temperature_cold": 6,
             "swelltime_morning": 4,
             "onset_gradual": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "temperature_hot": -4
           }
         },
@@ -3758,7 +3758,7 @@
           "weights": {
             "yellow_yes": 6,
             "swelltime_constant": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "yellow_no": -2
           }
         },
@@ -3845,7 +3845,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "mood",
         "snore",
@@ -3870,7 +3870,7 @@
           "condition": "insomnia",
           "base": 8,
           "weights": {
-            "dur_mon": 5,
+            "durlong_mon": 5,
             "mood_anx": 4,
             "tired_some": 3,
             "snore_no": 3,
@@ -3883,7 +3883,7 @@
           "base": 5,
           "weights": {
             "mood_anx": 6,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "tired_some": 2,
             "snore_yes": -3
           }
@@ -3895,7 +3895,7 @@
             "mood_low": 6,
             "tired_strong": 4,
             "weight_yes": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "mood_anx": -1
           }
         },
@@ -3906,7 +3906,7 @@
             "snore_yes": 6,
             "snore_snore": 3,
             "tired_strong": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "snore_no": -4
           }
         },
@@ -3917,7 +3917,7 @@
             "movebetter_move": 6,
             "night_yes": 4,
             "symmetry_both": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "movebetter_rest": -3
           }
         },
@@ -3938,7 +3938,7 @@
             "temperature_hot": 5,
             "sweats_yes": 4,
             "period_delay": 4,
-            "dur_mon": 3
+            "durlong_mon": 3
           }
         },
         {
@@ -3947,7 +3947,7 @@
           "weights": {
             "urine_no": 2,
             "stream_weak": 5,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "night_yes": 3
           }
         },
@@ -4190,7 +4190,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "thirst",
         "weight",
@@ -4234,7 +4234,7 @@
             "dysp_yes": 4,
             "onset_fast": 4,
             "progress_worse": 3,
-            "dur_mon": -4
+            "durlong_mon": -4
           }
         },
         {
@@ -4243,7 +4243,7 @@
           "weights": {
             "swelltime_morning": 5,
             "appetite_down": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "tired_strong": 3,
             "itch_some": 3
           }
@@ -4264,8 +4264,8 @@
           "weights": {
             "bowel_loose": 6,
             "vomitwhat_food": 4,
-            "dur_d13": 4,
-            "dur_mon": -4
+            "durlong_d13": 4,
+            "durlong_mon": -4
           }
         },
         {
@@ -4273,7 +4273,7 @@
           "base": 3,
           "weights": {
             "urine_incont": 5,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "thirst_no": 3,
             "thirst_yes": -3
           }
@@ -4283,7 +4283,7 @@
           "base": 2,
           "weights": {
             "stream_weak": 6,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "onset_gradual": 3,
             "thirst_yes": -2
           }
@@ -4305,7 +4305,7 @@
             "weight_yes": 4,
             "night_yes": 3,
             "progress_worse": 3,
-            "dur_mon": 2
+            "durlong_mon": 2
           }
         }
       ],

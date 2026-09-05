@@ -393,7 +393,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "joint",
         "trauma",
@@ -413,7 +413,7 @@
           "base": 6,
           "weights": {
             "joint_swollen": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "stiffjoint_short": 3,
             "onset_gradual": 3,
             "joint_hotred": -5,
@@ -426,7 +426,7 @@
           "base": 5,
           "weights": {
             "joint_swollen": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "fever_no": 3,
             "onset_gradual": 2,
             "joint_hotred": -4
@@ -440,7 +440,7 @@
             "onset_sudden": 5,
             "symmetry_one": 3,
             "joint_normal": -5,
-            "dur_mon": -4
+            "durlong_mon": -4
           }
         },
         {
@@ -452,7 +452,7 @@
             "trauma_yes": 4,
             "lock_give": 4,
             "twist_none": -4,
-            "dur_mon": -3
+            "durlong_mon": -3
           }
         },
         {
@@ -482,7 +482,7 @@
           "weights": {
             "symmetry_both": 5,
             "stiffjoint_long": 6,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "symmetry_one": -3,
             "trauma_yes": -3
           }
@@ -751,7 +751,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "swellside",
         "swelltime",
@@ -778,7 +778,7 @@
           "weights": {
             "swellside_both": 4,
             "swelltime_evening": 6,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "night_yes": 2,
             "swelltime_constant": -2,
             "swelltime_morning": -4,
@@ -832,7 +832,7 @@
             "swelltime_constant": 6,
             "swellside_one": 4,
             "oncohist_yes": 5,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "swelltime_evening": -3,
             "dysp_yes": -2
           }
@@ -844,7 +844,7 @@
             "yellow_yes": 6,
             "swellside_both": 3,
             "swelltime_constant": 2,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "yellow_no": -2
           }
         },
@@ -902,7 +902,7 @@
             "progress_worse": 3,
             "joint_normal": -5,
             "fever_no": -4,
-            "dur_mon": -4
+            "durlong_mon": -4
           }
         }
       ],
@@ -1662,7 +1662,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "swelltime",
         "swellside",
         "joint",
@@ -1682,7 +1682,7 @@
           "base": 9,
           "weights": {
             "swelltime_evening": 6,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "night_yes": 3,
             "swellside_both": 3,
             "fever_no": 3,
@@ -1708,7 +1708,7 @@
           "base": 3,
           "weights": {
             "skinchange_dark": 6,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "swelltime_evening": 3,
             "progress_worse": 2
           }
@@ -1766,7 +1766,7 @@
             "progress_worse": 3,
             "joint_normal": -5,
             "fever_no": -4,
-            "dur_mon": -4
+            "durlong_mon": -4
           }
         }
       ],

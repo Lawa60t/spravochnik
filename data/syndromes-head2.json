@@ -1179,7 +1179,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "eyered.where",
         "eyedisch",
@@ -1231,7 +1231,7 @@
           "weights": {
             "eyered.where_lid": 6,
             "eyedisch_sticky": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "itch_some": 3,
             "vision_blur": -3
           }
@@ -1241,7 +1241,7 @@
           "base": 4,
           "weights": {
             "eyered.where_diffuse": 2,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "eyepain_no": 3,
             "eyedisch_watery": 2,
             "eyedisch_sticky": -2
@@ -1336,7 +1336,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "tinnitus",
         "hearing",
@@ -1360,10 +1360,10 @@
             "side_one": 4,
             "discharge_no": 3,
             "fever_no": 3,
-            "dur_d13": 3,
+            "durlong_d13": 3,
             "focal_yes": -4,
             "discharge_yes": -3,
-            "dur_mon": -2,
+            "durlong_mon": -2,
             "tinnitus_one": -3,
             "hearing_yes": -1
           }
@@ -1376,7 +1376,7 @@
             "side_one": 3,
             "fever_no": 3,
             "discharge_no": 2,
-            "dur_d13": 2,
+            "durlong_d13": 2,
             "discharge_yes": -3
           }
         },
@@ -1387,7 +1387,7 @@
             "onset_gradual": 6,
             "side_both": 5,
             "tinnitus_both": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "onset_sudden": -5,
             "side_one": -3,
             "discharge_yes": -3
@@ -1401,7 +1401,7 @@
             "fever_mid": 4,
             "discharge_yes": 3,
             "side_one": 3,
-            "dur_d13": 2,
+            "durlong_d13": 2,
             "onset_gradual": -3
           }
         },
@@ -1460,7 +1460,7 @@
             "focal_yes": 6,
             "onset_sudden": 4,
             "focal_no": -4,
-            "dur_mon": -5
+            "durlong_mon": -5
           }
         }
       ],
@@ -1509,7 +1509,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "blocked",
         "runny",
@@ -1533,12 +1533,12 @@
           "condition": "arvi",
           "base": 8,
           "weights": {
-            "dur_d13": 5,
+            "durlong_d13": 5,
             "fever_low": 3,
             "blocked_alt": 3,
             "progress_better": 4,
             "drops_short": 2,
-            "dur_mon": -5,
+            "durlong_mon": -5,
             "smell_lost": -1,
             "drops_long": -3
           }
@@ -1563,9 +1563,9 @@
             "smell_lost": 4,
             "move_press": 4,
             "fever_mid": 3,
-            "dur_d47": 3,
-            "dur_w12": 3,
-            "dur_d13": -2
+            "durlong_d47": 3,
+            "durlong_w12": 3,
+            "durlong_d13": -2
           }
         },
         {
@@ -1574,7 +1574,7 @@
           "weights": {
             "drops_long": 6,
             "blocked_both": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "fever_no": 3,
             "drops_no": -5,
             "fever_high": -3
@@ -1585,12 +1585,12 @@
           "base": 4,
           "weights": {
             "blocked_one": 6,
-            "dur_mon": 5,
+            "durlong_mon": 5,
             "fever_no": 3,
             "snore_snore": 3,
             "trauma_yes": 3,
             "blocked_alt": -3,
-            "dur_d13": -4
+            "durlong_d13": -4
           }
         },
         {
@@ -1599,9 +1599,9 @@
           "weights": {
             "smell_lost": 6,
             "blocked_both": 4,
-            "dur_mon": 5,
+            "durlong_mon": 5,
             "drops_long": 2,
-            "dur_d13": -4
+            "durlong_d13": -4
           }
         },
         {
@@ -1609,7 +1609,7 @@
           "base": 3,
           "weights": {
             "runny_yes": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "fever_no": 2,
             "reflux_morn": 3
           }
@@ -1619,7 +1619,7 @@
           "base": 1,
           "weights": {
             "blocked_one": 5,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "smoke_both": 4,
             "weight_yes": 4,
             "nodes_hard": 4,
@@ -1631,13 +1631,13 @@
           "base": 1,
           "weights": {
             "blocked_one": 6,
-            "dur_mon": 5,
+            "durlong_mon": 5,
             "smell_lost": 4,
             "progress_worse": 4,
             "side_one": 3,
             "weight_yes": 2,
             "blocked_alt": -4,
-            "dur_d13": -5,
+            "durlong_d13": -5,
             "progress_better": -4
           }
         }

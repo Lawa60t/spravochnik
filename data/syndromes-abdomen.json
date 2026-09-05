@@ -1402,7 +1402,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "bowel",
         "fever",
@@ -1424,12 +1424,12 @@
           "condition": "gastroenteritis.acute",
           "base": 9,
           "weights": {
-            "dur_d13": 5,
+            "durlong_d13": 5,
             "vomitwhat_food": 4,
             "fever_mid": 3,
             "contact_yes": 4,
             "onset_sudden": 2,
-            "dur_mon": -5,
+            "durlong_mon": -5,
             "weight_yes": -3,
             "bowel_blood": -1,
             "thirst_yes": -4,
@@ -1441,7 +1441,7 @@
           "base": 6,
           "weights": {
             "stoolrel_better": 6,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "fever_no": 3,
             "weight_no": 3,
             "night_no": 2,
@@ -1459,7 +1459,7 @@
             "abxrecent_yes": 6,
             "fever_mid": 3,
             "fever_high": 2,
-            "dur_d47": 2,
+            "durlong_d47": 2,
             "abxrecent_no": -5
           }
         },
@@ -1469,7 +1469,7 @@
           "weights": {
             "eatrel_milk": 6,
             "fever_no": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "weight_no": 2,
             "fever_high": -3,
             "bowel_blood": -4
@@ -1482,18 +1482,18 @@
             "bowel_blood": 6,
             "night_yes": 4,
             "weight_yes": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "fever_low": 2,
             "stoolrel_better": -2,
-            "dur_d13": -3
+            "durlong_d13": -3
           }
         },
         {
           "condition": "giardiasis",
           "base": 3,
           "weights": {
-            "dur_w12": 4,
-            "dur_mon": 3,
+            "durlong_w12": 4,
+            "durlong_mon": 3,
             "travel_other": 3,
             "weight_yes": 2,
             "fever_no": 3,
@@ -1504,7 +1504,7 @@
           "condition": "celiac",
           "base": 3,
           "weights": {
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "weight_yes": 3,
             "fever_no": 3,
             "bowel_blood": -4,
@@ -1517,7 +1517,7 @@
           "weights": {
             "temperature_hot": 6,
             "weight_yes": 4,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "temperature_cold": -4,
             "bowel_blood": -3
           }
@@ -1529,8 +1529,8 @@
             "bowel_blood": 5,
             "bowel_alt": 5,
             "weight_yes": 4,
-            "dur_mon": 3,
-            "dur_d13": -4
+            "durlong_mon": 3,
+            "durlong_d13": -4
           }
         },
         {
@@ -1540,7 +1540,7 @@
             "fever_mid": 3,
             "fever_high": 3,
             "guarding_tender": 3,
-            "dur_d13": 1,
+            "durlong_d13": 1,
             "fever_no": -3
           }
         },
@@ -1548,7 +1548,7 @@
           "condition": "hiv",
           "base": 1,
           "weights": {
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "weight_yes": 4,
             "immuno_yes": 4,
             "fever_low": 2

@@ -892,7 +892,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "symmetry",
         "joint",
@@ -928,7 +928,7 @@
             "oncohist_yes": 6,
             "symmetry_one": 4,
             "swelltime_constant": 5,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "fever_no": 3,
             "onset_sudden": -3,
             "joint_hotred": -3
@@ -967,7 +967,7 @@
             "onset_sudden": 4,
             "symmetry_one": 3,
             "trauma_no": -5,
-            "dur_mon": -5
+            "durlong_mon": -5
           }
         },
         {
@@ -977,7 +977,7 @@
             "joint_swollen": 5,
             "symmetry_both": 4,
             "stiffjoint_long": 5,
-            "dur_mon": 3
+            "durlong_mon": 3
           }
         },
         {

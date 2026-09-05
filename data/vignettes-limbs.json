@@ -458,7 +458,7 @@
       "note": "Сердечная недостаточность: обе ноги, к вечеру, одышка",
       "feel": 0,
       "answers": {
-        "dur": "mon",
+        "durlong": "mon",
         "swellside": "both",
         "swelltime": "evening",
         "dysp": "yes",
@@ -484,7 +484,7 @@
       "note": "Варикоз: обе ноги, к вечеру, за ночь спадает — тревоги быть не должно",
       "feel": 0,
       "answers": {
-        "dur": "mon",
+        "durlong": "mon",
         "swellside": "both",
         "swelltime": "evening",
         "dysp": "no",
@@ -668,7 +668,7 @@
       "note": "Обычный варикоз: тяжесть к вечеру, вены видны",
       "feel": 0,
       "answers": {
-        "dur": "mon",
+        "durlong": "mon",
         "swelltime": "evening",
         "swellside": "both",
         "joint": "normal",
@@ -694,7 +694,7 @@
       "note": "Тромбофлебит: плотный болезненный тяж, кожа над ним красная",
       "feel": 2,
       "answers": {
-        "dur": "d13",
+        "durlong": "d13",
         "onset": "fast",
         "joint": "hotred",
         "swellside": "one",

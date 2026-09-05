@@ -310,7 +310,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "fever",
         "cough",
         "runny",
@@ -331,10 +331,10 @@
           "weights": {
             "runny_yes": 3,
             "cough_dry": 2,
-            "dur_d13": 2,
-            "dur_d47": 1,
+            "durlong_d13": 2,
+            "durlong_d47": 1,
             "fever_low": 1,
-            "dur_mon": -4
+            "durlong_mon": -4
           }
         },
         {
@@ -346,7 +346,7 @@
             "smoke_both": 3,
             "smoke_one": 2,
             "plaque_no": 2,
-            "dur_mon": 1,
+            "durlong_mon": 1,
             "fever_high": -4,
             "plaque_white": -3,
             "nodes_front": -2
@@ -360,7 +360,7 @@
             "reflux_morn": 3,
             "cough_dry": 2,
             "fever_no": 2,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "fever_high": -3
           }
         },
@@ -371,7 +371,7 @@
             "reflux_yes": 4,
             "reflux_morn": 3,
             "voice_hoarse": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "fever_no": 2,
             "runny_yes": -1,
             "fever_high": -3
@@ -394,7 +394,7 @@
           "base": 3,
           "weights": {
             "plaque_white": 4,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "fever_no": 1,
             "fever_high": -3
           }
@@ -403,7 +403,7 @@
           "condition": "globus",
           "base": 3,
           "weights": {
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "fever_no": 2,
             "plaque_no": 2,
             "fever_high": -4,
@@ -418,21 +418,21 @@
             "fever_high": 3,
             "nodes_front": 2,
             "runny_yes": -2,
-            "dur_mon": -4
+            "durlong_mon": -4
           }
         },
         {
           "condition": "oropharynx.cancer",
           "base": 1,
           "weights": {
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "side_one": 3,
             "ear_yes": 3,
             "smoke_both": 3,
             "weight_yes": 3,
             "nodes_hard": 3,
             "progress_worse": 2,
-            "dur_d13": -3
+            "durlong_d13": -3
           }
         },
         {
@@ -440,11 +440,11 @@
           "base": 1,
           "weights": {
             "voice_hoarse": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "smoke_both": 3,
             "weight_yes": 2,
             "progress_worse": 2,
-            "dur_d13": -3
+            "durlong_d13": -3
           }
         },
         {
@@ -456,7 +456,7 @@
             "fever_low": 1,
             "runny_yes": 1,
             "plaque_white": -3,
-            "dur_mon": -3
+            "durlong_mon": -3
           }
         }
       ],
@@ -496,7 +496,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "swallow",
         "stuck",
         "reflux",
@@ -516,7 +516,7 @@
           "weights": {
             "swallow_none": 4,
             "fever_no": 2,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "stuck_no": 3,
             "weight_no": 2,
             "stuck_yes": -3,
@@ -532,7 +532,7 @@
             "reflux_yes": 4,
             "reflux_morn": 3,
             "voice_hoarse": 2,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "stuck_no": 1,
             "weight_yes": -2
           }
@@ -552,7 +552,7 @@
           "base": 4,
           "weights": {
             "swell_neckfront": 4,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "fever_no": 1,
             "swallow_none": 1
           }
@@ -563,7 +563,7 @@
           "weights": {
             "swallow_both": 5,
             "stuck_regur": 4,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "progress_worse": 1,
             "swallow_none": -3
           }
@@ -573,7 +573,7 @@
           "base": 2,
           "weights": {
             "stuck_regur": 5,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "swallow_solid": 1,
             "swallow_none": -2
           }
@@ -586,7 +586,7 @@
             "ear_yes": 2,
             "fever_low": 2,
             "fever_mid": 1,
-            "dur_w12": 2
+            "durlong_w12": 2
           }
         },
         {
@@ -598,7 +598,7 @@
             "weight_yes": 4,
             "smoke_both": 3,
             "stuck_yes": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "swallow_none": -3,
             "weight_no": -2
           }
@@ -607,7 +607,7 @@
           "condition": "oropharynx.cancer",
           "base": 1,
           "weights": {
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "weight_yes": 3,
             "nodes_hard": 3,
             "smoke_both": 3,
@@ -623,7 +623,7 @@
             "voice_hoarse": 3,
             "nodes_hard": 3,
             "progress_worse": 2,
-            "dur_mon": 2
+            "durlong_mon": 2
           }
         }
       ],
@@ -1335,7 +1335,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "nodes",
         "swell",
         "fever",
@@ -1357,13 +1357,13 @@
             "nodes_front": 4,
             "fever_mid": 2,
             "fever_low": 1,
-            "dur_d13": 2,
-            "dur_d47": 2,
+            "durlong_d13": 2,
+            "durlong_d47": 2,
             "side_one": 1,
             "nodes_hard": -3,
             "weight_yes": -2,
             "sweats_yes": -2,
-            "dur_mon": -2
+            "durlong_mon": -2
           }
         },
         {
@@ -1372,7 +1372,7 @@
           "weights": {
             "swell_neckfront": 5,
             "fever_no": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "progress_same": 2,
             "nodes_front": -2
           }
@@ -1384,9 +1384,9 @@
             "nodes_back": 5,
             "tired_strong": 3,
             "fever_mid": 2,
-            "dur_w12": 3,
+            "durlong_w12": 3,
             "contact_yes": 2,
-            "dur_mon": -1
+            "durlong_mon": -1
           }
         },
         {
@@ -1408,7 +1408,7 @@
             "ear_yes": 3,
             "fever_low": 2,
             "fever_mid": 2,
-            "dur_w12": 2,
+            "durlong_w12": 2,
             "nodes_front": -1
           }
         },
@@ -1420,7 +1420,7 @@
             "ear_yes": 3,
             "fever_mid": 2,
             "contact_yes": 3,
-            "dur_d13": 2,
+            "durlong_d13": 2,
             "nodes_hard": -3
           }
         },
@@ -1429,7 +1429,7 @@
           "base": 3,
           "weights": {
             "side_one": 3,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "fever_no": 2,
             "progress_same": 3,
             "weight_yes": -2
@@ -1442,11 +1442,11 @@
             "nodes_hard": 5,
             "weight_yes": 4,
             "sweats_yes": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "progress_worse": 3,
             "fever_low": 1,
             "nodes_front": -1,
-            "dur_d13": -3
+            "durlong_d13": -3
           }
         },
         {
@@ -1454,11 +1454,11 @@
           "base": 2,
           "weights": {
             "nodes_hard": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "sweats_yes": 3,
             "weight_yes": 2,
             "fever_low": 2,
-            "dur_d13": -3
+            "durlong_d13": -3
           }
         },
         {
@@ -1469,7 +1469,7 @@
             "nodes_hard": 3,
             "voice_hoarse": 3,
             "progress_worse": 3,
-            "dur_mon": 2
+            "durlong_mon": 2
           }
         },
         {
@@ -1480,7 +1480,7 @@
             "smoke_both": 3,
             "ear_yes": 3,
             "weight_yes": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "progress_worse": 2
           }
         }

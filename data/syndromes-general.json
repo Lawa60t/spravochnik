@@ -34,7 +34,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "fever",
         "cough",
@@ -66,9 +66,9 @@
             "cough_dry": 3,
             "fever_low": 2,
             "fever_mid": 2,
-            "dur_d13": 3,
+            "durlong_d13": 3,
             "fever_high": -2,
-            "dur_w12": -3,
+            "durlong_w12": -3,
             "stiff_no": -4,
             "rash_dark": -4,
             "travel_tropic": -2
@@ -82,9 +82,9 @@
             "fever_high": 4,
             "tired_strong": 3,
             "cough_dry": 2,
-            "dur_d13": 2,
+            "durlong_d13": 2,
             "runny_yes": -1,
-            "dur_w12": -3,
+            "durlong_w12": -3,
             "rash_dark": -3
           }
         },
@@ -95,7 +95,7 @@
             "bowel_loose": 5,
             "vomit_yes": 4,
             "contact_yes": 2,
-            "dur_d13": 2,
+            "durlong_d13": 2,
             "runny_yes": -3,
             "cough_dry": -2
           }
@@ -131,7 +131,7 @@
             "cough_wet": 5,
             "dysp_yes": 4,
             "fever_high": 3,
-            "dur_d47": 2,
+            "durlong_d47": 2,
             "runny_yes": -1,
             "bowel_loose": -2
           }
@@ -141,8 +141,8 @@
           "base": 4,
           "weights": {
             "runny_yes": 4,
-            "dur_d47": 3,
-            "dur_w12": 2,
+            "durlong_d47": 3,
+            "durlong_w12": 2,
             "fever_mid": 2,
             "bowel_loose": -3,
             "dysp_yes": -2
@@ -155,8 +155,8 @@
             "nodes_back": 5,
             "plaque_white": 3,
             "tired_strong": 3,
-            "dur_w12": 3,
-            "dur_d13": -2
+            "durlong_w12": 3,
+            "durlong_d13": -2
           }
         },
         {
@@ -226,7 +226,7 @@
             "immuno_yes": 4,
             "fever_high": 2,
             "tired_strong": 3,
-            "dur_d13": 1
+            "durlong_d13": 1
           }
         },
         {
@@ -253,7 +253,7 @@
             "runny_yes": -1,
             "plaque_white": -3,
             "bowel_loose": -2,
-            "dur_w12": 2
+            "durlong_w12": 2
           }
         }
       ],
@@ -294,7 +294,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "fever",
         "sweats",
         "weight",
@@ -334,7 +334,7 @@
             "cough_wet": 4,
             "sweats_yes": 5,
             "weight_yes": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "immuno_yes": 3,
             "cough_no": -3,
             "sweats_no": -3
@@ -348,7 +348,7 @@
             "sweats_yes": 5,
             "weight_yes": 5,
             "nodesmany_many": 4,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "sweats_no": -3,
             "weight_no": -3
           }
@@ -358,7 +358,7 @@
           "base": 3,
           "weights": {
             "rash_spots": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "tired_strong": 2,
             "weight_no": 1,
             "cough_wet": -2
@@ -371,7 +371,7 @@
             "sweats_yes": 4,
             "weight_yes": 3,
             "immuno_yes": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "bruise_yes": 2,
             "cough_wet": -2
           }
@@ -382,7 +382,7 @@
           "weights": {
             "nodesmany_many": 5,
             "weight_yes": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "immuno_yes": 2,
             "nodes_hard": 2
           }
@@ -415,7 +415,7 @@
           "weights": {
             "night_yes": 4,
             "immuno_yes": 4,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "cough_wet": -2
           }
         },
@@ -446,7 +446,7 @@
           "weights": {
             "nodes_hard": 4,
             "sweats_yes": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "weight_yes": 2,
             "immuno_yes": 2
           }
@@ -492,7 +492,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "tired",
         "mood",
@@ -520,7 +520,7 @@
             "position_stand": 4,
             "dysp_yes": 3,
             "onset_gradual": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "bowel_blood": 4,
             "temperature_cold": 2,
             "weight_yes": -1,
@@ -533,7 +533,7 @@
           "weights": {
             "mood_low": 6,
             "appetite_down": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "onset_gradual": 2,
             "fever_no": 2,
             "fever_high": -4,
@@ -548,7 +548,7 @@
             "temperature_cold": 5,
             "bowel_hard": 3,
             "onset_gradual": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "edema_face": 4,
             "appetite_no": 1,
             "temperature_hot": -4,
@@ -561,7 +561,7 @@
           "weights": {
             "snore_yes": 6,
             "snore_snore": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "mood_low": 1,
             "snore_no": -3
           }
@@ -571,11 +571,11 @@
           "base": 5,
           "weights": {
             "onset_fast": 3,
-            "dur_w12": 3,
+            "durlong_w12": 3,
             "fever_no": 2,
             "weight_no": 2,
             "progress_better": 3,
-            "dur_mon": -1,
+            "durlong_mon": -1,
             "weight_yes": -3
           }
         },
@@ -586,7 +586,7 @@
             "thirst_yes": 6,
             "weight_yes": 3,
             "appetite_up": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "thirst_no": -3
           }
         },
@@ -596,7 +596,7 @@
           "weights": {
             "temperature_cold": 2,
             "onset_gradual": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "position_stand": 2,
             "appetite_down": 1
           }
@@ -620,7 +620,7 @@
             "dysp_yes": 5,
             "edema_legs": 5,
             "onset_gradual": 2,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "position_stand": -1,
             "dysp_no": -4
           }
@@ -632,7 +632,7 @@
             "edema_face": 4,
             "edema_legs": 3,
             "appetite_down": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "temperature_cold": 1
           }
         },
@@ -664,7 +664,7 @@
           "weights": {
             "nodes_hard": 3,
             "weight_yes": 4,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "fever_low": 2,
             "immuno_yes": 2
           }
@@ -729,7 +729,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "appetite",
         "temperature",
         "sweats",
@@ -768,8 +768,8 @@
           "weights": {
             "thirst_yes": 6,
             "appetite_up": 4,
-            "dur_w12": 2,
-            "dur_mon": 2,
+            "durlong_w12": 2,
+            "durlong_mon": 2,
             "thirst_no": -3
           }
         },
@@ -779,7 +779,7 @@
           "weights": {
             "mood_low": 6,
             "appetite_down": 4,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "fever_no": 2,
             "fever_high": -3,
             "sweats_yes": -3,
@@ -805,7 +805,7 @@
             "bowel_blood": 6,
             "bowel_alt": 5,
             "appetite_down": 2,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "tired_strong": 2,
             "bowel_no": -3
           }
@@ -816,7 +816,7 @@
           "weights": {
             "appetite_down": 5,
             "vomit_yes": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "smoke_both": 2,
             "appetite_up": -4
           }
@@ -839,7 +839,7 @@
             "smoke_both": 5,
             "cough_dry": 4,
             "cough_wet": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "smoke_no": -3
           }
         },
@@ -850,7 +850,7 @@
             "bowel_loose": 5,
             "bowel_blood": 5,
             "fever_low": 2,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "appetite_down": 2,
             "bowel_no": -3
           }
@@ -860,7 +860,7 @@
           "base": 2,
           "weights": {
             "bowel_loose": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "tired_strong": 2,
             "fever_high": -3,
             "bowel_no": -3
@@ -873,7 +873,7 @@
             "nodesmany_many": 5,
             "fever_low": 3,
             "immuno_yes": 3,
-            "dur_mon": 2
+            "durlong_mon": 2
           }
         },
         {
@@ -882,7 +882,7 @@
           "weights": {
             "appetite_down": 4,
             "vomit_yes": 2,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "temperature_cold": 1
           }
         },
@@ -903,7 +903,7 @@
             "appetite_down": 3,
             "vomit_yes": 2,
             "reflux_yes": 4,
-            "dur_mon": 2
+            "durlong_mon": 2
           }
         }
       ],
@@ -952,7 +952,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "nodes",
         "nodesmany",
         "fever",
@@ -979,14 +979,14 @@
             "nodes_front": 4,
             "nodesmany_one": 4,
             "fever_mid": 2,
-            "dur_d13": 2,
-            "dur_d47": 2,
+            "durlong_d13": 2,
+            "durlong_d47": 2,
             "progress_better": 3,
             "nodes_hard": -4,
             "nodesmany_many": -3,
             "weight_yes": -3,
             "sweats_yes": -3,
-            "dur_mon": -2
+            "durlong_mon": -2
           }
         },
         {
@@ -996,7 +996,7 @@
             "nodes_back": 5,
             "tired_strong": 4,
             "plaque_white": 3,
-            "dur_w12": 3,
+            "durlong_w12": 3,
             "contact_yes": 2,
             "nodes_hard": -2
           }
@@ -1008,7 +1008,7 @@
             "animals_catscratch": 6,
             "nodesmany_one": 3,
             "fever_low": 2,
-            "dur_w12": 2,
+            "durlong_w12": 2,
             "animals_no": -3
           }
         },
@@ -1019,7 +1019,7 @@
             "animals_yes": 4,
             "nodes_back": 3,
             "fever_low": 2,
-            "dur_w12": 2,
+            "durlong_w12": 2,
             "weight_yes": -2
           }
         },
@@ -1031,7 +1031,7 @@
             "sweats_yes": 5,
             "weight_yes": 5,
             "progress_worse": 4,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "nodesmany_many": 3,
             "progress_better": -4,
             "sweats_no": -3,
@@ -1043,7 +1043,7 @@
           "base": 2,
           "weights": {
             "nodesmany_many": 5,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "weight_yes": 3,
             "fever_low": 2,
             "immuno_yes": 2
@@ -1054,7 +1054,7 @@
           "base": 2,
           "weights": {
             "nodes_hard": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "sweats_yes": 3,
             "weight_yes": 2,
             "immuno_yes": 3,
@@ -1077,7 +1077,7 @@
           "base": 1,
           "weights": {
             "rash_spots": 4,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "fever_low": 2,
             "nodes_hard": -1
           }
@@ -1089,7 +1089,7 @@
             "nodes_hard": 5,
             "smoke_both": 4,
             "weight_yes": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "progress_worse": 2
           }
         },
@@ -1100,7 +1100,7 @@
             "nodes_hard": 4,
             "swell_neckfront": 5,
             "progress_worse": 2,
-            "dur_mon": 2
+            "durlong_mon": 2
           }
         }
       ],

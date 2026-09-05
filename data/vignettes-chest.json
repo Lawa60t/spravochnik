@@ -117,50 +117,50 @@
 
     { "id": "c23", "syndrome": "chest.cough.dry", "sex": "f", "age": 33,
       "note": "Обычная ОРВИ: насморк, три дня, идёт на поправку",
-      "feel": 0, "answers": { "dur": "d13", "runny": "yes", "fever": "low", "progress": "better", "acei": "no", "reflux": "no", "night": "no", "smoke": "no", "weight": "no", "dysp": "no", "sputum": "none", "vaccine": "yes", "contact": "yes", "stridor": "ok", "sweats": "no" },
+      "feel": 0, "answers": { "durlong": "d13", "runny": "yes", "fever": "low", "progress": "better", "acei": "no", "reflux": "no", "night": "no", "smoke": "no", "weight": "no", "dysp": "no", "sputum": "none", "vaccine": "yes", "contact": "yes", "stridor": "ok", "sweats": "no" },
       "expectTop": "arvi", "expectAlarm": false,
       "notExpect": ["lung.cancer", "tuberculosis.pulmonary"] },
 
     { "id": "c24", "syndrome": "chest.cough.dry", "sex": "m", "age": 57,
       "note": "Кашель от препарата на «-прил»: месяцами, температуры нет",
-      "feel": 0, "answers": { "dur": "mon", "acei": "pril", "fever": "no", "runny": "no", "reflux": "no", "night": "no", "smoke": "no", "weight": "no", "dysp": "no", "sputum": "none", "progress": "same", "vaccine": "yes", "contact": "no", "stridor": "ok", "sweats": "no" },
+      "feel": 0, "answers": { "durlong": "mon", "acei": "pril", "fever": "no", "runny": "no", "reflux": "no", "night": "no", "smoke": "no", "weight": "no", "dysp": "no", "sputum": "none", "progress": "same", "vaccine": "yes", "contact": "no", "stridor": "ok", "sweats": "no" },
       "expectTop": "ace.cough", "expectAlarm": false },
 
     { "id": "c25", "syndrome": "chest.cough.dry", "sex": "f", "age": 41,
       "note": "Коклюш у взрослой: месяцами приступами ночью, температуры нет",
-      "feel": 1, "answers": { "dur": "mon", "night": "yes", "fever": "no", "vaccine": "old", "contact": "yes", "acei": "no", "runny": "no", "reflux": "no", "smoke": "no", "weight": "no", "dysp": "no", "sputum": "none", "progress": "same", "stridor": "ok", "sweats": "no" },
+      "feel": 1, "answers": { "durlong": "mon", "night": "yes", "fever": "no", "vaccine": "old", "contact": "yes", "acei": "no", "runny": "no", "reflux": "no", "smoke": "no", "weight": "no", "dysp": "no", "sputum": "none", "progress": "same", "stridor": "ok", "sweats": "no" },
       "expectTop": "whooping.cough", "expectAlarm": false },
 
     { "id": "c26", "syndrome": "chest.cough.wet", "sex": "m", "age": 61,
       "note": "Опухоль лёгкого: курит, кровь в мокроте, худеет",
-      "feel": 3, "answers": { "dur": "mon", "sputum": "blood", "smoke": "both", "weight": "yes", "progress": "worse", "dysp": "yes", "fever": "no", "sweats": "no", "runny": "no", "night": "no", "immuno": "no", "breath": "no", "onset": "gradual" },
+      "feel": 3, "answers": { "durlong": "mon", "sputum": "blood", "smoke": "both", "weight": "yes", "progress": "worse", "dysp": "yes", "fever": "no", "sweats": "no", "runny": "no", "night": "no", "immuno": "no", "breath": "no", "onset": "gradual" },
       "expectTop": "lung.cancer", "expectAlarm": true },
 
     { "id": "c27", "syndrome": "chest.cough.wet", "sex": "m", "age": 38,
       "note": "Туберкулёз: месяцами, ночная потливость, похудел",
-      "feel": 0, "answers": { "dur": "mon", "sweats": "yes", "weight": "yes", "fever": "low", "sputum": "purulent", "smoke": "one", "immuno": "no", "dysp": "no", "progress": "worse", "runny": "no", "night": "no", "breath": "no", "onset": "gradual" },
+      "feel": 0, "answers": { "durlong": "mon", "sweats": "yes", "weight": "yes", "fever": "low", "sputum": "purulent", "smoke": "one", "immuno": "no", "dysp": "no", "progress": "worse", "runny": "no", "night": "no", "breath": "no", "onset": "gradual" },
       "expectTop": "tuberculosis.pulmonary", "expectAlarm": true },
 
     { "id": "c28", "syndrome": "chest.cough.wet", "sex": "f", "age": 30,
       "note": "Обычный бронхит: светлая мокрота, неделя, идёт на поправку",
-      "feel": 0, "answers": { "dur": "d47", "sputum": "clear", "runny": "yes", "fever": "low", "progress": "better", "smoke": "no", "weight": "no", "sweats": "no", "dysp": "no", "night": "no", "immuno": "no", "breath": "no", "onset": "gradual" },
+      "feel": 0, "answers": { "durlong": "d47", "sputum": "clear", "runny": "yes", "fever": "low", "progress": "better", "smoke": "no", "weight": "no", "sweats": "no", "dysp": "no", "night": "no", "immuno": "no", "breath": "no", "onset": "gradual" },
       "expectTop": "bronchitis.acute", "expectAlarm": false,
       "notExpect": ["lung.cancer", "tuberculosis.pulmonary"] },
 
     { "id": "c29", "syndrome": "chest.breast.lump", "sex": "f", "age": 34,
       "note": "Мастопатия: обе железы, меняются по циклу — тревоги быть не должно",
-      "feel": 2, "answers": { "dur": "mon", "lump": "diffuse", "side": "both", "period": "now", "nipple": "no", "fever": "no", "nodes": "no", "progress": "same", "weight": "no", "oncohist": "no", "sweats": "no", "trauma": "no" },
+      "feel": 2, "answers": { "durlong": "mon", "lump": "diffuse", "side": "both", "period": "now", "nipple": "no", "fever": "no", "nodes": "no", "progress": "same", "weight": "no", "oncohist": "no", "sweats": "no", "trauma": "no" },
       "expectTop": "mastopathy", "expectAlarm": false,
       "notExpect": ["breast.cancer"] },
 
     { "id": "c30", "syndrome": "chest.breast.lump", "sex": "f", "age": 54,
       "note": "Опухоль молочной железы: плотный узел, втяжение соска, узлы в подмышке",
-      "feel": 0, "answers": { "dur": "w12", "lump": "hardfix", "nipple": "retract", "side": "one", "nodes": "hard", "progress": "worse", "fever": "no", "period": "none", "weight": "no", "oncohist": "no", "sweats": "no", "trauma": "no" },
+      "feel": 0, "answers": { "durlong": "w12", "lump": "hardfix", "nipple": "retract", "side": "one", "nodes": "hard", "progress": "worse", "fever": "no", "period": "none", "weight": "no", "oncohist": "no", "sweats": "no", "trauma": "no" },
       "expectTop": "breast.cancer", "expectAlarm": true },
 
     { "id": "c31", "syndrome": "chest.breast.lump", "sex": "f", "age": 28,
       "note": "Мастит у кормящей: горячий красный участок, высокая температура",
-      "feel": 3, "answers": { "dur": "d13", "lump": "hotred", "fever": "high", "side": "one", "onset": "fast", "nipple": "no", "nodes": "front", "progress": "worse", "period": "none", "weight": "no", "oncohist": "no", "sweats": "no", "trauma": "no" },
+      "feel": 3, "answers": { "durlong": "d13", "lump": "hotred", "fever": "high", "side": "one", "onset": "fast", "nipple": "no", "nodes": "front", "progress": "worse", "period": "none", "weight": "no", "oncohist": "no", "sweats": "no", "trauma": "no" },
       "expectTop": "mastitis", "expectAlarm": false },
     {
       "id": "c32",
@@ -170,7 +170,7 @@
       "note": "COVID-19: сухой кашель, контакт с заболевшим, вторая неделя — ковид первым",
       "feel": 0,
       "answers": {
-        "dur": "w12",
+        "durlong": "w12",
         "fever": "mid",
         "cough": "dry",
         "sputum": "none",

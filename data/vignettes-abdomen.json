@@ -126,13 +126,13 @@
 
     { "id": "a25", "syndrome": "abd.diarrhea", "sex": "m", "age": 30,
       "note": "Обычная кишечная инфекция, три дня — тревоги быть не должно",
-      "feel": 0, "answers": { "dur": "d13", "onset": "sudden", "bowel": "loose", "fever": "mid", "abxrecent": "no", "contact": "yes", "weight": "no", "night": "no", "eatrel": "no", "travel": "no", "immuno": "no", "temperature": "no", "vomitwhat": "food", "stoolrel": "no" },
+      "feel": 0, "answers": { "durlong": "d13", "onset": "sudden", "bowel": "loose", "fever": "mid", "abxrecent": "no", "contact": "yes", "weight": "no", "night": "no", "eatrel": "no", "travel": "no", "immuno": "no", "temperature": "no", "vomitwhat": "food", "stoolrel": "no" },
       "expectTop": "gastroenteritis.acute", "expectAlarm": false,
       "notExpect": ["ibd", "colorectal.cancer"] },
 
     { "id": "a26", "syndrome": "abd.diarrhea", "sex": "f", "age": 26,
       "note": "Воспалительное заболевание кишечника: кровь, ночью будит, худеет",
-      "feel": 3, "answers": { "dur": "mon", "bowel": "blood", "night": "yes", "weight": "yes", "fever": "low", "abxrecent": "no", "stoolrel": "no", "contact": "no", "travel": "no", "eatrel": "no", "immuno": "no", "temperature": "no" },
+      "feel": 3, "answers": { "durlong": "mon", "bowel": "blood", "night": "yes", "weight": "yes", "fever": "low", "abxrecent": "no", "stoolrel": "no", "contact": "no", "travel": "no", "eatrel": "no", "immuno": "no", "temperature": "no" },
       "expectTop": "ibd", "expectAlarm": true },
 
     { "id": "a27", "syndrome": "abd.stool.blood", "sex": "m", "age": 32,

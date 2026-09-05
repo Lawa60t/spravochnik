@@ -9,7 +9,7 @@
       "note": "Обычная ОРВИ — тревоги быть не должно",
       "feel": 0,
       "answers": {
-        "dur": "d13",
+        "durlong": "d13",
         "onset": "gradual",
         "fever": "mid",
         "cough": "dry",
@@ -42,7 +42,7 @@
       "note": "Грипп: внезапно 39, ломота, насморка почти нет",
       "feel": 1,
       "answers": {
-        "dur": "d13",
+        "durlong": "d13",
         "onset": "sudden",
         "fever": "high",
         "cough": "dry",
@@ -65,7 +65,7 @@
       "note": "Менингококковая инфекция: температура, шея не гнётся, сыпь не бледнеет",
       "feel": 0,
       "answers": {
-        "dur": "hours",
+        "durlong": "unk",
         "onset": "sudden",
         "fever": "high",
         "stiff": "no",
@@ -86,7 +86,7 @@
       "note": "Малярия после поездки в тропики — тревога обязана сработать",
       "feel": 0,
       "answers": {
-        "dur": "d13",
+        "durlong": "d13",
         "onset": "sudden",
         "fever": "high",
         "travel": "tropic",
@@ -111,7 +111,7 @@
       "note": "Боррелиоз: был в лесу, кольцевидное пятно, небольшая температура",
       "feel": 2,
       "answers": {
-        "dur": "w12",
+        "durlong": "w12",
         "onset": "gradual",
         "fever": "low",
         "tick": "forest",
@@ -134,7 +134,7 @@
       "note": "Пиелонефрит: постукивание болезненно, рези при мочеиспускании",
       "feel": 0,
       "answers": {
-        "dur": "d13",
+        "durlong": "d13",
         "fever": "high",
         "tapback": "yes",
         "urine": "burn",
@@ -157,7 +157,7 @@
       "note": "Туберкулёз: кашель месяцами, ночная потливость, похудел",
       "feel": 0,
       "answers": {
-        "dur": "mon",
+        "durlong": "mon",
         "fever": "low",
         "cough": "wet",
         "sweats": "yes",
@@ -180,7 +180,7 @@
       "note": "Астения после гриппа: слабость, но веса и потливости нет",
       "feel": 3,
       "answers": {
-        "dur": "w12",
+        "durlong": "w12",
         "fever": "low",
         "sweats": "no",
         "weight": "no",
@@ -208,7 +208,7 @@
       "note": "Анемия из-за скрытой кровопотери: кровь в стуле обязана поднять тревогу",
       "feel": 2,
       "answers": {
-        "dur": "mon",
+        "durlong": "mon",
         "onset": "gradual",
         "position": "stand",
         "dysp": "yes",
@@ -233,7 +233,7 @@
       "note": "Апноэ сна: близкие замечают паузы в дыхании",
       "feel": 3,
       "answers": {
-        "dur": "mon",
+        "durlong": "mon",
         "snore": "yes",
         "mood": "no",
         "temperature": "no",
@@ -257,7 +257,7 @@
       "note": "Гипотиреоз: мёрзнет, запоры, отёки лица, вялость",
       "feel": 0,
       "answers": {
-        "dur": "mon",
+        "durlong": "mon",
         "onset": "gradual",
         "temperature": "cold",
         "bowel": "hard",
@@ -284,7 +284,7 @@
       "note": "Диабет: жажда, обильное мочеиспускание, худеет",
       "feel": 0,
       "answers": {
-        "dur": "w12",
+        "durlong": "w12",
         "thirst": "yes",
         "weight": "yes",
         "appetite": "up",
@@ -308,7 +308,7 @@
       "note": "Лейкоз: слабость, синяки, температура — нужен анализ крови сегодня",
       "feel": 0,
       "answers": {
-        "dur": "w12",
+        "durlong": "w12",
         "tired": "strong",
         "bruise": "yes",
         "fever": "mid",
@@ -332,7 +332,7 @@
       "note": "Тиреотоксикоз: ест много, худеет, жарко, сердцебиение",
       "feel": 2,
       "answers": {
-        "dur": "w12",
+        "durlong": "w12",
         "appetite": "up",
         "temperature": "hot",
         "sweats": "yes",
@@ -357,7 +357,7 @@
       "note": "Опухоль толстой кишки: кровь в стуле, ритм изменился, худеет",
       "feel": 1,
       "answers": {
-        "dur": "mon",
+        "durlong": "mon",
         "bowel": "blood",
         "appetite": "down",
         "tired": "strong",
@@ -383,7 +383,7 @@
       "note": "Депрессия: подавленность, аппетит пропал, температуры и потливости нет",
       "feel": 1,
       "answers": {
-        "dur": "mon",
+        "durlong": "mon",
         "mood": "low",
         "appetite": "down",
         "fever": "no",
@@ -412,7 +412,7 @@
       "note": "Обычный реактивный лимфаденит: один узел, болезненный, проходит",
       "feel": 0,
       "answers": {
-        "dur": "d47",
+        "durlong": "d47",
         "nodes": "front",
         "nodesmany": "one",
         "fever": "mid",
@@ -441,7 +441,7 @@
       "note": "Лимфома: плотный узел, потливость, похудела, растёт",
       "feel": 1,
       "answers": {
-        "dur": "mon",
+        "durlong": "mon",
         "nodes": "hard",
         "nodesmany": "many",
         "sweats": "yes",
@@ -464,7 +464,7 @@
       "note": "Болезнь кошачьей царапины: узел после царапины котёнка",
       "feel": 0,
       "answers": {
-        "dur": "w12",
+        "durlong": "w12",
         "nodes": "front",
         "nodesmany": "one",
         "animals": "catscratch",
@@ -596,7 +596,7 @@
       "note": "Ветрянка: пузырьки разного возраста, контакт в саду",
       "feel": 2,
       "answers": {
-        "dur": "d13",
+        "durlong": "d13",
         "fever": "mid",
         "rash": "spots",
         "itch": "night",
@@ -619,7 +619,7 @@
       "note": "Скарлатина: мелкоточечная сыпь, кожа как наждак, налёты на миндалинах",
       "feel": 0,
       "answers": {
-        "dur": "d13",
+        "durlong": "d13",
         "fever": "high",
         "rash": "fine",
         "plaque": "white",
@@ -641,7 +641,7 @@
       "note": "Менингококцемия: сыпь не бледнеет, шея не гнётся",
       "feel": 3,
       "answers": {
-        "dur": "hours",
+        "durlong": "unk",
         "onset": "sudden",
         "fever": "high",
         "rash": "dark",
@@ -663,7 +663,7 @@
       "note": "Рука-нога-рот: ладони, подошвы и рот",
       "feel": 1,
       "answers": {
-        "dur": "d13",
+        "durlong": "d13",
         "fever": "mid",
         "rashwhere": "handsfeet",
         "mucosa": "yes",
@@ -685,7 +685,7 @@
       "note": "Меланома: родинка выросла, край неровный, кровоточит",
       "feel": 0,
       "answers": {
-        "durskin": "w12",
+        "durlong": "w12",
         "molechange": "grow",
         "moleedge": "irregular",
         "progress": "worse",
@@ -705,7 +705,7 @@
       "note": "Базалиома: перламутровый узелок на лице, не заживает",
       "feel": 1,
       "answers": {
-        "durskin": "mon",
+        "durlong": "mon",
         "moleedge": "pearl",
         "molechange": "bleed",
         "progress": "same",
@@ -725,7 +725,7 @@
       "note": "Себорейный кератоз: восковая бляшка, не меняется — это не опухоль",
       "feel": 2,
       "answers": {
-        "durskin": "mon",
+        "durlong": "mon",
         "moleedge": "waxy",
         "molechange": "same",
         "progress": "same",
@@ -794,7 +794,7 @@
       "note": "COVID-19: температура и слабость нарастают исподволь, сухой кашель — ковид в тройке",
       "feel": 0,
       "answers": {
-        "dur": "d47",
+        "durlong": "d47",
         "onset": "gradual",
         "fever": "mid",
         "cough": "dry",
@@ -843,7 +843,7 @@
         "acnetype": "comedo",
         "acnewhere": "face",
         "acnecount": "many",
-        "durskin": "mon"
+        "durlong": "mon"
       },
       "expectTop": "acne",
       "expectAlarm": false
@@ -858,7 +858,7 @@
       "answers": {
         "scaletype": "plaque",
         "scalewhere": "elbowknee",
-        "durskin": "mon"
+        "durlong": "mon"
       },
       "expectTop": "psoriasis",
       "expectAlarm": false

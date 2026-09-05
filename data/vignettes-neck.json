@@ -50,12 +50,12 @@
 
     { "id": "v09", "syndrome": "neck.throat.raw", "sex": "m", "age": 46,
       "note": "Рефлюкс: месяцами, хуже утром, изжога",
-      "feel": 0, "answers": { "dur": "mon", "fever": "no", "reflux": "yes", "voice": "hoarse", "plaque": "no", "runny": "no", "weight": "no" },
+      "feel": 0, "answers": { "durlong": "mon", "fever": "no", "reflux": "yes", "voice": "hoarse", "plaque": "no", "runny": "no", "weight": "no" },
       "expect": ["lpr.reflux"], "expectAlarm": false, "notExpect": ["tonsillitis.strep"] },
 
     { "id": "v10", "syndrome": "neck.throat.raw", "sex": "f", "age": 28,
       "note": "Постназальный затёк на фоне хронического насморка",
-      "feel": 3, "answers": { "dur": "mon", "fever": "no", "runny": "yes", "reflux": "morn", "cough": "dry", "plaque": "no" },
+      "feel": 3, "answers": { "durlong": "mon", "fever": "no", "runny": "yes", "reflux": "morn", "cough": "dry", "plaque": "no" },
       "expect": ["postnasal.drip"], "expectAlarm": false },
 
     { "id": "v11", "syndrome": "neck.dysphagia", "sex": "m", "age": 63,
@@ -116,18 +116,18 @@
 
     { "id": "v22", "syndrome": "neck.lump", "sex": "m", "age": 27,
       "note": "Лимфома: плотный безболезненный узел, потливость, похудел",
-      "feel": 3, "answers": { "dur": "mon", "nodes": "hard", "weight": "yes", "sweats": "yes", "progress": "worse", "fever": "low" },
+      "feel": 3, "answers": { "durlong": "mon", "nodes": "hard", "weight": "yes", "sweats": "yes", "progress": "worse", "fever": "low" },
       "expect": ["lymphoma"], "expectTop": "lymphoma", "expectAlarm": true },
 
     { "id": "v23", "syndrome": "neck.lump", "sex": "f", "age": 11,
       "note": "Обычный реактивный лимфаденит после ангины",
-      "feel": 2, "answers": { "dur": "d47", "nodes": "front", "fever": "mid", "weight": "no", "sweats": "no", "side": "one", "progress": "better" },
+      "feel": 2, "answers": { "durlong": "d47", "nodes": "front", "fever": "mid", "weight": "no", "sweats": "no", "side": "one", "progress": "better" },
       "expect": ["lymphadenitis"], "expectTop": "lymphadenitis", "expectAlarm": false,
       "notExpect": ["lymphoma", "thyroid.cancer"] },
 
     { "id": "v24", "syndrome": "neck.throat.lump", "sex": "f", "age": 45,
       "note": "Globus: еда проходит нормально, вес стабилен",
-      "feel": 0, "answers": { "dur": "mon", "swallow": "none", "stuck": "no", "weight": "no", "reflux": "no", "progress": "same" },
+      "feel": 0, "answers": { "durlong": "mon", "swallow": "none", "stuck": "no", "weight": "no", "reflux": "no", "progress": "same" },
       "expect": ["globus"], "expectTop": "globus", "expectAlarm": false,
       "notExpect": ["esophagus.cancer"] },
 

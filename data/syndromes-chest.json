@@ -1364,7 +1364,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "sputum",
         "fever",
@@ -1391,9 +1391,9 @@
             "runny_yes": 5,
             "fever_low": 3,
             "fever_mid": 2,
-            "dur_d13": 4,
+            "durlong_d13": 4,
             "progress_better": 3,
-            "dur_mon": -5,
+            "durlong_mon": -5,
             "weight_yes": -3,
             "acei_pril": -2
           }
@@ -1402,12 +1402,12 @@
           "condition": "bronchitis.acute",
           "base": 6,
           "weights": {
-            "dur_d47": 4,
-            "dur_w12": 3,
+            "durlong_d47": 4,
+            "durlong_w12": 3,
             "runny_yes": 3,
             "fever_low": 2,
             "progress_better": 2,
-            "dur_mon": -3
+            "durlong_mon": -3
           }
         },
         {
@@ -1418,7 +1418,7 @@
             "reflux_morn": 4,
             "night_yes": 3,
             "fever_no": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "fever_high": -3
           }
         },
@@ -1429,7 +1429,7 @@
             "reflux_yes": 6,
             "reflux_morn": 4,
             "night_yes": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "fever_no": 2,
             "fever_high": -3
           }
@@ -1439,7 +1439,7 @@
           "base": 4,
           "weights": {
             "acei_pril": 6,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "fever_no": 3,
             "runny_no": 2,
             "acei_no": -5,
@@ -1453,7 +1453,7 @@
             "night_yes": 4,
             "stridor_wheeze": 5,
             "progress_wave": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "fever_high": -2
           }
         },
@@ -1461,14 +1461,14 @@
           "condition": "whooping.cough",
           "base": 3,
           "weights": {
-            "dur_mon": 5,
+            "durlong_mon": 5,
             "night_yes": 4,
             "fever_no": 4,
             "vaccine_old": 3,
             "vaccine_no": 3,
             "contact_yes": 2,
             "runny_yes": -1,
-            "dur_d13": -4
+            "durlong_d13": -4
           }
         },
         {
@@ -1477,7 +1477,7 @@
           "weights": {
             "fever_high": 5,
             "dysp_yes": 4,
-            "dur_d47": 2,
+            "durlong_d47": 2,
             "fever_no": -4
           }
         },
@@ -1487,7 +1487,7 @@
           "weights": {
             "breath_yes": 5,
             "fever_mid": 2,
-            "dur_d13": 2
+            "durlong_d13": 2
           }
         },
         {
@@ -1496,7 +1496,7 @@
           "weights": {
             "smoke_both": 6,
             "onset_gradual": 3,
-            "dur_mon": 3,
+            "durlong_mon": 3,
             "dysp_yes": 3,
             "smoke_no": -5
           }
@@ -1507,21 +1507,21 @@
           "weights": {
             "smoke_both": 5,
             "weight_yes": 5,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "progress_worse": 4,
             "sputum_blood": 5,
-            "dur_d13": -4
+            "durlong_d13": -4
           }
         },
         {
           "condition": "tuberculosis.pulmonary",
           "base": 1,
           "weights": {
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "weight_yes": 4,
             "sweats_yes": 5,
             "fever_low": 3,
-            "dur_d13": -4
+            "durlong_d13": -4
           }
         },
         {
@@ -1543,8 +1543,8 @@
             "fever_mid": 2,
             "dysp_yes": 3,
             "contact_yes": 2,
-            "dur_d47": 1,
-            "dur_w12": 2,
+            "durlong_d47": 1,
+            "durlong_w12": 2,
             "runny_yes": -1
           }
         }
@@ -1595,7 +1595,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "onset",
         "sputum",
         "fever",
@@ -1616,12 +1616,12 @@
           "base": 8,
           "weights": {
             "sputum_clear": 5,
-            "dur_d47": 4,
-            "dur_w12": 3,
+            "durlong_d47": 4,
+            "durlong_w12": 3,
             "runny_yes": 3,
             "fever_low": 2,
             "progress_better": 3,
-            "dur_mon": -5,
+            "durlong_mon": -5,
             "weight_yes": -3,
             "sputum_blood": -3
           }
@@ -1634,9 +1634,9 @@
             "fever_high": 5,
             "dysp_yes": 5,
             "breath_yes": 3,
-            "dur_d47": 2,
+            "durlong_d47": 2,
             "fever_no": -4,
-            "dur_mon": -3
+            "durlong_mon": -3
           }
         },
         {
@@ -1645,9 +1645,9 @@
           "weights": {
             "runny_yes": 5,
             "sputum_clear": 3,
-            "dur_d13": 4,
+            "durlong_d13": 4,
             "fever_low": 2,
-            "dur_mon": -5,
+            "durlong_mon": -5,
             "weight_yes": -3
           }
         },
@@ -1658,10 +1658,10 @@
             "smoke_both": 6,
             "sputum_lots": 4,
             "onset_gradual": 4,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "dysp_yes": 3,
             "smoke_no": -5,
-            "dur_d13": -3
+            "durlong_d13": -3
           }
         },
         {
@@ -1669,25 +1669,25 @@
           "base": 3,
           "weights": {
             "sputum_lots": 6,
-            "dur_mon": 4,
+            "durlong_mon": 4,
             "sputum_purulent": 3,
             "sputum_blood": 3,
             "progress_wave": 2,
-            "dur_d13": -4
+            "durlong_d13": -4
           }
         },
         {
           "condition": "tuberculosis.pulmonary",
           "base": 2,
           "weights": {
-            "dur_mon": 5,
+            "durlong_mon": 5,
             "sweats_yes": 6,
             "weight_yes": 5,
             "fever_low": 3,
             "sputum_blood": 3,
             "immuno_yes": 3,
             "sweats_no": -3,
-            "dur_d13": -4
+            "durlong_d13": -4
           }
         },
         {
@@ -1698,8 +1698,8 @@
             "sputum_blood": 6,
             "weight_yes": 5,
             "progress_worse": 4,
-            "dur_mon": 3,
-            "dur_d13": -4
+            "durlong_mon": 3,
+            "durlong_d13": -4
           }
         },
         {
@@ -1709,7 +1709,7 @@
             "sputum_clear": 3,
             "progress_wave": 4,
             "night_yes": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "sputum_purulent": -2
           }
         },
@@ -1732,7 +1732,7 @@
             "runny_yes": 5,
             "night_yes": 2,
             "fever_no": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "fever_high": -3
           }
         },
@@ -1792,7 +1792,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durlong",
         "lump",
         "nipple",
         "side",
@@ -1847,7 +1847,7 @@
             "onset_fast": 3,
             "fever_no": -4,
             "lump_diffuse": -3,
-            "dur_mon": -3
+            "durlong_mon": -3
           }
         },
         {
@@ -1862,7 +1862,7 @@
             "side_one": 3,
             "progress_worse": 4,
             "weight_yes": 2,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "lump_diffuse": -4,
             "lump_smooth": -3,
             "period_now": -2,
@@ -1887,7 +1887,7 @@
           "weights": {
             "nodes_front": 4,
             "fever_mid": 3,
-            "dur_d13": 2,
+            "durlong_d13": 2,
             "nodes_hard": -3,
             "nipple_retract": -3
           }
@@ -1900,7 +1900,7 @@
             "sweats_yes": 5,
             "weight_yes": 4,
             "progress_worse": 3,
-            "dur_mon": 2,
+            "durlong_mon": 2,
             "lump_hotred": -4,
             "period_now": -3
           }
