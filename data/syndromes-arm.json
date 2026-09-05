@@ -689,6 +689,14 @@
             "progress_better": 4,
             "dur_mon": -5
           }
+        },
+        {
+          "condition": "multiple.sclerosis",
+          "base": 3,
+          "weights": {
+            "progress_wave": 4,
+            "onset_gradual": 1
+          }
         }
       ],
       "notSearchedHere": [

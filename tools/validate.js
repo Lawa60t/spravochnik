@@ -93,9 +93,9 @@ conditions.forEach(c => {
 syndromes.forEach(s => {
   /* focused: true — раздел-витрина (названные состояния, находятся поиском).
      Освобождён от «≥5 состояний» и «≥2 тревог», но не от notSearchedHere.
-     Разрешён только в витринных зонах skin, pelv и head: на диагностических
-     разделах дифференциальный ряд и тревоги обязательны. */
-  const focusedZones = ["skin", "pelv", "head"];
+     Разрешён только в витринных зонах skin, pelv, head и gen: на
+     диагностических разделах дифференциальный ряд и тревоги обязательны. */
+  const focusedZones = ["skin", "pelv", "head", "gen"];
   if (s.focused && !focusedZones.includes(s.zone))
     E(`${s.id}: focused разрешён только в зонах ${focusedZones.join(", ")}, а зона «${s.zone}»`);
   if (s.candidates.length < 5 && !s.focused) E(`${s.id}: меньше пяти состояний в разделе`);

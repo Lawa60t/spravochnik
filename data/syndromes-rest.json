@@ -4315,6 +4315,108 @@
       ],
       "status": "drafted",
       "updated": "2026-08-27"
+    },
+    {
+      "id": "gen.silent",
+      "zone": "gen",
+      "name": "Болезни, которые не дают о себе знать",
+      "priority": 3,
+      "focused": true,
+      "aka": [
+        "тихие болезни",
+        "бессимптомные болезни",
+        "что проверить",
+        "скрытые болезни",
+        "болезни без симптомов"
+      ],
+      "feelings": [
+        {
+          "text": "Высокое давление",
+          "implies": {
+            "silentwhat": "pressure"
+          }
+        },
+        {
+          "text": "Хрупкие кости, перелом от пустяка",
+          "implies": {
+            "silentwhat": "bones"
+          }
+        },
+        {
+          "text": "Высокий сахар и жажда",
+          "implies": {
+            "silentwhat": "sugar"
+          }
+        },
+        {
+          "text": "Плохие анализы почек",
+          "implies": {
+            "silentwhat": "kidney"
+          }
+        },
+        {
+          "text": "Боль в ногах при ходьбе",
+          "implies": {
+            "silentwhat": "legvessels"
+          }
+        }
+      ],
+      "questions": [
+        "silentwhat"
+      ],
+      "candidates": [
+        {
+          "condition": "hypertension",
+          "base": 6,
+          "weights": {
+            "silentwhat_pressure": 6,
+            "silentwhat_bones": -2,
+            "silentwhat_sugar": -2,
+            "silentwhat_kidney": -1,
+            "silentwhat_legvessels": -2
+          }
+        },
+        {
+          "condition": "osteoporosis",
+          "base": 5,
+          "weights": {
+            "silentwhat_bones": 6,
+            "silentwhat_pressure": -2,
+            "silentwhat_sugar": -2,
+            "silentwhat_legvessels": -2
+          }
+        },
+        {
+          "condition": "diabetes",
+          "base": 5,
+          "weights": {
+            "silentwhat_sugar": 6,
+            "silentwhat_pressure": -1
+          }
+        },
+        {
+          "condition": "ckd",
+          "base": 3,
+          "weights": {
+            "silentwhat_kidney": 6
+          }
+        },
+        {
+          "condition": "pad",
+          "base": 3,
+          "weights": {
+            "silentwhat_legvessels": 6,
+            "silentwhat_bones": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Боль в ногах при ходьбе, которая проходит в покое, — подробно в разделе «Боль в ноге при ходьбе».",
+        "Жажда и обильное мочеиспускание — в разделе «Жажда и обильное мочеиспускание».",
+        "Отёки — в разделе «Отёки»."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-05"
     }
   ]
 }

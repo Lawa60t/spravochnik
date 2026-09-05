@@ -1455,6 +1455,14 @@
             "focal_yes": -4,
             "footcold_cold": -3
           }
+        },
+        {
+          "condition": "multiple.sclerosis",
+          "base": 3,
+          "weights": {
+            "progress_wave": 4,
+            "onset_gradual": 1
+          }
         }
       ],
       "notSearchedHere": [

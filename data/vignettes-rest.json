@@ -170,6 +170,31 @@
       "note": "Мастопатия: обе железы, связано с циклом",
       "feel": 0, "answers": { "dur": "mon", "period": "now", "side": "both", "lump": "diffuse", "nipple": "no", "fever": "no", "move": "no", "rash": "no", "progress": "same", "nodes": "no", "newmeds": "no", "trauma": "no", "sweats": "no", "weight": "no", "oncohist": "no" },
       "expectTop": "mastopathy", "expectAlarm": false,
-      "notExpect": ["breast.cancer"] }
+      "notExpect": ["breast.cancer"] },
+
+    { "id": "r33", "syndrome": "gen.silent", "sex": "m", "age": 55,
+      "note": "Проверяет высокое давление — артериальная гипертензия первой",
+      "feel": 0, "answers": { "silentwhat": "pressure" },
+      "expectTop": "hypertension", "expectAlarm": false },
+
+    { "id": "r34", "syndrome": "gen.silent", "sex": "f", "age": 62,
+      "note": "Хрупкие кости, перелом от пустяка, снижение роста — остеопороз первым",
+      "feel": 1, "answers": { "silentwhat": "bones" },
+      "expectTop": "osteoporosis", "expectAlarm": false },
+
+    { "id": "r35", "syndrome": "gen.silent", "sex": "m", "age": 50,
+      "note": "Высокий сахар, жажда, много мочи — сахарный диабет первым (кросс-привязка)",
+      "feel": 2, "answers": { "silentwhat": "sugar" },
+      "expectTop": "diabetes", "expectAlarm": false },
+
+    { "id": "r36", "syndrome": "gen.silent", "sex": "m", "age": 60,
+      "note": "Плохие анализы почек — хроническая болезнь почек первой (кросс-привязка)",
+      "feel": 3, "answers": { "silentwhat": "kidney" },
+      "expectTop": "ckd", "expectAlarm": false },
+
+    { "id": "r37", "syndrome": "gen.silent", "sex": "m", "age": 66,
+      "note": "Боль в ногах при ходьбе, плохой кровоток — атеросклероз артерий ног первым (кросс-привязка)",
+      "feel": 4, "answers": { "silentwhat": "legvessels" },
+      "expectTop": "pad", "expectAlarm": false }
   ]
 }

@@ -710,6 +710,38 @@
         "cellulitis"
       ],
       "expectAlarm": false
+    },
+    {
+      "id": "m29",
+      "syndrome": "arm.numb",
+      "sex": "f",
+      "age": 32,
+      "note": "Онемение в руке приходит обострениями, исподволь — рассеянный склероз в списке (без ложной тревоги)",
+      "feel": 0,
+      "answers": {
+        "progress": "wave",
+        "onset": "gradual"
+      },
+      "expect": [
+        "multiple.sclerosis"
+      ],
+      "expectAlarm": false
+    },
+    {
+      "id": "m30",
+      "syndrome": "leg.numb",
+      "sex": "f",
+      "age": 35,
+      "note": "Онемение в ноге волнами, нарастает исподволь — рассеянный склероз в списке (без ложной тревоги)",
+      "feel": 0,
+      "answers": {
+        "progress": "wave",
+        "onset": "gradual"
+      },
+      "expect": [
+        "multiple.sclerosis"
+      ],
+      "expectAlarm": false
     }
   ]
 }

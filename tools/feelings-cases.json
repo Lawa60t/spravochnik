@@ -3742,6 +3742,71 @@
         "epilepsy"
       ],
       "note": "уже есть диагноз, бывало не раз — эпилепсия +5"
+    },
+    {
+      "syndrome": "gen.silent",
+      "feeling": 0,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "hypertension"
+      ],
+      "expect": [
+        "hypertension"
+      ],
+      "note": "высокое давление — гипертензия +6"
+    },
+    {
+      "syndrome": "gen.silent",
+      "feeling": 1,
+      "sex": "f",
+      "age": 62,
+      "expectRise": [
+        "osteoporosis"
+      ],
+      "expect": [
+        "osteoporosis"
+      ],
+      "note": "хрупкие кости, перелом от пустяка — остеопороз +6"
+    },
+    {
+      "syndrome": "gen.silent",
+      "feeling": 2,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "diabetes"
+      ],
+      "expect": [
+        "diabetes"
+      ],
+      "note": "высокий сахар и жажда — диабет +6 (кросс)"
+    },
+    {
+      "syndrome": "gen.silent",
+      "feeling": 3,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "ckd"
+      ],
+      "expect": [
+        "ckd"
+      ],
+      "note": "плохие анализы почек — ХБП +6 (кросс)"
+    },
+    {
+      "syndrome": "gen.silent",
+      "feeling": 4,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "pad"
+      ],
+      "expect": [
+        "pad"
+      ],
+      "note": "боль в ногах при ходьбе — атеросклероз артерий ног +6 (кросс)"
     }
   ]
 }
