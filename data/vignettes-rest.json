@@ -195,6 +195,21 @@
     { "id": "r37", "syndrome": "gen.silent", "sex": "m", "age": 66,
       "note": "Боль в ногах при ходьбе, плохой кровоток — атеросклероз артерий ног первым (кросс-привязка)",
       "feel": 4, "answers": { "silentwhat": "legvessels" },
-      "expectTop": "pad", "expectAlarm": false }
+      "expectTop": "pad", "expectAlarm": false },
+
+    { "id": "r38", "syndrome": "head.tooth", "sex": "f", "age": 33,
+      "note": "Зуб коротко ноет от холодного и сладкого, дырка без постоянной боли — кариес присутствует (пульпит может стоять выше)",
+      "feel": 0, "answers": { "dur": "d13", "toothtrig": "cold", "gums": "no", "swell": "no", "fever": "no", "chewpain": "no" },
+      "expect": ["dental.caries"], "expectAlarm": false },
+
+    { "id": "r39", "syndrome": "pelv.anal.pain", "sex": "f", "age": 8,
+      "note": "Ночной зуд вокруг заднего прохода, беспокойный сон — острицы в топе",
+      "feel": 0, "answers": { "itch": "night", "painanal": "no", "bowel": "no", "fever": "no", "swell": "no" },
+      "expect": ["pinworms"], "expectAlarm": false },
+
+    { "id": "r40", "syndrome": "head.eye.pain", "sex": "m", "age": 40,
+      "note": "Плотный безболезненный узелок в толще века, не краснеет резко — халязион присутствует",
+      "feel": 0, "answers": { "eyepain": "no", "eyered.where": "lid", "vision": "no", "eyedisch": "no", "trauma": "no" },
+      "expect": ["chalazion"], "expectAlarm": false }
   ]
 }

@@ -960,6 +960,16 @@
             "gums_bleed": -4,
             "dur_mon": -5
           }
+        },
+        {
+          "condition": "dental.caries",
+          "base": 4,
+          "weights": {
+            "toothtrig_cold": 2,
+            "toothtrig_no": 1,
+            "toothtrig_bite": -1,
+            "gums_no": 1
+          }
         }
       ],
       "notSearchedHere": [
@@ -1130,6 +1140,15 @@
             "dur_hours": 3,
             "attacks_repeat": 3,
             "eyedisch_sticky": -3
+          }
+        },
+        {
+          "condition": "chalazion",
+          "base": 3,
+          "weights": {
+            "eyepain_no": 2,
+            "eyered.where_lid": 3,
+            "eyepain_yes": -2
           }
         }
       ],

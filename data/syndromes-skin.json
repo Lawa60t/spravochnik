@@ -226,6 +226,14 @@
             "fever_no": 1,
             "fever_high": -2
           }
+        },
+        {
+          "condition": "pediculosis",
+          "base": 3,
+          "weights": {
+            "itch_night": 4,
+            "itch_some": 1
+          }
         }
       ],
       "notSearchedHere": [
@@ -999,6 +1007,16 @@
             "growthwhere_neckfolds": 1,
             "growthchange_stable": 2,
             "growthchange_grow": -2
+          }
+        },
+        {
+          "condition": "molluscum",
+          "base": 3,
+          "weights": {
+            "growthtype_soft": 2,
+            "growthwhere_face": 1,
+            "growthwhere_neckfolds": 1,
+            "growthchange_stable": 1
           }
         }
       ],

@@ -2965,6 +2965,16 @@
             "dur_mon": 3,
             "fever_low": 2
           }
+        },
+        {
+          "condition": "pinworms",
+          "base": 4,
+          "weights": {
+            "itch_night": 6,
+            "itch_some": 2,
+            "itch_no": -3,
+            "painanal_yes": -2
+          }
         }
       ],
       "notSearchedHere": [
