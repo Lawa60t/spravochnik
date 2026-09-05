@@ -685,7 +685,7 @@
       "note": "Меланома: родинка выросла, край неровный, кровоточит",
       "feel": 0,
       "answers": {
-        "dur": "w12",
+        "durskin": "w12",
         "molechange": "grow",
         "moleedge": "irregular",
         "progress": "worse",
@@ -705,7 +705,7 @@
       "note": "Базалиома: перламутровый узелок на лице, не заживает",
       "feel": 1,
       "answers": {
-        "dur": "mon",
+        "durskin": "mon",
         "moleedge": "pearl",
         "molechange": "bleed",
         "progress": "same",
@@ -725,7 +725,7 @@
       "note": "Себорейный кератоз: восковая бляшка, не меняется — это не опухоль",
       "feel": 2,
       "answers": {
-        "dur": "mon",
+        "durskin": "mon",
         "moleedge": "waxy",
         "molechange": "same",
         "progress": "same",
@@ -843,8 +843,7 @@
         "acnetype": "comedo",
         "acnewhere": "face",
         "acnecount": "many",
-        "dur": "mon",
-        "fever": "no"
+        "durskin": "mon"
       },
       "expectTop": "acne",
       "expectAlarm": false
@@ -859,7 +858,7 @@
       "answers": {
         "scaletype": "plaque",
         "scalewhere": "elbowknee",
-        "dur": "mon"
+        "durskin": "mon"
       },
       "expectTop": "psoriasis",
       "expectAlarm": false

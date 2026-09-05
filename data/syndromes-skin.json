@@ -487,7 +487,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durskin",
         "molechange",
         "moleedge",
         "progress",
@@ -504,7 +504,7 @@
           "weights": {
             "moleedge_irregular": 4,
             "molechange_same": 4,
-            "dur_mon": 2,
+            "durskin_mon": 2,
             "molechange_bleed": -3,
             "moleedge_pearl": -3,
             "progress_worse": -2
@@ -516,7 +516,7 @@
           "weights": {
             "moleedge_waxy": 6,
             "molechange_same": 4,
-            "dur_mon": 3,
+            "durskin_mon": 3,
             "molechange_bleed": -3,
             "moleedge_irregular": -3,
             "progress_worse": -3
@@ -543,7 +543,7 @@
           "weights": {
             "moleedge_pearl": 6,
             "molechange_bleed": 4,
-            "dur_mon": 3,
+            "durskin_mon": 3,
             "smoke_one": 1,
             "moleedge_waxy": -3,
             "molechange_same": -3
@@ -565,7 +565,7 @@
           "base": 2,
           "weights": {
             "itch_some": 2,
-            "dur_mon": 2,
+            "durskin_mon": 2,
             "moleedge_pearl": -3,
             "molechange_bleed": -2
           }
@@ -756,8 +756,7 @@
         "acnetype",
         "acnewhere",
         "acnecount",
-        "dur",
-        "fever"
+        "durskin"
       ],
       "candidates": [
         {
@@ -773,11 +772,8 @@
             "acnewhere_both": 2,
             "acnecount_many": 2,
             "acnecount_one": -3,
-            "dur_mon": 3,
-            "dur_d13": -2,
-            "fever_no": 1,
-            "fever_mid": -1,
-            "fever_high": -2
+            "durskin_mon": 3,
+            "durskin_d13": -2
           }
         }
       ],
@@ -838,7 +834,7 @@
         "scaletype",
         "scalewhere",
         "itch",
-        "dur"
+        "durskin"
       ],
       "candidates": [
         {
@@ -854,7 +850,7 @@
             "scalewhere_face": 3,
             "scalewhere_elbowknee": -2,
             "itch_some": 1,
-            "dur_mon": 2
+            "durskin_mon": 2
           }
         },
         {
@@ -865,7 +861,7 @@
             "scalewhere_elbowknee": 3,
             "scaletype_dandruff": -2,
             "scaletype_ring": -3,
-            "dur_mon": 2
+            "durskin_mon": 2
           }
         },
         {

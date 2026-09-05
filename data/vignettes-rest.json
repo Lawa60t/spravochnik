@@ -120,17 +120,17 @@
 
     { "id": "r23", "syndrome": "skin.wound", "sex": "m", "age": 64,
       "note": "Венозная язва: тёмная кожа голени, отёки к вечеру",
-      "feel": 1, "answers": { "dur": "mon", "skinchange": "dark", "swelltime": "evening", "footcold": "warm", "diabetes": "no", "fever": "no", "progress": "same", "moleedge": "even", "molechange": "same", "immuno": "no", "smoke": "one", "oncohist": "no", "itch": "some", "onset": "gradual" },
+      "feel": 1, "answers": { "durskin": "mon", "skinchange": "dark", "swelltime": "evening", "footcold": "warm", "diabetes": "no", "fever": "no", "progress": "same", "moleedge": "even", "molechange": "same", "immuno": "no", "smoke": "one", "oncohist": "no", "itch": "some", "onset": "gradual" },
       "expectTop": "venous.ulcer", "expectAlarm": false },
 
     { "id": "r24", "syndrome": "skin.wound", "sex": "m", "age": 71,
       "note": "Базалиома: перламутровый узелок на лице, кровит и не заживает",
-      "feel": 2, "answers": { "dur": "mon", "moleedge": "pearl", "molechange": "bleed", "skinchange": "no", "diabetes": "no", "fever": "no", "progress": "same", "footcold": "warm", "immuno": "no", "smoke": "no", "oncohist": "no", "itch": "no", "swelltime": "evening", "onset": "gradual" },
+      "feel": 2, "answers": { "durskin": "mon", "moleedge": "pearl", "molechange": "bleed", "skinchange": "no", "diabetes": "no", "fever": "no", "progress": "same", "footcold": "warm", "immuno": "no", "smoke": "no", "oncohist": "no", "itch": "no", "swelltime": "evening", "onset": "gradual" },
       "expectTop": "bcc", "expectAlarm": false },
 
     { "id": "r25", "syndrome": "skin.hair", "sex": "f", "age": 30,
       "note": "Диффузное выпадение через три месяца после родов",
-      "feel": 0, "answers": { "dur": "w12", "onset": "fast", "symmetry": "both", "temperature": "no", "weight": "yes", "tired": "some", "period": "now", "progress": "better", "itch": "no", "skinchange": "no", "newmeds": "no", "mood": "no", "diabetes": "no", "bowel": "no", "fever": "no", "rash": "no" },
+      "feel": 0, "answers": { "durskin": "w12", "onset": "fast", "symmetry": "both", "temperature": "no", "weight": "yes", "tired": "some", "period": "now", "progress": "better", "itch": "no", "skinchange": "no", "newmeds": "no", "mood": "no", "diabetes": "no", "bowel": "no", "fever": "no", "rash": "no" },
       "expectTop": "telogen.effluvium", "expectAlarm": false },
 
     { "id": "r26", "syndrome": "gen.sweats", "sex": "f", "age": 51,

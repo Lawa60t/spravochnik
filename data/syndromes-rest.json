@@ -2989,7 +2989,7 @@
         {
           "text": "Ранка не заживает месяцами",
           "implies": {
-            "dur": "mon"
+            "durskin": "mon"
           }
         },
         {
@@ -3006,7 +3006,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durskin",
         "onset",
         "skinchange",
         "diabetes",
@@ -3029,7 +3029,7 @@
           "weights": {
             "skinchange_dark": 6,
             "swelltime_evening": 5,
-            "dur_mon": 4,
+            "durskin_mon": 4,
             "footcold_warm": 3,
             "footcold_cold": -4,
             "diabetes_yes": -1
@@ -3053,7 +3053,7 @@
           "weights": {
             "moleedge_pearl": 6,
             "molechange_bleed": 5,
-            "dur_mon": 4,
+            "durskin_mon": 4,
             "skinchange_no": 3,
             "diabetes_yes": -2,
             "skinchange_dark": -3
@@ -3066,7 +3066,7 @@
             "molechange_grow": 5,
             "molechange_bleed": 5,
             "progress_worse": 4,
-            "dur_mon": 3,
+            "durskin_mon": 3,
             "smoke_both": 2,
             "skinchange_dark": -3
           }
@@ -3078,7 +3078,7 @@
             "footcold_cold": 6,
             "smoke_both": 4,
             "diabetes_yes": 3,
-            "dur_mon": 3,
+            "durskin_mon": 3,
             "footcold_warm": -4
           }
         },
@@ -3111,9 +3111,9 @@
           "base": 1,
           "weights": {
             "rashwhere_band": 6,
-            "dur_d13": 3,
+            "durskin_d13": 3,
             "itch_some": 2,
-            "dur_mon": -4
+            "durskin_mon": -4
           }
         },
         {
@@ -3121,7 +3121,7 @@
           "base": 2,
           "weights": {
             "skinchange_red": 4,
-            "dur_w12": 3,
+            "durskin_w12": 3,
             "diabetes_yes": 2,
             "moleedge_pearl": -3
           }
@@ -3170,7 +3170,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durskin",
         "onset",
         "symmetry",
         "temperature",
@@ -3193,12 +3193,12 @@
           "base": 7,
           "weights": {
             "onset_fast": 4,
-            "dur_w12": 4,
-            "dur_d47": 3,
+            "durskin_w12": 4,
+            "durskin_d47": 3,
             "weight_yes": 4,
             "progress_better": 3,
             "newmeds_yes": 3,
-            "dur_mon": -2,
+            "durskin_mon": -2,
             "itch_some": -2
           }
         },
@@ -3207,7 +3207,7 @@
           "base": 6,
           "weights": {
             "onset_gradual": 5,
-            "dur_mon": 5,
+            "durskin_mon": 5,
             "progress_worse": 3,
             "symmetry_both": 3,
             "onset_fast": -4,
@@ -3232,7 +3232,7 @@
           "weights": {
             "temperature_cold": 6,
             "tired_strong": 4,
-            "dur_mon": 3,
+            "durskin_mon": 3,
             "mood_low": 3,
             "temperature_hot": -4
           }
@@ -3244,7 +3244,7 @@
             "tired_strong": 5,
             "temperature_cold": 3,
             "period_now": 3,
-            "dur_mon": 2
+            "durskin_mon": 2
           }
         },
         {
@@ -3263,7 +3263,7 @@
           "weights": {
             "skinchange_dry": 5,
             "itch_some": 3,
-            "dur_mon": 3
+            "durskin_mon": 3
           }
         },
         {
@@ -3272,7 +3272,7 @@
           "weights": {
             "rash_spots": 5,
             "tired_strong": 3,
-            "dur_mon": 3,
+            "durskin_mon": 3,
             "fever_low": 2
           }
         },
@@ -3292,7 +3292,7 @@
             "bowel_blood": 6,
             "bowel_alt": 5,
             "weight_yes": 5,
-            "dur_mon": 3,
+            "durskin_mon": 3,
             "tired_strong": 3,
             "bowel_no": -3,
             "weight_no": -2
@@ -3338,7 +3338,7 @@
         }
       ],
       "questions": [
-        "dur",
+        "durskin",
         "onset",
         "symmetry",
         "diabetes",
@@ -3360,7 +3360,7 @@
           "base": 8,
           "weights": {
             "onset_gradual": 5,
-            "dur_mon": 5,
+            "durskin_mon": 5,
             "symmetry_one": 3,
             "progress_worse": 3,
             "diabetes_yes": 2,
@@ -3374,10 +3374,10 @@
           "weights": {
             "skinchange_red": 5,
             "symmetry_one": 4,
-            "dur_w12": 3,
+            "durskin_w12": 3,
             "onset_fast": 3,
             "diabetes_yes": 2,
-            "dur_mon": -1
+            "durskin_mon": -1
           }
         },
         {
@@ -3386,7 +3386,7 @@
           "weights": {
             "skinchange_dry": 5,
             "symmetry_both": 4,
-            "dur_mon": 4,
+            "durskin_mon": 4,
             "itch_some": 2
           }
         },
@@ -3405,7 +3405,7 @@
           "base": 3,
           "weights": {
             "symmetry_both": 4,
-            "dur_mon": 3,
+            "durskin_mon": 3,
             "tired_strong": 4
           }
         },
@@ -3415,7 +3415,7 @@
           "weights": {
             "footcold_cold": 6,
             "smoke_both": 3,
-            "dur_mon": 3,
+            "durskin_mon": 3,
             "footcold_warm": -4
           }
         },
@@ -3446,7 +3446,7 @@
           "weights": {
             "temperature_cold": 6,
             "symmetry_both": 3,
-            "dur_mon": 3
+            "durskin_mon": 3
           }
         }
       ],
