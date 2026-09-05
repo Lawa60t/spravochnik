@@ -877,6 +877,50 @@
       },
       "expectTop": "tinea",
       "expectAlarm": false
+    },
+    {
+      "id": "s19",
+      "syndrome": "skin.growth",
+      "sex": "m",
+      "age": 45,
+      "note": "Нарост: ороговевшее уплотнение на стопе, болит при нажатии — мозоль первой, тревоги нет",
+      "feel": 2,
+      "answers": {
+        "growthtype": "horny",
+        "growthwhere": "handsfeet"
+      },
+      "expectTop": "callus",
+      "expectAlarm": false
+    },
+    {
+      "id": "s20",
+      "syndrome": "skin.growth",
+      "sex": "m",
+      "age": 60,
+      "note": "Нарост: восковидная налепленная бляшка на лице, есть давно, не меняется — себорейный кератоз первым (кросс-привязка), тревоги нет",
+      "feel": 3,
+      "answers": {
+        "growthtype": "waxy",
+        "growthwhere": "face",
+        "growthchange": "stable"
+      },
+      "expectTop": "seborrheic.keratosis",
+      "expectAlarm": false
+    },
+    {
+      "id": "s21",
+      "syndrome": "skin.growth",
+      "sex": "m",
+      "age": 60,
+      "note": "Нарост быстро растёт, кровоточит и меняет цвет — срабатывает новое правило тревоги (исключить опухоль кожи)",
+      "feel": 4,
+      "answers": {
+        "growthchange": "grow"
+      },
+      "expect": [
+        "warts"
+      ],
+      "expectAlarm": true
     }
   ]
 }

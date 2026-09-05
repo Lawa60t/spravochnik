@@ -1055,7 +1055,8 @@
             "skin.hair",
             "skin.nail",
             "skin.acne",
-            "skin.scale"
+            "skin.scale",
+            "skin.growth"
           ]
         }
       ]

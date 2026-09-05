@@ -887,6 +887,105 @@
       ],
       "status": "compiled",
       "updated": "2026-09-05"
+    },
+    {
+      "id": "skin.growth",
+      "zone": "skin",
+      "name": "Наросты на коже",
+      "priority": 3,
+      "focused": true,
+      "aka": [
+        "нарост на коже",
+        "вырост",
+        "что-то выросло на коже",
+        "шишка на коже"
+      ],
+      "feelings": [
+        {
+          "text": "Шершавый плотный узелок",
+          "implies": {
+            "growthtype": "rough"
+          }
+        },
+        {
+          "text": "Мягкий вырост на ножке",
+          "implies": {
+            "growthtype": "soft"
+          }
+        },
+        {
+          "text": "Ороговевшее уплотнение, болит при нажатии",
+          "implies": {
+            "growthtype": "horny"
+          }
+        },
+        {
+          "text": "Восковидная «налепленная» бляшка",
+          "implies": {
+            "growthtype": "waxy"
+          }
+        },
+        {
+          "text": "Растёт, кровоточит или меняет цвет",
+          "implies": {
+            "growthchange": "grow"
+          }
+        }
+      ],
+      "questions": [
+        "growthtype",
+        "growthwhere",
+        "growthchange"
+      ],
+      "candidates": [
+        {
+          "condition": "warts",
+          "base": 6,
+          "weights": {
+            "growthtype_rough": 5,
+            "growthtype_soft": 4,
+            "growthtype_horny": -2,
+            "growthtype_waxy": -3,
+            "growthwhere_handsfeet": 2,
+            "growthwhere_neckfolds": 2,
+            "growthchange_stable": 1,
+            "growthchange_grow": -3
+          }
+        },
+        {
+          "condition": "callus",
+          "base": 5,
+          "weights": {
+            "growthtype_horny": 5,
+            "growthtype_rough": -1,
+            "growthtype_soft": -3,
+            "growthtype_waxy": -2,
+            "growthwhere_handsfeet": 3,
+            "growthchange_stable": 1,
+            "growthchange_grow": -2
+          }
+        },
+        {
+          "condition": "seborrheic.keratosis",
+          "base": 4,
+          "weights": {
+            "growthtype_waxy": 5,
+            "growthtype_horny": -2,
+            "growthtype_soft": -2,
+            "growthwhere_face": 2,
+            "growthwhere_neckfolds": 1,
+            "growthchange_stable": 2,
+            "growthchange_grow": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Если образование быстро растёт, кровоточит, покрывается коркой, не заживает, меняет цвет, форму или размер либо появилось на месте старой родинки — покажитесь врачу: так может проявляться опухоль кожи. Это разбирают разделы «Изменение родинки» и «Незаживающая ранка или язва».",
+        "Родинки — в разделе «Изменение родинки».",
+        "Незаживающая ранка или язва — в одноимённом разделе."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-05"
     }
   ]
 }

@@ -3238,6 +3238,68 @@
         "tinea"
       ],
       "note": "шелушение кольцом с активным краем — грибок tinea +5 (кросс-привязка), выходит вперёд"
+    },
+    {
+      "syndrome": "skin.growth",
+      "feeling": 0,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "warts"
+      ],
+      "expect": [
+        "warts"
+      ],
+      "note": "шершавый плотный узелок — бородавки +5"
+    },
+    {
+      "syndrome": "skin.growth",
+      "feeling": 1,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "warts"
+      ],
+      "expect": [
+        "warts"
+      ],
+      "note": "мягкий вырост на ножке — папиллома/акрохордон, warts +4"
+    },
+    {
+      "syndrome": "skin.growth",
+      "feeling": 2,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "callus"
+      ],
+      "expect": [
+        "callus"
+      ],
+      "note": "ороговевшее уплотнение с болью — мозоль +5"
+    },
+    {
+      "syndrome": "skin.growth",
+      "feeling": 3,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "seborrheic.keratosis"
+      ],
+      "expect": [
+        "seborrheic.keratosis"
+      ],
+      "note": "восковидная налепленная бляшка — себорейный кератоз +5 (кросс-привязка)"
+    },
+    {
+      "syndrome": "skin.growth",
+      "feeling": 4,
+      "sex": "m",
+      "age": 60,
+      "expect": [
+        "warts"
+      ],
+      "note": "растёт/кровоточит/меняет цвет — снижает все доброкачественные наросты и триггерит правило тревоги; роста очков нет, проверяем лишь что раздел остаётся с состояниями"
     }
   ]
 }
