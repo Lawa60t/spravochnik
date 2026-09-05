@@ -789,6 +789,104 @@
       ],
       "status": "compiled",
       "updated": "2026-09-04"
+    },
+    {
+      "id": "skin.scale",
+      "zone": "skin",
+      "name": "Шелушение и перхоть",
+      "priority": 2,
+      "focused": true,
+      "aka": [
+        "перхоть",
+        "шелушится кожа",
+        "чешуйки на коже",
+        "хлопья в волосах"
+      ],
+      "feelings": [
+        {
+          "text": "Перхоть, хлопья в волосах",
+          "implies": {
+            "scaletype": "dandruff"
+          }
+        },
+        {
+          "text": "Красные пятна с жирными желтоватыми чешуйками",
+          "implies": {
+            "scaletype": "seb"
+          }
+        },
+        {
+          "text": "Сухие шелушащиеся пятна",
+          "implies": {
+            "scaletype": "dry"
+          }
+        },
+        {
+          "text": "Плотные бляшки с серебристыми чешуйками",
+          "implies": {
+            "scaletype": "plaque"
+          }
+        },
+        {
+          "text": "Шелушение кольцом, по краю активнее",
+          "implies": {
+            "scaletype": "ring"
+          }
+        }
+      ],
+      "questions": [
+        "scaletype",
+        "scalewhere",
+        "itch",
+        "dur"
+      ],
+      "candidates": [
+        {
+          "condition": "seborrheic.dermatitis",
+          "base": 7,
+          "weights": {
+            "scaletype_dandruff": 5,
+            "scaletype_seb": 5,
+            "scaletype_dry": -1,
+            "scaletype_plaque": -3,
+            "scaletype_ring": -3,
+            "scalewhere_scalp": 2,
+            "scalewhere_face": 3,
+            "scalewhere_elbowknee": -2,
+            "itch_some": 1,
+            "dur_mon": 2
+          }
+        },
+        {
+          "condition": "psoriasis",
+          "base": 4,
+          "weights": {
+            "scaletype_plaque": 5,
+            "scalewhere_elbowknee": 3,
+            "scaletype_dandruff": -2,
+            "scaletype_ring": -3,
+            "dur_mon": 2
+          }
+        },
+        {
+          "condition": "tinea",
+          "base": 3,
+          "weights": {
+            "scaletype_ring": 5,
+            "scalewhere_body": 2,
+            "scaletype_dandruff": -3,
+            "scaletype_plaque": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Родинки и пятна, которые меняются, — в разделе «Изменение родинки».",
+        "Незаживающая ранка, язвочка или растущее образование — в «Незаживающая ранка или язва».",
+        "Сильно зудящая, мокнущая или аллергическая сыпь — в «Зудящая сыпь».",
+        "Если шелушение и краснота захватили почти всё тело, есть озноб и плохое самочувствие — это может быть тяжёлым состоянием, обратитесь к врачу безотлагательно."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-05"
     }
   ]
 }

@@ -133,6 +133,7 @@
     { "id": "skin.hair",           "zone": "skin", "name": "Выпадение волос",                             "priority": 3, "est": 8 },
     { "id": "skin.nail",           "zone": "skin", "name": "Изменения ногтей",                            "priority": 3, "est": 7 },
     { "id": "skin.acne",           "zone": "skin", "name": "Прыщи, угри и гнойнички",                     "priority": 1, "est": 12 },
+    { "id": "skin.scale",          "zone": "skin", "name": "Шелушение и перхоть",                         "priority": 2, "est": 11 },
 
     { "id": "gen.fever.acute",     "zone": "gen", "name": "Температура несколько дней",                   "priority": 1, "est": 13 },
     { "id": "gen.fever.long",      "zone": "gen", "name": "Длительная субфебрильная температура",       "priority": 2, "est": 12, "redflagZone": true },

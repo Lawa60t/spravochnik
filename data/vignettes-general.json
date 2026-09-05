@@ -848,6 +848,35 @@
       },
       "expectTop": "acne",
       "expectAlarm": false
+    },
+    {
+      "id": "s17",
+      "syndrome": "skin.scale",
+      "sex": "m",
+      "age": 35,
+      "note": "Шелушение: серебристые бляшки на локтях и коленях, месяцами — псориаз первым (кросс-привязка работает), тревоги нет",
+      "feel": 3,
+      "answers": {
+        "scaletype": "plaque",
+        "scalewhere": "elbowknee",
+        "dur": "mon"
+      },
+      "expectTop": "psoriasis",
+      "expectAlarm": false
+    },
+    {
+      "id": "s18",
+      "syndrome": "skin.scale",
+      "sex": "m",
+      "age": 35,
+      "note": "Шелушение: пятно с активным краем-кольцом по телу — грибок первым (кросс-привязка работает), тревоги нет",
+      "feel": 4,
+      "answers": {
+        "scaletype": "ring",
+        "scalewhere": "body"
+      },
+      "expectTop": "tinea",
+      "expectAlarm": false
     }
   ]
 }

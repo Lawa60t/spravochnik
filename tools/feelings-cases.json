@@ -3176,6 +3176,68 @@
         "acne"
       ],
       "note": "стойкое покраснение с звёздочками — это розацеа (будущий кандидат), акне снижается; сейчас в разделе одно состояние, поэтому проверяем лишь что акне остаётся видимым"
+    },
+    {
+      "syndrome": "skin.scale",
+      "feeling": 0,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "seborrheic.dermatitis"
+      ],
+      "expect": [
+        "seborrheic.dermatitis"
+      ],
+      "note": "перхоть, хлопья в волосах — себорейный дерматит +5"
+    },
+    {
+      "syndrome": "skin.scale",
+      "feeling": 1,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "seborrheic.dermatitis"
+      ],
+      "expect": [
+        "seborrheic.dermatitis"
+      ],
+      "note": "жирные жёлтые чешуйки на себорейных зонах — себорейный дерматит +5"
+    },
+    {
+      "syndrome": "skin.scale",
+      "feeling": 2,
+      "sex": "m",
+      "age": 35,
+      "expect": [
+        "seborrheic.dermatitis"
+      ],
+      "note": "сухие пятна — себорейный дерматит −1 (различитель мягкий, не растит очков), проверяем лишь что состояние остаётся видимым"
+    },
+    {
+      "syndrome": "skin.scale",
+      "feeling": 3,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "psoriasis"
+      ],
+      "expect": [
+        "psoriasis"
+      ],
+      "note": "серебристые бляшки — псориаз +5 (кросс-привязка), выходит вперёд"
+    },
+    {
+      "syndrome": "skin.scale",
+      "feeling": 4,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "tinea"
+      ],
+      "expect": [
+        "tinea"
+      ],
+      "note": "шелушение кольцом с активным краем — грибок tinea +5 (кросс-привязка), выходит вперёд"
     }
   ]
 }
