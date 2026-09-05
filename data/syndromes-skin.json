@@ -775,6 +775,33 @@
             "durlong_mon": 3,
             "durlong_d13": -2
           }
+        },
+        {
+          "condition": "rosacea",
+          "base": 4,
+          "weights": {
+            "acnetype_redness": 6,
+            "acnetype_comedo": -4,
+            "acnetype_pustule": 1,
+            "acnetype_node": -2,
+            "acnewhere_face": 2,
+            "acnewhere_trunk": -3,
+            "durlong_mon": 1
+          }
+        },
+        {
+          "condition": "furuncle",
+          "base": 4,
+          "weights": {
+            "acnetype_node": 6,
+            "acnetype_comedo": -4,
+            "acnetype_pustule": 1,
+            "acnetype_redness": -3,
+            "acnecount_one": 3,
+            "acnecount_many": -2,
+            "durlong_d13": 3,
+            "durlong_mon": -3
+          }
         }
       ],
       "notSearchedHere": [

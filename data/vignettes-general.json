@@ -935,6 +935,50 @@
       },
       "expectTop": "vitiligo",
       "expectAlarm": false
+    },
+    {
+      "id": "s23",
+      "syndrome": "skin.acne",
+      "sex": "f",
+      "age": 40,
+      "note": "Стойкое покраснение лица со звёздочками, без чёрных точек — розацеа первой, тревоги нет",
+      "feel": 3,
+      "answers": {
+        "acnetype": "redness",
+        "acnewhere": "face"
+      },
+      "expectTop": "rosacea",
+      "expectAlarm": false
+    },
+    {
+      "id": "s24",
+      "syndrome": "skin.acne",
+      "sex": "m",
+      "age": 30,
+      "note": "Один крупный болезненный узел под кожей на теле — фурункул первым, тревоги нет (не на лице)",
+      "feel": 2,
+      "answers": {
+        "acnetype": "node",
+        "acnecount": "one",
+        "acnewhere": "trunk"
+      },
+      "expectTop": "furuncle",
+      "expectAlarm": false
+    },
+    {
+      "id": "s25",
+      "syndrome": "skin.acne",
+      "sex": "m",
+      "age": 28,
+      "note": "Один болезненный гнойный узел на лице — фурункул первым, сработало правило тревоги (опасная зона)",
+      "feel": 2,
+      "answers": {
+        "acnetype": "node",
+        "acnewhere": "face",
+        "acnecount": "one"
+      },
+      "expectTop": "furuncle",
+      "expectAlarm": true
     }
   ]
 }
