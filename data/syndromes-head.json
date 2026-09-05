@@ -1324,6 +1324,134 @@
       ],
       "status": "drafted",
       "updated": "2026-08-27"
+    },
+    {
+      "id": "head.eye.decline",
+      "zone": "head",
+      "name": "Постепенное снижение зрения",
+      "priority": 2,
+      "aka": [
+        "постепенно падает зрение",
+        "снижение зрения",
+        "стал хуже видеть",
+        "ухудшилось зрение"
+      ],
+      "feelings": [
+        {
+          "text": "Плохо вижу вдаль",
+          "implies": {
+            "visdist": "far"
+          }
+        },
+        {
+          "text": "Плохо вижу вблизи, мелкий шрифт",
+          "implies": {
+            "visdist": "near"
+          }
+        },
+        {
+          "text": "Всё в тумане, ореолы вокруг огней",
+          "implies": {
+            "visdist": "cloud"
+          }
+        },
+        {
+          "text": "Сузилось поле зрения, натыкаюсь сбоку",
+          "implies": {
+            "visdist": "side"
+          }
+        },
+        {
+          "text": "Искажается или выпадает центр, линии волнистые",
+          "implies": {
+            "visdist": "center"
+          }
+        }
+      ],
+      "questions": [
+        "visdist",
+        "visonset",
+        "visdiab"
+      ],
+      "candidates": [
+        {
+          "condition": "myopia",
+          "base": 7,
+          "weights": {
+            "visdist_far": 6,
+            "visdist_near": -3,
+            "visdist_cloud": -2,
+            "visdist_side": -3,
+            "visdist_center": -3,
+            "visonset_years": 1
+          }
+        },
+        {
+          "condition": "presbyopia",
+          "base": 6,
+          "weights": {
+            "visdist_near": 6,
+            "visdist_far": -3,
+            "visdist_cloud": -2,
+            "visdist_side": -3,
+            "visdist_center": -3
+          }
+        },
+        {
+          "condition": "cataract",
+          "base": 5,
+          "weights": {
+            "visdist_cloud": 6,
+            "visdist_far": -1,
+            "visdist_near": -1,
+            "visdist_side": -3,
+            "visdist_center": -2,
+            "visonset_years": 2
+          }
+        },
+        {
+          "condition": "glaucoma.chronic",
+          "base": 4,
+          "weights": {
+            "visdist_side": 6,
+            "visdist_far": -2,
+            "visdist_near": -2,
+            "visdist_cloud": -2,
+            "visdist_center": -2,
+            "visonset_years": 2
+          }
+        },
+        {
+          "condition": "amd",
+          "base": 3,
+          "weights": {
+            "visdist_center": 6,
+            "visdist_far": -2,
+            "visdist_near": -1,
+            "visdist_side": -3,
+            "visdist_cloud": -1,
+            "visonset_years": 1,
+            "visonset_months": 1
+          }
+        },
+        {
+          "condition": "diabetic.retinopathy",
+          "base": 3,
+          "weights": {
+            "visdiab_yes": 6,
+            "visdiab_no": -5,
+            "visdist_center": 2,
+            "visdist_cloud": 1
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Если зрение упало внезапно — за часы или дни, — пропало пятном, есть вспышки, плавающая пелена или «шторка» перед глазом — это раздел «Внезапное ухудшение зрения», такое разбирают срочно.",
+        "Боль или резь в глазу — в разделе «Боль в глазу».",
+        "Двоение в глазах — отдельный симптом, если резко появилось — к врачу безотлагательно."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-05"
     }
   ]
 }

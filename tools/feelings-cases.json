@@ -3326,6 +3326,71 @@
         "vitiligo"
       ],
       "note": "чёткие границы, без зуда и шелушения — витилиго +2/+2"
+    },
+    {
+      "syndrome": "head.eye.decline",
+      "feeling": 0,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "myopia"
+      ],
+      "expect": [
+        "myopia"
+      ],
+      "note": "плохо вдаль — близорукость +6"
+    },
+    {
+      "syndrome": "head.eye.decline",
+      "feeling": 1,
+      "sex": "m",
+      "age": 50,
+      "expectRise": [
+        "presbyopia"
+      ],
+      "expect": [
+        "presbyopia"
+      ],
+      "note": "плохо вблизи, мелкий шрифт — пресбиопия/дальнозоркость +6"
+    },
+    {
+      "syndrome": "head.eye.decline",
+      "feeling": 2,
+      "sex": "m",
+      "age": 70,
+      "expectRise": [
+        "cataract"
+      ],
+      "expect": [
+        "cataract"
+      ],
+      "note": "туман, ореолы вокруг огней — катаракта +6"
+    },
+    {
+      "syndrome": "head.eye.decline",
+      "feeling": 3,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "glaucoma.chronic"
+      ],
+      "expect": [
+        "glaucoma.chronic"
+      ],
+      "note": "сузилось поле зрения сбоку — открытоугольная глаукома +6"
+    },
+    {
+      "syndrome": "head.eye.decline",
+      "feeling": 4,
+      "sex": "m",
+      "age": 70,
+      "expectRise": [
+        "amd"
+      ],
+      "expect": [
+        "amd"
+      ],
+      "note": "выпадает центр, линии волнистые — макулодегенерация +6"
     }
   ]
 }

@@ -582,6 +582,89 @@
         "tmj.dysfunction"
       ],
       "expectAlarm": false
+    },
+    {
+      "id": "h28",
+      "syndrome": "head.eye.decline",
+      "sex": "m",
+      "age": 30,
+      "note": "Зрение падает вдаль, вблизи нормально — близорукость первой",
+      "feel": 0,
+      "answers": {
+        "visdist": "far"
+      },
+      "expectTop": "myopia",
+      "expectAlarm": false
+    },
+    {
+      "id": "h29",
+      "syndrome": "head.eye.decline",
+      "sex": "m",
+      "age": 50,
+      "note": "После 45 трудно читать мелкий шрифт, вблизи расплывается — возрастная дальнозоркость первой",
+      "feel": 1,
+      "answers": {
+        "visdist": "near"
+      },
+      "expectTop": "presbyopia",
+      "expectAlarm": false
+    },
+    {
+      "id": "h30",
+      "syndrome": "head.eye.decline",
+      "sex": "m",
+      "age": 70,
+      "note": "Годами нарастающий туман, ореолы вокруг фонарей, слепит — катаракта первой",
+      "feel": 2,
+      "answers": {
+        "visdist": "cloud",
+        "visonset": "years"
+      },
+      "expectTop": "cataract",
+      "expectAlarm": false
+    },
+    {
+      "id": "h31",
+      "syndrome": "head.eye.decline",
+      "sex": "m",
+      "age": 60,
+      "note": "Годами сужается поле зрения, натыкается на предметы сбоку, центр цел — открытоугольная глаукома первой",
+      "feel": 3,
+      "answers": {
+        "visdist": "side",
+        "visonset": "years"
+      },
+      "expectTop": "glaucoma.chronic",
+      "expectAlarm": false
+    },
+    {
+      "id": "h32",
+      "syndrome": "head.eye.decline",
+      "sex": "m",
+      "age": 72,
+      "note": "Выпадает и искажается центр, прямые линии волнистые — макулодегенерация первой",
+      "feel": 4,
+      "answers": {
+        "visdist": "center"
+      },
+      "expectTop": "amd",
+      "expectAlarm": false
+    },
+    {
+      "id": "h33",
+      "syndrome": "head.eye.decline",
+      "sex": "m",
+      "age": 58,
+      "note": "Диабет и падающее зрение с туманом — диабетическая ретинопатия поднимается в топ (первой на «тумане» законно стоит катаракта)",
+      "feel": 2,
+      "answers": {
+        "visdiab": "yes",
+        "visdist": "cloud"
+      },
+      "expect": [
+        "diabetic.retinopathy"
+      ],
+      "expectAlarm": false
     }
   ]
 }

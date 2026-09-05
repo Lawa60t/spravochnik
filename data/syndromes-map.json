@@ -39,6 +39,7 @@
     { "id": "head.eye.pain",       "zone": "head", "name": "Боль в глазу",                                "priority": 2, "est": 9 },
     { "id": "head.eye.red",        "zone": "head", "name": "Покраснение глаза",                           "priority": 2, "est": 8 },
     { "id": "head.eye.vision",     "zone": "head", "name": "Внезапное ухудшение зрения",                  "priority": 1, "est": 9, "redflagZone": true },
+    { "id": "head.eye.decline",    "zone": "head", "name": "Постепенное снижение зрения",                 "priority": 2, "est": 11 },
     { "id": "head.ear.pain",       "zone": "head", "name": "Боль в ухе",                                  "priority": 1, "est": 9 },
     { "id": "head.ear.hearing",    "zone": "head", "name": "Снижение слуха, шум в ухе",                   "priority": 3, "est": 9 },
     { "id": "head.nose.block",     "zone": "head", "name": "Заложенность носа и выделения",               "priority": 2, "est": 8 },
