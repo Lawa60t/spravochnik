@@ -921,6 +921,21 @@
         "warts"
       ],
       "expectAlarm": true
+    },
+    {
+      "id": "s22",
+      "syndrome": "skin.color",
+      "sex": "m",
+      "age": 25,
+      "note": "Молочно-белые пятна с чёткими границами, не зудят и не шелушатся — витилиго первым, тревоги нет",
+      "feel": 0,
+      "answers": {
+        "colortype": "white",
+        "colorborder": "sharp",
+        "colorfeel": "none"
+      },
+      "expectTop": "vitiligo",
+      "expectAlarm": false
     }
   ]
 }

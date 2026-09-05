@@ -986,6 +986,60 @@
       ],
       "status": "compiled",
       "updated": "2026-09-05"
+    },
+    {
+      "id": "skin.color",
+      "zone": "skin",
+      "name": "Белые и обесцвеченные пятна",
+      "priority": 3,
+      "focused": true,
+      "aka": [
+        "белые пятна на коже",
+        "обесцвеченная кожа",
+        "пятна без цвета",
+        "депигментация"
+      ],
+      "feelings": [
+        {
+          "text": "Белые пятна без цвета",
+          "implies": {
+            "colortype": "white"
+          }
+        },
+        {
+          "text": "Пятна с чёткими границами, не зудят и не шелушатся",
+          "implies": {
+            "colorborder": "sharp",
+            "colorfeel": "none"
+          }
+        }
+      ],
+      "questions": [
+        "colortype",
+        "colorborder",
+        "colorfeel"
+      ],
+      "candidates": [
+        {
+          "condition": "vitiligo",
+          "base": 5,
+          "weights": {
+            "colortype_white": 5,
+            "colortype_lightscale": -2,
+            "colortype_dark": -4,
+            "colorborder_sharp": 2,
+            "colorfeel_none": 2,
+            "colorfeel_itchscale": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Тёмные, коричневые или меняющиеся пятна и родинки — в разделе «Изменение родинки»: так может проявляться и опухоль кожи.",
+        "Светлые или розоватые шелушащиеся пятнышки — чаще это грибок, он в разделе «Шелушение и перхоть».",
+        "Незаживающая ранка или язва — в одноимённом разделе."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-05"
     }
   ]
 }
