@@ -713,6 +713,82 @@
       ],
       "status": "drafted",
       "updated": "2026-08-27"
+    },
+    {
+      "id": "skin.acne",
+      "zone": "skin",
+      "name": "Прыщи, угри и гнойнички",
+      "priority": 1,
+      "focused": true,
+      "aka": [
+        "высыпало прыщами",
+        "угри",
+        "гнойнички на коже",
+        "прыщи не проходят"
+      ],
+      "feelings": [
+        {
+          "text": "Чёрные и белые точки",
+          "implies": {
+            "acnetype": "comedo"
+          }
+        },
+        {
+          "text": "Красные воспалённые прыщи",
+          "implies": {
+            "acnetype": "pustule"
+          }
+        },
+        {
+          "text": "Болезненный узел под кожей",
+          "implies": {
+            "acnetype": "node"
+          }
+        },
+        {
+          "text": "Стойкое покраснение с сосудистыми звёздочками",
+          "implies": {
+            "acnetype": "redness"
+          }
+        }
+      ],
+      "questions": [
+        "acnetype",
+        "acnewhere",
+        "acnecount",
+        "dur",
+        "fever"
+      ],
+      "candidates": [
+        {
+          "condition": "acne",
+          "base": 8,
+          "weights": {
+            "acnetype_comedo": 5,
+            "acnetype_pustule": 3,
+            "acnetype_node": 1,
+            "acnetype_redness": -3,
+            "acnewhere_face": 1,
+            "acnewhere_trunk": 1,
+            "acnewhere_both": 2,
+            "acnecount_many": 2,
+            "acnecount_one": -3,
+            "dur_mon": 3,
+            "dur_d13": -2,
+            "fever_no": 1,
+            "fever_mid": -1,
+            "fever_high": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Родинки и пятна, которые меняются, — в разделе «Изменение родинки»",
+        "Незаживающая ранка, язвочка или новообразование — в разделе «Незаживающая ранка или язва»",
+        "Зудящая, аллергическая сыпь и крапивница — в разделах «Зудящая сыпь» и «Волдыри и крапивница»",
+        "Пузырьки на губе, простуда или герпес — в разделе «Зудящая сыпь»"
+      ],
+      "status": "compiled",
+      "updated": "2026-09-04"
     }
   ]
 }

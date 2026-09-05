@@ -120,7 +120,8 @@ function subzonesForSilhouette() {
   );
 }
 
-/* Разделы, достижимые с силуэта. Должно быть все 110 для каждого из двух. */
+/* Разделы, достижимые с силуэта. Должно быть все, что есть в data (сейчас 111),
+   для каждого из двух силуэтов. */
 function syndromesOnSilhouette(sex) {
   const seen = new Set();
   subzonesForSilhouette(sex).forEach(({ subzone }) =>

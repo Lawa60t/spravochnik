@@ -1053,7 +1053,8 @@
             "skin.wound",
             "skin.hives",
             "skin.hair",
-            "skin.nail"
+            "skin.nail",
+            "skin.acne"
           ]
         }
       ]

@@ -831,6 +831,23 @@
         "herpes.labial"
       ],
       "expectAlarm": false
+    },
+    {
+      "id": "s16",
+      "syndrome": "skin.acne",
+      "sex": "m",
+      "age": 18,
+      "note": "Акне: чёрные точки и прыщи на лице, много, тянется месяцами, температуры нет — акне первым, тревоги нет",
+      "feel": 0,
+      "answers": {
+        "acnetype": "comedo",
+        "acnewhere": "face",
+        "acnecount": "many",
+        "dur": "mon",
+        "fever": "no"
+      },
+      "expectTop": "acne",
+      "expectAlarm": false
     }
   ]
 }
