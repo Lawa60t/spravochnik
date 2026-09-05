@@ -759,6 +759,59 @@
       },
       "expectTop": "oropharynx.cancer",
       "expectAlarm": true
+    },
+    {
+      "id": "h41",
+      "syndrome": "head.tremor",
+      "sex": "m",
+      "age": 45,
+      "note": "Дрожь при движении — тянется, держит чашку, пишет; в покое почти нет — эссенциальный тремор первым",
+      "feel": 0,
+      "answers": {
+        "tremtype": "action"
+      },
+      "expectTop": "essential.tremor",
+      "expectAlarm": false
+    },
+    {
+      "id": "h42",
+      "syndrome": "head.tremor",
+      "sex": "m",
+      "age": 66,
+      "note": "Дрожь покоя с замедленностью и скованностью — болезнь Паркинсона первой",
+      "feel": 3,
+      "answers": {
+        "tremtype": "rest",
+        "tremextra": "slow"
+      },
+      "expectTop": "parkinsons",
+      "expectAlarm": false
+    },
+    {
+      "id": "h43",
+      "syndrome": "head.tremor",
+      "sex": "m",
+      "age": 28,
+      "note": "Мелкая дрожь при волнении, кофе, усталости — усиленный физиологический тремор первым",
+      "feel": 2,
+      "answers": {
+        "tremtype": "stress"
+      },
+      "expectTop": "physiologic.tremor",
+      "expectAlarm": false
+    },
+    {
+      "id": "h44",
+      "syndrome": "head.tremor",
+      "sex": "f",
+      "age": 40,
+      "note": "Дрожь с похудением, сердцебиением и потливостью — тиреотоксикоз первым (кросс-привязка)",
+      "feel": 4,
+      "answers": {
+        "tremextra": "thyroid"
+      },
+      "expectTop": "thyrotoxicosis",
+      "expectAlarm": false
     }
   ]
 }

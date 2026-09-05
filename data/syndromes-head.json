@@ -1616,6 +1616,111 @@
       ],
       "status": "compiled",
       "updated": "2026-09-05"
+    },
+    {
+      "id": "head.tremor",
+      "zone": "head",
+      "name": "Дрожь и тремор",
+      "priority": 2,
+      "focused": true,
+      "aka": [
+        "дрожь",
+        "тремор",
+        "трясутся руки",
+        "дрожат руки",
+        "дрожь в руках"
+      ],
+      "feelings": [
+        {
+          "text": "Дрожь, когда тянусь или держу чашку",
+          "implies": {
+            "tremtype": "action"
+          }
+        },
+        {
+          "text": "Дрожь, когда рука спокойно лежит",
+          "implies": {
+            "tremtype": "rest"
+          }
+        },
+        {
+          "text": "Мелкая дрожь при волнении или кофе",
+          "implies": {
+            "tremtype": "stress"
+          }
+        },
+        {
+          "text": "Дрожь с замедленностью и скованностью",
+          "implies": {
+            "tremextra": "slow"
+          }
+        },
+        {
+          "text": "Дрожь с похудением и сердцебиением",
+          "implies": {
+            "tremextra": "thyroid"
+          }
+        }
+      ],
+      "questions": [
+        "tremtype",
+        "tremextra"
+      ],
+      "candidates": [
+        {
+          "condition": "essential.tremor",
+          "base": 6,
+          "weights": {
+            "tremtype_action": 6,
+            "tremtype_rest": -3,
+            "tremtype_stress": -1,
+            "tremextra_family": 4,
+            "tremextra_slow": -3,
+            "tremextra_thyroid": -2
+          }
+        },
+        {
+          "condition": "physiologic.tremor",
+          "base": 5,
+          "weights": {
+            "tremtype_stress": 6,
+            "tremtype_action": 1,
+            "tremtype_rest": -3,
+            "tremextra_none": 3,
+            "tremextra_slow": -3,
+            "tremextra_thyroid": -1
+          }
+        },
+        {
+          "condition": "parkinsons",
+          "base": 4,
+          "weights": {
+            "tremtype_rest": 6,
+            "tremtype_action": -3,
+            "tremtype_stress": -2,
+            "tremextra_slow": 5,
+            "tremextra_family": -2,
+            "tremextra_thyroid": -2
+          }
+        },
+        {
+          "condition": "thyrotoxicosis",
+          "base": 3,
+          "weights": {
+            "tremtype_stress": 2,
+            "tremtype_rest": -2,
+            "tremextra_thyroid": 6,
+            "tremextra_slow": -2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Внезапные подёргивания или судороги с потерей сознания — это не тремор; см. «Дурнота и предобморочное состояние».",
+        "Дрожь во всём теле с высокой температурой и ознобом — это озноб при инфекции, см. «Температура несколько дней».",
+        "Неприятное дёрганье и потребность двигать ногами перед сном — см. «Нарушения сна» и синдром беспокойных ног."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-05"
     }
   ]
 }

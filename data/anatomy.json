@@ -80,7 +80,8 @@
             "v1": 0.06
           },
           "syndromes": [
-            "head.pain.diffuse"
+            "head.pain.diffuse",
+            "head.tremor"
           ]
         },
         {
@@ -886,7 +887,8 @@
           },
           "syndromes": [
             "arm.wrist",
-            "arm.numb"
+            "arm.numb",
+            "head.tremor"
           ]
         }
       ]

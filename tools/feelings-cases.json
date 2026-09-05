@@ -3547,6 +3547,71 @@
         "vaginitis"
       ],
       "note": "зуд, жжение и выделения — вагинит +6 (женский профиль, кросс)"
+    },
+    {
+      "syndrome": "head.tremor",
+      "feeling": 0,
+      "sex": "m",
+      "age": 45,
+      "expectRise": [
+        "essential.tremor"
+      ],
+      "expect": [
+        "essential.tremor"
+      ],
+      "note": "дрожь при движении/удержании — эссенциальный тремор +6"
+    },
+    {
+      "syndrome": "head.tremor",
+      "feeling": 1,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "parkinsons"
+      ],
+      "expect": [
+        "parkinsons"
+      ],
+      "note": "дрожь покоя — болезнь Паркинсона +6"
+    },
+    {
+      "syndrome": "head.tremor",
+      "feeling": 2,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "physiologic.tremor"
+      ],
+      "expect": [
+        "physiologic.tremor"
+      ],
+      "note": "мелкая дрожь от волнения/кофе — физиологический тремор +6"
+    },
+    {
+      "syndrome": "head.tremor",
+      "feeling": 3,
+      "sex": "m",
+      "age": 66,
+      "expectRise": [
+        "parkinsons"
+      ],
+      "expect": [
+        "parkinsons"
+      ],
+      "note": "дрожь с замедленностью и скованностью — Паркинсон +5"
+    },
+    {
+      "syndrome": "head.tremor",
+      "feeling": 4,
+      "sex": "f",
+      "age": 40,
+      "expectRise": [
+        "thyrotoxicosis"
+      ],
+      "expect": [
+        "thyrotoxicosis"
+      ],
+      "note": "дрожь с похудением и сердцебиением — тиреотоксикоз +6 (кросс)"
     }
   ]
 }
