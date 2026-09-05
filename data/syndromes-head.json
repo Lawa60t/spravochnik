@@ -1844,6 +1844,117 @@
       ],
       "status": "compiled",
       "updated": "2026-09-05"
+    },
+    {
+      "id": "head.seizure",
+      "zone": "head",
+      "name": "Судорожный приступ",
+      "priority": 2,
+      "aka": [
+        "судорожный приступ",
+        "судороги",
+        "припадок",
+        "приступ с потерей сознания",
+        "конвульсии"
+      ],
+      "feelings": [
+        {
+          "text": "Судороги всего тела с потерей сознания",
+          "implies": {
+            "seiztype": "convuls"
+          }
+        },
+        {
+          "text": "Кратко замирал, отключался без падения",
+          "implies": {
+            "seiztype": "absence"
+          }
+        },
+        {
+          "text": "Обморок с лёгким подёргиванием, быстро очнулся",
+          "implies": {
+            "seiztype": "faint"
+          }
+        },
+        {
+          "text": "У ребёнка судороги при высокой температуре",
+          "implies": {
+            "seiztype": "childfever"
+          }
+        },
+        {
+          "text": "Уже есть диагноз, бывало не раз",
+          "implies": {
+            "seizhist": "known"
+          }
+        }
+      ],
+      "questions": [
+        "seiztype",
+        "seizhist"
+      ],
+      "candidates": [
+        {
+          "condition": "epilepsy",
+          "base": 5,
+          "weights": {
+            "seiztype_convuls": 4,
+            "seiztype_absence": 5,
+            "seiztype_faint": -3,
+            "seiztype_childfever": -3,
+            "seizhist_known": 5,
+            "seizhist_first": -1,
+            "seizhist_cause": -3
+          }
+        },
+        {
+          "condition": "provoked.seizure",
+          "base": 4,
+          "weights": {
+            "seiztype_convuls": 4,
+            "seiztype_faint": -2,
+            "seiztype_childfever": -2,
+            "seizhist_cause": 6,
+            "seizhist_known": -2
+          }
+        },
+        {
+          "condition": "febrile.seizure",
+          "base": 3,
+          "weights": {
+            "seiztype_childfever": 6,
+            "seiztype_convuls": 1,
+            "seiztype_absence": -2,
+            "seiztype_faint": -2
+          }
+        },
+        {
+          "condition": "vasovagal.syncope",
+          "base": 4,
+          "weights": {
+            "seiztype_faint": 6,
+            "seiztype_convuls": -2,
+            "seiztype_absence": -1,
+            "seiztype_childfever": -2,
+            "seizhist_cause": 1
+          }
+        },
+        {
+          "condition": "hypoglycemia",
+          "base": 2,
+          "weights": {
+            "seiztype_convuls": 1,
+            "seiztype_faint": 1,
+            "seizhist_cause": 3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Простой обморок без судорог — в разделе «Дурнота и предобморочное состояние».",
+        "Дрожь и дрожание рук без потери сознания — в разделе «Дрожь и тремор»."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-05"
     }
   ]
 }

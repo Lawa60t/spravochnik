@@ -893,6 +893,73 @@
         "age.forgetfulness"
       ],
       "expectAlarm": true
+    },
+    {
+      "id": "h51",
+      "syndrome": "head.seizure",
+      "sex": "m",
+      "age": 26,
+      "note": "Краткие замирания-абсансы, диагноз уже установлен — эпилепсия первой",
+      "feel": 1,
+      "answers": {
+        "seiztype": "absence",
+        "seizhist": "known"
+      },
+      "expectTop": "epilepsy",
+      "expectAlarm": false
+    },
+    {
+      "id": "h52",
+      "syndrome": "head.seizure",
+      "sex": "m",
+      "age": 45,
+      "note": "Судороги на фоне отмены алкоголя, была явная причина — спровоцированный приступ первым, сработало правило тревоги",
+      "feel": 0,
+      "answers": {
+        "seiztype": "convuls",
+        "seizhist": "cause"
+      },
+      "expectTop": "provoked.seizure",
+      "expectAlarm": true
+    },
+    {
+      "id": "h53",
+      "syndrome": "head.seizure",
+      "sex": "f",
+      "age": 2,
+      "note": "У ребёнка судороги на фоне высокой температуры — фебрильные судороги первыми",
+      "feel": 3,
+      "answers": {
+        "seiztype": "childfever"
+      },
+      "expectTop": "febrile.seizure",
+      "expectAlarm": false
+    },
+    {
+      "id": "h54",
+      "syndrome": "head.seizure",
+      "sex": "m",
+      "age": 19,
+      "note": "Обморок с лёгким подёргиванием, быстро пришёл в себя — вазовагальный обморок первым (кросс-привязка)",
+      "feel": 2,
+      "answers": {
+        "seiztype": "faint"
+      },
+      "expectTop": "vasovagal.syncope",
+      "expectAlarm": false
+    },
+    {
+      "id": "h55",
+      "syndrome": "head.seizure",
+      "sex": "m",
+      "age": 34,
+      "note": "Судороги всего тела с потерей сознания — сработало правило тревоги (скорая)",
+      "feel": 0,
+      "answers": {
+        "seiztype": "convuls"
+      },
+      "expectTop": "epilepsy",
+      "expectAlarm": true
     }
   ]
 }

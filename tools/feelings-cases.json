@@ -3677,6 +3677,71 @@
         "vascular.dementia"
       ],
       "note": "ухудшалось ступенями, скачками — сосудистая деменция +6"
+    },
+    {
+      "syndrome": "head.seizure",
+      "feeling": 0,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "epilepsy"
+      ],
+      "expect": [
+        "epilepsy"
+      ],
+      "note": "судороги всего тела с потерей сознания — эпилепсия +4"
+    },
+    {
+      "syndrome": "head.seizure",
+      "feeling": 1,
+      "sex": "m",
+      "age": 25,
+      "expectRise": [
+        "epilepsy"
+      ],
+      "expect": [
+        "epilepsy"
+      ],
+      "note": "краткие замирания/абсансы — эпилепсия +5"
+    },
+    {
+      "syndrome": "head.seizure",
+      "feeling": 2,
+      "sex": "m",
+      "age": 20,
+      "expectRise": [
+        "vasovagal.syncope"
+      ],
+      "expect": [
+        "vasovagal.syncope"
+      ],
+      "note": "обморок с лёгким подёргиванием, быстро очнулся — вазовагальный обморок +6 (кросс)"
+    },
+    {
+      "syndrome": "head.seizure",
+      "feeling": 3,
+      "sex": "f",
+      "age": 3,
+      "expectRise": [
+        "febrile.seizure"
+      ],
+      "expect": [
+        "febrile.seizure"
+      ],
+      "note": "у ребёнка судороги при температуре — фебрильные судороги +6"
+    },
+    {
+      "syndrome": "head.seizure",
+      "feeling": 4,
+      "sex": "m",
+      "age": 28,
+      "expectRise": [
+        "epilepsy"
+      ],
+      "expect": [
+        "epilepsy"
+      ],
+      "note": "уже есть диагноз, бывало не раз — эпилепсия +5"
     }
   ]
 }
