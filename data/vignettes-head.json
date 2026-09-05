@@ -665,6 +665,100 @@
         "diabetic.retinopathy"
       ],
       "expectAlarm": false
+    },
+    {
+      "id": "h34",
+      "syndrome": "head.mouth",
+      "sex": "m",
+      "age": 30,
+      "note": "Болезненные язвочки на слизистой, заживают за неделю — афтозный стоматит первым",
+      "feel": 0,
+      "answers": {
+        "mouthwhat": "ulcer",
+        "mouthpersist": "heals"
+      },
+      "expectTop": "aphthous.stomatitis",
+      "expectAlarm": false
+    },
+    {
+      "id": "h35",
+      "syndrome": "head.mouth",
+      "sex": "f",
+      "age": 40,
+      "note": "Белый творожистый налёт, снимается, под ним краснота — молочница первой (кросс-привязка)",
+      "feel": 1,
+      "answers": {
+        "mouthwhat": "plaque"
+      },
+      "expectTop": "candida.oral",
+      "expectAlarm": false
+    },
+    {
+      "id": "h36",
+      "syndrome": "head.mouth",
+      "sex": "f",
+      "age": 70,
+      "note": "Трещинки и болячки в уголках рта — заеды первыми",
+      "feel": 3,
+      "answers": {
+        "mouthwhat": "corners"
+      },
+      "expectTop": "angular.cheilitis",
+      "expectAlarm": false
+    },
+    {
+      "id": "h37",
+      "syndrome": "head.mouth",
+      "sex": "f",
+      "age": 55,
+      "note": "Язык болит, жжёт, стал гладким — глоссит первым",
+      "feel": 4,
+      "answers": {
+        "mouthwhat": "tongue"
+      },
+      "expectTop": "glossitis",
+      "expectAlarm": false
+    },
+    {
+      "id": "h38",
+      "syndrome": "head.mouth",
+      "sex": "m",
+      "age": 35,
+      "note": "Пузырьки на губах — простой герпес первым (кросс-привязка)",
+      "feel": 5,
+      "answers": {
+        "mouthwhat": "blister"
+      },
+      "expectTop": "herpes.labial",
+      "expectAlarm": false
+    },
+    {
+      "id": "h39",
+      "syndrome": "head.mouth",
+      "sex": "m",
+      "age": 62,
+      "note": "Несмываемое белое пятно во рту, держится больше трёх недель — лейкоплакия первой, сработало правило тревоги",
+      "feel": 2,
+      "answers": {
+        "mouthwhat": "whitepatch",
+        "mouthpersist": "persist"
+      },
+      "expectTop": "oral.leukoplakia",
+      "expectAlarm": true
+    },
+    {
+      "id": "h40",
+      "syndrome": "head.mouth",
+      "sex": "m",
+      "age": 66,
+      "note": "Незаживающая язва во рту дольше трёх недель — рак ротоглотки первым (кросс-привязка), сработало правило тревоги",
+      "feel": 6,
+      "answers": {
+        "mouthwhat": "sore",
+        "mouthpersist": "persist"
+      },
+      "expectTop": "oropharynx.cancer",
+      "expectAlarm": true
     }
   ]
 }

@@ -44,6 +44,7 @@
     { "id": "head.ear.hearing",    "zone": "head", "name": "Снижение слуха, шум в ухе",                   "priority": 3, "est": 9 },
     { "id": "head.nose.block",     "zone": "head", "name": "Заложенность носа и выделения",               "priority": 2, "est": 8 },
     { "id": "head.nose.bleed",     "zone": "head", "name": "Носовое кровотечение",                        "priority": 3, "est": 7 },
+    { "id": "head.mouth",          "zone": "head", "name": "Язвочки и болячки во рту",                     "priority": 2, "est": 9 },
 
     { "id": "neck.throat.swallow", "zone": "neck", "name": "Боль в горле при глотании",                   "priority": 1, "est": 12 },
     { "id": "neck.throat.raw",     "zone": "neck", "name": "Саднение и першение в горле",                 "priority": 1, "est": 9 },

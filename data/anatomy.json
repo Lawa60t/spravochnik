@@ -212,6 +212,21 @@
             "head.nose.block",
             "head.nose.bleed"
           ]
+        },
+        {
+          "id": "head.mouth",
+          "label": "Рот и губы",
+          "name": "Рот и губы",
+          "landmark": "Губы и слизистая рта, под носом",
+          "box": {
+            "u0": 0.45,
+            "v0": 0.09,
+            "u1": 0.55,
+            "v1": 0.108
+          },
+          "syndromes": [
+            "head.mouth"
+          ]
         }
       ]
     },

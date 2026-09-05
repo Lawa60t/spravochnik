@@ -3391,6 +3391,97 @@
         "amd"
       ],
       "note": "выпадает центр, линии волнистые — макулодегенерация +6"
+    },
+    {
+      "syndrome": "head.mouth",
+      "feeling": 0,
+      "sex": "m",
+      "age": 30,
+      "expectRise": [
+        "aphthous.stomatitis"
+      ],
+      "expect": [
+        "aphthous.stomatitis"
+      ],
+      "note": "болезненные язвочки — афтозный стоматит +6"
+    },
+    {
+      "syndrome": "head.mouth",
+      "feeling": 1,
+      "sex": "m",
+      "age": 40,
+      "expectRise": [
+        "candida.oral"
+      ],
+      "expect": [
+        "candida.oral"
+      ],
+      "note": "снимающийся творожистый налёт — молочница +6 (кросс)"
+    },
+    {
+      "syndrome": "head.mouth",
+      "feeling": 2,
+      "sex": "m",
+      "age": 60,
+      "expectRise": [
+        "oral.leukoplakia"
+      ],
+      "expect": [
+        "oral.leukoplakia"
+      ],
+      "note": "несмываемое белое пятно — лейкоплакия +6"
+    },
+    {
+      "syndrome": "head.mouth",
+      "feeling": 3,
+      "sex": "m",
+      "age": 70,
+      "expectRise": [
+        "angular.cheilitis"
+      ],
+      "expect": [
+        "angular.cheilitis"
+      ],
+      "note": "трещинки в уголках рта — заеды +6"
+    },
+    {
+      "syndrome": "head.mouth",
+      "feeling": 4,
+      "sex": "m",
+      "age": 55,
+      "expectRise": [
+        "glossitis"
+      ],
+      "expect": [
+        "glossitis"
+      ],
+      "note": "болит/жжёт язык — глоссит +6"
+    },
+    {
+      "syndrome": "head.mouth",
+      "feeling": 5,
+      "sex": "m",
+      "age": 35,
+      "expectRise": [
+        "herpes.labial"
+      ],
+      "expect": [
+        "herpes.labial"
+      ],
+      "note": "пузырьки на губах — простой герпес +6 (кросс)"
+    },
+    {
+      "syndrome": "head.mouth",
+      "feeling": 6,
+      "sex": "m",
+      "age": 65,
+      "expectRise": [
+        "oropharynx.cancer"
+      ],
+      "expect": [
+        "oropharynx.cancer"
+      ],
+      "note": "незаживающая язва во рту — рак ротоглотки +6 (кросс)"
     }
   ]
 }

@@ -1452,6 +1452,170 @@
       ],
       "status": "compiled",
       "updated": "2026-09-05"
+    },
+    {
+      "id": "head.mouth",
+      "zone": "head",
+      "name": "Язвочки и болячки во рту",
+      "priority": 2,
+      "aka": [
+        "язвочки во рту",
+        "болячки во рту",
+        "стоматит",
+        "ранки во рту",
+        "болит во рту"
+      ],
+      "feelings": [
+        {
+          "text": "Болезненные язвочки во рту",
+          "implies": {
+            "mouthwhat": "ulcer"
+          }
+        },
+        {
+          "text": "Белый творожистый налёт, снимается",
+          "implies": {
+            "mouthwhat": "plaque"
+          }
+        },
+        {
+          "text": "Белое пятно, не снимается",
+          "implies": {
+            "mouthwhat": "whitepatch"
+          }
+        },
+        {
+          "text": "Трещинки в уголках рта",
+          "implies": {
+            "mouthwhat": "corners"
+          }
+        },
+        {
+          "text": "Болит или жжёт язык",
+          "implies": {
+            "mouthwhat": "tongue"
+          }
+        },
+        {
+          "text": "Пузырьки на губах",
+          "implies": {
+            "mouthwhat": "blister"
+          }
+        },
+        {
+          "text": "Незаживающая язва во рту",
+          "implies": {
+            "mouthwhat": "sore"
+          }
+        }
+      ],
+      "questions": [
+        "mouthwhat",
+        "mouthpersist"
+      ],
+      "candidates": [
+        {
+          "condition": "aphthous.stomatitis",
+          "base": 7,
+          "weights": {
+            "mouthwhat_ulcer": 6,
+            "mouthwhat_plaque": -3,
+            "mouthwhat_whitepatch": -4,
+            "mouthwhat_corners": -3,
+            "mouthwhat_tongue": -2,
+            "mouthwhat_blister": -2,
+            "mouthwhat_sore": -2,
+            "mouthpersist_heals": 2,
+            "mouthpersist_recur": 2,
+            "mouthpersist_persist": -3
+          }
+        },
+        {
+          "condition": "angular.cheilitis",
+          "base": 5,
+          "weights": {
+            "mouthwhat_corners": 6,
+            "mouthwhat_ulcer": -2,
+            "mouthwhat_plaque": -2,
+            "mouthwhat_whitepatch": -3,
+            "mouthwhat_tongue": -2,
+            "mouthwhat_sore": -2,
+            "mouthpersist_recur": 1
+          }
+        },
+        {
+          "condition": "glossitis",
+          "base": 4,
+          "weights": {
+            "mouthwhat_tongue": 6,
+            "mouthwhat_ulcer": -2,
+            "mouthwhat_corners": -2,
+            "mouthwhat_plaque": -1,
+            "mouthwhat_whitepatch": -2
+          }
+        },
+        {
+          "condition": "oral.leukoplakia",
+          "base": 3,
+          "weights": {
+            "mouthwhat_whitepatch": 6,
+            "mouthwhat_plaque": -2,
+            "mouthwhat_ulcer": -2,
+            "mouthwhat_corners": -3,
+            "mouthwhat_tongue": -1,
+            "mouthwhat_blister": -3,
+            "mouthpersist_persist": 3,
+            "mouthpersist_heals": -3
+          }
+        },
+        {
+          "condition": "candida.oral",
+          "base": 4,
+          "weights": {
+            "mouthwhat_plaque": 6,
+            "mouthwhat_tongue": 1,
+            "mouthwhat_corners": 1,
+            "mouthwhat_ulcer": -2,
+            "mouthwhat_whitepatch": -1,
+            "mouthwhat_sore": -2
+          }
+        },
+        {
+          "condition": "herpes.labial",
+          "base": 4,
+          "weights": {
+            "mouthwhat_blister": 6,
+            "mouthwhat_ulcer": 1,
+            "mouthwhat_plaque": -3,
+            "mouthwhat_whitepatch": -3,
+            "mouthwhat_corners": -1,
+            "mouthwhat_sore": -2,
+            "mouthpersist_recur": 2
+          }
+        },
+        {
+          "condition": "oropharynx.cancer",
+          "base": 2,
+          "weights": {
+            "mouthwhat_sore": 6,
+            "mouthwhat_whitepatch": 2,
+            "mouthwhat_ulcer": 1,
+            "mouthwhat_plaque": -2,
+            "mouthwhat_corners": -3,
+            "mouthwhat_blister": -3,
+            "mouthpersist_persist": 5,
+            "mouthpersist_heals": -4,
+            "mouthpersist_recur": -3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Зубная боль — в разделе «Зубная боль»; боль в челюсти и при жевании — в «Боль в челюсти и при жевании».",
+        "Боль в горле при глотании, налёт на миндалинах — в разделе «Боль в горле при глотании».",
+        "Увеличение и болезненность слюнных желёз под челюстью — в разделе «Уплотнение или припухлость на шее»."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-05"
     }
   ]
 }
