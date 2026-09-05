@@ -1721,6 +1721,129 @@
       ],
       "status": "compiled",
       "updated": "2026-09-05"
+    },
+    {
+      "id": "head.memory",
+      "zone": "head",
+      "name": "Снижение памяти и забывчивость",
+      "priority": 2,
+      "aka": [
+        "снижение памяти",
+        "забывчивость",
+        "плохая память",
+        "провалы памяти",
+        "стал забывать"
+      ],
+      "feelings": [
+        {
+          "text": "Забываю имена и куда положил вещи, но вспоминаю",
+          "implies": {
+            "memtype": "names"
+          }
+        },
+        {
+          "text": "Забываю недавнее, повторяю вопросы, теряюсь",
+          "implies": {
+            "memtype": "recent"
+          }
+        },
+        {
+          "text": "Не могу сосредоточиться, всё безразлично",
+          "implies": {
+            "memtype": "concentrate"
+          }
+        },
+        {
+          "text": "Туман в голове, вялость, зябкость",
+          "implies": {
+            "memtype": "foggy"
+          }
+        },
+        {
+          "text": "Ухудшалось ступенями, скачками",
+          "implies": {
+            "memcourse": "steps"
+          }
+        }
+      ],
+      "questions": [
+        "memtype",
+        "memcourse"
+      ],
+      "candidates": [
+        {
+          "condition": "age.forgetfulness",
+          "base": 6,
+          "weights": {
+            "memtype_names": 6,
+            "memtype_recent": -4,
+            "memtype_concentrate": -2,
+            "memtype_foggy": -2,
+            "memcourse_slowyears": 1,
+            "memcourse_sudden": -3
+          }
+        },
+        {
+          "condition": "alzheimers",
+          "base": 4,
+          "weights": {
+            "memtype_recent": 6,
+            "memtype_names": -3,
+            "memtype_concentrate": -2,
+            "memcourse_slowyears": 4,
+            "memcourse_steps": -3,
+            "memcourse_recent2": -3,
+            "memcourse_sudden": -3
+          }
+        },
+        {
+          "condition": "vascular.dementia",
+          "base": 3,
+          "weights": {
+            "memtype_recent": 4,
+            "memtype_names": -2,
+            "memcourse_steps": 6,
+            "memcourse_slowyears": -2,
+            "memcourse_recent2": -2,
+            "memcourse_sudden": -1
+          }
+        },
+        {
+          "condition": "depression",
+          "base": 3,
+          "weights": {
+            "memtype_concentrate": 6,
+            "memtype_recent": -1,
+            "memtype_names": -1,
+            "memcourse_recent2": 3,
+            "memcourse_slowyears": -2
+          }
+        },
+        {
+          "condition": "b12.deficiency",
+          "base": 2,
+          "weights": {
+            "memtype_foggy": 4,
+            "memtype_concentrate": 1,
+            "memcourse_recent2": 2
+          }
+        },
+        {
+          "condition": "hypothyroidism",
+          "base": 2,
+          "weights": {
+            "memtype_foggy": 5,
+            "memtype_concentrate": 1,
+            "memcourse_recent2": 2
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Провалы памяти после запоя, удара по голове или отравления — обратитесь к врачу.",
+        "Резкая слабость в руке или ноге, перекос лица, нарушение речи вместе со спутанностью — это инсульт, звоните в скорую (см. «Асимметрия лица, онемение»)."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-05"
     }
   ]
 }

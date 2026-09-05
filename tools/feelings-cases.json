@@ -3612,6 +3612,71 @@
         "thyrotoxicosis"
       ],
       "note": "дрожь с похудением и сердцебиением — тиреотоксикоз +6 (кросс)"
+    },
+    {
+      "syndrome": "head.memory",
+      "feeling": 0,
+      "sex": "m",
+      "age": 66,
+      "expectRise": [
+        "age.forgetfulness"
+      ],
+      "expect": [
+        "age.forgetfulness"
+      ],
+      "note": "забываю имена, но вспоминаю, на жизнь не влияет — возрастная забывчивость +6"
+    },
+    {
+      "syndrome": "head.memory",
+      "feeling": 1,
+      "sex": "m",
+      "age": 72,
+      "expectRise": [
+        "alzheimers"
+      ],
+      "expect": [
+        "alzheimers"
+      ],
+      "note": "забываю недавнее, повторяю вопросы, теряюсь — Альцгеймер +6"
+    },
+    {
+      "syndrome": "head.memory",
+      "feeling": 2,
+      "sex": "f",
+      "age": 40,
+      "expectRise": [
+        "depression"
+      ],
+      "expect": [
+        "depression"
+      ],
+      "note": "не сосредоточиться, всё безразлично — депрессия +6 (кросс)"
+    },
+    {
+      "syndrome": "head.memory",
+      "feeling": 3,
+      "sex": "f",
+      "age": 55,
+      "expectRise": [
+        "hypothyroidism"
+      ],
+      "expect": [
+        "hypothyroidism"
+      ],
+      "note": "туман в голове, вялость, зябкость — гипотиреоз +5 (кросс)"
+    },
+    {
+      "syndrome": "head.memory",
+      "feeling": 4,
+      "sex": "m",
+      "age": 70,
+      "expectRise": [
+        "vascular.dementia"
+      ],
+      "expect": [
+        "vascular.dementia"
+      ],
+      "note": "ухудшалось ступенями, скачками — сосудистая деменция +6"
     }
   ]
 }

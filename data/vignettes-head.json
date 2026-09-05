@@ -812,6 +812,87 @@
       },
       "expectTop": "thyrotoxicosis",
       "expectAlarm": false
+    },
+    {
+      "id": "h45",
+      "syndrome": "head.memory",
+      "sex": "m",
+      "age": 66,
+      "note": "Забывает имена и куда положил вещи, но вспоминает; на жизнь не влияет — возрастная забывчивость первой",
+      "feel": 0,
+      "answers": {
+        "memtype": "names"
+      },
+      "expectTop": "age.forgetfulness",
+      "expectAlarm": false
+    },
+    {
+      "id": "h46",
+      "syndrome": "head.memory",
+      "sex": "f",
+      "age": 74,
+      "note": "Годами нарастает: забывает недавнее, повторяет вопросы, теряется — болезнь Альцгеймера первой",
+      "feel": 1,
+      "answers": {
+        "memtype": "recent",
+        "memcourse": "slowyears"
+      },
+      "expectTop": "alzheimers",
+      "expectAlarm": false
+    },
+    {
+      "id": "h47",
+      "syndrome": "head.memory",
+      "sex": "m",
+      "age": 71,
+      "note": "Ухудшение ступенями, скачками после сосудистых событий — сосудистая деменция первой",
+      "feel": 4,
+      "answers": {
+        "memcourse": "steps"
+      },
+      "expectTop": "vascular.dementia",
+      "expectAlarm": false
+    },
+    {
+      "id": "h48",
+      "syndrome": "head.memory",
+      "sex": "f",
+      "age": 42,
+      "note": "Трудно сосредоточиться, всё безразлично, подавленное настроение — депрессия первой (кросс-привязка)",
+      "feel": 2,
+      "answers": {
+        "memtype": "concentrate"
+      },
+      "expectTop": "depression",
+      "expectAlarm": false
+    },
+    {
+      "id": "h49",
+      "syndrome": "head.memory",
+      "sex": "f",
+      "age": 56,
+      "note": "Туман в голове, вялость, зябкость, прибавка веса — гипотиреоз первым (кросс-привязка)",
+      "feel": 3,
+      "answers": {
+        "memtype": "foggy"
+      },
+      "expectTop": "hypothyroidism",
+      "expectAlarm": false
+    },
+    {
+      "id": "h50",
+      "syndrome": "head.memory",
+      "sex": "m",
+      "age": 68,
+      "note": "Спутанность и потеря памяти возникли резко, за часы — сработало правило тревоги (инсульт/инфекция/отравление)",
+      "feel": 1,
+      "answers": {
+        "memcourse": "sudden"
+      },
+      "expect": [
+        "age.forgetfulness"
+      ],
+      "expectAlarm": true
     }
   ]
 }

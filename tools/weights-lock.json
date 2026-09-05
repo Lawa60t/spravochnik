@@ -4,7 +4,7 @@
     "Меняются только вместе с осознанной правкой весов — см. tools/check-weights.js.",
     "Пересчитать: node tools/check-weights.js --write"
   ],
-  "разделов": 118,
+  "разделов": 119,
   "отпечатки": {
     "abd.rlq": "d6a21e10d35b",
     "abd.epi": "c13fa82b33f6",
@@ -54,6 +54,7 @@
     "head.eye.decline": "545524d1fccd",
     "head.mouth": "243ffc572507",
     "head.tremor": "40303a96507e",
+    "head.memory": "22b0f7266729",
     "head.pain.temple": "dfe4a4e817f1",
     "head.pain.sinus": "62a2e5c2956e",
     "head.dizzy.faint": "b60bcadecb92",
