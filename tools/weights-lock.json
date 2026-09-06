@@ -4,7 +4,7 @@
     "Меняются только вместе с осознанной правкой весов — см. tools/check-weights.js.",
     "Пересчитать: node tools/check-weights.js --write"
   ],
-  "разделов": 123,
+  "разделов": 124,
   "отпечатки": {
     "abd.rlq": "d6a21e10d35b",
     "abd.epi": "c13fa82b33f6",
@@ -121,6 +121,7 @@
     "gen.thirst": "650c373f3a43",
     "gen.silent": "bcea58d5a7b9",
     "gen.folk": "730ff18980cc",
+    "gen.mind": "0a96faa62506",
     "skin.rash.itch": "5e07b12898d3",
     "skin.rash.fever": "05279fe37a58",
     "skin.mole": "5bbcb0ff6e16",

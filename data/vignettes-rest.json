@@ -240,6 +240,36 @@
     { "id": "r46", "syndrome": "head.nose.block", "sex": "m", "age": 5,
       "note": "Ребёнок постоянно заложен, дышит ртом, храпит ночами, месяцами — аденоиды высоко",
       "feel": 0, "answers": { "snore": "snore", "blocked": "both", "durlong": "mon", "runny": "no", "fever": "no", "smell": "no", "weight": "no", "nodes": "no" },
-      "expect": ["adenoids"], "expectAlarm": false }
+      "expect": ["adenoids"], "expectAlarm": false },
+
+    { "id": "r47", "syndrome": "gen.mind", "sex": "m", "age": 25,
+      "note": "Навязчивые мысли и повторяющиеся ритуалы — ОКР первым",
+      "feel": 0, "answers": { "mindwhat": "obsess" },
+      "expectTop": "ocd", "expectAlarm": false },
+
+    { "id": "r48", "syndrome": "gen.mind", "sex": "m", "age": 12,
+      "note": "Трудно сосредоточиться, неусидчивость, рассеянность — СДВГ первым",
+      "feel": 1, "answers": { "mindwhat": "attention" },
+      "expectTop": "adhd", "expectAlarm": false },
+
+    { "id": "r49", "syndrome": "gen.mind", "sex": "f", "age": 19,
+      "note": "Мучительные отношения с едой и весом — РПП первым",
+      "feel": 2, "answers": { "mindwhat": "eating" },
+      "expectTop": "eating.disorder", "expectAlarm": false },
+
+    { "id": "r50", "syndrome": "gen.mind", "sex": "m", "age": 28,
+      "note": "Резкие перепады: подъёмы сменяются спадом — биполярное первым",
+      "feel": 3, "answers": { "mindwhat": "moodswing" },
+      "expectTop": "bipolar", "expectAlarm": false },
+
+    { "id": "r51", "syndrome": "gen.mind", "sex": "f", "age": 35,
+      "note": "Стойкая подавленность, ничего не радует — депрессия первой (кросс-привязка)",
+      "feel": 4, "answers": { "mindwhat": "lowmood" },
+      "expectTop": "depression", "expectAlarm": false },
+
+    { "id": "r52", "syndrome": "gen.mind", "sex": "f", "age": 30,
+      "note": "Постоянная тревога, беспокойство, приступы паники — ГТР первым (кросс-привязка)",
+      "feel": 5, "answers": { "mindwhat": "anxious" },
+      "expectTop": "gad", "expectAlarm": false }
   ]
 }

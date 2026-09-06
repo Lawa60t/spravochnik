@@ -4512,6 +4512,128 @@
       ],
       "status": "compiled",
       "updated": "2026-09-05"
+    },
+    {
+      "id": "gen.mind",
+      "zone": "gen",
+      "name": "Настроение и психика: когда стоит обратиться",
+      "priority": 3,
+      "focused": true,
+      "aka": [
+        "психика",
+        "настроение",
+        "психическое здоровье",
+        "куда обратиться с психикой",
+        "душевное состояние"
+      ],
+      "feelings": [
+        {
+          "text": "Навязчивые мысли и ритуалы",
+          "implies": {
+            "mindwhat": "obsess"
+          }
+        },
+        {
+          "text": "Трудно сосредоточиться, неусидчивость",
+          "implies": {
+            "mindwhat": "attention"
+          }
+        },
+        {
+          "text": "Мучительные отношения с едой и весом",
+          "implies": {
+            "mindwhat": "eating"
+          }
+        },
+        {
+          "text": "Резкие перепады: подъёмы и спады",
+          "implies": {
+            "mindwhat": "moodswing"
+          }
+        },
+        {
+          "text": "Стойкая подавленность",
+          "implies": {
+            "mindwhat": "lowmood"
+          }
+        },
+        {
+          "text": "Постоянная тревога и паника",
+          "implies": {
+            "mindwhat": "anxious"
+          }
+        }
+      ],
+      "questions": [
+        "mindwhat"
+      ],
+      "candidates": [
+        {
+          "condition": "ocd",
+          "base": 5,
+          "weights": {
+            "mindwhat_obsess": 6,
+            "mindwhat_attention": -2,
+            "mindwhat_eating": -2,
+            "mindwhat_moodswing": -2
+          }
+        },
+        {
+          "condition": "adhd",
+          "base": 5,
+          "weights": {
+            "mindwhat_attention": 6,
+            "mindwhat_obsess": -2,
+            "mindwhat_eating": -2
+          }
+        },
+        {
+          "condition": "eating.disorder",
+          "base": 5,
+          "weights": {
+            "mindwhat_eating": 6,
+            "mindwhat_obsess": -1
+          }
+        },
+        {
+          "condition": "bipolar",
+          "base": 4,
+          "weights": {
+            "mindwhat_moodswing": 6,
+            "mindwhat_lowmood": 1,
+            "mindwhat_anxious": -1
+          }
+        },
+        {
+          "condition": "depression",
+          "base": 5,
+          "weights": {
+            "mindwhat_lowmood": 6,
+            "mindwhat_moodswing": -1
+          }
+        },
+        {
+          "condition": "gad",
+          "base": 5,
+          "weights": {
+            "mindwhat_anxious": 6,
+            "mindwhat_lowmood": -1
+          }
+        },
+        {
+          "condition": "panic.attack",
+          "base": 3,
+          "weights": {
+            "mindwhat_anxious": 3
+          }
+        }
+      ],
+      "notSearchedHere": [
+        "Стойкая подавленность подробно разбирается в статье «Депрессия», постоянная тревога и паника — в разделе «Тревога и панические эпизоды».",
+        "Если появляются мысли о нежелании жить — не оставайтесь с этим одни, обратитесь за помощью сейчас: к врачу, близким или на кризисную телефонную линию."
+      ],
+      "status": "compiled",
+      "updated": "2026-09-06"
     }
   ]
 }

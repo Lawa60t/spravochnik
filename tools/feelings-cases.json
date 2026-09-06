@@ -3849,6 +3849,84 @@
         "neurosis"
       ],
       "note": "невроз — статья-разъяснение"
+    },
+    {
+      "syndrome": "gen.mind",
+      "feeling": 0,
+      "sex": "m",
+      "age": 25,
+      "expectRise": [
+        "ocd"
+      ],
+      "expect": [
+        "ocd"
+      ],
+      "note": "навязчивые мысли и ритуалы — ОКР +6"
+    },
+    {
+      "syndrome": "gen.mind",
+      "feeling": 1,
+      "sex": "m",
+      "age": 12,
+      "expectRise": [
+        "adhd"
+      ],
+      "expect": [
+        "adhd"
+      ],
+      "note": "трудно сосредоточиться, неусидчивость — СДВГ +6"
+    },
+    {
+      "syndrome": "gen.mind",
+      "feeling": 2,
+      "sex": "f",
+      "age": 19,
+      "expectRise": [
+        "eating.disorder"
+      ],
+      "expect": [
+        "eating.disorder"
+      ],
+      "note": "отношения с едой и весом — РПП +6"
+    },
+    {
+      "syndrome": "gen.mind",
+      "feeling": 3,
+      "sex": "m",
+      "age": 28,
+      "expectRise": [
+        "bipolar"
+      ],
+      "expect": [
+        "bipolar"
+      ],
+      "note": "резкие перепады подъём/спад — биполярное +6"
+    },
+    {
+      "syndrome": "gen.mind",
+      "feeling": 4,
+      "sex": "f",
+      "age": 35,
+      "expectRise": [
+        "depression"
+      ],
+      "expect": [
+        "depression"
+      ],
+      "note": "стойкая подавленность — депрессия +6 (кросс)"
+    },
+    {
+      "syndrome": "gen.mind",
+      "feeling": 5,
+      "sex": "f",
+      "age": 30,
+      "expectRise": [
+        "gad"
+      ],
+      "expect": [
+        "gad"
+      ],
+      "note": "постоянная тревога и паника — ГТР +6 (кросс)"
     }
   ]
 }
