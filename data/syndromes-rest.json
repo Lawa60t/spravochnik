@@ -2498,6 +2498,15 @@
             "fever_mid": 3,
             "bruise_no": -3
           }
+        },
+        {
+          "condition": "pms",
+          "base": 4,
+          "weights": {
+            "mood_anx": 2,
+            "mood_low": 1,
+            "period_none": -2
+          }
         }
       ],
       "notSearchedHere": [
@@ -2648,6 +2657,17 @@
             "durlong_mon": 3,
             "vagdischarge_no": 3,
             "fever_high": -3
+          }
+        },
+        {
+          "condition": "bacterial.vaginosis",
+          "base": 4,
+          "weights": {
+            "vagdischarge_grey": 6,
+            "vagdischarge_curd": -3,
+            "vagdischarge_purulent": -2,
+            "itch_no": 2,
+            "itch_night": -3
           }
         }
       ],

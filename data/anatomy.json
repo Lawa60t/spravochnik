@@ -1023,7 +1023,8 @@
             "pelv.gyn.discharge",
             "pelv.andr.testis",
             "pelv.groin.lump",
-            "pelv.genital.lesion"
+            "pelv.genital.lesion",
+            "pelv.erectile"
           ]
         }
       ]

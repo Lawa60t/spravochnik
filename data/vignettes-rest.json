@@ -225,6 +225,16 @@
     { "id": "r43", "syndrome": "gen.folk", "sex": "f", "age": 35,
       "note": "Называли невроз — ведём к статье-разъяснению",
       "feel": 2, "answers": { "folkterm": "neurosis" },
-      "expectTop": "neurosis", "expectAlarm": false }
+      "expectTop": "neurosis", "expectAlarm": false },
+
+    { "id": "r44", "syndrome": "pelv.gyn.discharge", "sex": "f", "age": 30,
+      "note": "Обильные серые выделения с рыбным запахом, без зуда — бактериальный вагиноз в топе",
+      "feel": 0, "answers": { "vagdischarge": "grey", "itch": "no", "fever": "no" },
+      "expect": ["bacterial.vaginosis"], "expectAlarm": false },
+
+    { "id": "r45", "syndrome": "pelv.gyn.cycle", "sex": "f", "age": 28,
+      "note": "Раздражительность и тревога за несколько дней до месячных, циклично — ПМС присутствует",
+      "feel": 0, "answers": { "mood": "anx", "period": "now", "weight": "no", "fever": "no" },
+      "expect": ["pms"], "expectAlarm": false }
   ]
 }

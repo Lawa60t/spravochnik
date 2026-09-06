@@ -4,7 +4,7 @@
     "Меняются только вместе с осознанной правкой весов — см. tools/check-weights.js.",
     "Пересчитать: node tools/check-weights.js --write"
   ],
-  "разделов": 122,
+  "разделов": 123,
   "отпечатки": {
     "abd.rlq": "d6a21e10d35b",
     "abd.epi": "c13fa82b33f6",
@@ -92,6 +92,7 @@
     "pelv.gyn.pregnancy": "14e54eff66b7",
     "pelv.andr.testis": "4889ee90b1dd",
     "pelv.genital.lesion": "438c079d68ec",
+    "pelv.erectile": "beb98ba716c2",
     "chest.pain.move": "0fb3128efedf",
     "chest.cough.blood": "95c7e5881ce0",
     "chest.breast.pain": "3a2ed3bd47e4",
@@ -106,8 +107,8 @@
     "abd.jaundice": "d0065a64b54c",
     "pelv.uro.frequency": "b3ae0741933a",
     "pelv.uro.retention": "f4cc38be6527",
-    "pelv.gyn.cycle": "696ee944c738",
-    "pelv.gyn.discharge": "dc8c793c6a51",
+    "pelv.gyn.cycle": "68104d18d081",
+    "pelv.gyn.discharge": "dea7962d59d4",
     "pelv.groin.lump": "7a8502741b44",
     "pelv.anal.pain": "98ae842cb203",
     "skin.wound": "817c576af98d",

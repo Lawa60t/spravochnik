@@ -122,6 +122,11 @@
     { "id": "p24", "syndrome": "pelv.genital.lesion", "sex": "m", "age": 40,
       "note": "Одна безболезненная плотная язвочка, впервые — первичный сифилис первым, сработало правило тревоги",
       "feel": 3, "answers": { "genlesion": "ulcer", "genrecur": "once" },
-      "expectTop": "syphilis.primary", "expectAlarm": true }
+      "expectTop": "syphilis.primary", "expectAlarm": true },
+
+    { "id": "p25", "syndrome": "pelv.erectile", "sex": "m", "age": 55,
+      "note": "Стойкие проблемы с эрекцией — витрина ведёт к статье об эректильной дисфункции",
+      "feel": 0, "answers": {},
+      "expectTop": "erectile.dysfunction", "expectAlarm": false }
   ]
 }
