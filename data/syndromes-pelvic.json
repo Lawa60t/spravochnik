@@ -1012,6 +1012,13 @@
             "genlesion_growths": -2,
             "genlesion_ulcer": -2
           }
+        },
+        {
+          "condition": "phimosis",
+          "base": 3,
+          "weights": {
+            "genlesion_redsore": 1
+          }
         }
       ],
       "notSearchedHere": [

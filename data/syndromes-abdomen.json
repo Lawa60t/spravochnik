@@ -727,6 +727,13 @@
             "weight_yes": 2,
             "fever_high": -3
           }
+        },
+        {
+          "condition": "infant.colic",
+          "base": 2,
+          "weights": {
+            "restless_restless": 1
+          }
         }
       ],
       "notSearchedHere": [

@@ -1659,6 +1659,17 @@
             "durlong_d13": -5,
             "progress_better": -4
           }
+        },
+        {
+          "condition": "adenoids",
+          "base": 3,
+          "weights": {
+            "snore_snore": 3,
+            "snore_yes": 2,
+            "blocked_both": 2,
+            "blocked_one": -2,
+            "durlong_mon": 2
+          }
         }
       ],
       "notSearchedHere": [

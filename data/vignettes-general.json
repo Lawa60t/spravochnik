@@ -979,6 +979,23 @@
       },
       "expectTop": "furuncle",
       "expectAlarm": true
+    },
+    {
+      "id": "s26",
+      "syndrome": "skin.rash.fever",
+      "sex": "f",
+      "age": 1,
+      "note": "Малыш: три дня высокая температура, потом мелкие розовые пятна на туловище, не зудят — розеола присутствует",
+      "feel": 0,
+      "answers": {
+        "rash": "spots",
+        "fever": "high",
+        "itch": "no"
+      },
+      "expect": [
+        "roseola"
+      ],
+      "expectAlarm": false
     }
   ]
 }

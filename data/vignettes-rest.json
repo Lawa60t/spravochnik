@@ -235,6 +235,11 @@
     { "id": "r45", "syndrome": "pelv.gyn.cycle", "sex": "f", "age": 28,
       "note": "Раздражительность и тревога за несколько дней до месячных, циклично — ПМС присутствует",
       "feel": 0, "answers": { "mood": "anx", "period": "now", "weight": "no", "fever": "no" },
-      "expect": ["pms"], "expectAlarm": false }
+      "expect": ["pms"], "expectAlarm": false },
+
+    { "id": "r46", "syndrome": "head.nose.block", "sex": "m", "age": 5,
+      "note": "Ребёнок постоянно заложен, дышит ртом, храпит ночами, месяцами — аденоиды высоко",
+      "feel": 0, "answers": { "snore": "snore", "blocked": "both", "durlong": "mon", "runny": "no", "fever": "no", "smell": "no", "weight": "no", "nodes": "no" },
+      "expect": ["adenoids"], "expectAlarm": false }
   ]
 }

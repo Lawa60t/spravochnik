@@ -450,6 +450,15 @@
             "progress_worse": 3,
             "immuno_yes": 3
           }
+        },
+        {
+          "condition": "roseola",
+          "base": 3,
+          "weights": {
+            "rash_spots": 2,
+            "fever_high": 2,
+            "itch_no": 1
+          }
         }
       ],
       "notSearchedHere": [

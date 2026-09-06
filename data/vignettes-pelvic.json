@@ -127,6 +127,16 @@
     { "id": "p25", "syndrome": "pelv.erectile", "sex": "m", "age": 55,
       "note": "Стойкие проблемы с эрекцией — витрина ведёт к статье об эректильной дисфункции",
       "feel": 0, "answers": {},
-      "expectTop": "erectile.dysfunction", "expectAlarm": false }
+      "expectTop": "erectile.dysfunction", "expectAlarm": false },
+
+    { "id": "p26", "syndrome": "pelv.genital.lesion", "sex": "m", "age": 14,
+      "note": "У подростка не открывается головка, покраснение и раздражение — фимоз присутствует (мужской профиль)",
+      "feel": 2, "answers": { "genlesion": "redsore" },
+      "expect": ["phimosis"], "expectAlarm": false },
+
+    { "id": "p27", "syndrome": "pelv.genital.lesion", "sex": "f", "age": 30,
+      "note": "Женский профиль: фимоз не показывается (sexOnly m)",
+      "feel": 2, "answers": { "genlesion": "redsore" },
+      "notExpect": ["phimosis"], "expectAlarm": false }
   ]
 }
