@@ -688,6 +688,15 @@
             "dysp_yes": 2,
             "onset_gradual": 1
           }
+        },
+        {
+          "condition": "addisons",
+          "base": 2,
+          "weights": {
+            "tired_strong": 2,
+            "weight_yes": 2,
+            "appetite_down": 1
+          }
         }
       ],
       "notSearchedHere": [

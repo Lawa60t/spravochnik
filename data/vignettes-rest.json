@@ -270,6 +270,11 @@
     { "id": "r52", "syndrome": "gen.mind", "sex": "f", "age": 30,
       "note": "Постоянная тревога, беспокойство, приступы паники — ГТР первым (кросс-привязка)",
       "feel": 5, "answers": { "mindwhat": "anxious" },
-      "expectTop": "gad", "expectAlarm": false }
+      "expectTop": "gad", "expectAlarm": false },
+
+    { "id": "r53", "syndrome": "gen.silent", "sex": "f", "age": 40,
+      "note": "Проверяет высокое давление, заодно высокий сахар — синдром Кушинга присутствует среди причин",
+      "feel": 0, "answers": { "silentwhat": "pressure" },
+      "expect": ["cushings"], "expectAlarm": false }
   ]
 }

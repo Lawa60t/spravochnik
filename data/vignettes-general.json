@@ -996,6 +996,23 @@
         "roseola"
       ],
       "expectAlarm": false
+    },
+    {
+      "id": "s27",
+      "syndrome": "gen.fatigue",
+      "sex": "f",
+      "age": 40,
+      "note": "Нарастающая сильная слабость с похудением и снижением аппетита — болезнь Аддисона присутствует",
+      "feel": 0,
+      "answers": {
+        "tired": "strong",
+        "weight": "yes",
+        "appetite": "down"
+      },
+      "expect": [
+        "addisons"
+      ],
+      "expectAlarm": false
     }
   ]
 }

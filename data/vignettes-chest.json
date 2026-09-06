@@ -180,6 +180,23 @@
       },
       "expectTop": "covid19",
       "expectAlarm": false
+    },
+    {
+      "id": "c33",
+      "syndrome": "chest.palpit",
+      "sex": "m",
+      "age": 35,
+      "note": "Повторяющиеся приступы сердцебиения с потливостью и подъёмом давления — феохромоцитома присутствует",
+      "feel": 0,
+      "answers": {
+        "attacks": "repeat",
+        "auto": "yes",
+        "rhythm": "fastgrad"
+      },
+      "expect": [
+        "pheochromocytoma"
+      ],
+      "expectAlarm": false
     }
   ]
 }

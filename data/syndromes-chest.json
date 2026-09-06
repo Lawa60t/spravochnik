@@ -1082,6 +1082,16 @@
             "calfswell_no": -3,
             "immobility_no": -2
           }
+        },
+        {
+          "condition": "pheochromocytoma",
+          "base": 2,
+          "weights": {
+            "attacks_repeat": 2,
+            "attacks_hours": 1,
+            "auto_yes": 2,
+            "rhythm_fastgrad": 1
+          }
         }
       ],
       "notSearchedHere": [

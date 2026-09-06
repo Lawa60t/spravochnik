@@ -4438,6 +4438,14 @@
             "silentwhat_legvessels": 6,
             "silentwhat_bones": -2
           }
+        },
+        {
+          "condition": "cushings",
+          "base": 2,
+          "weights": {
+            "silentwhat_pressure": 2,
+            "silentwhat_sugar": 2
+          }
         }
       ],
       "notSearchedHere": [
