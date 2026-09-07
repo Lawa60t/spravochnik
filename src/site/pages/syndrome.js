@@ -197,6 +197,7 @@ function syndromePage(s, updated) {
   }</p>
 
   <h1>${esc(s.name)}</h1>
+  <p class="plaque">${esc(T.plaque)}</p>
   ${s.aka && s.aka.length ? `<p class="alt"><span>${esc(T.syndrome.alsoSaid)}:</span> ${esc(s.aka.join(" · "))}</p>` : ""}
 
   ${refineBlock(s)}
