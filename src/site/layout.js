@@ -190,15 +190,16 @@ function header(path) {
 const NO_SUPPORT = ["/sostoyaniya/", "/chto-ne-razbiraem/", "/moego-sluchaya-net/"];
 const showSupport = path => !NO_SUPPORT.some(p => path.startsWith(p));
 
-/* Подвал стоит на той же сетке, что и страница: обёртка .bottom-inner
-   попадает в ту же колонку, где идёт текст, поэтому левый край подвала
-   и левый край статьи — одна линия на любой ширине. Раньше подвал центрировался
-   сам по себе и на широком мониторе оказывался левее содержимого.
+/* Подвал стоит на той же сетке, что и страница: три колонки.
+   Первая — под левым меню: фигура, имя сайта и блок обратной связи.
+   Вторая и третья лежат в .bottom-inner и попадают в колонку текста:
+   слева то, что читают подряд — чем этот сайт является и откуда взяты
+   материалы; справа то, к чему обращаются точечно — телефон неотложной
+   помощи, владелец, соглашение, маркировка возраста.
 
-   Внутри две колонки. Слева то, что читают подряд: чем этот сайт является
-   и откуда взяты материалы. Справа то, к чему обращаются точечно: телефон
-   неотложной помощи, владелец, маркировка возраста. Порядок в разметке —
-   порядок чтения на телефоне, где колонка одна. */
+   Порядок в разметке — порядок чтения на телефоне, где колонка одна:
+   описание, неотложная помощь и владелец, затем обратная связь.
+   На широком экране колонку с фигурой ставит на место сетка, а не разметка. */
 function footer(updated, path) {
   const f = T.footer;
   return `<footer class="bottom">
@@ -207,13 +208,6 @@ function footer(updated, path) {
         <p><strong>${esc(cfg.siteName)} — ${esc(f.lead)}</strong></p>
         <p>${esc(f.body)}</p>
         <p>${esc(f.sources)} ${esc(f.updatedPrefix)} ${esc(dateRu(updated))}</p>
-        ${/* Обратная связь — про ошибки на сайте, не про самочувствие.
-             Просьба не описывать своё состояние стоит на странице
-             «О справочнике» и в соглашении, здесь её не повторяем. */ ""}
-        <div class="contactbox">
-          <p class="h">${esc(f.contactTitle)}</p>
-          <p class="m">${esc(f.contactBody)} <a href="mailto:${attr(cfg.errorMail)}">${esc(cfg.errorMail)}</a></p>
-        </div>
       </div>
       <div class="footcol">
         <p class="tel">${esc(f.emergency)}</p>
@@ -222,6 +216,16 @@ function footer(updated, path) {
         ${/* Отдельной неприметной строкой и внизу: ни в шапке, ни в меню её нет. */ ""}
         <p class="age">${esc(f.age)}</p>
         ${showSupport(path) ? `<p class="footsupport"><a href="/podderzhat/">${esc(T.navSupport)}</a></p>` : ""}
+      </div>
+    </div>
+    <div class="footcol footbrand">
+      <p class="footname"><span class="fig">${figureSvg(22, 32)}</span> <strong>${esc(cfg.siteName)}</strong> — ${esc(cfg.tagline)}</p>
+      ${/* Обратная связь — про ошибки на сайте, не про самочувствие.
+           Просьба не описывать своё состояние стоит на странице
+           «О справочнике» и в соглашении, здесь её не повторяем. */ ""}
+      <div class="contactbox">
+        <p class="h">${esc(f.contactTitle)}</p>
+        <p class="m">${esc(f.contactBody)} <a href="mailto:${attr(cfg.errorMail)}">${esc(cfg.errorMail)}</a></p>
       </div>
     </div>
   </footer>`;

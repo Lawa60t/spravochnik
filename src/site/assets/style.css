@@ -317,11 +317,15 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   padding: 1.2rem 0 1.6rem;
   text-align: left;
 }
-.bottom-inner {
+.bottom-inner, .footbrand {
   max-width: var(--measure);
   margin: 0 auto;
   padding: 0 1.25rem;
 }
+/* Колонка с фигурой: на телефоне идёт последней, после владельца. */
+.footbrand { margin-top: 1rem; }
+.footname { display: flex; align-items: center; gap: .5rem; color: var(--ink); }
+.footname .fig { color: var(--accent); line-height: 0; flex: none; }
 
 /* Подвал — связный текст, а не семь отдельных абзацев. Полный межабзацный
    интервал разгонял его на пол-экрана телефона, хотя читается он подряд
@@ -349,7 +353,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   border-radius: 12px;
   padding: .7rem .9rem;
   background: var(--bg);
-  margin-top: .9rem;
+  margin-top: .5rem;
 }
 .contactbox .h {
   font-size: .72rem; color: var(--ink-3);
@@ -374,6 +378,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   }
   .bottom-inner {
     grid-column: 2;
+    grid-row: 1;
     max-width: none;
     margin: 0;
     padding: 0;
@@ -381,6 +386,17 @@ a.nav-item[aria-current] { border-color: var(--accent); }
     grid-template-columns: 3fr 2fr;
     gap: 0 2rem;
     align-items: start;
+  }
+  /* Колонка с фигурой встаёт под левое меню — той же ширины и по тому же
+     правому краю, что и карточки меню. Место ей задаёт сетка, а не разметка:
+     в разметке она последняя, чтобы на телефоне читаться после владельца. */
+  .footbrand {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 280px;
+    margin: 0 0 0 auto;
+    padding: 0;
+    width: 100%;
   }
   /* В своей колонке телефону неотложной помощи отделяться уже не от чего. */
   .bottom .tel { margin-top: 0; }
