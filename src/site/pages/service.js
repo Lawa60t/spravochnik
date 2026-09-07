@@ -5,7 +5,7 @@
 
    Никаких встроенных форм, виджетов и чужих скриптов: единственная внешняя
    ссылка на весь сайт — адрес перехода на странице поддержки, и она обычная. */
-const { page, esc, attr } = require("../layout");
+const { page, esc, attr, hubLinks } = require("../layout");
 const meta = require("../meta");
 const cfg = require("../config");
 const T = require("../text");
@@ -60,13 +60,30 @@ function renderBlocks(blocks) {
     .join("\n  ");
 }
 
+/* Хаб «О справочнике»: под заголовком те же пять ссылок, что и в левом меню,
+   — служебные страницы из главного меню ушли и открываются отсюда.
+   Ниже, отдельным блоком, полный текст предупреждения: с главной он снят,
+   но читаться должен там, где о справочнике рассказано целиком. */
+function hubBlock(path) {
+  return `<nav class="hubnav" aria-label="${attr(T.navAbout)}">
+    ${hubLinks(path)}
+  </nav>`;
+}
+
+function warningBlock() {
+  return renderBlocks([{ h: T.about.warningTitle }].concat(T.entry.blocks));
+}
+
 function servicePage(key, path, updated, metaFn) {
   const src = T[key];
   const m = metaFn(src.title);
+  const isHub = key === "about";
 
   const body = `<article class="plain service">
   <h1>${esc(src.title)}</h1>
+  ${isHub ? hubBlock(path) : ""}
   ${renderBlocks(src.blocks)}
+  ${isHub ? warningBlock() : ""}
 </article>`;
 
   return page({

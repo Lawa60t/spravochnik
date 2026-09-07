@@ -52,34 +52,95 @@ function head({ title, description, canonical, ogType }) {
    отдаёт медиазапросу, а не скрипту. */
 /* Один список ссылок на три места: строка в шапке, меню на узком экране
    и левая колонка на широком. Переключение отдано медиазапросу, а не скрипту,
-   поэтому списки существуют в разметке одновременно. */
+   поэтому списки существуют в разметке одновременно.
+
+   Пунктов четыре, а не восемь: два входа в оглавление, поиск и хаб
+   «О справочнике». Служебные страницы из меню не пропали — они собраны
+   под хабом (HUB ниже) и там же перечислены на самой странице. */
 const LINKS = [
   ["/vybor/", "navChoose"],
   ["/oblasti/", "navZones"],
   ["/ukazatel/", "navIndex"],
-  ["/chto-ne-razbiraem/", "navNotSearched"],
-  ["/chto-ne-delaem/", "navDoesNot"],
-  ["/o-spravochnike/", "navAbout"],
-  ["/kak-sostavleny/", "navHowMade"],
-  ["/soglashenie/", "navTerms"]
+  ["/o-spravochnike/", "navAbout"]
 ];
 
-function navLinks() {
-  return LINKS.map(([href, key]) => `<a href="${attr(href)}">${esc(T[key])}</a>`).join("\n      ");
+const HUB = [
+  ["/o-spravochnike/", "about"],
+  ["/kak-sostavleny/", "howMade"],
+  ["/chto-ne-delaem/", "doesNot"],
+  ["/chto-ne-razbiraem/", "notSearched"],
+  ["/soglashenie/", "terms"]
+];
+
+const current = (href, path) => (href === path ? ' aria-current="page"' : "");
+
+/* Пять ссылок хаба одним списком: он же стоит в левом меню, в меню шапки
+   и на странице «О справочнике» — чтобы ни один набор не разошёлся с другим. */
+function hubLinks(path, cls) {
+  return HUB.map(([href, key]) => `<a${cls ? ` class="${cls}"` : ""} href="${attr(href)}"${current(href, path)}>${esc(T.hub[key])}</a>`).join("\n        ");
 }
 
-function nav(cls) {
+/* Строка в шапке и выпадающее меню: те же четыре пункта, без подписей —
+   на узком экране им негде разворачиваться. Ссылки хаба идут следом
+   отдельной группой, чтобы соглашение и «что не разбирают» открывались
+   из меню на любом экране, а не только с широкого. */
+function nav(cls, path) {
   return `<nav class="${cls}">
-      ${navLinks()}
+      ${LINKS.map(([href, key]) => `<a href="${attr(href)}"${current(href, path)}>${esc(T[key])}</a>`).join("\n      ")}
+      <span class="topnav-group">
+        ${hubLinks(path, "topnav-sub")}
+      </span>
     </nav>`;
 }
 
-/* Левая колонка: прилипает при прокрутке средствами CSS, без JavaScript.
-   Ниже 1200 точек скрыта — там те же ссылки лежат в меню шапки. */
-function sideNav() {
-  return `<nav class="side">
+/* Значки меню — встроенный SVG, чтобы ни одного запроса за картинкой
+   не было. Фигура та же, что на карточке главной и на странице модели. */
+function figureSvg(w, h) {
+  return `<svg width="${w}" height="${h}" viewBox="0 0 44 64" aria-hidden="true" focusable="false"><g fill="currentColor"><circle cx="22" cy="9" r="7"/><rect x="14" y="18" width="16" height="24" rx="7"/><rect x="5" y="20" width="7" height="20" rx="3.5"/><rect x="32" y="20" width="7" height="20" rx="3.5"/><rect x="15" y="40" width="6.5" height="22" rx="3.2"/><rect x="22.5" y="40" width="6.5" height="22" rx="3.2"/></g></svg>`;
+}
+
+function listSvg(w, h) {
+  return `<svg width="${w}" height="${h}" viewBox="0 0 40 58" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="8" y1="12" x2="32" y2="12"/><line x1="8" y1="22" x2="32" y2="22"/><line x1="8" y1="32" x2="32" y2="32"/><line x1="8" y1="42" x2="26" y2="42"/></g></svg>`;
+}
+
+/* Названия областей в пункте «в списке» — набросок оглавления, а не ссылки:
+   берутся из самой базы, чтобы не разойтись с ней. */
+function zoneChips(zones) {
+  return `<span class="zone-sketch" aria-hidden="true">${zones.map(z => `<span>${esc(z.name)}</span>`).join("")}</span>`;
+}
+
+/* Левая колонка: четыре карточки, прилипает при прокрутке средствами CSS,
+   без JavaScript. Ниже 1200 точек скрыта — там те же ссылки лежат в шапке. */
+function sideNav(path, zones) {
+  const N = T.nav;
+  return `<nav class="side" aria-label="${attr(T.menu)}">
     <div class="side-inner">
-      ${navLinks()}
+      <a class="nav-item nav-primary" href="/vybor/"${current("/vybor/", path)}>
+        <span class="fig">${figureSvg(44, 64)}</span>
+        <span>
+          <span class="t">${esc(T.navChoose)}</span>
+          <span class="s">${esc(N.chooseSub)} <span class="soon">${esc(N.soon)}</span></span>
+        </span>
+      </a>
+      <a class="nav-item" href="/oblasti/"${current("/oblasti/", path)}>
+        <span class="t">${esc(T.navZones)}</span>
+        <span class="s">${esc(N.zonesSub)}</span>
+        ${zoneChips(zones)}
+      </a>
+      <a class="nav-item nav-plain" href="/ukazatel/"${current("/ukazatel/", path)}>
+        <span><span class="t">${esc(T.navIndex)}</span>
+          <span class="s">${esc(N.indexSub)}</span></span>
+        <span class="chev" aria-hidden="true">→</span>
+      </a>
+      <div class="nav-item hub">
+        <a class="hub-head" href="/o-spravochnike/"${current("/o-spravochnike/", path)}>
+          <span class="t">${esc(T.navAbout)}</span>
+          <span class="s">${esc(N.aboutSub)}</span>
+        </a>
+        <span class="sub">
+        ${hubLinks(path)}
+        </span>
+      </div>
     </div>
   </nav>`;
 }
@@ -105,7 +166,7 @@ function topSearch() {
     </div>`;
 }
 
-function header() {
+function header(path) {
   return `<header class="top">
     <a class="skip" href="#main">${esc(T.skipToContent)}</a>
     <div class="brandbox">
@@ -113,10 +174,10 @@ function header() {
       <a class="homelink" href="/">${esc(T.homeLink)}</a>
     </div>
     ${topSearch()}
-    ${nav("topnav topnav-wide")}
+    ${nav("topnav topnav-wide", path)}
     <details class="topmenu">
       <summary>${esc(T.menu)}</summary>
-      ${nav("topnav topnav-narrow")}
+      ${nav("topnav topnav-narrow", path)}
     </details>
   </header>`;
 }
@@ -146,10 +207,18 @@ function footer(updated, path) {
         <p><strong>${esc(cfg.siteName)} — ${esc(f.lead)}</strong></p>
         <p>${esc(f.body)}</p>
         <p>${esc(f.sources)} ${esc(f.updatedPrefix)} ${esc(dateRu(updated))}</p>
+        ${/* Обратная связь — про ошибки на сайте, не про самочувствие.
+             Просьба не описывать своё состояние стоит на странице
+             «О справочнике» и в соглашении, здесь её не повторяем. */ ""}
+        <div class="contactbox">
+          <p class="h">${esc(f.contactTitle)}</p>
+          <p class="m">${esc(f.contactBody)} <a href="mailto:${attr(cfg.errorMail)}">${esc(cfg.errorMail)}</a></p>
+        </div>
       </div>
       <div class="footcol">
         <p class="tel">${esc(f.emergency)}</p>
         <p>${esc(f.ownerPrefix)} ${esc(cfg.owner.name)}. ${esc(f.mailPrefix)} <a href="mailto:${attr(cfg.owner.mail)}">${esc(cfg.owner.mail)}</a></p>
+        <p class="footlinks"><a href="/soglashenie/">${esc(T.navTerms)}</a></p>
         ${/* Отдельной неприметной строкой и внизу: ни в шапке, ни в меню её нет. */ ""}
         <p class="age">${esc(f.age)}</p>
         ${showSupport(path) ? `<p class="footsupport"><a href="/podderzhat/">${esc(T.navSupport)}</a></p>` : ""}
@@ -168,15 +237,18 @@ function page({ title, description, path, body, rail, updated, bodyClass, ogType
      не зависит: индекс он грузит сам и только по первому нажатию клавиши. */
   const js = [A.poisk.url].concat(scripts && scripts.length ? scripts : script ? [script] : []);
   const canonical = cfg.origin.replace(/\/$/, "") + path;
+  /* Области для наброска в меню берутся из базы здесь, а не при загрузке
+     модуля: data.js тяжёлый, а каркас нужен и тем, кто его не читает. */
+  const zones = require("./data").map.zones;
   return `<!doctype html>
 <html lang="ru">
 <head>
   ${head({ title, description, canonical, ogType })}
 </head>
 <body${bodyClass ? ` class="${attr(bodyClass)}"` : ""}>
-${header()}
+${header(path)}
 <div class="layout">
-${sideNav()}
+${sideNav(path, zones)}
 <main id="main">
 ${body}
 </main>
@@ -189,4 +261,4 @@ ${js.map(src => `<script src="${attr(src)}" defer></script>`).join("\n")}
 `;
 }
 
-module.exports = { page, esc, attr, dateRu };
+module.exports = { page, esc, attr, dateRu, hubLinks, figureSvg, listSvg, zoneChips };

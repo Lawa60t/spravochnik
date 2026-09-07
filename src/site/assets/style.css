@@ -1,30 +1,44 @@
 /* Один файл, лежит в проекте. Ни одного запроса на чужой домен:
    шрифты системные, иконок-картинок нет, скриптов нет. */
 
+/* Палитра: спокойный тёмно-бирюзовый акцент, тёплый светлый фон, карточки
+   с мягкими углами. Тревога остаётся красноватой и на акцент не завязана:
+   у неё свои переменные, иначе блок «сначала позвоните» стал бы того же
+   цвета, что и ссылки, и перестал бы читаться как тревога. */
 :root {
-  --bg: #fbfaf7;
+  --bg: #f5f4f1;
   --card: #ffffff;
-  --ink: #1b1a18;
-  --ink-2: #4a4742;
-  --ink-3: #78736b;
-  --line: #e2ded5;
-  --accent: #7a3b2e;
+  --ink: #20211f;
+  --ink-2: #4a4c48;
+  --ink-3: #6b6f6a;
+  --line: #e4e2dc;
+  --accent: #1f7a70;
+  --accent-d: #175f57;
+  --wash: #eaf3f1;
+  --wash-line: #d6e7e3;
+  --alarm-ink: #a63d2c;
   --alarm-bg: #fdf3f1;
   --alarm-line: #e0bdb4;
-  --shadow: rgba(0, 0, 0, .12);
+  --shadow: rgba(31, 122, 112, .10);
+  --radius: 14px;
+  --radius-s: 9px;
   --measure: 38rem;
   --measure-wide: 38rem; /* ширина колонки текста на широком экране */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #171614;
-    --card: #201e1b;
-    --ink: #eae6df;
-    --ink-2: #b9b3a9;
-    --ink-3: #8d867b;
-    --line: #35322d;
-    --accent: #d99183;
+    --bg: #171817;
+    --card: #1f2120;
+    --ink: #e8e8e4;
+    --ink-2: #b8bab5;
+    --ink-3: #8d908b;
+    --line: #343735;
+    --accent: #6fc2b6;
+    --accent-d: #8fd3c9;
+    --wash: #1c2a28;
+    --wash-line: #2b3f3c;
+    --alarm-ink: #e0917f;
     --alarm-bg: #2a1f1c;
     --alarm-line: #5c3a32;
     --shadow: rgba(0, 0, 0, .5);
@@ -43,7 +57,7 @@ body {
   overflow-wrap: break-word;
 }
 
-a { color: var(--accent); text-underline-offset: 2px; }
+a { color: var(--accent-d); text-underline-offset: 2px; }
 a:hover { text-decoration: none; }
 
 h1, h2, h3 { line-height: 1.22; font-weight: 650; }
@@ -70,10 +84,14 @@ p { margin: 0 0 .9rem; }
   line-height: 1.1;
 }
 /* Отдельная ссылка «На главную»: логотип как ссылка очевиден не всем. */
-.homelink { font-size: .9rem; color: var(--accent); }
+.homelink { font-size: .9rem; color: var(--accent-d); }
 
-.topnav { display: flex; gap: 1rem; font-size: .95rem; flex-wrap: wrap; }
-.topnav a { color: var(--ink-2); }
+.topnav { display: flex; gap: .2rem 1rem; font-size: .95rem; flex-wrap: wrap; align-items: center; }
+.topnav a { color: var(--ink-2); text-decoration: none; padding: .3rem 0; }
+.topnav a:hover, .topnav a[aria-current] { color: var(--accent-d); text-decoration: underline; }
+/* Ссылки хаба в строке шапки не показываются: строка и без них длинная,
+   а сами страницы открываются из хаба «О справочнике» и из подвала. */
+.topnav-wide .topnav-group { display: none; }
 
 /* Меню на <details>: открывается без JavaScript. */
 .topmenu { position: relative; }
@@ -81,24 +99,32 @@ p { margin: 0 0 .9rem; }
   cursor: pointer;
   min-height: 44px;
   display: inline-flex; align-items: center; gap: .4rem;
-  padding: .4rem .7rem;
+  padding: .4rem .8rem;
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: var(--radius-s);
   font-size: .95rem;
+  background: var(--card);
 }
 .topmenu[open] > summary { border-color: var(--accent); }
 .topmenu .topnav-narrow {
   position: absolute; right: 0; z-index: 5;
-  flex-direction: column; gap: 0;
-  min-width: 13rem;
+  flex-direction: column; gap: 0; align-items: stretch;
+  min-width: 16rem;
   margin-top: .4rem;
   padding: .3rem 0;
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: var(--radius);
   box-shadow: 0 6px 20px var(--shadow);
 }
-.topmenu .topnav-narrow a { padding: .6rem .9rem; min-height: 44px; display: flex; align-items: center; }
+.topmenu .topnav-narrow a { padding: .6rem 1rem; min-height: 44px; display: flex; align-items: center; }
+/* Ссылки хаба в выпадающем меню — отдельной группой, мельче и с отступом. */
+.topnav-narrow .topnav-group {
+  display: flex; flex-direction: column;
+  border-top: 1px solid var(--line);
+  margin-top: .3rem; padding-top: .3rem;
+}
+.topnav-narrow .topnav-sub { font-size: .88rem; color: var(--ink-3); padding-left: 1.6rem; }
 
 /* Широкий экран показывает разделы строкой, узкий — только меню. */
 .topnav-wide { display: none; }
@@ -171,15 +197,8 @@ main {
     margin-left: auto;
     display: flex;
     flex-direction: column;
-    gap: .1rem;
+    gap: .6rem;
   }
-  .side-inner a {
-    color: var(--ink-2);
-    padding: .5rem .6rem;
-    border-radius: 3px;
-    text-decoration: none;
-  }
-  .side-inner a:hover { background: var(--card); text-decoration: underline; }
 
   main { max-width: none; margin: 0; padding: 2rem 0 4rem; }
   .page-ukazatel main { max-width: none; }
@@ -207,6 +226,79 @@ main {
   }
   .rail .refine { border-top: 0; padding-top: 0; }
 }
+
+/* ---------- карточки левого меню ----------
+   Четыре карточки: у каждой название и подпись, у первой — фигура,
+   у второй — набросок оглавления, у хаба — пять ссылок на служебные
+   страницы. Всё встроено в разметку, картинок нет. */
+.nav-item {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: .8rem .95rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+a.nav-item:hover, a.nav-item:focus-visible, .hub-head:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 10px var(--shadow);
+  text-decoration: none;
+}
+a.nav-item[aria-current] { border-color: var(--accent); }
+.nav-item .t { display: block; font-weight: 600; font-size: .95rem; line-height: 1.3; }
+.nav-item .s { display: block; color: var(--ink-3); font-size: .8rem; line-height: 1.4; margin-top: .15rem; }
+.nav-primary { display: flex; gap: .75rem; align-items: center; }
+.nav-primary .fig { flex: 0 0 44px; color: var(--accent); display: block; line-height: 0; }
+.nav-plain { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }
+.nav-plain .chev { color: var(--ink-3); font-size: 1.1rem; }
+
+/* Набросок оглавления: названия областей плашками. Это картинка словами,
+   а не ссылки — вся карточка целиком одна ссылка на список. */
+.zone-sketch { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .55rem; }
+.zone-sketch span {
+  font-size: .72rem; line-height: 1.5;
+  color: var(--accent-d); background: var(--wash);
+  border-radius: 20px; padding: .1rem .55rem;
+  white-space: nowrap;
+}
+
+/* Пометка «скоро» — у того, чего на сайте ещё нет. */
+.soon {
+  display: inline-block;
+  font-size: .68rem; line-height: 1.5; font-weight: 600;
+  color: var(--card); background: var(--accent);
+  border-radius: 6px; padding: 0 .45rem;
+  margin-left: .25rem; vertical-align: middle;
+  letter-spacing: .02em;
+}
+
+/* Хаб: заливка мягче, чем у карточек, внутри заголовок-ссылка и пять ссылок. */
+.hub { background: var(--wash); border-color: var(--wash-line); padding: 0 0 .5rem; }
+.hub-head {
+  display: block;
+  padding: .8rem .95rem .5rem;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.hub-head:hover .t { text-decoration: underline; }
+.hub .sub { display: flex; flex-direction: column; padding: 0 .6rem 0 .95rem; }
+.hub .sub a {
+  display: flex; align-items: baseline;
+  min-height: 44px;
+  font-size: .85rem; line-height: 1.3;
+  color: var(--accent-d);
+  text-decoration: none;
+  padding: .3rem 0;
+  border-top: 1px solid var(--wash-line);
+}
+.hub .sub a:first-child { border-top: 0; }
+.hub .sub a::before { content: "— "; color: var(--ink-3); white-space: pre; }
+.hub .sub a:hover, .hub .sub a[aria-current] { text-decoration: underline; }
+.hub .sub a[aria-current] { color: var(--ink); }
 
 /* ---------- подвал ----------
    Подвал повторяет сетку страницы. Отступы отданы обёртке .bottom-inner,
@@ -247,9 +339,26 @@ main {
 .service h2:first-of-type { margin-top: 1.2rem; }
 .bottom .age {
   display: inline-block; border: 1px solid var(--line);
-  padding: .05rem .4rem; border-radius: 3px; font-size: .8rem;
+  padding: .05rem .4rem; border-radius: 6px; font-size: .8rem;
   margin-top: .7rem;
 }
+/* Обратная связь: пунктирная рамка, заливка фоном страницы — заметно,
+   но тише основного текста подвала. Про сайт, а не про самочувствие. */
+.contactbox {
+  border: 1px dashed var(--ink-3);
+  border-radius: 12px;
+  padding: .7rem .9rem;
+  background: var(--bg);
+  margin-top: .9rem;
+}
+.contactbox .h {
+  font-size: .72rem; color: var(--ink-3);
+  text-transform: uppercase; letter-spacing: .06em;
+  margin-bottom: .15rem;
+}
+.contactbox .m { font-size: .95rem; color: var(--ink); margin: 0; }
+.contactbox .m a { font-weight: 600; }
+.footlinks { margin-top: .35rem; }
 
 /* От 1200 подвал встаёт на ту же сетку, что и .layout, а обёртка попадает
    в колонку текста: левый край подвала и левый край статьи — одна линия.
@@ -312,6 +421,7 @@ main {
 .plaque {
   border: 1px solid var(--line);
   border-left: 3px solid var(--accent);
+  border-radius: var(--radius-s);
   background: var(--card);
   padding: .7rem .9rem;
   font-size: .88rem; line-height: 1.5;
@@ -357,7 +467,7 @@ ul.sources { margin: 0 0 1rem; padding-left: 1.1rem; font-size: .92rem; }
    в настоящем случае. Подсветка появляется, только когда человек его раскрыл. */
 details.block.rare {
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: var(--radius-s);
   padding: 0 1rem;
   margin-top: 2rem;
 }
@@ -402,7 +512,7 @@ ul.conditions li a { font-weight: 600; margin-right: .5rem; }
 .cols { columns: 2 15rem; column-gap: 2.2rem; margin-bottom: 2rem; }
 .letter { break-inside: avoid; margin-bottom: 1rem; }
 .letter h3 {
-  margin: 0 0 .2rem; color: var(--accent);
+  margin: 0 0 .2rem; color: var(--accent-d);
   border-bottom: 1px solid var(--line);
 }
 ul.index { list-style: none; padding: 0; margin: 0; font-size: .95rem; }
@@ -410,31 +520,56 @@ ul.index li { padding: .12rem 0; }
 ul.index li.ref { color: var(--ink-3); }
 .aka { display: block; font-size: .82rem; color: var(--ink-3); }
 
-/* ---------- главная ---------- */
-.entry {
+/* ---------- главная ----------
+   Одна карточка: заголовок, два коротких абзаца, две карточки-входа
+   и строка предупреждения под ними. Полный текст предупреждения —
+   на странице «О справочнике» и в подвале. */
+.hello {
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 1.4rem 1.25rem .9rem;
+  border-radius: 18px;
+  padding: 1.5rem 1.4rem 1.2rem;
 }
-.entry h1 { font-size: 1.5rem; margin-bottom: .6rem; }
-/* Отступы между абзацами уплотнены, межстрочный интервал не тронут:
-   читаемость строки важнее числа экранов. */
-.entry p { margin-bottom: .55rem; }
-.entry ul.dashed { margin-bottom: .55rem; }
+.hello h1 { font-size: 1.7rem; margin-bottom: .5rem; }
+.hello h1 .tagline { font-weight: 500; color: var(--ink-2); }
+.hello .lead { margin-bottom: .4rem; max-width: 60ch; }
 
-/* Полоса с кнопкой прилипает к низу экрана, пока входной текст на виду. */
-.entry-cta {
-  position: sticky;
-  bottom: 0;
-  z-index: 3;
-  margin: .9rem -1.25rem 0;
-  padding: .8rem 1.25rem .5rem;
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .9rem;
+  margin: 1.2rem 0 .9rem;
+}
+@media (max-width: 34rem) { .cards { grid-template-columns: 1fr; } }
+.card {
+  display: flex; gap: .85rem; align-items: flex-start;
   background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1.05rem;
+  color: var(--ink);
+  text-decoration: none;
+  min-height: 44px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.card:hover, .card:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 3px 14px var(--shadow);
+  text-decoration: none;
+}
+.card .icon { flex: 0 0 auto; color: var(--accent); line-height: 0; }
+.card .ct { display: block; font-weight: 600; font-size: 1.05rem; line-height: 1.3; }
+.card .cs { display: block; color: var(--ink-3); font-size: .85rem; line-height: 1.4; margin-top: .2rem; }
+.card:hover .ct { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Строка предупреждения под карточками: спокойная, отделена линией. */
+.hello-note {
+  font-size: .85rem; color: var(--ink-3);
+  margin: 0; padding-top: .8rem;
   border-top: 1px solid var(--line);
 }
-.entry-cta .note { margin: .5rem 0 0; }
-/* Перечни входного экрана: тире вместо маркера, как в исходном тексте. */
+
+/* Перечни: тире вместо маркера, как в исходном тексте предупреждения. */
 ul.dashed { list-style: none; padding-left: .2rem; margin: 0 0 .9rem; }
 ul.dashed li { padding-left: 1.1rem; text-indent: -1.1rem; margin-bottom: .3rem; }
 ul.dashed li::before { content: "— "; }
@@ -442,14 +577,15 @@ ul.dashed li::before { content: "— "; }
 .button {
   display: inline-block;
   background: var(--accent);
-  color: var(--bg);
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
-  padding: .6rem 1.1rem;
-  border-radius: 3px;
+  padding: .6rem 1.2rem;
+  border-radius: var(--radius-s);
   min-height: 44px;
   line-height: 1.9;
 }
+.button:hover { background: var(--accent-d); }
 /* Счётчики — одна мелкая строка. Крупные цифры обещали витрину,
    а это всего лишь справка об объёме. */
 .counts {
@@ -457,6 +593,28 @@ ul.dashed li::before { content: "— "; }
   color: var(--ink-3);
   margin: .2rem 0 .55rem;
 }
+
+/* ---------- хаб на странице «О справочнике» ---------- */
+.hubnav {
+  display: flex; flex-direction: column;
+  background: var(--wash);
+  border: 1px solid var(--wash-line);
+  border-radius: var(--radius);
+  padding: .3rem 1rem;
+  margin: .8rem 0 1.6rem;
+}
+.hubnav a {
+  display: flex; align-items: baseline;
+  min-height: 44px;
+  padding: .35rem 0;
+  border-top: 1px solid var(--wash-line);
+  text-decoration: none;
+  color: var(--accent-d);
+}
+.hubnav a:first-child { border-top: 0; }
+.hubnav a::before { content: "— "; color: var(--ink-3); white-space: pre; }
+.hubnav a:hover { text-decoration: underline; }
+.hubnav a[aria-current] { color: var(--ink); font-weight: 600; }
 
 /* ---------- области ---------- */
 .zonelist .count {
@@ -485,7 +643,7 @@ ul.dashed li::before { content: "— "; }
   color: var(--ink);
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: var(--radius-s);
 }
 .poisk-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 .poisk-status { font-size: .85rem; color: var(--ink-3); margin: .4rem 0 0; min-height: 1.2em; }
@@ -511,12 +669,12 @@ ul.dashed li::before { content: "— "; }
 .poisk-top-input {
   width: 100%;
   min-height: 44px;
-  padding: .5rem .7rem;
+  padding: .5rem .8rem;
   font: inherit;
   color: var(--ink);
   background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: var(--radius-s);
 }
 .poisk-top-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 
@@ -528,7 +686,7 @@ ul.dashed li::before { content: "— "; }
   list-style: none;
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: var(--radius-s);
   box-shadow: 0 6px 20px var(--shadow);
   max-height: 60vh; overflow-y: auto;
 }
@@ -567,7 +725,7 @@ ul.dashed li::before { content: "— "; }
   color: var(--ink);
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: var(--radius-s);
   padding: .65rem .85rem;
   min-height: 44px;
   cursor: pointer;
@@ -583,7 +741,7 @@ ul.dashed li::before { content: "— "; }
   font: inherit;
   padding: .5rem .9rem;
   min-height: 44px;
-  border-radius: 3px;
+  border-radius: var(--radius-s);
   border: 1px solid var(--line);
   background: var(--card);
   color: var(--ink);
@@ -601,22 +759,23 @@ ul.dashed li::before { content: "— "; }
   font: inherit;
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: var(--radius-s);
   padding: .8rem .9rem;
   margin: 0 0 .8rem;
 }
 
 /* Тревога заметна, но появляется редко — постоянный тревожный фон
-   перестают замечать, и тогда он не сработает в настоящем случае. */
+   перестают замечать, и тогда он не сработает в настоящем случае.
+   Цвет у неё свой, не акцентный: тревога не должна выглядеть как ссылка. */
 .alarm {
   margin-top: 1.6rem;
   background: var(--alarm-bg);
   border: 1px solid var(--alarm-line);
-  border-left: 4px solid var(--accent);
-  border-radius: 4px;
+  border-left: 4px solid var(--alarm-ink);
+  border-radius: var(--radius-s);
   padding: 1rem 1.1rem .6rem;
 }
-.alarm h2 { margin-top: 0; color: var(--accent); }
+.alarm h2 { margin-top: 0; color: var(--alarm-ink); }
 .alarm ul { padding-left: 1.1rem; }
 .alarm li { margin-bottom: .4rem; }
 .alarm .phone {
@@ -626,32 +785,15 @@ ul.dashed li::before { content: "— "; }
   margin: .6rem 0;
 }
 
-.profil {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 1.2rem 1.25rem .9rem;
-}
-.profil h2 { margin-top: 0; font-size: 1.15rem; }
-.profil h2 + .choices, .profil h2 ~ h2 { margin-top: 0; }
-.profil h2:not(:first-child) { margin-top: 1.6rem; }
-.choices.row { flex-direction: row; flex-wrap: wrap; }
-.choices.row button { flex: 1 1 8rem; text-align: center; }
-.choices button[aria-pressed="true"] {
-  border-color: var(--accent);
-  box-shadow: inset 0 0 0 1px var(--accent);
-  font-weight: 600;
-}
-.checkline { margin: .5rem 0 .2rem; }
-.checkline label { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; cursor: pointer; }
-
-/* ---------- развилка ----------
+/* ---------- вход «на модели» ----------
    Цвета только из переменных: блок должен быть чистым, а не белым.
-   Литеральный #fff светился белым прямоугольником посреди тёмной страницы. */
+   Литеральный #fff светился белым прямоугольником посреди тёмной страницы.
+   Слева фигура-заглушка и слово о том, чего ждать; справа — тот же вход
+   в оглавление словами, целиком одна ссылка. */
 .fork {
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: var(--radius);
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
@@ -665,19 +807,17 @@ ul.dashed li::before { content: "— "; }
   .fork-half { min-height: 0; }
   .fork-half + .fork-half { border-left: 0; border-top: 1px solid var(--line); }
 }
-.fork h2 { margin: 0 0 .6rem; font-size: 1.1rem; color: var(--ink); }
-.fork-off { background: var(--card); }
-.fork-off h2 { color: var(--ink-3); }
-.fork-soon { color: var(--ink-3); font-size: .92rem; margin: 0; }
-.fork-on { display: block; text-decoration: none; background: var(--card); }
-.fork-on:hover { background: var(--bg); }
-.fork-on h2 { text-decoration: underline; text-underline-offset: 3px; }
-.fork-list {
-  list-style: none; padding: 0; margin: 0;
-  color: var(--ink-3); font-size: .9rem; line-height: 1.5;
-}
+.fork h2 { margin: 0 0 .4rem; font-size: 1.1rem; color: var(--ink); }
+.fork-off { background: var(--card); display: flex; flex-direction: column; align-items: center; text-align: center; gap: .8rem; }
+.fork-fig { display: block; color: var(--accent); opacity: .55; line-height: 0; }
+.fork-soon { color: var(--ink-3); font-size: .92rem; margin: 0; max-width: 24ch; }
+.fork-note { color: var(--ink-3); font-size: .88rem; margin: 0 0 .6rem; }
+.fork-on { display: block; text-decoration: none; background: var(--card); color: var(--ink); }
+.fork-on:hover { background: var(--wash); }
+.fork-on h2 { text-decoration: underline; text-underline-offset: 3px; color: var(--accent-d); }
+.fork-on .zone-sketch span { font-size: .8rem; }
 
 /* ---------- простые страницы ---------- */
 .plain ul.big { padding-left: 1.1rem; }
 .plain ul.big li { margin-bottom: .45rem; }
-.alarmish h1 { color: var(--accent); }
+.alarmish h1 { color: var(--alarm-ink); }
