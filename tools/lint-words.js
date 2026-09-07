@@ -69,7 +69,7 @@ const TITLE_OVERHEAD = 32;
 
 /* Чужие домены, на которые разрешено ссылаться. Только адреса перехода:
    загружать с них что-либо нельзя всё равно. Список ведётся вручную. */
-const EXTERNAL_LINKS = ["pay.cloudtips.ru"];
+const EXTERNAL_LINKS = ["pay.cloudtips.ru", "cr.minzdrav.gov.ru"];
 
 /* Примерно столько показывает поисковик, дальше обрезает. */
 const TITLE_DISPLAY = 60;
