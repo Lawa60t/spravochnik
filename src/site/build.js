@@ -228,6 +228,11 @@ function build() {
     assetUrls.add(a.url);
   });
 
+  ["favicon.svg", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png"].forEach(fn => {
+    fs.copyFileSync(path.join(__dirname, "assets", fn), path.join(dist, fn));
+    assetUrls.add("/" + fn);
+  });
+
   /* Индекс поиска в шапке. Отдельным файлом и с отпечатком: он нужен всем
      страницам, но грузится только тому, кто начал набирать. */
   fs.writeFileSync(path.join(dist, POISK.file), POISK.content, "utf8");
