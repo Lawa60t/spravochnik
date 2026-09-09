@@ -210,27 +210,24 @@
     var box = slot("blocks");
     box.textContent = "";
 
-    /* Заголовки блоков заданы движком и должны совпадать с тем, что видит человек.
+    /* Заголовки и порядок блоков заданы движком (present) и должны совпадать
+       с тем, что видит человек: здесь ключи перебираются как есть.
        Исключение одно: когда «часто» выродилось в ноль или одну строку, оба
        блока сливаются в один список без заголовка. Заголовок над единственной
        строкой читается как поломка вёрстки, а называть слитый список «часто»
-       было бы неправдой — в нём и редкие. Порядок и так объяснён выше. */
+       было бы неправдой — в нём и редкие. Слитый список встаёт на место
+       «часто», а не в конец: порядок движка при этом не нарушается. */
     var titles = Object.keys(res.blocks);
     var often = res.blocks["Встречается часто"] || [];
     var seldom = res.blocks["Встречается реже"] || [];
-    var groups;
+    var merge = often.length <= 1 && often.length + seldom.length > 0;
+    var groups = [];
 
-    if (often.length <= 1 && often.length + seldom.length > 0) {
-      groups = [];
-      titles.forEach(function (t) {
-        if (t !== "Встречается часто" && t !== "Встречается реже") {
-          groups.push({ title: t, items: res.blocks[t] });
-        }
-      });
-      groups.push({ title: null, items: often.concat(seldom) });
-    } else {
-      groups = titles.map(function (t) { return { title: t, items: res.blocks[t] }; });
-    }
+    titles.forEach(function (t) {
+      if (merge && t === "Встречается часто") groups.push({ title: null, items: often.concat(seldom) });
+      else if (merge && t === "Встречается реже") return;
+      else groups.push({ title: t, items: res.blocks[t] });
+    });
 
     groups.forEach(function (g) {
       var items = g.items;
