@@ -445,6 +445,35 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   margin-bottom: 1.6rem;
 }
 
+/* ---------- красная плашка: emergency ----------
+   Заметнее справочной плашки и в цветах тревоги, не акцента: та же логика,
+   что у блока «сначала позвоните» в уточнении. Появляется только у статей
+   с emergency: true — иначе её перестают замечать. */
+.emergency {
+  background: var(--alarm-bg);
+  border: 2px solid var(--alarm-ink);
+  border-radius: var(--radius-s);
+  padding: 1rem 1.1rem .4rem;
+  margin: 0 0 1.2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.emergency-title {
+  color: var(--alarm-ink);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: .4rem;
+}
+.emergency p:last-child { margin-bottom: .6rem; }
+
+/* ---------- подробная статья: detail ----------
+   Ширина колонки задана снаружи (--measure), здесь только ритм: заголовок
+   ближе к своему абзацу, чем к предыдущему; между абзацами — полный интервал. */
+.detail { margin-top: 2.2rem; border-top: 1px solid var(--line); padding-top: .6rem; }
+.detail h2 { font-size: 1.15rem; margin: 1.7rem 0 .5rem; }
+.detail h2:first-child { margin-top: .9rem; }
+.detail p { margin: 0 0 1.05rem; line-height: 1.65; }
+
 /* ---------- статья ---------- */
 .condition .icd { margin-bottom: .8rem; }
 .alt, .limits { font-size: .92rem; color: var(--ink-2); margin: 0 0 .5rem; }

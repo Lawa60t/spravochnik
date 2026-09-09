@@ -40,6 +40,17 @@
         "ageMin":  { "type": "integer", "minimum": 0 },
         "ageMax":  { "type": "integer", "maximum": 120 },
         "ageStrict": { "type": "boolean", "description": "Возрастная граница определяющая, а не статистическая: вне неё состояние невозможно, и движок исключает его как sexOnly. Без флага выход за границу — только −3" },
+        "detail": {
+          "type": "array",
+          "description": "Подробная статья блоками: заголовок + абзац. Короткие поля what/who/urgent/doctor/tests остаются — они нужны спискам разделов",
+          "items": {
+            "type": "object",
+            "required": ["h", "p"],
+            "additionalProperties": false,
+            "properties": { "h": { "type": "string" }, "p": { "type": "string" } }
+          }
+        },
+        "emergency": { "type": "boolean", "description": "Требует немедленной помощи, счёт на часы. НЕ то же самое, что redflag: redflag — место в блоке «редко, но важно», emergency — красная плашка на самой статье" },
         "sources": {
           "type": "array", "minItems": 1,
           "description": "Откуда взято. Минимум один источник, иначе статья не публикуется",

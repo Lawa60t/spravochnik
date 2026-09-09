@@ -47,12 +47,36 @@ function inSections(c) {
   </section>`;
 }
 
+/* Красная плашка. Только при emergency: true — это отдельная пометка,
+   не redflag. redflag решает место в блоке «редко, но важно», emergency —
+   что счёт идёт на часы. Ставить её шире нельзя: постоянный тревожный фон
+   перестают замечать, и тогда он не сработает в настоящем случае. */
+function emergency(c) {
+  if (c.emergency !== true) return "";
+  const E = T.condition;
+  return `<aside class="emergency" role="alert">
+    <p class="emergency-title">${esc(E.emergencyTitle)}</p>
+    <p>${esc(E.emergencyBody)}</p>
+  </aside>`;
+}
+
+/* Подробная статья блоками: заголовок и абзац. Идёт после коротких полей
+   и до источников. Короткие поля остаются как есть — из них собираются
+   строки-описания в списках разделов, подробный текст их не заменяет. */
+function detail(c) {
+  if (!Array.isArray(c.detail) || !c.detail.length) return "";
+  return `<section class="detail">
+    ${c.detail.map(b => `<h2>${esc(b.h)}</h2>\n    <p>${esc(b.p)}</p>`).join("\n    ")}
+  </section>`;
+}
+
 module.exports = function conditionPage(c, updated) {
   const m = meta.condition(c);
   const lim = limits(c);
   const mailSubject = `Ошибка в справочнике: ${D.conditionPath(c.id)}`;
 
   const body = `<article class="condition">
+  ${emergency(c)}
   <p class="plaque">${esc(T.plaque)}</p>
 
   <h1>${esc(c.name)}</h1>
@@ -72,6 +96,7 @@ module.exports = function conditionPage(c, updated) {
     ${row(T.condition.tests, c.tests)}
   </dl>
 
+  ${detail(c)}
 </article>`;
 
   /* Правая колонка: то, что и раньше лежало под текстом. Разметка не
