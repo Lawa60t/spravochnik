@@ -19,7 +19,7 @@ function content(s) {
     .map(c => ({
       /* поля движка */
       id: c.id, name: c.name, redflag: !!c.redflag,
-      sexOnly: c.sexOnly, ageMin: c.ageMin, ageMax: c.ageMax,
+      sexOnly: c.sexOnly, ageMin: c.ageMin, ageMax: c.ageMax, ageStrict: c.ageStrict,
       /* поля показа */
       icd: c.icd,
       path: D.conditionPath(c.id),

@@ -94,8 +94,15 @@ function rank(syndromeId, input) {
 
     /* поправки на пол и возраст из самой статьи */
     if (c.sexOnly && c.sexOnly !== sex) v = -99;
-    if (c.ageMin !== undefined && age < c.ageMin) v -= 3;
-    if (c.ageMax !== undefined && age > c.ageMax) v -= 3;
+    /* Возраст только известный: на «не знаю» ничего не вычитается и ничего
+       не исключается. Жёсткая граница (ageStrict) исключает так же, как пол:
+       фебрильные судороги у детей у сорокалетнего невозможны, а не редки.
+       Мягкая — прежние −3: граница статистическая. */
+    if (age !== undefined) {
+      const outLow = c.ageMin !== undefined && age < c.ageMin;
+      const outHigh = c.ageMax !== undefined && age > c.ageMax;
+      if (outLow || outHigh) v = c.ageStrict ? -99 : v - 3;
+    }
 
     return { id: c.id, name: c.name, redflag: !!c.redflag, score: v, hits, against };
   })

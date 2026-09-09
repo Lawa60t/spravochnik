@@ -39,6 +39,7 @@
         "sexOnly": { "type": "string", "enum": ["m", "f"], "description": "Только для одного пола" },
         "ageMin":  { "type": "integer", "minimum": 0 },
         "ageMax":  { "type": "integer", "maximum": 120 },
+        "ageStrict": { "type": "boolean", "description": "Возрастная граница определяющая, а не статистическая: вне неё состояние невозможно, и движок исключает его как sexOnly. Без флага выход за границу — только −3" },
         "sources": {
           "type": "array", "minItems": 1,
           "description": "Откуда взято. Минимум один источник, иначе статья не публикуется",
