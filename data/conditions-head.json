@@ -49,7 +49,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-09"
     },
     {
       "id": "migraine",
@@ -93,7 +93,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "пульсирующая головная боль с тошнотой"
       ]
@@ -135,7 +135,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "пучковая головная боль",
         "приступы боли вокруг глаза"
@@ -186,7 +186,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "cervicogenic.headache",
@@ -226,7 +226,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-09",
       "alt": [
         "головная боль от шеи",
         "боль в голове из-за шеи"
@@ -279,7 +279,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-09"
     },
     {
       "id": "hypertension.crisis",
@@ -319,7 +319,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "гипертонический криз",
         "скачок давления",
@@ -369,7 +369,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "brain.tumor",
@@ -414,7 +414,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-09",
       "alt": [
         "опухоль мозга"
       ]
@@ -458,7 +458,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-09",
       "alt": [
         "тромбоз вен мозга",
         "тромбоз синусов мозга"
@@ -512,7 +512,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "удар",
         "перекосило лицо и отнялась рука"
@@ -562,7 +562,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-09"
     },
     {
       "id": "bells.palsy",
@@ -605,7 +605,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "trigeminal.neuralgia",
@@ -644,7 +644,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "прострелы в лице",
         "тройничный нерв"
@@ -691,7 +691,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-09"
     },
     {
       "id": "vestibular.neuritis",
@@ -730,7 +730,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "воспаление вестибулярного нерва",
         "сильное головокружение с тошнотой"
@@ -774,7 +774,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "приступы головокружения со снижением слуха"
       ]
@@ -816,7 +816,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "темнеет в глазах при вставании"
       ]
@@ -863,7 +863,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "малокровие",
         "низкий гемоглобин"
@@ -909,7 +909,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-09",
       "alt": [
         "упал сахар",
         "низкий сахар в крови"
@@ -954,7 +954,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "угорел",
         "отравление угаром"
@@ -998,7 +998,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "сотрясение мозга"
       ]
@@ -1042,7 +1042,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "кровоизлияние под оболочку мозга"
       ]
@@ -1089,7 +1089,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "приступ паники",
         "вегетативный криз"
@@ -1137,7 +1137,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "отит",
         "воспаление среднего уха",
@@ -1185,7 +1185,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "eustachitis",
@@ -1228,7 +1228,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "mastoiditis",
@@ -1269,7 +1269,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "воспаление за ухом"
       ]
@@ -1314,7 +1314,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-09",
       "alt": [
         "приступ глаукомы",
         "острая глаукома",
@@ -1360,7 +1360,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "отслоение сетчатки",
         "занавеска перед глазом"
@@ -1404,7 +1404,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "закупорка артерии сетчатки",
         "инфаркт глаза",
@@ -1449,7 +1449,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "воспаление зрительного нерва"
       ]
@@ -1495,7 +1495,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "conjunctivitis",
@@ -1535,7 +1535,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-09",
       "alt": [
         "красный глаз",
         "глаз загноился"
@@ -1578,7 +1578,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "пульпит",
         "воспаление нерва зуба",
@@ -1623,7 +1623,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27",
+      "updated": "2026-09-10",
       "alt": [
         "щёлкает челюсть",
         "дисфункция челюстного сустава",
@@ -1677,7 +1677,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-04"
+      "updated": "2026-09-10"
     },
     {
       "id": "acne",
@@ -1731,7 +1731,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-04"
+      "updated": "2026-09-10"
     },
     {
       "id": "seborrheic.dermatitis",
@@ -1785,7 +1785,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05"
+      "updated": "2026-09-10"
     },
     {
       "id": "warts",
@@ -1834,7 +1834,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05"
+      "updated": "2026-09-10"
     },
     {
       "id": "callus",
@@ -1886,7 +1886,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05"
+      "updated": "2026-09-10"
     },
     {
       "id": "vitiligo",
@@ -1931,7 +1931,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05"
+      "updated": "2026-09-10"
     },
     {
       "id": "myopia",
@@ -1977,7 +1977,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -2025,7 +2025,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -2071,7 +2071,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -2119,7 +2119,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -2168,7 +2168,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -2214,7 +2214,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -2262,7 +2262,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -2309,7 +2309,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -2357,7 +2357,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -2403,7 +2403,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -2449,7 +2449,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -2496,7 +2496,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -2543,7 +2543,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -2589,7 +2589,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -2637,7 +2637,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -2683,7 +2683,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -2727,7 +2727,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -2775,7 +2775,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -2823,7 +2823,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -2870,7 +2870,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -2917,7 +2917,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -2964,7 +2964,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -3011,7 +3011,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -3059,7 +3059,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -3106,7 +3106,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -3154,7 +3154,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -3200,7 +3200,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -3249,7 +3249,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-06",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -3297,7 +3297,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-06",
+      "updated": "2026-09-10",
       "redflag": false
     }
   ]

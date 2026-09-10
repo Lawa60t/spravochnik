@@ -45,7 +45,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "bph",
@@ -94,7 +94,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "prostate.cancer",
@@ -137,7 +137,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-09"
     },
     {
       "id": "bladder.cancer",
@@ -181,7 +181,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "kidney.cancer",
@@ -225,7 +225,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "glomerulonephritis",
@@ -268,7 +268,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "epididymitis",
@@ -312,7 +312,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "varicocele",
@@ -360,7 +360,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-09"
     },
     {
       "id": "hydrocele",
@@ -404,7 +404,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "miscarriage",
@@ -450,7 +450,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "placental.abruption",
@@ -501,7 +501,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "preeclampsia",
@@ -549,7 +549,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "hyperemesis",
@@ -594,7 +594,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-10"
     },
     {
       "id": "vaginitis",
@@ -643,7 +643,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-08-27"
+      "updated": "2026-09-09"
     },
     {
       "id": "genital.herpes",
@@ -688,7 +688,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -736,7 +736,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -784,7 +784,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -832,7 +832,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-05",
+      "updated": "2026-09-10",
       "redflag": true
     },
     {
@@ -881,7 +881,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-06",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -933,7 +933,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-06",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -985,7 +985,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-06",
+      "updated": "2026-09-10",
       "redflag": false
     },
     {
@@ -1033,7 +1033,7 @@
         }
       ],
       "status": "compiled",
-      "updated": "2026-09-06",
+      "updated": "2026-09-10",
       "redflag": false
     }
   ]
