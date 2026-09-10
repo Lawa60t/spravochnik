@@ -1,0 +1,1228 @@
+{
+  "appendicitis.acute": [
+    {
+      "title": "КР Минздрава РФ «Острый аппендицит у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/325_2"
+    }
+  ],
+  "perforated.ulcer": [
+    {
+      "title": "КР Минздрава РФ «Язвенная болезнь»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/277_2"
+    }
+  ],
+  "diverticulitis": [
+    {
+      "title": "КР Минздрава РФ «Дивертикулярная болезнь»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/179_3"
+    }
+  ],
+  "ectopic.pregnancy": [
+    {
+      "title": "КР Минздрава РФ «Внематочная (эктопическая) беременность»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/642_2"
+    }
+  ],
+  "endometriosis": [
+    {
+      "title": "КР Минздрава РФ «Эндометриоз»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/259_2"
+    }
+  ],
+  "pregnancy.early": [
+    {
+      "title": "КР Минздрава РФ «Нормальная беременность»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/288_2"
+    }
+  ],
+  "inguinal.hernia": [
+    {
+      "title": "КР Минздрава РФ «Паховая и бедренная грыжа»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/684_2"
+    }
+  ],
+  "strangulated.hernia": [
+    {
+      "title": "КР Минздрава РФ «Паховая и бедренная грыжа»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/684_2"
+    }
+  ],
+  "cystitis": [
+    {
+      "title": "КР Минздрава РФ «Цистит у женщин»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/14_3"
+    }
+  ],
+  "gastritis.acute": [
+    {
+      "title": "КР Минздрава РФ «Гастрит и дуоденит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/708_2"
+    }
+  ],
+  "ibs": [
+    {
+      "title": "КР Минздрава РФ «Синдром раздраженного кишечника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/892_1"
+    }
+  ],
+  "giardiasis": [
+    {
+      "title": "КР Минздрава РФ «Лямблиоз у детей и взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/839_1"
+    }
+  ],
+  "constipation.functional": [
+    {
+      "title": "КР Минздрава РФ «Запор»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/274_3"
+    }
+  ],
+  "hemorrhoids": [
+    {
+      "title": "КР Минздрава РФ «Геморрой»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/178_2"
+    }
+  ],
+  "anal.fissure": [
+    {
+      "title": "КР Минздрава РФ «Анальная трещина»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/172_3"
+    }
+  ],
+  "colon.polyp": [
+    {
+      "title": "КР Минздрава РФ «Полип толстой и прямой кишки»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/949_1"
+    }
+  ],
+  "diverticular.bleeding": [
+    {
+      "title": "КР Минздрава РФ «Дивертикулярная болезнь»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/179_3"
+    }
+  ],
+  "hepatitis.viral": [
+    {
+      "title": "КР Минздрава РФ «Хронический вирусный гепатит С»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/516_3"
+    }
+  ],
+  "cirrhosis": [
+    {
+      "title": "КР Минздрава РФ «Цирроз и фиброз печени»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/715_2"
+    }
+  ],
+  "choledocholithiasis": [
+    {
+      "title": "КР Минздрава РФ «Желчнокаменная болезнь»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/877_1"
+    }
+  ],
+  "pancreatic.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак поджелудочной железы»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/355_5"
+    }
+  ],
+  "dka": [
+    {
+      "title": "КР Минздрава РФ «Сахарный диабет 1 типа у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/286_3"
+    }
+  ],
+  "lumbago.nonspecific": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "disc.herniation.lumbar": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "lumbar.degenerative": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "spinal.stenosis": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "si.joint.dysfunction": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "cauda.equina": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "vertebral.fracture": [
+    {
+      "title": "КР Минздрава РФ «Патологические переломы, осложняющие остеопороз»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/614_3"
+    }
+  ],
+  "multiple.myeloma": [
+    {
+      "title": "КР Минздрава РФ «Множественная миелома»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/144_2"
+    }
+  ],
+  "renal.colic": [
+    {
+      "title": "КР Минздрава РФ «Мочекаменная болезнь»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/374_3"
+    }
+  ],
+  "pyelonephritis.acute": [
+    {
+      "title": "КР Минздрава РФ «Острый пиелонефрит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/9_3"
+    }
+  ],
+  "aortic.aneurysm": [
+    {
+      "title": "КР Минздрава РФ «Аневризмы брюшной аорты»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/53_2"
+    }
+  ],
+  "aortic.dissection": [
+    {
+      "title": "КР Минздрава РФ «Расслоение аорты»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/946_1"
+    }
+  ],
+  "pancreatitis.acute": [
+    {
+      "title": "КР Минздрава РФ «Острый панкреатит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/903_1"
+    }
+  ],
+  "cholelithiasis.colic": [
+    {
+      "title": "КР Минздрава РФ «Желчнокаменная болезнь»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/877_1"
+    }
+  ],
+  "cholecystitis.acute": [
+    {
+      "title": "КР Минздрава РФ «Холецистит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/819_1"
+    }
+  ],
+  "myocardial.infarction": [
+    {
+      "title": "КР Минздрава РФ «Острый инфаркт миокарда с подъемом сегмента ST электрокардиограммы»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/157_5"
+    }
+  ],
+  "pneumonia": [
+    {
+      "title": "КР Минздрава РФ «Внебольничная пневмония у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/654_2"
+    }
+  ],
+  "peptic.ulcer": [
+    {
+      "title": "КР Минздрава РФ «Язвенная болезнь»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/277_2"
+    }
+  ],
+  "thoracic.myofascial": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "thoracic.degenerative": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "coccydynia": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "pilonidal.disease": [
+    {
+      "title": "КР Минздрава РФ «Эпителиальный копчиковый ход»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/972_1"
+    }
+  ],
+  "angina.stable": [
+    {
+      "title": "КР Минздрава РФ «Стабильная ишемическая болезнь сердца»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/155_2"
+    }
+  ],
+  "pericarditis": [
+    {
+      "title": "КР Минздрава РФ «Перикардиты»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/746_2"
+    }
+  ],
+  "myocarditis": [
+    {
+      "title": "КР Минздрава РФ «Миокардиты»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/153_2"
+    }
+  ],
+  "copd": [
+    {
+      "title": "КР Минздрава РФ «Хроническая обструктивная болезнь легких»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/603_3"
+    }
+  ],
+  "bronchitis.acute": [
+    {
+      "title": "КР Минздрава РФ «Острый бронхит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/891_1"
+    }
+  ],
+  "whooping.cough": [
+    {
+      "title": "КР Минздрава РФ «Коклюш у детей»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/1023_1"
+    }
+  ],
+  "ace.cough": [
+    {
+      "title": "КР Минздрава РФ «Артериальная гипертензия у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/62_3"
+    }
+  ],
+  "atrial.fibrillation": [
+    {
+      "title": "КР Минздрава РФ «Фибрилляция и трепетание предсердий»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/382_2"
+    }
+  ],
+  "svt": [
+    {
+      "title": "КР Минздрава РФ «Наджелудочковые тахикардии»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/619_3"
+    }
+  ],
+  "mastopathy": [
+    {
+      "title": "КР Минздрава РФ «Доброкачественная дисплазия молочной железы»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/598_3"
+    }
+  ],
+  "breast.cyst": [
+    {
+      "title": "КР Минздрава РФ «Доброкачественная дисплазия молочной железы»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/598_3"
+    }
+  ],
+  "breast.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак молочной железы»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/379_4"
+    }
+  ],
+  "arvi": [
+    {
+      "title": "КР Минздрава РФ «Острая респираторная вирусная инфекция (ОРВИ)»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/25_3"
+    }
+  ],
+  "influenza": [
+    {
+      "title": "КР Минздрава РФ «Грипп у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/749_2"
+    }
+  ],
+  "gastroenteritis.acute": [
+    {
+      "title": "КР Минздрава РФ «Острые кишечные инфекции (ОКИ) у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/875_1"
+    }
+  ],
+  "sepsis": [
+    {
+      "title": "КР Минздрава РФ «Сепсис»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/953_1"
+    }
+  ],
+  "borreliosis": [
+    {
+      "title": "КР Минздрава РФ «Болезнь Лайма у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/566_2"
+    }
+  ],
+  "tickborne.encephalitis": [
+    {
+      "title": "КР Минздрава РФ «Клещевой вирусный энцефалит у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/567_2"
+    }
+  ],
+  "tuberculosis.pulmonary": [
+    {
+      "title": "КР Минздрава РФ «Туберкулез у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/16_4"
+    }
+  ],
+  "infective.endocarditis": [
+    {
+      "title": "КР Минздрава РФ «Инфекционный эндокардит и инфекция внутрисердечных устройств»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/54_3"
+    }
+  ],
+  "hiv": [
+    {
+      "title": "КР Минздрава РФ «ВИЧ-инфекция у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/79_2"
+    }
+  ],
+  "sle": [
+    {
+      "title": "КР Минздрава РФ «Системная красная волчанка»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/484_2"
+    }
+  ],
+  "hypothyroidism": [
+    {
+      "title": "КР Минздрава РФ «Гипотиреоз»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/531_4"
+    }
+  ],
+  "thyrotoxicosis": [
+    {
+      "title": "КР Минздрава РФ «Тиреотоксикоз с диффузным зобом (болезнь Грейвса), узловым/многоузловым зобом»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/270_2"
+    }
+  ],
+  "diabetes": [
+    {
+      "title": "КР Минздрава РФ «Сахарный диабет 2 типа у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/290_2"
+    }
+  ],
+  "depression": [
+    {
+      "title": "КР Минздрава РФ «Депрессивный эпизод, Рекуррентное депрессивное расстройство»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/301_3"
+    }
+  ],
+  "b12.deficiency": [
+    {
+      "title": "КР Минздрава РФ «Витамин-В12-дефицитная анемия»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/536_3"
+    }
+  ],
+  "ckd": [
+    {
+      "title": "КР Минздрава РФ «Хроническая болезнь почек»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/713_2"
+    }
+  ],
+  "heart.failure": [
+    {
+      "title": "КР Минздрава РФ «Хроническая сердечная недостаточность»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/156_2"
+    }
+  ],
+  "colorectal.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак ободочной кишки и ректосигмоидного перехода»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/396_4"
+    }
+  ],
+  "lung.cancer": [
+    {
+      "title": "КР Минздрава РФ «Злокачественное новообразование бронхов и легкого»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/30_5"
+    }
+  ],
+  "stomach.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак желудка»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/574_1"
+    }
+  ],
+  "celiac": [
+    {
+      "title": "КР Минздрава РФ «Целиакия»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/404_2"
+    }
+  ],
+  "ibd": [
+    {
+      "title": "КР Минздрава РФ «Язвенный колит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/193_2"
+    },
+    {
+      "title": "КР Минздрава РФ «Болезнь Крона»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/682_2"
+    }
+  ],
+  "atopic.dermatitis": [
+    {
+      "title": "КР Минздрава РФ «Атопический дерматит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/265_3"
+    }
+  ],
+  "contact.dermatitis": [
+    {
+      "title": "КР Минздрава РФ «Дерматит контактный»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/213_3"
+    }
+  ],
+  "urticaria": [
+    {
+      "title": "КР Минздрава РФ «Крапивница»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/264_2"
+    }
+  ],
+  "scabies": [
+    {
+      "title": "КР Минздрава РФ «Чесотка»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/1017_1"
+    }
+  ],
+  "psoriasis": [
+    {
+      "title": "КР Минздрава РФ «Псориаз»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/234_2"
+    }
+  ],
+  "pityriasis.rosea": [
+    {
+      "title": "КР Минздрава РФ «Розовый лишай Жибера»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/996_1"
+    }
+  ],
+  "melanoma": [
+    {
+      "title": "КР Минздрава РФ «Меланома кожи и слизистых оболочек»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/921_1"
+    }
+  ],
+  "bcc": [
+    {
+      "title": "КР Минздрава РФ «Базальноклеточный рак кожи»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/467_3"
+    }
+  ],
+  "seborrheic.keratosis": [
+    {
+      "title": "КР Минздрава РФ «Себорейный кератоз»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/975_1"
+    }
+  ],
+  "dysplastic.nevus": [
+    {
+      "title": "КР Минздрава РФ «Меланоформный невус»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/763_2"
+    }
+  ],
+  "hypertension": [
+    {
+      "title": "КР Минздрава РФ «Артериальная гипертензия у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/62_3"
+    }
+  ],
+  "osteoporosis": [
+    {
+      "title": "КР Минздрава РФ «Остеопороз»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/87_5"
+    }
+  ],
+  "tension.headache": [
+    {
+      "title": "КР Минздрава РФ «Головная боль напряжения»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/810_1"
+    }
+  ],
+  "migraine": [
+    {
+      "title": "КР Минздрава РФ «Мигрень»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/169_2"
+    }
+  ],
+  "medication.overuse.headache": [
+    {
+      "title": "КР Минздрава РФ «Головная боль напряжения»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/810_1"
+    }
+  ],
+  "cervicogenic.headache": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "sinusitis.acute": [
+    {
+      "title": "КР Минздрава РФ «Острый синусит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/313_3"
+    }
+  ],
+  "hypertension.crisis": [
+    {
+      "title": "КР Минздрава РФ «Артериальная гипертензия у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/62_3"
+    }
+  ],
+  "brain.tumor": [
+    {
+      "title": "КР Минздрава РФ «Первичные опухоли центральной нервной системы»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/585_2"
+    }
+  ],
+  "stroke.ischemic": [
+    {
+      "title": "КР Минздрава РФ «Ишемический инсульт и транзиторная ишемическая атака»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/814_1"
+    }
+  ],
+  "tia": [
+    {
+      "title": "КР Минздрава РФ «Ишемический инсульт и транзиторная ишемическая атака»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/814_1"
+    }
+  ],
+  "meniere": [
+    {
+      "title": "КР Минздрава РФ «Болезнь Меньера»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/18_2"
+    }
+  ],
+  "anemia": [
+    {
+      "title": "КР Минздрава РФ «Железодефицитная анемия»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/669_2"
+    }
+  ],
+  "hypoglycemia": [
+    {
+      "title": "КР Минздрава РФ «Сахарный диабет 2 типа у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/290_2"
+    }
+  ],
+  "concussion": [
+    {
+      "title": "КР Минздрава РФ «Сотрясение головного мозга»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/734_2"
+    }
+  ],
+  "panic.attack": [
+    {
+      "title": "КР Минздрава РФ «Паническое расстройство»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/456_3"
+    }
+  ],
+  "otitis.media": [
+    {
+      "title": "КР Минздрава РФ «Отит средний острый»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/314_3"
+    }
+  ],
+  "otitis.externa": [
+    {
+      "title": "КР Минздрава РФ «Наружный отит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/21_3"
+    }
+  ],
+  "mastoiditis": [
+    {
+      "title": "КР Минздрава РФ «Отит средний острый»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/314_3"
+    }
+  ],
+  "glaucoma.acute": [
+    {
+      "title": "КР Минздрава РФ «Глаукома первичная закрытоугольная»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/631_2"
+    }
+  ],
+  "retinal.detachment": [
+    {
+      "title": "КР Минздрава РФ «Регматогенная отслойка сетчатки»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/97_2"
+    }
+  ],
+  "optic.neuritis": [
+    {
+      "title": "КР Минздрава РФ «Рассеянный склероз»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/739_2"
+    }
+  ],
+  "conjunctivitis": [
+    {
+      "title": "КР Минздрава РФ «Конъюнктивиты»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/629_2"
+    }
+  ],
+  "seborrheic.dermatitis": [
+    {
+      "title": "КР Минздрава РФ «Себорейный дерматит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/215_3"
+    }
+  ],
+  "warts": [
+    {
+      "title": "КР Минздрава РФ «Вирусные бородавки»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/205_2"
+    }
+  ],
+  "myopia": [
+    {
+      "title": "КР Минздрава РФ «Миопия»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/109_2"
+    }
+  ],
+  "glaucoma.chronic": [
+    {
+      "title": "КР Минздрава РФ «Глаукома первичная открытоугольная»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/96_2"
+    }
+  ],
+  "amd": [
+    {
+      "title": "КР Минздрава РФ «Макулярная дегенерация возрастная»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/114_3"
+    }
+  ],
+  "diabetic.retinopathy": [
+    {
+      "title": "КР Минздрава РФ «Сахарный диабет: ретинопатия диабетическая, макулярный отек диабетический»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/115_2"
+    }
+  ],
+  "parkinsons": [
+    {
+      "title": "КР Минздрава РФ «Болезнь Паркинсона, вторичный паркинсонизм и другие заболевания, проявляющиеся синдромом паркинсонизма»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/716_1"
+    }
+  ],
+  "alzheimers": [
+    {
+      "title": "КР Минздрава РФ «Когнитивные расстройства у лиц пожилого и старческого возраста»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/617_5"
+    }
+  ],
+  "vascular.dementia": [
+    {
+      "title": "КР Минздрава РФ «Когнитивные расстройства у лиц пожилого и старческого возраста»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/617_5"
+    }
+  ],
+  "epilepsy": [
+    {
+      "title": "КР Минздрава РФ «Эпилепсия и эпилептический статус у взрослых и детей»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/741_1"
+    }
+  ],
+  "provoked.seizure": [
+    {
+      "title": "КР Минздрава РФ «Эпилепсия и эпилептический статус у взрослых и детей»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/741_1"
+    }
+  ],
+  "multiple.sclerosis": [
+    {
+      "title": "КР Минздрава РФ «Рассеянный склероз»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/739_2"
+    }
+  ],
+  "dental.caries": [
+    {
+      "title": "КР Минздрава РФ «Кариес зубов»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/1021_1"
+    }
+  ],
+  "adenoids": [
+    {
+      "title": "КР Минздрава РФ «Гипертрофия аденоидов. Гипертрофия небных миндалин.»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/662_2"
+    }
+  ],
+  "hand.oa": [
+    {
+      "title": "КР Минздрава РФ «Полиартроз (генерализованный остеоартрит)»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/256_2"
+    }
+  ],
+  "gout": [
+    {
+      "title": "КР Минздрава РФ «Идиопатическая подагра»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/936_1"
+    }
+  ],
+  "rheumatoid.arthritis": [
+    {
+      "title": "КР Минздрава РФ «Ревматоидный артрит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/250_3"
+    }
+  ],
+  "lymphedema": [
+    {
+      "title": "КР Минздрава РФ «Лимфедема конечностей»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/968_1"
+    }
+  ],
+  "dvt.leg": [
+    {
+      "title": "КР Минздрава РФ «Тромбоз глубоких вен конечностей»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/960_1"
+    }
+  ],
+  "superficial.thrombophlebitis": [
+    {
+      "title": "КР Минздрава РФ «Флебит и тромбофлебит поверхностных сосудов»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/668_2"
+    }
+  ],
+  "varicose.veins": [
+    {
+      "title": "КР Минздрава РФ «Варикозное расширение вен нижних конечностей»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/680_2"
+    }
+  ],
+  "acute.limb.ischemia": [
+    {
+      "title": "КР Минздрава РФ «Острая ишемия конечностей»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/1006_1"
+    }
+  ],
+  "hip.oa": [
+    {
+      "title": "КР Минздрава РФ «Коксартроз»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/870_1"
+    }
+  ],
+  "knee.oa": [
+    {
+      "title": "КР Минздрава РФ «Гонартроз»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/868_1"
+    }
+  ],
+  "meniscus.tear": [
+    {
+      "title": "КР Минздрава РФ «Повреждение мениска коленного сустава»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/862_1"
+    }
+  ],
+  "acl.tear": [
+    {
+      "title": "КР Минздрава РФ «Повреждение связок коленного сустава»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/691_2"
+    }
+  ],
+  "diabetic.neuropathy": [
+    {
+      "title": "КР Минздрава РФ «Сахарный диабет 2 типа у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/290_2"
+    }
+  ],
+  "venous.ulcer": [
+    {
+      "title": "КР Минздрава РФ «Варикозное расширение вен нижних конечностей»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/680_2"
+    }
+  ],
+  "ingrown.nail": [
+    {
+      "title": "КР Минздрава РФ «Вросший ноготь (онихокриптоз)»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/941_1"
+    }
+  ],
+  "keratitis": [
+    {
+      "title": "КР Минздрава РФ «Кератит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/1010_1"
+    }
+  ],
+  "sudden.hearing.loss": [
+    {
+      "title": "КР Минздрава РФ «Нейросенсорная тугоухость у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/518_3"
+    }
+  ],
+  "nasal.polyps": [
+    {
+      "title": "КР Минздрава РФ «Полипозный риносинусит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/890_1"
+    }
+  ],
+  "deviated.septum": [
+    {
+      "title": "КР Минздрава РФ «Деформация перегородки носа»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/913_1"
+    }
+  ],
+  "mallory.weiss": [
+    {
+      "title": "КР Минздрава РФ «Синдром Мэллори-Вейсса (желудочно-пищеводный разрывно-геморрагический синдром)»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/1026_1"
+    }
+  ],
+  "hemolytic.anemia": [
+    {
+      "title": "КР Минздрава РФ «Аутоиммунная гемолитическая анемия»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/1027_1"
+    }
+  ],
+  "overactive.bladder": [
+    {
+      "title": "КР Минздрава РФ «Недержание мочи»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/8_2"
+    }
+  ],
+  "stress.incontinence": [
+    {
+      "title": "КР Минздрава РФ «Недержание мочи»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/8_2"
+    }
+  ],
+  "pcos": [
+    {
+      "title": "КР Минздрава РФ «Синдром поликистозных яичников»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/910_1"
+    }
+  ],
+  "uterine.fibroid": [
+    {
+      "title": "КР Минздрава РФ «Миома матки»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/257_2"
+    }
+  ],
+  "menopause": [
+    {
+      "title": "КР Минздрава РФ «Менопауза и климактерическое состояние у женщины»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/117_3"
+    }
+  ],
+  "endometrial.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак тела матки и саркомы матки»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/460_4"
+    }
+  ],
+  "cervical.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак шейки матки»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/537_3"
+    }
+  ],
+  "perianal.abscess": [
+    {
+      "title": "КР Минздрава РФ «Острый парапроктит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/185_3"
+    }
+  ],
+  "scc.skin": [
+    {
+      "title": "КР Минздрава РФ «Плоскоклеточный рак кожи»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/476_3"
+    }
+  ],
+  "androgenetic.alopecia": [
+    {
+      "title": "КР Минздрава РФ «Гнездная алопеция»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/196_2"
+    }
+  ],
+  "alopecia.areata": [
+    {
+      "title": "КР Минздрава РФ «Гнездная алопеция»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/196_2"
+    }
+  ],
+  "telogen.effluvium": [
+    {
+      "title": "КР Минздрава РФ «Гнездная алопеция»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/196_2"
+    }
+  ],
+  "gad": [
+    {
+      "title": "КР Минздрава РФ «Генерализованное тревожное расстройство»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/457_3"
+    }
+  ],
+  "sinonasal.tumor": [
+    {
+      "title": "КР Минздрава РФ «Рак полости носа и придаточных пазух»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/3_2"
+    }
+  ],
+  "ocd": [
+    {
+      "title": "КР Минздрава РФ «Обсессивно-компульсивное расстройство»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/650_2"
+    }
+  ],
+  "bipolar": [
+    {
+      "title": "КР Минздрава РФ «Биполярное аффективное расстройство»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/675_2"
+    }
+  ],
+  "tonsillitis.strep": [
+    {
+      "title": "КР Минздрава РФ «Острый тонзиллит и фарингит (Острый тонзиллофарингит)»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/306_3"
+    }
+  ],
+  "pharyngitis.viral": [
+    {
+      "title": "КР Минздрава РФ «Острый тонзиллит и фарингит (Острый тонзиллофарингит)»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/306_3"
+    }
+  ],
+  "peritonsillar.abscess": [
+    {
+      "title": "КР Минздрава РФ «Острый тонзиллит и фарингит (Острый тонзиллофарингит)»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/306_3"
+    }
+  ],
+  "retropharyngeal.abscess": [
+    {
+      "title": "КР Минздрава РФ «Острый тонзиллит и фарингит (Острый тонзиллофарингит)»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/306_3"
+    }
+  ],
+  "epiglottitis": [
+    {
+      "title": "КР Минздрава РФ «Острый обструктивный ларингит [круп], эпиглоттит, постинтубационный отек гортани»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/352_3"
+    }
+  ],
+  "laryngitis.acute": [
+    {
+      "title": "КР Минздрава РФ «Острый ларингит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/309_2"
+    }
+  ],
+  "croup": [
+    {
+      "title": "КР Минздрава РФ «Острый обструктивный ларингит [круп], эпиглоттит, постинтубационный отек гортани»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/352_3"
+    }
+  ],
+  "anaphylaxis.angioedema": [
+    {
+      "title": "КР Минздрава РФ «Анафилактический шок»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/263_2"
+    },
+    {
+      "title": "КР Минздрава РФ «Крапивница»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/264_2"
+    }
+  ],
+  "allergic.pharyngitis": [
+    {
+      "title": "КР Минздрава РФ «Аллергический ринит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/261_2"
+    }
+  ],
+  "oropharynx.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак ротоглотки»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/4_2"
+    }
+  ],
+  "larynx.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак гортани»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/475_3"
+    }
+  ],
+  "esophagus.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак пищевода и кардии»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/237_6"
+    }
+  ],
+  "chemical.burn.throat": [
+    {
+      "title": "КР Минздрава РФ «Химический ожог пищевода»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/821_1"
+    }
+  ],
+  "eosinophilic.esophagitis": [
+    {
+      "title": "КР Минздрава РФ «Эозинофильный эзофагит»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/1000_1"
+    }
+  ],
+  "myasthenia": [
+    {
+      "title": "КР Минздрава РФ «Миастения»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/165_2"
+    }
+  ],
+  "stroke.dysphagia": [
+    {
+      "title": "КР Минздрава РФ «Ишемический инсульт и транзиторная ишемическая атака»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/814_1"
+    }
+  ],
+  "cervical.myofascial": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "cervical.degenerative": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "cervical.radiculopathy": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "torticollis.acute": [
+    {
+      "title": "КР Минздрава РФ «Дегенеративные заболевания позвоночника»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/826_1"
+    }
+  ],
+  "meningitis": [
+    {
+      "title": "КР Минздрава РФ «Менингококковая инфекция у детей»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/58_2"
+    }
+  ],
+  "carotid.dissection": [
+    {
+      "title": "КР Минздрава РФ «Ишемический инсульт и транзиторная ишемическая атака»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/814_1"
+    }
+  ],
+  "lymphoma": [
+    {
+      "title": "КР Минздрава РФ «Лимфома Ходжкина»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/139_2"
+    }
+  ],
+  "tb.lymphadenitis": [
+    {
+      "title": "КР Минздрава РФ «Туберкулез у взрослых»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/16_4"
+    }
+  ],
+  "thyroid.cancer": [
+    {
+      "title": "КР Минздрава РФ «Дифференцированный рак щитовидной железы»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/329_2"
+    }
+  ],
+  "asthma": [
+    {
+      "title": "КР Минздрава РФ «Бронхиальная астма»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/359_3"
+    }
+  ],
+  "urethritis": [
+    {
+      "title": "КР Минздрава РФ «Негонококковый (неспецифический) уретрит у мужчин»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/796_1"
+    }
+  ],
+  "bph": [
+    {
+      "title": "КР Минздрава РФ «Доброкачественная гиперплазия предстательной железы»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/6_2"
+    }
+  ],
+  "prostate.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак предстательной железы»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/12_3"
+    }
+  ],
+  "bladder.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак мочевого пузыря»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/11_3"
+    }
+  ],
+  "kidney.cancer": [
+    {
+      "title": "КР Минздрава РФ «Рак паренхимы почки»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/10_5"
+    }
+  ],
+  "miscarriage": [
+    {
+      "title": "КР Минздрава РФ «Выкидыш (самопроизвольный аборт)»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/670_2"
+    }
+  ],
+  "placental.abruption": [
+    {
+      "title": "КР Минздрава РФ «Преждевременная отслойка плаценты»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/800_1"
+    }
+  ],
+  "preeclampsia": [
+    {
+      "title": "КР Минздрава РФ «Преэклампсия. Эклампсия. Отеки, протеинурия и гипертензивные расстройства во время беременности, в родах и послеродовом периоде.»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/637_2"
+    }
+  ],
+  "hyperemesis": [
+    {
+      "title": "КР Минздрава РФ «Чрезмерная рвота беременных»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/802_1"
+    }
+  ],
+  "genital.herpes": [
+    {
+      "title": "КР Минздрава РФ «Аногенитальная герпетическая вирусная инфекция»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/679_2"
+    }
+  ],
+  "genital.warts": [
+    {
+      "title": "КР Минздрава РФ «Аногенитальные (венерические) бородавки»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/204_2"
+    }
+  ],
+  "syphilis.primary": [
+    {
+      "title": "КР Минздрава РФ «Сифилис»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/197_2"
+    }
+  ],
+  "pms": [
+    {
+      "title": "КР Минздрава РФ «Предменструальный синдром»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/797_1"
+    }
+  ],
+  "bacterial.vaginosis": [
+    {
+      "title": "КР Минздрава РФ «Бактериальный вагиноз»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/206_2"
+    }
+  ],
+  "erectile.dysfunction": [
+    {
+      "title": "КР Минздрава РФ «Эректильная дисфункция»",
+      "url": "https://cr.minzdrav.gov.ru/preview-cr/15_3"
+    }
+  ]
+}
