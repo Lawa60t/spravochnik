@@ -9,7 +9,13 @@
    ни в логи хостинга — на главной напечатано, что мы ничего не собираем.
 
    Русского текста здесь нет намеренно: все строки приходят из разметки
-   атрибутами, чтобы они оставались под линтом формулировок. */
+   атрибутами, чтобы они оставались под линтом формулировок.
+
+   Слова сравниваются по основам — тем же разбором, что и поиск в шапке
+   (window.EZP из poisk.js, он на странице уже есть и стоит раньше). Иначе
+   получалось бы, что одна и та же строка «болит горло» в шапке находит
+   раздел, а в указателе — ничего. Если по какой-то причине разбора нет,
+   остаётся прежнее сравнение подстрок: указатель обязан работать всегда. */
 (function () {
   var slot = document.querySelector("[data-poisk]");
   if (!slot) return;
@@ -26,6 +32,8 @@
       .trim();
   }
 
+  var EZP = (typeof window !== "undefined" && window.EZP) || null;
+
   /* Пункты указателя с заранее посчитанным текстом. */
   var items = [];
   var i, j, li, nodes;
@@ -33,7 +41,8 @@
     nodes = lists[i].getElementsByTagName("li");
     for (j = 0; j < nodes.length; j++) {
       li = nodes[j];
-      items.push({ el: li, text: norm(li.textContent || "") });
+      var txt = norm(li.textContent || "");
+      items.push({ el: li, text: txt, stems: EZP ? EZP.stems(txt) : null });
     }
   }
   var letters = document.querySelectorAll(".letter");
@@ -67,15 +76,33 @@
   var foundTpl = slot.getAttribute("data-found") || "{n}";
   var nothing = slot.getAttribute("data-nothing") || "";
 
+  /* Подходит ли пункт под одно слово запроса. */
+  function fits(item, word) {
+    if (!EZP || !item.stems) return item.text.indexOf(word.raw) > -1;
+    for (var i = 0; i < item.stems.length; i++) {
+      if (EZP.match(word.s, item.stems[i])) return true;
+      /* последнее слово человек ещё дописывает */
+      if (word.last && item.stems[i].indexOf(word.raw) === 0) return true;
+    }
+    return false;
+  }
+
   function apply(query) {
-    var words = norm(query).split(" ").filter(Boolean);
+    var words;
+    if (EZP) {
+      words = EZP.queryStems(query);
+    } else {
+      words = norm(query).split(" ").filter(Boolean).map(function (x, i, a) {
+        return { s: x, raw: x, last: i === a.length - 1 };
+      });
+    }
     var shown = 0;
     var k, w, ok;
 
     for (k = 0; k < items.length; k++) {
       ok = true;
       for (w = 0; w < words.length; w++) {
-        if (items[k].text.indexOf(words[w]) === -1) { ok = false; break; }
+        if (!fits(items[k], words[w])) { ok = false; break; }
       }
       items[k].el.hidden = !ok;
       if (ok) shown++;
