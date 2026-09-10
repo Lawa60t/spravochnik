@@ -115,6 +115,26 @@
     { "q": "грипп", "in": ["sostoyaniya/influenza"] },
     { "q": "остриц", "in": ["sostoyaniya/pinworms"] },
     { "q": "пят", "top": "razdely/leg-heel" },
-    { "q": "кров", "in": ["razdely/pelv-uro-blood", "razdely/abd-stool-blood"] }
+    { "q": "кров", "in": ["razdely/pelv-uro-blood", "razdely/abd-stool-blood"] },
+
+    { "q": "чешется кожа", "top": "razdely/skin-rash-itch" },
+    { "q": "чешется тело", "top": "razdely/skin-rash-itch" },
+    { "q": "похудел", "top": "razdely/gen-weightloss" },
+    { "q": "подташнивает", "top": "razdely/abd-nausea" },
+    { "q": "озноб", "top": "razdely/gen-fever-acute" },
+    { "q": "ломит тело", "top": "razdely/gen-fever-acute" },
+    { "q": "лысею", "top": "razdely/skin-hair" },
+    { "q": "болит спина", "in": ["razdely/back-lumbar-chronic", "razdely/back-lumbar-acute"] },
+    { "q": "продуло спину", "in": ["razdely/back-lumbar-acute"] },
+    { "q": "шатает", "top": "razdely/head-dizzy-faint" },
+    { "q": "низкое давление", "top": "razdely/head-dizzy-faint" },
+    { "q": "отрыжка", "top": "razdely/abd-heartburn" },
+    { "q": "чёрные точки", "top": "razdely/skin-acne" },
+    { "q": "храплю", "top": "razdely/gen-sleep" },
+    { "q": "частое сердцебиение", "in": ["razdely/chest-palpit"] },
+    { "q": "сахар в крови", "top": "razdely/gen-thirst" },
+    { "q": "светобоязнь", "in": ["razdely/head-pain-onesided"] },
+    { "q": "немеют руки", "top": "razdely/arm-numb" },
+    { "q": "немеет нога", "top": "razdely/leg-numb" }
   ]
 }
