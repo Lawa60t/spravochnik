@@ -193,42 +193,42 @@ function header(path) {
 const NO_SUPPORT = ["/sostoyaniya/", "/chto-ne-razbiraem/", "/moego-sluchaya-net/"];
 const showSupport = path => !NO_SUPPORT.some(p => path.startsWith(p));
 
-/* Подвал стоит на той же сетке, что и страница: три колонки, и в каждой
-   по две строки. Первая — под левым меню: фигура, имя сайта и плашка
-   обратной связи. Вторая и третья лежат в .bottom-inner и попадают
-   в колонку текста: чем этот сайт является и маркировка возраста;
-   владелец и ссылка на поддержку.
+/* Подвал стоит на той же сетке, что и страница: три колонки.
+   Первая — под левым меню: фигура и имя сайта, чем сайт является,
+   маркировка возраста. Вторая и третья лежат в .bottom-inner и попадают
+   в колонку текста: владелец и ссылка на поддержку; плашка обратной связи.
 
    Юридический абзац, источники, дата обновления и телефон неотложной
    помощи из подвала убраны решением владельца 11.09.2026: предупреждение
    целиком читается на странице «О справочнике», источник и дата стоят
    на каждой статье, соглашение открывается из левого меню, а телефон
    переехал в шапку. Подвал на каждой странице должен быть коротким.
+   Порядок колонок — тоже решение владельца, 11.09.2026.
 
    Порядок в разметке — порядок чтения на телефоне, где колонка одна:
-   чем является сайт, владелец, затем обратная связь. На широком экране
-   колонку с фигурой ставит на место сетка, а не разметка. */
+   имя сайта, владелец, обратная связь. На широком экране колонки
+   расставляет сетка. */
 function footer(path) {
   const f = T.footer;
   return `<footer class="bottom">
+    <div class="footcol footbrand">
+      <p class="footname"><span class="fig">${figureSvg(22, 32)}</span> <strong>${esc(cfg.siteName)}</strong> — ${esc(cfg.tagline)}</p>
+      <p>${esc(f.lead)}</p>
+      <p class="age">${esc(f.age)}</p>
+    </div>
     <div class="bottom-inner">
-      <div class="footcol">
-        <p><strong>${esc(cfg.siteName)} — ${esc(f.lead)}</strong></p>
-        <p class="age">${esc(f.age)}</p>
-      </div>
       <div class="footcol">
         <p>${esc(f.ownerPrefix)} ${esc(cfg.owner.name)}.</p>
         ${showSupport(path) ? `<p class="footsupport"><a href="/podderzhat/">${esc(T.navSupport)}</a></p>` : ""}
       </div>
-    </div>
-    <div class="footcol footbrand">
-      <p class="footname"><span class="fig">${figureSvg(22, 32)}</span> <strong>${esc(cfg.siteName)}</strong> — ${esc(cfg.tagline)}</p>
-      ${/* Обратная связь — про работу сайта, не про самочувствие.
-           Просьба не описывать своё состояние стоит на странице
-           «О справочнике» и в соглашении, здесь её не повторяем. */ ""}
-      <div class="contactbox">
-        <p class="h">${esc(f.contactTitle)}</p>
-        <p class="m">${esc(f.contactBody)} <a href="mailto:${attr(cfg.errorMail)}">${esc(cfg.errorMail)}</a></p>
+      <div class="footcol">
+        ${/* Обратная связь — про работу сайта, не про самочувствие.
+             Просьба не описывать своё состояние стоит на странице
+             «О справочнике» и в соглашении, здесь её не повторяем. */ ""}
+        <div class="contactbox">
+          <p class="h">${esc(f.contactTitle)}</p>
+          <p class="m">${esc(f.contactBody)} <a href="mailto:${attr(cfg.errorMail)}">${esc(cfg.errorMail)}</a></p>
+        </div>
       </div>
     </div>
   </footer>`;

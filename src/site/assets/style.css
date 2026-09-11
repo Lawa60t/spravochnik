@@ -360,8 +360,9 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   margin: 0 auto;
   padding: 0 1.25rem;
 }
-/* Колонка с фигурой: на телефоне идёт последней, после владельца. */
-.footbrand { margin-top: 1rem; }
+/* На телефоне колонки идут одна под другой в порядке разметки:
+   имя сайта, владелец, обратная связь — с воздухом между ними. */
+.footbrand + .bottom-inner { margin-top: .8rem; }
 .footname { display: flex; align-items: center; gap: .5rem; color: var(--ink); }
 .footname .fig { color: var(--accent); line-height: 0; flex: none; }
 
@@ -369,7 +370,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
    между колонками, когда на телефоне они встают одна под другой. */
 .bottom p { margin: 0 0 .35rem; }
 .footcol > p:last-child { margin-bottom: 0; }
-.bottom-inner .footcol + .footcol { margin-top: .7rem; }
+.bottom-inner .footcol + .footcol { margin-top: .8rem; }
 .service h2 { font-size: 1.1rem; margin-top: 1.8rem; }
 .service h2:first-of-type { margin-top: 1.2rem; }
 .bottom .age {
@@ -379,13 +380,12 @@ a.nav-item[aria-current] { border-color: var(--accent); }
 }
 /* Обратная связь: пунктирная рамка, заливка фоном страницы — заметно,
    но тише основного текста подвала. Про сайт, а не про самочувствие.
-   Плашка во всю ширину своей колонки. */
+   Плашка одна в своей колонке и занимает её во всю ширину. */
 .contactbox {
   border: 1px dashed var(--ink-3);
   border-radius: 12px;
   padding: .7rem .9rem;
   background: var(--bg);
-  margin-top: .5rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -399,7 +399,8 @@ a.nav-item[aria-current] { border-color: var(--accent); }
 
 /* От 1200 подвал встаёт на ту же сетку, что и .layout, а обёртка попадает
    в колонку текста: левый край подвала и левый край статьи — одна линия.
-   Внутри обёртки две равные колонки: в обеих по две короткие строки. */
+   Внутри обёртки две равные колонки: владелец с поддержкой и плашка
+   обратной связи. */
 @media (min-width: 1200px) {
   .bottom {
     display: grid;
@@ -420,10 +421,8 @@ a.nav-item[aria-current] { border-color: var(--accent); }
     align-items: start;
   }
   .bottom-inner .footcol + .footcol { margin-top: 0; }
-  /* Колонка с фигурой встаёт под левое меню и занимает свою колонку целиком:
-     плашка обратной связи — во всю её ширину, от левого поля страницы.
-     Место ей задаёт сетка, а не разметка: в разметке она последняя,
-     чтобы на телефоне читаться после владельца. */
+  .footbrand + .bottom-inner { margin-top: 0; }
+  /* Колонка с фигурой встаёт под левое меню, по левому полю страницы. */
   .footbrand {
     grid-column: 1;
     grid-row: 1;
@@ -444,8 +443,8 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   .bottom-inner {
     grid-column: 2 / 4;
     /* Левая колонка — под текстом страницы, правая — под правой колонкой;
-       правая ограничена, иначе на очень широком мониторе она растянула бы
-       короткие служебные строки через всю страницу. */
+       правая ограничена, иначе на очень широком мониторе плашка обратной
+       связи растянулась бы через всю страницу. */
     grid-template-columns: minmax(0, var(--measure-wide)) minmax(15rem, 22rem);
   }
 }
