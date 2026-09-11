@@ -231,22 +231,26 @@ main {
 
   /* Шапка встаёт на ту же сетку, что и страница: название над левым меню,
      поле поиска — по левому краю колонки текста, вровень с заголовком
-     статьи, телефон неотложной помощи — по правому краю. На двух колонках
-     страницы колонка текста в шапке поделена надвое: 24rem под поле
-     поиска и остаток под телефон, чтобы им не встретиться. */
+     статьи, телефон неотложной помощи — по правому краю той же колонки.
+     Поле и телефон делят одну ячейку: поле прижато к её левому краю
+     и не шире 20rem, телефон — к правому. Подпись и столбик номеров
+     занимают до 27rem даже самым широким шрифтом, и вместе с полем
+     это меньше 47.5rem — не встречаются. Поэтому поле именно 20rem:
+     при 24rem телефону не хватало места, и столбик уходил под подпись,
+     а это уже не макет владельца. */
   .top {
     display: grid;
-    grid-template-columns: 17.5rem 24rem minmax(0, calc(var(--measure-wide) - 26rem));
+    grid-template-columns: 17.5rem minmax(0, var(--measure-wide));
     justify-content: center;
     gap: 0 2rem;
     align-items: center;
     padding: .9rem 1.5rem;
   }
   .brandbox { grid-column: 1; grid-row: 1; }
-  .topsearch { grid-column: 2; grid-row: 1; width: 100%; }
-  /* Прижат к правому краю; если подпись и столбик встали в две строки,
-     обе тоже прижаты к правому краю. */
-  .topemergency { grid-column: 3; grid-row: 1; justify-self: end; justify-content: flex-end; }
+  .topsearch { grid-column: 2; grid-row: 1; justify-self: start; width: 100%; max-width: 20rem; }
+  /* Прижат к правому краю; если подпись и столбик всё же встали в две
+     строки (очень широкий шрифт), обе тоже прижаты к правому краю. */
+  .topemergency { grid-column: 2; grid-row: 1; justify-self: end; justify-content: flex-end; }
 }
 
 @media (min-width: 1500px) {
@@ -258,13 +262,16 @@ main {
   }
   .rail { grid-column: 3; padding: 2rem 0 4rem; }
   .rail-inner { max-width: 320px; }
-  /* На трёх колонках шапка повторяет сетку страницы один в один: поле
-     поиска у левого края колонки текста, телефон — в третьей колонке. */
+  /* На трёх колонках шапка повторяет сетку страницы: поле поиска
+     у левого края колонки текста, телефон — у правого края страницы.
+     Телефон тянется со второй колонки по третью, а не сидит в третьей:
+     третья колонка при 1500 всего 314 точек, подписи и столбику в одну
+     строку там тесно. */
   .top {
     grid-template-columns: minmax(15rem, 1fr) minmax(0, var(--measure-wide)) minmax(17rem, 1fr);
     justify-content: normal;
   }
-  .topsearch { justify-self: start; max-width: 24rem; }
+  .topemergency { grid-column: 2 / 4; }
   .rail .block, .rail .refine, .rail .notsearched, .rail .insections, .rail .origin {
     margin-top: 0;
     margin-bottom: 2rem;
@@ -767,8 +774,9 @@ ul.dashed li::before { content: "— "; }
 @media (min-width: 46rem) {
   /* На широком экране поле встаёт в строку шапки между названием и разделами
      и не растягивается на всю ширину: строка поиска длиной в экран читается
-     как поле для текста, а не для одного слова. */
-  .topsearch { flex: 1 1 14rem; max-width: 24rem; order: 0; }
+     как поле для текста, а не для одного слова. Ширина та же, что и от 1200,
+     20rem — подсказка в поле подобрана под неё. */
+  .topsearch { flex: 1 1 14rem; max-width: 20rem; order: 0; }
 }
 
 /* ---------- уточнение ---------- */
