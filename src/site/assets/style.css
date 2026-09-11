@@ -87,13 +87,19 @@ p { margin: 0 0 .9rem; }
 .homelink { font-size: .9rem; color: var(--accent-d); }
 /* Телефон неотложной помощи: на узком экране — своя строка под шапкой,
    от 1200 — справа, где раньше стояло поле поиска. Заметный, но не кричащий:
-   красным здесь нельзя, красная плашка на сайте одна и означает другое. */
+   красным здесь нельзя, красная плашка на сайте одна и означает другое.
+
+   Подпись и столбик из двух номеров — два элемента в строке; ни один
+   не рвётся внутри себя. Если вдвоём не помещаются, столбик уходит под
+   подпись целиком, а не по слову. */
 .topemergency {
   flex: 1 1 100%; order: 6;
+  display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0 .35em;
   margin: 0;
   font-size: .85rem; font-weight: 600; line-height: 1.35;
   color: var(--ink);
 }
+.topemergency .l, .topemergency .n { white-space: nowrap; }
 @media (min-width: 46rem) {
   /* Между строкой названия и строкой разделов, а не после неё. */
   .topemergency { order: 0; }
@@ -238,9 +244,9 @@ main {
   }
   .brandbox { grid-column: 1; grid-row: 1; }
   .topsearch { grid-column: 2; grid-row: 1; width: 100%; }
-  .topemergency { grid-column: 3; grid-row: 1; justify-self: end; text-align: right; }
-  /* Части строки не рвутся внутри себя: перенос только между ними. */
-  .topemergency span { white-space: nowrap; }
+  /* Прижат к правому краю; если подпись и столбик встали в две строки,
+     обе тоже прижаты к правому краю. */
+  .topemergency { grid-column: 3; grid-row: 1; justify-self: end; justify-content: flex-end; }
 }
 
 @media (min-width: 1500px) {
@@ -373,11 +379,6 @@ a.nav-item[aria-current] { border-color: var(--accent); }
 .bottom-inner .footcol + .footcol { margin-top: .8rem; }
 .service h2 { font-size: 1.1rem; margin-top: 1.8rem; }
 .service h2:first-of-type { margin-top: 1.2rem; }
-.bottom .age {
-  display: inline-block; border: 1px solid var(--line);
-  padding: .05rem .4rem; border-radius: 6px; font-size: .8rem;
-  margin-top: .2rem;
-}
 
 /* От 1200 подвал встаёт на ту же сетку, что и .layout, а обёртка попадает
    в колонку текста: левый край подвала и левый край статьи — одна линия.

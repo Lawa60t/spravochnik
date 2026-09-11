@@ -176,7 +176,7 @@ function header(path) {
     ${topSearch()}
     ${/* Телефон неотложной помощи стоит в шапке, на каждой странице.
          Раньше стоял в подвале, куда человек в тревоге не докручивает. */ ""}
-    <p class="topemergency">${T.topEmergency.map(part => `<span>${esc(part)}</span>`).join(" ")}</p>
+    <p class="topemergency"><span class="l">${esc(T.topEmergency.label)}</span> <span class="n">${T.topEmergency.lines.map(esc).join("<br>")}</span></p>
     ${nav("topnav topnav-wide", path)}
     <details class="topmenu">
       <summary>${esc(T.menu)}</summary>
@@ -194,8 +194,8 @@ const NO_SUPPORT = ["/sostoyaniya/", "/chto-ne-razbiraem/", "/moego-sluchaya-net
 const showSupport = path => !NO_SUPPORT.some(p => path.startsWith(p));
 
 /* Подвал стоит на той же сетке, что и страница: три колонки.
-   Первая — под левым меню: фигура и имя сайта, чем сайт является,
-   маркировка возраста. Вторая и третья лежат в .bottom-inner и попадают
+   Первая — под левым меню: фигура и имя сайта, чем сайт является.
+   Вторая и третья лежат в .bottom-inner и попадают
    в колонку текста: владелец и ссылка на поддержку; обратная связь.
    Все три набраны одинаково, простым текстом на фоне подвала: плашку
    с рамкой у обратной связи владелец снял 11.09.2026.
@@ -216,7 +216,6 @@ function footer(path) {
     <div class="footcol footbrand">
       <p class="footname"><span class="fig">${figureSvg(22, 32)}</span> <strong>${esc(cfg.siteName)}</strong> — ${esc(cfg.tagline)}</p>
       <p>${esc(f.lead)}</p>
-      <p class="age">${esc(f.age)}</p>
     </div>
     <div class="bottom-inner">
       <div class="footcol">
