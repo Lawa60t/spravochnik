@@ -94,13 +94,15 @@ function zonePage(zone, updated) {
   const count = D.syndromesOfZone(zone.id).length;
   const m = meta.zone(zone, count);
 
-  /* Когда группа одна, её заголовок дословно повторяет h1 страницы. */
-  const showGroupTitle = groups.length > 1;
+  /* Когда группа одна, её заголовок дословно повторяет h1 страницы.
+     Но и при нескольких группах одна из них может называться так же, как вся
+     область («Шея и горло» внутри «Шеи и горла»), — такой заголовок тоже лишний. */
+  const showGroupTitle = g => groups.length > 1 && !addsNothing(g.label, zone.name);
 
   const groupsHtml = groups
     .map(
       g => `<section class="block">
-    ${showGroupTitle ? `<h2>${esc(g.label)}</h2>` : ""}
+    ${showGroupTitle(g) ? `<h2>${esc(g.label)}</h2>` : ""}
     ${g.landmark ? `<p class="note">${esc(g.landmark)}</p>` : ""}
     ${g.subzones
       .map(
@@ -110,8 +112,18 @@ function zonePage(zone, updated) {
            «где это на теле», и нужен тому, кто не уверен, туда ли попал. */ ""}
       ${/* Тот же случай, что и в списке областей: у зоны с единственным
            участком его имя может дословно повторять заголовок страницы. */ ""}
-      ${addsNothing(sz.name, zone.name) ? "" : `<h3>${esc(sz.name)}</h3>`}
-      ${sz.landmark ? `<p class="note">${esc(sz.landmark)}</p>` : ""}
+      ${/* Сравнивать надо с ближайшим заголовком НАД участком — это заголовок
+           группы, если он напечатан, иначе h1 страницы. Иначе «Задняя
+           поверхность шеи» печаталась дважды подряд. */ ""}
+      ${addsNothing(sz.name, showGroupTitle(g) ? g.label : zone.name)
+        ? ""
+        : `<h3>${esc(sz.name)}</h3>`}
+      ${/* Ориентир участка не нужен, если его заголовок погашен, а у группы
+           ориентир уже есть: две серые строки подряд объясняют одно и то же. */ ""}
+      ${sz.landmark &&
+      (!addsNothing(sz.name, showGroupTitle(g) ? g.label : zone.name) || !g.landmark)
+        ? `<p class="note">${esc(sz.landmark)}</p>`
+        : ""}
       ${syndromeLinks(sz.syndromes)}
     </div>`
       )
