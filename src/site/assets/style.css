@@ -85,6 +85,19 @@ p { margin: 0 0 .9rem; }
 }
 /* Отдельная ссылка «На главную»: логотип как ссылка очевиден не всем. */
 .homelink { font-size: .9rem; color: var(--accent-d); }
+/* Телефон неотложной помощи: на узком экране — своя строка под шапкой,
+   от 1200 — справа, где раньше стояло поле поиска. Заметный, но не кричащий:
+   красным здесь нельзя, красная плашка на сайте одна и означает другое. */
+.topemergency {
+  flex: 1 1 100%; order: 6;
+  margin: 0;
+  font-size: .85rem; font-weight: 600; line-height: 1.35;
+  color: var(--ink);
+}
+@media (min-width: 46rem) {
+  /* Между строкой названия и строкой разделов, а не после неё. */
+  .topemergency { order: 0; }
+}
 
 .topnav { display: flex; gap: .2rem 1rem; font-size: .95rem; flex-wrap: wrap; align-items: center; }
 .topnav a { color: var(--ink-2); text-decoration: none; padding: .3rem 0; }
@@ -209,6 +222,25 @@ main {
 
   /* Навигация живёт в левой колонке, в шапке она лишняя. */
   .topnav-wide, .topmenu { display: none; }
+
+  /* Шапка встаёт на ту же сетку, что и страница: название над левым меню,
+     поле поиска — по левому краю колонки текста, вровень с заголовком
+     статьи, телефон неотложной помощи — по правому краю. На двух колонках
+     страницы колонка текста в шапке поделена надвое: 24rem под поле
+     поиска и остаток под телефон, чтобы им не встретиться. */
+  .top {
+    display: grid;
+    grid-template-columns: 17.5rem 24rem minmax(0, calc(var(--measure-wide) - 26rem));
+    justify-content: center;
+    gap: 0 2rem;
+    align-items: center;
+    padding: .9rem 1.5rem;
+  }
+  .brandbox { grid-column: 1; grid-row: 1; }
+  .topsearch { grid-column: 2; grid-row: 1; width: 100%; }
+  .topemergency { grid-column: 3; grid-row: 1; justify-self: end; text-align: right; }
+  /* Части строки не рвутся внутри себя: перенос только между ними. */
+  .topemergency span { white-space: nowrap; }
 }
 
 @media (min-width: 1500px) {
@@ -220,6 +252,13 @@ main {
   }
   .rail { grid-column: 3; padding: 2rem 0 4rem; }
   .rail-inner { max-width: 320px; }
+  /* На трёх колонках шапка повторяет сетку страницы один в один: поле
+     поиска у левого края колонки текста, телефон — в третьей колонке. */
+  .top {
+    grid-template-columns: minmax(15rem, 1fr) minmax(0, var(--measure-wide)) minmax(17rem, 1fr);
+    justify-content: normal;
+  }
+  .topsearch { justify-self: start; max-width: 24rem; }
   .rail .block, .rail .refine, .rail .notsearched, .rail .insections, .rail .origin {
     margin-top: 0;
     margin-bottom: 2rem;
@@ -306,8 +345,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
    полем (box-sizing: border-box), и без этого левый край подвала не совпадал
    бы с левым краем текста даже на телефоне.
 
-   Сам текст выравнивается по левому краю всегда. Центрировать его нельзя:
-   юридический абзац в пять строк, набранный по центру, не читается. */
+   Сам текст выравнивается по левому краю всегда, как и текст страницы. */
 .bottom {
   border-top: 1px solid var(--line);
   background: var(--card);
@@ -327,33 +365,29 @@ a.nav-item[aria-current] { border-color: var(--accent); }
 .footname { display: flex; align-items: center; gap: .5rem; color: var(--ink); }
 .footname .fig { color: var(--accent); line-height: 0; flex: none; }
 
-/* Подвал — связный текст, а не семь отдельных абзацев. Полный межабзацный
-   интервал разгонял его на пол-экрана телефона, хотя читается он подряд
-   и целиком служебный. Поэтому строки идут плотно, а воздух остаётся
-   только там, где меняется смысл: перед телефоном неотложной помощи
-   и перед служебным низом. */
+/* Подвал служебный и короткий, поэтому строки идут плотно; воздух только
+   между колонками, когда на телефоне они встают одна под другой. */
 .bottom p { margin: 0 0 .35rem; }
 .footcol > p:last-child { margin-bottom: 0; }
-.bottom .tel { color: var(--ink); margin-top: .7rem; }
-.footlinks { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
-/* Строка про поддержку намеренно тише остальных ссылок подвала. */
-.footsupport { font-size: .8rem; margin-top: .35rem; }
-.footsupport a { color: var(--ink-3); }
+.bottom-inner .footcol + .footcol { margin-top: .7rem; }
 .service h2 { font-size: 1.1rem; margin-top: 1.8rem; }
 .service h2:first-of-type { margin-top: 1.2rem; }
 .bottom .age {
   display: inline-block; border: 1px solid var(--line);
   padding: .05rem .4rem; border-radius: 6px; font-size: .8rem;
-  margin-top: .7rem;
+  margin-top: .2rem;
 }
 /* Обратная связь: пунктирная рамка, заливка фоном страницы — заметно,
-   но тише основного текста подвала. Про сайт, а не про самочувствие. */
+   но тише основного текста подвала. Про сайт, а не про самочувствие.
+   Плашка во всю ширину своей колонки. */
 .contactbox {
   border: 1px dashed var(--ink-3);
   border-radius: 12px;
   padding: .7rem .9rem;
   background: var(--bg);
   margin-top: .5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 .contactbox .h {
   font-size: .72rem; color: var(--ink-3);
@@ -362,12 +396,10 @@ a.nav-item[aria-current] { border-color: var(--accent); }
 }
 .contactbox .m { font-size: .95rem; color: var(--ink); margin: 0; }
 .contactbox .m a { font-weight: 600; }
-.footlinks { margin-top: .35rem; }
 
 /* От 1200 подвал встаёт на ту же сетку, что и .layout, а обёртка попадает
    в колонку текста: левый край подвала и левый край статьи — одна линия.
-   Внутри обёртки две колонки; левая шире, потому что в ней сплошной текст,
-   правая — короткие служебные строки. */
+   Внутри обёртки две равные колонки: в обеих по две короткие строки. */
 @media (min-width: 1200px) {
   .bottom {
     display: grid;
@@ -383,23 +415,23 @@ a.nav-item[aria-current] { border-color: var(--accent); }
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 0 2rem;
     align-items: start;
   }
-  /* Колонка с фигурой встаёт под левое меню — той же ширины и по тому же
-     правому краю, что и карточки меню. Место ей задаёт сетка, а не разметка:
-     в разметке она последняя, чтобы на телефоне читаться после владельца. */
+  .bottom-inner .footcol + .footcol { margin-top: 0; }
+  /* Колонка с фигурой встаёт под левое меню и занимает свою колонку целиком:
+     плашка обратной связи — во всю её ширину, от левого поля страницы.
+     Место ей задаёт сетка, а не разметка: в разметке она последняя,
+     чтобы на телефоне читаться после владельца. */
   .footbrand {
     grid-column: 1;
     grid-row: 1;
-    max-width: 280px;
-    margin: 0 0 0 auto;
+    max-width: none;
+    margin: 0;
     padding: 0;
     width: 100%;
   }
-  /* В своей колонке телефону неотложной помощи отделяться уже не от чего. */
-  .bottom .tel { margin-top: 0; }
 }
 
 /* От 1500 у страницы три колонки, и содержимое занимает вторую и третью.
@@ -411,9 +443,8 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   }
   .bottom-inner {
     grid-column: 2 / 4;
-    /* Левая колонка не шире колонки текста сайта: юридический абзац читают
-       подряд, и строка длиной в полтора экрана здесь не нужна. Правая
-       ограничена тоже — иначе на очень широком мониторе она растянула бы
+    /* Левая колонка — под текстом страницы, правая — под правой колонкой;
+       правая ограничена, иначе на очень широком мониторе она растянула бы
        короткие служебные строки через всю страницу. */
     grid-template-columns: minmax(0, var(--measure-wide)) minmax(15rem, 22rem);
   }

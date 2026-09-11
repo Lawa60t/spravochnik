@@ -174,6 +174,9 @@ function header(path) {
       <a class="homelink" href="/">${esc(T.homeLink)}</a>
     </div>
     ${topSearch()}
+    ${/* Телефон неотложной помощи стоит в шапке, на каждой странице.
+         Раньше стоял в подвале, куда человек в тревоге не докручивает. */ ""}
+    <p class="topemergency">${T.topEmergency.map(part => `<span>${esc(part)}</span>`).join(" ")}</p>
     ${nav("topnav topnav-wide", path)}
     <details class="topmenu">
       <summary>${esc(T.menu)}</summary>
@@ -190,37 +193,37 @@ function header(path) {
 const NO_SUPPORT = ["/sostoyaniya/", "/chto-ne-razbiraem/", "/moego-sluchaya-net/"];
 const showSupport = path => !NO_SUPPORT.some(p => path.startsWith(p));
 
-/* Подвал стоит на той же сетке, что и страница: три колонки.
-   Первая — под левым меню: фигура, имя сайта и блок обратной связи.
-   Вторая и третья лежат в .bottom-inner и попадают в колонку текста:
-   слева то, что читают подряд — чем этот сайт является и откуда взяты
-   материалы; справа то, к чему обращаются точечно — телефон неотложной
-   помощи, владелец, соглашение, маркировка возраста.
+/* Подвал стоит на той же сетке, что и страница: три колонки, и в каждой
+   по две строки. Первая — под левым меню: фигура, имя сайта и плашка
+   обратной связи. Вторая и третья лежат в .bottom-inner и попадают
+   в колонку текста: чем этот сайт является и маркировка возраста;
+   владелец и ссылка на поддержку.
+
+   Юридический абзац, источники, дата обновления и телефон неотложной
+   помощи из подвала убраны решением владельца 11.09.2026: предупреждение
+   целиком читается на странице «О справочнике», источник и дата стоят
+   на каждой статье, соглашение открывается из левого меню, а телефон
+   переехал в шапку. Подвал на каждой странице должен быть коротким.
 
    Порядок в разметке — порядок чтения на телефоне, где колонка одна:
-   описание, неотложная помощь и владелец, затем обратная связь.
-   На широком экране колонку с фигурой ставит на место сетка, а не разметка. */
-function footer(updated, path) {
+   чем является сайт, владелец, затем обратная связь. На широком экране
+   колонку с фигурой ставит на место сетка, а не разметка. */
+function footer(path) {
   const f = T.footer;
   return `<footer class="bottom">
     <div class="bottom-inner">
       <div class="footcol">
         <p><strong>${esc(cfg.siteName)} — ${esc(f.lead)}</strong></p>
-        <p>${esc(f.body)}</p>
-        <p>${esc(f.sources)} ${esc(f.updatedPrefix)} ${esc(dateRu(updated))}</p>
+        <p class="age">${esc(f.age)}</p>
       </div>
       <div class="footcol">
-        <p class="tel">${esc(f.emergency)}</p>
-        <p>${esc(f.ownerPrefix)} ${esc(cfg.owner.name)}. ${esc(f.mailPrefix)} <a href="mailto:${attr(cfg.owner.mail)}">${esc(cfg.owner.mail)}</a></p>
-        <p class="footlinks"><a href="/soglashenie/">${esc(T.navTerms)}</a></p>
-        ${/* Отдельной неприметной строкой и внизу: ни в шапке, ни в меню её нет. */ ""}
-        <p class="age">${esc(f.age)}</p>
+        <p>${esc(f.ownerPrefix)} ${esc(cfg.owner.name)}.</p>
         ${showSupport(path) ? `<p class="footsupport"><a href="/podderzhat/">${esc(T.navSupport)}</a></p>` : ""}
       </div>
     </div>
     <div class="footcol footbrand">
       <p class="footname"><span class="fig">${figureSvg(22, 32)}</span> <strong>${esc(cfg.siteName)}</strong> — ${esc(cfg.tagline)}</p>
-      ${/* Обратная связь — про ошибки на сайте, не про самочувствие.
+      ${/* Обратная связь — про работу сайта, не про самочувствие.
            Просьба не описывать своё состояние стоит на странице
            «О справочнике» и в соглашении, здесь её не повторяем. */ ""}
       <div class="contactbox">
@@ -235,7 +238,10 @@ function footer(updated, path) {
 /* scripts — только свои файлы по корневым путям и только там, где надстройка
    действительно нужна. Порядок важен: profil.js кладёт window.EZ_PROFIL,
    остальные его читают. Страница обязана быть полной и без них. */
-function page({ title, description, path, body, rail, updated, bodyClass, ogType, script, scripts }) {
+/* Дату updated шаблоны страниц по-прежнему передают, но каркас её больше
+   не показывает: из подвала дата убрана, а на статьях она стоит в блоке
+   происхождения. Здесь она не принимается и не используется. */
+function page({ title, description, path, body, rail, bodyClass, ogType, script, scripts }) {
   /* Поиск в шапке стоит на каждой странице, поэтому его скрипт добавляется
      здесь, а не перечисляется в каждом шаблоне. Он идёт первым и ни от чего
      не зависит: индекс он грузит сам и только по первому нажатию клавиши. */
@@ -258,7 +264,7 @@ ${body}
 </main>
 ${rail ? `<aside class="rail"><div class="rail-inner">\n${rail}\n</div></aside>` : ""}
 </div>
-${footer(updated, path)}
+${footer(path)}
 ${js.map(src => `<script src="${attr(src)}" defer></script>`).join("\n")}
 </body>
 </html>
