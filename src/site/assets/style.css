@@ -378,35 +378,21 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   padding: .05rem .4rem; border-radius: 6px; font-size: .8rem;
   margin-top: .2rem;
 }
-/* Обратная связь: пунктирная рамка, заливка фоном страницы — заметно,
-   но тише основного текста подвала. Про сайт, а не про самочувствие.
-   Плашка одна в своей колонке и занимает её во всю ширину. */
-.contactbox {
-  border: 1px dashed var(--ink-3);
-  border-radius: 12px;
-  padding: .7rem .9rem;
-  background: var(--bg);
-  width: 100%;
-  box-sizing: border-box;
-}
-.contactbox .h {
-  font-size: .72rem; color: var(--ink-3);
-  text-transform: uppercase; letter-spacing: .06em;
-  margin-bottom: .15rem;
-}
-.contactbox .m { font-size: .95rem; color: var(--ink); margin: 0; }
-.contactbox .m a { font-weight: 600; }
 
 /* От 1200 подвал встаёт на ту же сетку, что и .layout, а обёртка попадает
    в колонку текста: левый край подвала и левый край статьи — одна линия.
-   Внутри обёртки две равные колонки: владелец с поддержкой и плашка
-   обратной связи. */
+   Внутри обёртки две равные колонки: владелец с поддержкой и обратная
+   связь. */
 @media (min-width: 1200px) {
+  /* Колонки выровнены по середине, а не по верхнему краю: в первой три
+     строки, в остальных по две, и с выравниванием по верху подвал читался
+     как таблица с пустыми ячейками внизу. */
   .bottom {
     display: grid;
     grid-template-columns: 17.5rem minmax(0, var(--measure-wide));
     justify-content: center;
     gap: 0 2rem;
+    align-items: center;
     padding: 1.6rem 1.5rem 2rem;
   }
   .bottom-inner {
@@ -418,7 +404,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 2rem;
-    align-items: start;
+    align-items: center;
   }
   .bottom-inner .footcol + .footcol { margin-top: 0; }
   .footbrand + .bottom-inner { margin-top: 0; }
@@ -443,8 +429,8 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   .bottom-inner {
     grid-column: 2 / 4;
     /* Левая колонка — под текстом страницы, правая — под правой колонкой;
-       правая ограничена, иначе на очень широком мониторе плашка обратной
-       связи растянулась бы через всю страницу. */
+       правая ограничена, иначе на очень широком мониторе короткие строки
+       обратной связи растянулись бы через всю страницу. */
     grid-template-columns: minmax(0, var(--measure-wide)) minmax(15rem, 22rem);
   }
 }
