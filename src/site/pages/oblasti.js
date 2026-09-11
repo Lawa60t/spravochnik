@@ -38,9 +38,23 @@ function norm(s) {
     .trim();
 }
 
+/* Набор значимых слов: по нему видно, что «Ягодицы и задний проход»
+   и «Задний проход и ягодицы» — одно и то же, переставленное местами.
+   Человек читает это как повтор, даже если строки не совпадают дословно. */
+function keyWords(s) {
+  return norm(s)
+    .split(" ")
+    .filter(w => w.length > 2)
+    .sort()
+    .join(" ");
+}
+
 function addsNothing(explanation, name) {
   const e = norm(explanation).replace(/\s+область$/, "");
-  return !e || e === norm(name);
+  if (!e) return true;
+  if (e === norm(name)) return true;
+  const k = keyWords(e);
+  return !!k && k === keyWords(name);
 }
 
 /* ---------- /oblasti/ ---------- */
