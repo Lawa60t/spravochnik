@@ -580,6 +580,27 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   }
 }
 
+/* ---------- кнопка «Наверх» ----------
+   Внизу справа, поверх страницы. Появляется скриптом (naverkh.js), когда
+   человек ушёл вниз дальше полутора экранов; без скрипта остаётся скрытой.
+   Правило [hidden] здесь своё: авторское display перебило бы браузерное. */
+.totop {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 30;
+  display: inline-flex; align-items: center; gap: .4rem;
+  min-height: 44px; padding: .5rem .95rem;
+  background: var(--card); color: var(--accent-d);
+  border: 1px solid var(--line); border-radius: 999px;
+  box-shadow: 0 4px 16px var(--shadow);
+  font-size: calc(var(--text) * .9); font-weight: 600; line-height: 1;
+  text-decoration: none;
+}
+.totop[hidden] { display: none; }
+.totop:hover, .totop:focus-visible { border-color: var(--accent); }
+.totop svg { flex: none; }
+@media (min-width: 1200px) {
+  .totop { right: 1.5rem; bottom: 1.5rem; }
+}
+
 /* ---------- общие мелочи ---------- */
 .note { color: var(--ink-3); font-size: calc(var(--text) * .88); margin: 0 0 .8rem; }
 .muted { color: var(--ink-3); }

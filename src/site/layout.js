@@ -171,7 +171,7 @@ function topSearch() {
 }
 
 function header(path) {
-  return `<header class="top">
+  return `<header class="top" id="top">
     <a class="skip" href="#main">${esc(T.skipToContent)}</a>
     <div class="brandbox">
       <a class="brand" href="/">${esc(cfg.siteName)}</a>
@@ -248,7 +248,7 @@ function page({ title, description, path, body, rail, bodyClass, ogType, script,
   /* Поиск в шапке стоит на каждой странице, поэтому его скрипт добавляется
      здесь, а не перечисляется в каждом шаблоне. Он идёт первым и ни от чего
      не зависит: индекс он грузит сам и только по первому нажатию клавиши. */
-  const js = [A.poisk.url].concat(scripts && scripts.length ? scripts : script ? [script] : []);
+  const js = [A.poisk.url, A.naverkh.url].concat(scripts && scripts.length ? scripts : script ? [script] : []);
   const canonical = cfg.origin.replace(/\/$/, "") + path;
   /* Области для наброска в меню берутся из базы здесь, а не при загрузке
      модуля: data.js тяжёлый, а каркас нужен и тем, кто его не читает. */
@@ -268,6 +268,9 @@ ${body}
 ${rail ? `<aside class="rail"><div class="rail-inner">\n${rail}\n</div></aside>` : ""}
 </div>
 ${footer(path)}
+${/* Кнопка «Наверх»: скрыта, пока скрипт не решит, что она нужна.
+     Стрелка — свой SVG, без картинок и эмодзи. */ ""}
+<a class="totop" href="#top" data-totop hidden><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>${esc(T.toTop)}</a>
 ${js.map(src => `<script src="${attr(src)}" defer></script>`).join("\n")}
 </body>
 </html>

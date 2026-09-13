@@ -73,6 +73,7 @@ module.exports = {
   search: asset("search.js", path.join(assetsDir, "search.js")),
   poisk: asset("poisk.js", path.join(assetsDir, "poisk.js")),
   profil: asset("profil.js", path.join(assetsDir, "profil.js")),
+  naverkh: asset("naverkh.js", path.join(assetsDir, "naverkh.js")),
   utochnenie: asset("utochnenie.js", path.join(assetsDir, "utochnenie.js")),
   /* Движок уезжает в браузер тем же файлом, что гоняют тесты. */
   engine: asset("engine.js", path.join(srcDir, "engine.js"))
