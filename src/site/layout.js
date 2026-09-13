@@ -38,6 +38,10 @@ function head({ title, description, canonical, ogType }) {
     `<meta property="og:title" content="${attr(title)}">`,
     `<meta property="og:description" content="${attr(description)}">`,
     `<meta property="og:url" content="${attr(canonical)}">`,
+    /* Два шрифта первого экрана просим заранее, чтобы текст не перерисовывался
+       системным шрифтом на глазах. crossorigin обязателен и для своего домена:
+       без него браузер скачает шрифт дважды. */
+    ...A.fontPreload.map(f => `<link rel="preload" href="${attr(f.url)}" as="font" type="font/woff2" crossorigin>`),
     `<link rel="stylesheet" href="${attr(A.style.url)}">`
   ].join("\n  ");
 }

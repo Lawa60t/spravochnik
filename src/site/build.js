@@ -233,6 +233,13 @@ function build() {
     assetUrls.add("/" + fn);
   });
 
+  /* Шрифты — своими файлами, с отпечатком в имени, как стили и скрипты. */
+  fs.mkdirSync(path.join(dist, "fonts"), { recursive: true });
+  A.fonts.forEach(f => {
+    fs.writeFileSync(path.join(dist, f.file), f.content);
+    assetUrls.add(f.url);
+  });
+
   /* Индекс поиска в шапке. Отдельным файлом и с отпечатком: он нужен всем
      страницам, но грузится только тому, кто начал набирать. */
   fs.writeFileSync(path.join(dist, POISK.file), POISK.content, "utf8");

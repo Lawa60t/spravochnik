@@ -30,9 +30,46 @@ function asset(name, absPath) {
   return { file, url: "/" + file, content };
 }
 
+/* Шрифты лежат в проекте файлами (assets/fonts, WOFF2, кириллица и латиница
+   отдельными наборами) — ничего с чужих доменов. Имена тоже с отпечатком:
+   кеш на сутки касается и их. В style.css шрифт записан по простому имени,
+   /fonts/lora-cyrillic-600-normal.woff2; сборка подставляет имя с отпечатком
+   до того, как посчитать отпечаток самого style.css, — поэтому стили
+   меняют имя вместе со шрифтами. Ссылка на несуществующий файл роняет
+   сборку: опечатка в @font-face иначе давала бы молчаливый 404 и системный
+   шрифт вместо своего. */
+const fontsDir = path.join(assetsDir, "fonts");
+const fonts = fs.readdirSync(fontsDir)
+  .filter(f => f.endsWith(".woff2"))
+  .sort()
+  .map(f => {
+    const a = asset(f, path.join(fontsDir, f));
+    return { name: f, file: "fonts/" + a.file, url: "/fonts/" + a.file, content: a.content };
+  });
+
+function styleAsset() {
+  let css = fs.readFileSync(path.join(assetsDir, "style.css"), "utf8");
+  fonts.forEach(f => { css = css.split("/fonts/" + f.name).join(f.url); });
+  const left = css.match(/\/fonts\/[^)'" ]+/g) || [];
+  const bad = left.filter(u => !fonts.some(f => f.url === u));
+  if (bad.length) throw new Error("style.css ссылается на шрифты, которых нет в assets/fonts: " + bad.join(", "));
+  const content = Buffer.from(css, "utf8");
+  const file = `style.${fingerprint(content)}.css`;
+  return { file, url: "/" + file, content };
+}
+
+/* Два файла, которые нужны первому экрану на каждой странице: основной
+   текст и заголовок, оба кириллические. Их шапка страницы просит заранее
+   (preload), остальные подгружаются по мере надобности. */
+const fontPreload = fonts.filter(f =>
+  f.name === "golos-text-cyrillic-400-normal.woff2" || f.name === "lora-cyrillic-600-normal.woff2"
+);
+
 module.exports = {
   fingerprint,
-  style: asset("style.css", path.join(assetsDir, "style.css")),
+  fonts,
+  fontPreload,
+  style: styleAsset(),
   search: asset("search.js", path.join(assetsDir, "search.js")),
   poisk: asset("poisk.js", path.join(assetsDir, "poisk.js")),
   profil: asset("profil.js", path.join(assetsDir, "profil.js")),
