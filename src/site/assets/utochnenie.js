@@ -34,6 +34,14 @@
   });
   var slot = function (name) { return root.querySelector('[data-slot="' + name + '"]'); };
 
+  /* Полный список раздела в обычном порядке — под островом уточнения.
+     Пока идут вопросы, он на странице: человек волен не отвечать и читать.
+     После выдачи он прячется — выдача и есть этот список, переставленный
+     по ответам, а два списка одних и тех же состояний подряд читаются
+     как ошибка. Открывается обратно ссылкой из выдачи и при перезапуске. */
+  var full = document.querySelector("[data-full-list]");
+  function showFull(on) { if (full) full.hidden = !on; }
+
   /* Состояние диалога. Ровно эти три поля — и только в памяти. */
   /* feeling — номер выбранного ощущения, первый шаг уточнения.
      null означает «затрудняюсь ответить»: движок тогда ничего не подставляет. */
@@ -76,6 +84,9 @@
     if (act === "age-skip") return pickAge(true);
     if (act === "copy") return copyTell(el);
     if (act === "restart") return restart();
+    /* Ссылка на #spisok: список сначала показывается, потом браузер сам
+       прокручивает к нему — переход по якорю здесь не отменяется. */
+    if (act === "show-full") return showFull(true);
 
     if (el.hasAttribute("data-sex")) return pickSex(el.getAttribute("data-sex"));
     if (el.hasAttribute("data-opt")) return answer(el.getAttribute("data-q"), el.getAttribute("data-opt"));
@@ -141,6 +152,7 @@
     state = { feeling: null, sex: null, age: null, answers: {}, asked: 0 };
     var alarm = slot("alarm");
     if (alarm) alarm.hidden = true;
+    showFull(true);
     if (steps.feel) show("feel");
     else ask();
   }
@@ -265,23 +277,24 @@
     });
 
     /* Сколько состояний раздела осталось за пределами показанного.
-       Без этой строки девять статей читаются как весь раздел. */
+       Без этой строки девять статей читаются как весь раздел.
+       Строка со ссылкой на полный список стоит после выдачи всегда:
+       полный список с этого момента скрыт, и ссылка — единственный
+       путь к нему без перезапуска. Счёт «показаны n из m» — только
+       когда часть состояний отпала. */
     var shown = box.querySelectorAll("li").length;
     var total = res.all.length;
     var line = slot("shown-of");
     if (line) {
-      if (shown < total) {
-        slot("shown-of-text").textContent = (line.getAttribute("data-tpl") || "")
-          .replace("{n}", shown)
-          .replace("{total}", total);
-        line.hidden = false;
-      } else {
-        line.hidden = true;
-      }
+      slot("shown-of-text").textContent = shown < total
+        ? (line.getAttribute("data-tpl") || "").replace("{n}", shown).replace("{total}", total)
+        : "";
+      line.hidden = false;
     }
 
     slot("tell").textContent = tell();
     checkAlarms();
+    showFull(false);
     show("result");
   }
 

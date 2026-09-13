@@ -144,8 +144,11 @@ function refineBlock(s) {
     <h2>${esc(R.resultTitle)}</h2>
     <p class="note">${esc(R.resultNote)}</p>
     <div data-slot="blocks"></div>
+    ${/* Ссылка ведёт к полному списку раздела ниже: после выдачи он скрыт,
+         чтобы на странице не стояло два списка одних и тех же состояний
+         в разном порядке, и открывается этой ссылкой. */ ""}
     <p class="note shown-of" data-slot="shown-of" data-tpl="${attr(R.shownOf)}" hidden>
-      <span data-slot="shown-of-text"></span> <a href="#main">${esc(R.showAll)}</a>
+      <span data-slot="shown-of-text"></span> <a href="#spisok" data-act="show-full">${esc(R.showAll)}</a>
     </p>
 
     <section class="tell">
@@ -202,6 +205,13 @@ function syndromePage(s, updated) {
 
   ${refineBlock(s)}
 
+  ${/* Полный список раздела в обычном порядке. Без JavaScript и до конца
+       уточнения он на странице всегда — это правовое требование: каталог
+       открывается без вопросов. После выдачи скрипт его скрывает: выдача —
+       тот же список, переставленный по ответам, и два списка одних и тех же
+       состояний подряд читались как ошибка. Открывается обратно ссылкой
+       «Показать весь список раздела» и при «Начать уточнение заново». */ ""}
+  <div class="full-list" id="spisok" data-full-list>
   <p class="lead">${esc(T.syndrome.listTitle)}. ${esc(T.syndrome.listNote)}</p>
 
   ${
@@ -216,6 +226,7 @@ function syndromePage(s, updated) {
   ${rareBlock(T.syndrome.blockRare, rare, T.syndrome.blockRareNote)}
 
   <p class="nomatch"><a href="/moego-sluchaya-net/">${esc(T.syndrome.noMatch)}</a></p>
+  </div>
 </article>`;
 
   /* Правая колонка. Уточнение переехало отсюда наверх основной колонки:
