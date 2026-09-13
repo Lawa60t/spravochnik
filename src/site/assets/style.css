@@ -147,6 +147,12 @@
   --shadow: rgba(46, 107, 83, .09);
   --radius: 10px;
   --radius-s: 6px;
+  /* Кегль текста. Все размеры шрифта на сайте считаются от него
+     (calc(var(--text) * …)), а не от корневого rem: иначе от 1200,
+     где текст 19 пикселей, меню, подвал и подписи оставались бы в 16-ти
+     и читались как другой, мелкий шрифт. Ширины при этом остаются
+     в rem — они от кегля не зависят. */
+  --text: 1.0625rem;
   --measure: 38rem;
   --measure-wide: 38rem; /* ширина колонки текста на широком экране */
 }
@@ -178,7 +184,9 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font: 17px/1.62 var(--font-body);
+  font-family: var(--font-body);
+  font-size: var(--text);
+  line-height: 1.62;
   overflow-wrap: break-word;
 }
 
@@ -189,9 +197,9 @@ a:hover { text-decoration: none; }
    браузер подобрал бы ближайший вес сам. Межбуквенный интервал не сжимаем:
    антикве это не идёт. */
 h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; font-weight: 600; }
-h1 { font-size: 2.05rem; margin: 0 0 .3rem; line-height: 1.18; }
-h2 { font-size: 1.32rem; margin: 2.2rem 0 .6rem; }
-h3 { font-size: 1.05rem; margin: 1.2rem 0 .4rem; }
+h1 { font-size: calc(var(--text) * 1.75); margin: 0 0 .3rem; line-height: 1.18; }
+h2 { font-size: calc(var(--text) * 1.2); margin: 2.2rem 0 .6rem; }
+h3 { font-size: calc(var(--text) * 1.05); margin: 1.2rem 0 .4rem; }
 
 p { margin: 0 0 .9rem; }
 
@@ -206,14 +214,14 @@ p { margin: 0 0 .9rem; }
 .brand {
   font-family: var(--font-head);
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: calc(var(--text) * 1.35);
   letter-spacing: .01em;
   color: var(--ink);
   text-decoration: none;
   line-height: 1.1;
 }
 /* Отдельная ссылка «На главную»: логотип как ссылка очевиден не всем. */
-.homelink { font-size: .9rem; color: var(--accent-d); }
+.homelink { font-size: calc(var(--text) * .85); color: var(--accent-d); }
 /* Телефон неотложной помощи: на узком экране — своя строка под шапкой,
    от 1200 — справа, где раньше стояло поле поиска. Заметный, но не кричащий:
    красным здесь нельзя, красная плашка на сайте одна и означает другое.
@@ -225,7 +233,7 @@ p { margin: 0 0 .9rem; }
   flex: 1 1 100%; order: 6;
   display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0 .35em;
   margin: 0;
-  font-size: .85rem; font-weight: 600; line-height: 1.35;
+  font-size: calc(var(--text) * .75); font-weight: 600; line-height: 1.35;
   color: var(--ink);
 }
 .topemergency .l, .topemergency .n { white-space: nowrap; }
@@ -234,7 +242,7 @@ p { margin: 0 0 .9rem; }
   .topemergency { order: 0; }
 }
 
-.topnav { display: flex; gap: .2rem 1rem; font-size: .95rem; flex-wrap: wrap; align-items: center; }
+.topnav { display: flex; gap: .2rem 1rem; font-size: calc(var(--text) * .95); flex-wrap: wrap; align-items: center; }
 .topnav a { color: var(--ink-2); text-decoration: none; padding: .3rem 0; }
 .topnav a:hover, .topnav a[aria-current] { color: var(--accent-d); text-decoration: underline; }
 /* Ссылки хаба в строке шапки не показываются: строка и без них длинная,
@@ -250,7 +258,7 @@ p { margin: 0 0 .9rem; }
   padding: .4rem .8rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-s);
-  font-size: .95rem;
+  font-size: calc(var(--text) * .95);
   background: var(--card);
 }
 .topmenu[open] > summary { border-color: var(--accent); }
@@ -272,7 +280,7 @@ p { margin: 0 0 .9rem; }
   border-top: 1px solid var(--line);
   margin-top: .3rem; padding-top: .3rem;
 }
-.topnav-narrow .topnav-sub { font-size: .88rem; color: var(--ink-3); padding-left: 1.6rem; }
+.topnav-narrow .topnav-sub { font-size: calc(var(--text) * .88); color: var(--ink-3); padding-left: 1.6rem; }
 
 /* Широкий экран показывает разделы строкой, узкий — только меню. */
 .topnav-wide { display: none; }
@@ -322,8 +330,7 @@ main {
   /* Ширину колонки и кегль меняем вместе. Растянуть колонку, не увеличив
      шрифт, значило бы получить около девяноста знаков в строке — читать тяжело.
      При 760 точках и 19 пикселях остаётся примерно восемьдесят. */
-  :root { --measure-wide: 47.5rem; }
-  body { font-size: 19px; }
+  :root { --measure-wide: 47.5rem; --text: 1.1875rem; }
 
   .layout {
     display: grid;
@@ -428,18 +435,18 @@ a.nav-item:hover, a.nav-item:focus-visible, .hub-head:hover {
   text-decoration: none;
 }
 a.nav-item[aria-current] { border-color: var(--accent); }
-.nav-item .t { display: block; font-weight: 600; font-size: .95rem; line-height: 1.3; }
-.nav-item .s { display: block; color: var(--ink-3); font-size: .8rem; line-height: 1.4; margin-top: .15rem; }
+.nav-item .t { display: block; font-weight: 600; font-size: calc(var(--text) * .95); line-height: 1.3; }
+.nav-item .s { display: block; color: var(--ink-3); font-size: calc(var(--text) * .8); line-height: 1.4; margin-top: .15rem; }
 .nav-primary { display: flex; gap: .75rem; align-items: center; }
 .nav-primary .fig { flex: 0 0 44px; color: var(--accent); display: block; line-height: 0; }
 .nav-plain { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }
-.nav-plain .chev { color: var(--ink-3); font-size: 1.1rem; }
+.nav-plain .chev { color: var(--ink-3); font-size: calc(var(--text) * 1.1); }
 
 /* Набросок оглавления: названия областей плашками. Это картинка словами,
    а не ссылки — вся карточка целиком одна ссылка на список. */
 .zone-sketch { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .55rem; }
 .zone-sketch span {
-  font-size: .72rem; line-height: 1.5;
+  font-size: calc(var(--text) * .72); line-height: 1.5;
   color: var(--accent-d); background: var(--wash);
   border-radius: 20px; padding: .1rem .55rem;
   white-space: nowrap;
@@ -448,7 +455,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
 /* Пометка «скоро» — у того, чего на сайте ещё нет. */
 .soon {
   display: inline-block;
-  font-size: .68rem; line-height: 1.5; font-weight: 600;
+  font-size: calc(var(--text) * .68); line-height: 1.5; font-weight: 600;
   color: var(--card); background: var(--accent);
   border-radius: 6px; padding: 0 .45rem;
   margin-left: .25rem; vertical-align: middle;
@@ -470,7 +477,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
 .hub .sub a {
   display: flex; align-items: baseline;
   min-height: 44px;
-  font-size: .85rem; line-height: 1.3;
+  font-size: calc(var(--text) * .85); line-height: 1.3;
   color: var(--accent-d);
   text-decoration: none;
   padding: .3rem 0;
@@ -492,7 +499,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   border-top: 1px solid var(--line);
   background: var(--card);
   color: var(--ink-2);
-  font-size: .87rem;
+  font-size: calc(var(--text) * .87);
   line-height: 1.45;
   padding: 1.2rem 0 1.6rem;
   text-align: left;
@@ -514,7 +521,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
 .bottom p { margin: 0 0 .35rem; }
 .footcol > p:last-child { margin-bottom: 0; }
 .bottom-inner .footcol + .footcol { margin-top: .8rem; }
-.service h2 { font-size: 1.1rem; margin-top: 1.8rem; }
+.service h2 { font-size: calc(var(--text) * 1.1); margin-top: 1.8rem; }
 .service h2:first-of-type { margin-top: 1.2rem; }
 
 /* От 1200 подвал встаёт на ту же сетку, что и .layout, а обёртка попадает
@@ -574,7 +581,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
 }
 
 /* ---------- общие мелочи ---------- */
-.note { color: var(--ink-3); font-size: .88rem; margin: 0 0 .8rem; }
+.note { color: var(--ink-3); font-size: calc(var(--text) * .88); margin: 0 0 .8rem; }
 .muted { color: var(--ink-3); }
 .lead { color: var(--ink-2); }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
@@ -583,7 +590,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
 
 .icd {
   display: inline-block;
-  font-size: .82rem; color: var(--ink-3);
+  font-size: calc(var(--text) * .82); color: var(--ink-3);
   font-variant-numeric: tabular-nums;
 }
 
@@ -594,7 +601,7 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   border-radius: var(--radius-s);
   background: var(--card);
   padding: .7rem .9rem;
-  font-size: .88rem; line-height: 1.5;
+  font-size: calc(var(--text) * .88); line-height: 1.5;
   color: var(--ink-2);
   margin-bottom: 1.6rem;
 }
@@ -609,13 +616,13 @@ a.nav-item[aria-current] { border-color: var(--accent); }
   border-radius: var(--radius-s);
   padding: 1rem 1.1rem .4rem;
   margin: 0 0 1.2rem;
-  font-size: 1rem;
+  font-size: calc(var(--text) * 1);
   line-height: 1.5;
 }
 .emergency-title {
   color: var(--alarm-ink);
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: calc(var(--text) * 1.15);
   margin-bottom: .4rem;
 }
 .emergency p:last-child { margin-bottom: .6rem; }
@@ -624,19 +631,19 @@ a.nav-item[aria-current] { border-color: var(--accent); }
    Ширина колонки задана снаружи (--measure), здесь только ритм: заголовок
    ближе к своему абзацу, чем к предыдущему; между абзацами — полный интервал. */
 .detail { margin-top: 2.2rem; border-top: 1px solid var(--line); padding-top: .6rem; }
-.detail h2 { font-size: 1.15rem; margin: 1.7rem 0 .5rem; }
+.detail h2 { font-size: calc(var(--text) * 1.15); margin: 1.7rem 0 .5rem; }
 .detail h2:first-child { margin-top: .9rem; }
 .detail p { margin: 0 0 1.05rem; line-height: 1.65; }
 
 /* ---------- статья ---------- */
 .condition .icd { margin-bottom: .8rem; }
-.alt, .limits { font-size: .92rem; color: var(--ink-2); margin: 0 0 .5rem; }
+.alt, .limits { font-size: calc(var(--text) * .92); color: var(--ink-2); margin: 0 0 .5rem; }
 .alt span:first-child { color: var(--ink-3); }
 
 dl.fields { margin: 1.6rem 0 0; }
 dl.fields > div { margin: 0 0 1.15rem; }
 dl.fields dt {
-  font-size: .78rem; text-transform: uppercase; letter-spacing: .06em;
+  font-size: calc(var(--text) * .78); text-transform: uppercase; letter-spacing: .06em;
   color: var(--ink-3); margin-bottom: .18rem;
 }
 dl.fields dd { margin: 0; }
@@ -645,19 +652,19 @@ dl.fields .urgent dd {
   background: var(--alarm-bg);
   padding: .5rem .75rem;
 }
-dl.fields.small dd { font-size: .92rem; color: var(--ink-2); }
+dl.fields.small dd { font-size: calc(var(--text) * .92); color: var(--ink-2); }
 
 .insections { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: .4rem; }
 ul.links { list-style: none; padding: 0; margin: 0; }
 ul.links li { padding: .25rem 0; border-bottom: 1px solid var(--line); }
 
 .origin { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: .4rem; }
-ul.sources { margin: 0 0 1rem; padding-left: 1.1rem; font-size: .92rem; }
-.report { font-size: .9rem; }
+ul.sources { margin: 0 0 1rem; padding-left: 1.1rem; font-size: calc(var(--text) * .92); }
+.report { font-size: calc(var(--text) * .9); }
 .report .note { display: block; margin-top: .2rem; }
 
 /* ---------- раздел ---------- */
-.crumbs { font-size: .85rem; color: var(--ink-2); margin-bottom: .5rem; }
+.crumbs { font-size: calc(var(--text) * .85); color: var(--ink-2); margin-bottom: .5rem; }
 
 .block { margin-top: 2rem; }
 .block h2 { margin-top: 0; }
@@ -687,7 +694,7 @@ details.block.rare > summary {
 details.block.rare > summary .sum { flex: 0 1 auto; }
 details.block.rare > summary .count {
   color: var(--ink-3);
-  font-size: .82rem;
+  font-size: calc(var(--text) * .82);
   font-variant-numeric: tabular-nums;
 }
 details.block.rare[open] > summary { border-bottom: 1px solid var(--alarm-line); }
@@ -698,14 +705,14 @@ ul.conditions li {
   border-bottom: 1px solid var(--line);
 }
 ul.conditions li a { font-weight: 600; margin-right: .5rem; }
-.gist { display: block; font-size: .9rem; color: var(--ink-2); margin-top: .15rem; }
+.gist { display: block; font-size: calc(var(--text) * .9); color: var(--ink-2); margin-top: .15rem; }
 
 .notsearched {
   margin-top: 2.4rem; border-top: 1px solid var(--line); padding-top: .4rem;
 }
 .notsearched ul { padding-left: 1.1rem; }
 .notsearched li { margin-bottom: .3rem; }
-.nomatch { margin-top: 2rem; font-size: .95rem; }
+.nomatch { margin-top: 2rem; font-size: calc(var(--text) * .95); }
 
 /* ---------- указатель ---------- */
 .cols { columns: 2 15rem; column-gap: 2.2rem; margin-bottom: 2rem; }
@@ -714,10 +721,10 @@ ul.conditions li a { font-weight: 600; margin-right: .5rem; }
   margin: 0 0 .2rem; color: var(--accent-d);
   border-bottom: 1px solid var(--line);
 }
-ul.index { list-style: none; padding: 0; margin: 0; font-size: .95rem; }
+ul.index { list-style: none; padding: 0; margin: 0; font-size: calc(var(--text) * .95); }
 ul.index li { padding: .12rem 0; }
 ul.index li.ref { color: var(--ink-3); }
-.aka { display: block; font-size: .82rem; color: var(--ink-3); }
+.aka { display: block; font-size: calc(var(--text) * .82); color: var(--ink-3); }
 
 /* ---------- главная ----------
    Одна карточка: заголовок, два коротких абзаца, две карточки-входа
@@ -729,7 +736,7 @@ ul.index li.ref { color: var(--ink-3); }
   border-radius: 18px;
   padding: 1.5rem 1.4rem 1.2rem;
 }
-.hello h1 { font-size: 1.9rem; margin-bottom: .5rem; }
+.hello h1 { font-size: calc(var(--text) * 1.75); margin-bottom: .5rem; }
 .hello h1 .tagline { font-weight: 400; color: var(--ink-2); }
 .hello .lead { margin-bottom: .4rem; max-width: 60ch; }
 
@@ -757,13 +764,13 @@ ul.index li.ref { color: var(--ink-3); }
   text-decoration: none;
 }
 .card .icon { flex: 0 0 auto; color: var(--accent); line-height: 0; }
-.card .ct { display: block; font-family: var(--font-head); font-weight: 600; font-size: 1.08rem; line-height: 1.3; }
-.card .cs { display: block; color: var(--ink-3); font-size: .85rem; line-height: 1.4; margin-top: .2rem; }
+.card .ct { display: block; font-family: var(--font-head); font-weight: 600; font-size: calc(var(--text) * 1.02); line-height: 1.3; }
+.card .cs { display: block; color: var(--ink-3); font-size: calc(var(--text) * .85); line-height: 1.4; margin-top: .2rem; }
 .card:hover .ct { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Строка предупреждения под карточками: спокойная, отделена линией. */
 .hello-note {
-  font-size: .85rem; color: var(--ink-3);
+  font-size: calc(var(--text) * .85); color: var(--ink-3);
   margin: 0; padding-top: .8rem;
   border-top: 1px solid var(--line);
 }
@@ -788,7 +795,7 @@ ul.dashed li::before { content: "— "; }
 /* Счётчики — одна мелкая строка. Крупные цифры обещали витрину,
    а это всего лишь справка об объёме. */
 .counts {
-  font-size: .85rem;
+  font-size: calc(var(--text) * .85);
   color: var(--ink-3);
   margin: .2rem 0 .55rem;
 }
@@ -818,7 +825,7 @@ ul.dashed li::before { content: "— "; }
 /* ---------- области ---------- */
 .zonelist .count {
   display: inline-block;
-  font-size: .82rem; color: var(--ink-3);
+  font-size: calc(var(--text) * .82); color: var(--ink-3);
   margin-left: .4rem;
 }
 .subzone { margin: 1.1rem 0 0; }
@@ -831,7 +838,7 @@ ul.dashed li::before { content: "— "; }
 .poisk { margin: 1.2rem 0 1.8rem; }
 .poisk-label {
   display: block;
-  font-size: .82rem; color: var(--ink-3);
+  font-size: calc(var(--text) * .82); color: var(--ink-3);
   margin-bottom: .25rem;
 }
 .poisk-input {
@@ -845,12 +852,12 @@ ul.dashed li::before { content: "— "; }
   border-radius: var(--radius-s);
 }
 .poisk-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-.poisk-status { font-size: .85rem; color: var(--ink-3); margin: .4rem 0 0; min-height: 1.2em; }
+.poisk-status { font-size: calc(var(--text) * .85); color: var(--ink-3); margin: .4rem 0 0; min-height: 1.2em; }
 .poisk-empty {
   border-left: 3px solid var(--line);
   padding: .1rem 0 .1rem .8rem;
   margin-top: .8rem;
-  font-size: .92rem;
+  font-size: calc(var(--text) * .92);
 }
 .poisk-empty p { margin-bottom: .4rem; }
 
@@ -859,7 +866,7 @@ ul.dashed li::before { content: "— "; }
    остаётся видимой обычная ссылка на указатель, поэтому скрывать сам слот
    нельзя — прячется только то, что скрипт заменил. */
 .topsearch { flex: 1 1 100%; order: 5; position: relative; }
-.poisk-fallback { font-size: .95rem; color: var(--ink-2); }
+.poisk-fallback { font-size: calc(var(--text) * .95); color: var(--ink-2); }
 .poisk-top-box { position: relative; }
 .poisk-top-label {
   position: absolute; width: 1px; height: 1px;
@@ -868,7 +875,7 @@ ul.dashed li::before { content: "— "; }
 .poisk-top-input {
   width: 100%;
   min-height: 44px;
-  padding: .5rem .8rem;
+  padding: .5rem .7rem;
   font: inherit;
   color: var(--ink);
   background: var(--bg);
@@ -898,8 +905,8 @@ ul.dashed li::before { content: "— "; }
   text-decoration: none;
 }
 .poisk-out a:hover, .poisk-out a:focus { background: var(--bg); outline: none; }
-.poisk-out .kind { font-size: .78rem; color: var(--ink-3); flex: none; }
-.poisk-top-status { font-size: .8rem; color: var(--ink-3); margin: .3rem 0 0; }
+.poisk-out .kind { font-size: calc(var(--text) * .78); color: var(--ink-3); flex: none; }
+.poisk-top-status { font-size: calc(var(--text) * .8); color: var(--ink-3); margin: .3rem 0 0; }
 
 @media (min-width: 46rem) {
   /* На широком экране поле встаёт в строку шапки между названием и разделами
@@ -915,8 +922,8 @@ ul.dashed li::before { content: "— "; }
   border-top: 1px solid var(--line);
   padding-top: 1.2rem;
 }
-.refine h2 { margin-top: .6rem; font-size: 1.15rem; }
-.refine h3 { font-size: 1rem; }
+.refine h2 { margin-top: .6rem; font-size: calc(var(--text) * 1.15); }
+.refine h3 { font-size: calc(var(--text) * 1); }
 
 .choices { display: flex; flex-direction: column; gap: .5rem; margin: .8rem 0; }
 .choices button {
@@ -979,7 +986,7 @@ ul.dashed li::before { content: "— "; }
 .alarm ul { padding-left: 1.1rem; }
 .alarm li { margin-bottom: .4rem; }
 .alarm .phone {
-  font-size: 1.5rem;
+  font-size: calc(var(--text) * 1.5);
   font-weight: 700;
   letter-spacing: .04em;
   margin: .6rem 0;
@@ -1007,15 +1014,15 @@ ul.dashed li::before { content: "— "; }
   .fork-half { min-height: 0; }
   .fork-half + .fork-half { border-left: 0; border-top: 1px solid var(--line); }
 }
-.fork h2 { margin: 0 0 .4rem; font-size: 1.1rem; color: var(--ink); }
+.fork h2 { margin: 0 0 .4rem; font-size: calc(var(--text) * 1.1); color: var(--ink); }
 .fork-off { background: var(--card); display: flex; flex-direction: column; align-items: center; text-align: center; gap: .8rem; }
 .fork-fig { display: block; color: var(--accent); opacity: .55; line-height: 0; }
-.fork-soon { color: var(--ink-3); font-size: .92rem; margin: 0; max-width: 24ch; }
-.fork-note { color: var(--ink-3); font-size: .88rem; margin: 0 0 .6rem; }
+.fork-soon { color: var(--ink-3); font-size: calc(var(--text) * .92); margin: 0; max-width: 24ch; }
+.fork-note { color: var(--ink-3); font-size: calc(var(--text) * .88); margin: 0 0 .6rem; }
 .fork-on { display: block; text-decoration: none; background: var(--card); color: var(--ink); }
 .fork-on:hover { background: var(--wash); }
 .fork-on h2 { text-decoration: underline; text-underline-offset: 3px; color: var(--accent-d); }
-.fork-on .zone-sketch span { font-size: .8rem; }
+.fork-on .zone-sketch span { font-size: calc(var(--text) * .8); }
 
 /* ---------- простые страницы ---------- */
 .plain ul.big { padding-left: 1.1rem; }
