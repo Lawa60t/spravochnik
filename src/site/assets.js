@@ -66,8 +66,8 @@ const fontPreload = fonts.filter(f =>
 );
 
 /* Кадры фигуры тела для /vybor/: два размера на каждый из четырёх кадров,
-   высота 800 (1×) и 1600 (2×), делаются из figury/render скриптом
-   tools/figury-kadry.js. Имена с отпечатком, как у стилей и шрифтов;
+   высота 800 (1×) и 1600 (2×), плюс 320 у передних — для карточки на
+   главной; делаются из figury/render скриптом tools/figury-kadry.js. Имена с отпечатком, как у стилей и шрифтов;
    ширина и высота читаются из заголовка PNG — для атрибутов img и srcset. */
 const figuryDir = path.join(assetsDir, "figury");
 const pngSize = buf => ({ width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) });
@@ -78,6 +78,7 @@ const figury = {};
     return { ...a, file: "figury/" + a.file, url: "/figury/" + a.file, ...pngSize(a.content) };
   };
   figury[name] = { x1: one(800), x2: one(1600) };
+  if (name.endsWith("-speredi")) figury[name].x320 = one(320);
 });
 
 module.exports = {

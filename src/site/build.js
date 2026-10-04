@@ -309,7 +309,7 @@ function build() {
   /* Кадры фигуры — так же. Полные рендеры из figury/ в dist не попадают:
      сюда идут только два уменьшенных размера на кадр. */
   fs.mkdirSync(path.join(dist, "figury"), { recursive: true });
-  Object.values(A.figury).forEach(k => [k.x1, k.x2].forEach(f => {
+  Object.values(A.figury).forEach(k => [k.x1, k.x2, k.x320].filter(Boolean).forEach(f => {
     fs.writeFileSync(path.join(dist, f.file), f.content);
     assetUrls.add(f.url);
   }));
@@ -361,7 +361,7 @@ function build() {
   }
   console.log(`Файлы с отпечатком         ${[A.style, A.search, A.poisk, A.profil, A.naverkh, A.utochnenie, A.engine].map(a => a.file).join(", ")}`);
   {
-    const kadry = Object.values(A.figury).flatMap(k => [k.x1, k.x2]);
+    const kadry = Object.values(A.figury).flatMap(k => [k.x1, k.x2, k.x320].filter(Boolean));
     const kb = kadry.reduce((a, f) => a + f.content.length, 0) / 1024;
     console.log(`Кадры фигуры               ${kadry.length} файлов, ${Math.round(kb)} КБ; наложение — /_debug/figura.html (не в sitemap, закрыто в robots)`);
   }

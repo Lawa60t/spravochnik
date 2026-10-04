@@ -779,6 +779,8 @@ ul.index li.ref { color: var(--ink-3); }
   text-decoration: none;
 }
 .card .icon { flex: 0 0 auto; color: var(--accent); line-height: 0; }
+.card .icon-figury { display: flex; gap: .3rem; align-items: flex-end; }
+.card .icon-figury img { display: block; height: 58px; width: auto; }
 .card .ct { display: block; font-family: var(--font-head); font-weight: 600; font-size: calc(var(--text) * 1.02); line-height: 1.3; }
 .card .cs { display: block; color: var(--ink-3); font-size: calc(var(--text) * .85); line-height: 1.4; margin-top: .2rem; }
 .card:hover .ct { text-decoration: underline; text-underline-offset: 3px; }
@@ -1047,8 +1049,33 @@ ul.dashed li::before { content: "— "; }
    Какой кадр показан, решают стили по :checked — без JavaScript.
    Кадры, которых не видно, браузер не грузит: у картинок loading="lazy". */
 .figura { margin: 1.5rem 0 2rem; }
+/* Первый экран: две фигуры рядом, каждая — подпись к своему переключателю.
+   Пока выбрана «обе» (по умолчанию), кнопок вида и крупного кадра нет. */
+.figura-dve { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; max-width: 30rem; margin: 0 auto; }
+.figura-vybor {
+  display: block; padding: .6rem .6rem 0; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--card); color: var(--ink); cursor: pointer;
+}
+.figura-vybor:hover { border-color: var(--accent); box-shadow: 0 3px 14px var(--shadow); }
+.figura-vybor img { display: block; width: 100%; height: auto; }
+.figura-vybor span {
+  display: flex; align-items: center; justify-content: center; min-height: 44px;
+  font-family: var(--font-head); font-weight: 600; font-size: calc(var(--text) * 1.02);
+}
+.figura-vybor:hover span { text-decoration: underline; text-underline-offset: 3px; color: var(--accent-d); }
+#figura-m:focus-visible ~ .figura-dve label[for="figura-m"],
+#figura-f:focus-visible ~ .figura-dve label[for="figura-f"] { outline: 2px solid var(--accent); outline-offset: 2px; }
+.figura-pick { grid-column: 1 / -1; text-align: center; color: var(--ink-3); font-size: calc(var(--text) * .92); margin: .8rem 0 0; }
+#figura-m:checked ~ .figura-dve, #figura-f:checked ~ .figura-dve { display: none; }
+.figura-knopki { display: none; }
+#figura-m:checked ~ .figura-knopki, #figura-f:checked ~ .figura-knopki { display: flex; }
+#figura-obe:focus-visible ~ .figura-knopki label[for="figura-obe"] { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Фокус на переключателе пола виден всегда: в состоянии «обе» — рамка
+   вокруг двух фигур, у раскрытой фигуры — вокруг кадра (стрелки меняют фигуру). */
+#figura-obe:focus-visible ~ .figura-dve,
+#figura-m:focus-visible ~ .figura-kadry, #figura-f:focus-visible ~ .figura-kadry { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 12px; }
 .figura-radio { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); opacity: 0; }
-.figura-knopki { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 1.5rem; margin: 0 0 1rem; }
+.figura-knopki { flex-wrap: wrap; justify-content: center; align-items: center; gap: .6rem 1.5rem; margin: 0 0 1rem; }
 .figura-knopki > span { display: inline-flex; gap: .4rem; }
 .figura-knopki label {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 1.1rem;
@@ -1057,14 +1084,10 @@ ul.dashed li::before { content: "— "; }
   font-size: calc(var(--text) * .92); line-height: 1.2;
 }
 .figura-knopki label:hover { border-color: var(--accent); }
-#figura-m:checked ~ .figura-knopki label[for="figura-m"],
-#figura-f:checked ~ .figura-knopki label[for="figura-f"],
 #figura-front:checked ~ .figura-knopki label[for="figura-front"],
 #figura-back:checked ~ .figura-knopki label[for="figura-back"] {
   border-color: var(--accent); background: var(--wash); color: var(--accent-d); font-weight: 600;
 }
-#figura-m:focus-visible ~ .figura-knopki label[for="figura-m"],
-#figura-f:focus-visible ~ .figura-knopki label[for="figura-f"],
 #figura-front:focus-visible ~ .figura-knopki label[for="figura-front"],
 #figura-back:focus-visible ~ .figura-knopki label[for="figura-back"] { outline: 2px solid var(--accent); outline-offset: 2px; }
 .figura-kadry { position: relative; max-width: 26rem; margin: 0 auto; }

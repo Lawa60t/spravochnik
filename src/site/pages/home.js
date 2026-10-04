@@ -9,8 +9,11 @@
    Полный текст предупреждения тоже переехал — на страницу «О справочнике»
    и в подвал. Здесь остаётся одна спокойная строка под карточками:
    энциклопедия не просит расписаться за вход (docs/teksty-ekranov.md).
-   Страница целиком обычные ссылки, без JavaScript открывается полностью. */
-const { page, esc, figureSvg, listSvg } = require("../layout");
+   Страница целиком обычные ссылки, без JavaScript открывается полностью.
+   В карточке «На модели» — две фигуры рядом, кадры высотой 320 px:
+   те же, что на /vybor/, только маленькие. */
+const { page, esc, attr, listSvg } = require("../layout");
+const A = require("../assets");
 const meta = require("../meta");
 const cfg = require("../config");
 const T = require("../text");
@@ -28,7 +31,10 @@ module.exports = function homePage(updated) {
 
     <div class="cards">
       <a class="card" href="/vybor/">
-        <span class="icon">${figureSvg(40, 58)}</span>
+        <span class="icon icon-figury" aria-hidden="true">${["figura-m-speredi", "figura-zh-speredi"].map(n => {
+          const k = A.figury[n];
+          return `<img src="${attr(k.x320.url)}" srcset="${attr(k.x320.url)} ${k.x320.width}w, ${attr(k.x1.url)} ${k.x1.width}w" sizes="2.4rem" width="${k.x320.width}" height="${k.x320.height}" alt="" decoding="async">`;
+        }).join("")}</span>
         <span><span class="ct">${esc(H.modelTitle)}</span>
           <span class="cs">${esc(H.modelSub)}</span></span>
       </a>

@@ -2,12 +2,14 @@
 /* Вход «на модели» — отдельная страница по своему адресу: её можно открыть
    ссылкой, положить в меню и найти поисковику.
 
-   Фигура — четыре кадра рендеров (мужская и женская, спереди и сзади),
-   поверх каждого — ссылки на страницы областей оглавления, посчитанные
-   по калибровке из data/anatomy.json (src/site/figura.js). Переключатели
-   пола и вида — обычные переключатели формы: без JavaScript они работают
-   так же, страница скриптов не несёт. Без стилей и картинок остаётся
-   список областей ссылками — тот же, что на /oblasti/.
+   Первый экран — две фигуры рядом, мужская слева и женская справа;
+   нажатие раскрывает выбранную крупно: поверх кадра — ссылки на страницы
+   областей оглавления, посчитанные по калибровке из data/anatomy.json
+   (src/site/figura.js), рядом переключатель «спереди / сзади» и кнопка
+   «Другая фигура». Все переключатели — обычные переключатели формы
+   и стили по :checked: без JavaScript работают так же, страница скриптов
+   не несёт. Без стилей и картинок остаётся список областей ссылками —
+   тот же, что на /oblasti/.
 
    Пол фигуры — переключатель картинки, как «спереди / сзади», а не ответ:
    его некуда сохранять и незачем передавать. Пол и возраст спросит
@@ -43,17 +45,34 @@ module.exports = function vyborPage(updated) {
   const Fk = T.fork;
   const m = meta.vybor(Fk.title);
 
+  /* Первый экран: две фигуры рядом, каждая — одна большая область выбора.
+     Третье состояние переключателя пола, «обе», стоит по умолчанию. */
+  const dve = ["m", "f"].map(sex => {
+    const k = F.KADRY.find(x => x.sex === sex && x.view === "front");
+    const img = A.figury[k.frame];
+    const alt = fmt(Fk.alt, { sex: Fk.altSex[sex], view: Fk.altView.front });
+    return `<label class="figura-vybor" for="figura-${sex}">
+        <img src="${attr(img.x1.url)}" srcset="${attr(img.x1.url)} ${img.x1.width}w, ${attr(img.x2.url)} ${img.x2.width}w" sizes="(min-width: 480px) 14rem, calc(50vw - 1.5rem)" width="${img.x1.width}" height="${img.x1.height}" alt="${attr(alt)}" decoding="async" loading="lazy">
+        <span>${esc(Fk.sex[sex])}</span>
+      </label>`;
+  }).join("\n      ");
+
   const body = `<div class="vybor">
   <h1>${esc(Fk.title)}</h1>
   <p class="lead">${esc(Fk.lead)}</p>
 
   <section class="figura">
-    <input class="figura-radio" type="radio" name="figura-pol" id="figura-m" checked>
+    <input class="figura-radio" type="radio" name="figura-pol" id="figura-obe" checked>
+    <input class="figura-radio" type="radio" name="figura-pol" id="figura-m">
     <input class="figura-radio" type="radio" name="figura-pol" id="figura-f">
     <input class="figura-radio" type="radio" name="figura-vid" id="figura-front" checked>
     <input class="figura-radio" type="radio" name="figura-vid" id="figura-back">
+    <div class="figura-dve" role="group" aria-label="${attr(Fk.pick)}">
+      ${dve}
+      <p class="figura-pick">${esc(Fk.pick)}</p>
+    </div>
     <div class="figura-knopki" role="group" aria-label="${attr(Fk.group)}">
-      <span><label for="figura-m">${esc(Fk.sex.m)}</label><label for="figura-f">${esc(Fk.sex.f)}</label></span>
+      <label class="figura-drugaya" for="figura-obe">${esc(Fk.other)}</label>
       <span><label for="figura-front">${esc(Fk.view.front)}</label><label for="figura-back">${esc(Fk.view.back)}</label></span>
     </div>
     <div class="figura-kadry">

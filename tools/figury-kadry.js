@@ -2,7 +2,8 @@
 "use strict";
 /* Кадры фигуры для сайта: из полных рендеров (figury/render/*.png, 6000 px
    в высоту) делаются два размера на каждый кадр — высота 1600 (экраны 2×)
-   и 800 (1×), PNG с альфа-каналом, ширина пропорционально.
+   и 800 (1×), PNG с альфа-каналом, ширина пропорционально; передним кадрам
+   ещё 320 — для карточки на главной.
 
    Без единой зависимости: PNG читается и пишется руками через zlib.
    Уменьшение — усреднением по площади (box filter) с предумножением на альфу:
@@ -10,14 +11,17 @@
 
    Запуск:  node tools/figury-kadry.js            — из figury/render/
             node tools/figury-kadry.js --from DIR — из другой папки (те же имена файлов)
-   Выход:   src/site/assets/figury/<кадр>-1600.png и <кадр>-800.png */
+   Выход:   src/site/assets/figury/<кадр>-1600.png, -800.png (и -320.png спереди) */
 const fs = require("fs");
 const path = require("path");
 const zlib = require("zlib");
 
 const root = path.join(__dirname, "..");
 const FRAMES = ["figura-m-speredi", "figura-m-szadi", "figura-zh-speredi", "figura-zh-szadi"];
+/* Передним кадрам нужен ещё третий размер — высота 320: две фигуры рядом
+   в карточке «На модели» на главной, чтобы главная не тяжелела. */
 const HEIGHTS = [1600, 800];
+const HEIGHTS_FRONT = [1600, 800, 320];
 const outDir = path.join(root, "src", "site", "assets", "figury");
 
 /* ---------- чтение PNG ---------- */
@@ -176,7 +180,7 @@ function main() {
     const note = fr && (fr.width !== src.width || fr.height !== src.height)
       ? `  ! исходник ${src.width}×${src.height}, а калибровка ждёт ${fr.width}×${fr.height} — пропорции ${(src.width / src.height).toFixed(4)} против ${(fr.width / fr.height).toFixed(4)}`
       : "";
-    HEIGHTS.forEach(hh => {
+    (name.endsWith("-speredi") ? HEIGHTS_FRONT : HEIGHTS).forEach(hh => {
       const ww = Math.round(src.width * hh / src.height);
       const png = encodePng(resize(src, ww, hh));
       const file = path.join(outDir, `${name}-${hh}.png`);
