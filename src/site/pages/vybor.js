@@ -3,12 +3,13 @@
    ссылкой, положить в меню и найти поисковику.
 
    Первый экран — две фигуры рядом, мужская слева и женская справа;
-   нажатие раскрывает выбранную крупно: поверх кадра — ссылки на страницы
-   областей оглавления, посчитанные по калибровке из data/anatomy.json
-   (src/site/figura.js), рядом переключатель «спереди / сзади» и кнопка
-   «Другая фигура». Все переключатели — обычные переключатели формы
-   и стили по :checked: без JavaScript работают так же, страница скриптов
-   не несёт. Без стилей и картинок остаётся список областей ссылками —
+   нажатие раскрывает выбранную крупно: поверх кадра — зоны слоя якорей,
+   посчитанные по калибровке из data/anatomy.json (src/site/figura.js),
+   рядом переключатель «спереди / сзади» и кнопка «Другая фигура».
+   Зона открывается в два нажатия: первое подсвечивает её на теле и
+   показывает кнопку «Далее — …», второе ведёт на страницу области.
+   Все переключатели — обычные переключатели формы и стили по :checked:
+   без JavaScript работают так же, страница скриптов не несёт. Без стилей и картинок остаётся список областей ссылками —
    тот же, что на /oblasti/.
 
    Пол фигуры — переключатель картинки, как «спереди / сзади», а не ответ:
@@ -24,6 +25,23 @@ const { zoneItems } = require("./oblasti");
 
 const fmt = (s, vars) => s.replace(/\{(\w+)\}/g, (_, k) => vars[k]);
 
+/* Зоны одного кадра: одна на id зоны слоя якорей; отражённые копии рук
+   и ног — те же зоны, у них общий переключатель. */
+function zonesOf(k) {
+  const seen = new Map();
+  F.hotspots(k).forEach(h => { if (!seen.has(h.id)) seen.set(h.id, h); });
+  return [...seen.values()].map(h => ({ ...h, radio: `z-${k.sex}-${k.view}-${D.slug(h.id)}` }));
+}
+
+/* Скрытые переключатели зон. Стоят рядом с переключателями пола и вида,
+   раньше кадров, чтобы работали селекторы :checked ~; имя одно на все
+   кадры — выбрана может быть одна зона. */
+function zoneRadios(k) {
+  return zonesOf(k)
+    .map(z => `<input class="figura-radio figura-zona" type="radio" name="figura-zona" id="${attr(z.radio)}" aria-label="${attr(z.label)}">`)
+    .join("\n    ");
+}
+
 function kadr(k) {
   const Fk = T.fork;
   const img = A.figury[k.frame];
@@ -32,13 +50,29 @@ function kadr(k) {
     .map(h => {
       const cx = (h.x0 + h.x1) / 2, cy = (h.y0 + h.y1) / 2;
       const style = `--x:${cx.toFixed(4)};--y:${cy.toFixed(4)};--w:${(h.x1 - h.x0).toFixed(4)};--h:${(h.y1 - h.y0).toFixed(4)}`;
-      return `<a class="uchastok" href="${attr(h.href)}" style="${style}"><span>${esc(h.label)}</span></a>`;
+      return `<label class="uchastok" for="z-${k.sex}-${k.view}-${D.slug(h.id)}" style="${style}"><span>${esc(h.label)}</span></label>`;
     })
     .join("\n        ");
-  return `<div class="kadr kadr-${k.sex}-${k.view}">
+  /* --kadr — адрес кадра 800 px: им маскируется подсветка зоны, чтобы
+     тонировка ложилась только на тело, а не на фон вокруг. */
+  return `<div class="kadr kadr-${k.sex}-${k.view}" style="--kadr:url(${attr(img.x1.url)})">
         <img src="${attr(img.x1.url)}" srcset="${attr(img.x1.url)} ${img.x1.width}w, ${attr(img.x2.url)} ${img.x2.width}w" sizes="(min-width: 480px) 26rem, calc(100vw - 2rem)" width="${img.x1.width}" height="${img.x1.height}" alt="${attr(alt)}" decoding="async" loading="lazy">
         ${spots}
       </div>`;
+}
+
+/* Кнопки «Далее — …»: по одной на зону каждого кадра, видна только кнопка
+   выбранной зоны и только пока показан её кадр (стили). Пока зона
+   не выбрана — подсказка. */
+function dalee() {
+  const Fk = T.fork;
+  const links = F.KADRY.flatMap(k =>
+    zonesOf(k).map(z => `<a class="figura-knopka" data-z="${attr(z.radio.slice(2))}" href="${attr(z.href)}">${esc(fmt(Fk.next, { zone: z.label }))}</a>`)
+  );
+  return `<div class="figura-dalee">
+      <p class="figura-podskazka">${esc(Fk.touch)}</p>
+      ${links.join("\n      ")}
+    </div>`;
 }
 
 module.exports = function vyborPage(updated) {
@@ -67,6 +101,7 @@ module.exports = function vyborPage(updated) {
     <input class="figura-radio" type="radio" name="figura-pol" id="figura-f">
     <input class="figura-radio" type="radio" name="figura-vid" id="figura-front" checked>
     <input class="figura-radio" type="radio" name="figura-vid" id="figura-back">
+    ${F.KADRY.map(zoneRadios).join("\n    ")}
     <div class="figura-dve" role="group" aria-label="${attr(Fk.pick)}">
       ${dve}
       <p class="figura-pick">${esc(Fk.pick)}</p>
@@ -78,6 +113,7 @@ module.exports = function vyborPage(updated) {
     <div class="figura-kadry">
       ${F.KADRY.map(kadr).join("\n      ")}
     </div>
+    ${dalee()}
   </section>
 
   <section class="block">

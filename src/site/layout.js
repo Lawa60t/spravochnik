@@ -99,8 +99,10 @@ function nav(cls, path) {
 
 /* Значки меню — встроенный SVG, чтобы ни одного запроса за картинкой
    не было. Фигура та же, что на карточке главной и на странице модели. */
+/* Силуэт женской фигуры, снятый с кадра figura-zh-speredi: один путь,
+   цвет из currentColor — красится переменными темы. Пропорция 150:240. */
 function figureSvg(w, h) {
-  return `<svg width="${w}" height="${h}" viewBox="0 0 44 64" aria-hidden="true" focusable="false"><g fill="currentColor"><circle cx="22" cy="9" r="7"/><rect x="14" y="18" width="16" height="24" rx="7"/><rect x="5" y="20" width="7" height="20" rx="3.5"/><rect x="32" y="20" width="7" height="20" rx="3.5"/><rect x="15" y="40" width="6.5" height="22" rx="3.2"/><rect x="22.5" y="40" width="6.5" height="22" rx="3.2"/></g></svg>`;
+  return `<svg width="${w}" height="${h}" viewBox="0 0 150 240" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M102.0 239.5 L99.0 238.5 L96.0 239.5 L93.5 237.0 L96.5 231.0 L96.5 220.0 L90.5 199.0 L88.5 179.0 L85.5 172.0 L76.5 132.0 L75.0 130.5 L72.5 132.0 L71.5 140.0 L67.5 151.0 L64.5 168.0 L59.5 184.0 L58.5 199.0 L52.5 220.0 L52.5 231.0 L55.5 237.0 L53.0 239.5 L42.5 238.0 L45.5 230.0 L45.5 215.0 L43.5 206.0 L43.5 185.0 L48.5 167.0 L46.5 129.0 L47.5 121.0 L51.5 109.0 L50.5 103.0 L54.5 96.0 L57.5 86.0 L55.5 69.0 L52.0 59.5 L43.5 67.0 L28.0 84.5 L15.5 94.0 L17.5 101.0 L15.0 100.5 L14.0 98.5 L11.0 99.5 L9.5 101.0 L9.5 106.0 L8.0 107.5 L7.0 105.5 L5.0 110.5 L1.5 111.0 L3.5 103.0 L7.5 95.0 L19.5 78.0 L33.5 63.0 L41.5 50.0 L48.0 43.5 L62.0 39.5 L67.5 35.0 L67.5 28.0 L62.5 21.0 L63.5 10.0 L64.5 6.0 L68.0 2.5 L75.0 -0.5 L82.0 3.5 L85.5 10.0 L86.5 21.0 L81.5 28.0 L82.5 36.0 L87.0 39.5 L101.0 43.5 L107.5 50.0 L115.5 63.0 L129.5 78.0 L141.5 95.0 L145.5 103.0 L147.5 111.0 L144.0 110.5 L142.0 105.5 L141.0 107.5 L139.5 106.0 L139.5 101.0 L138.0 99.5 L135.0 98.5 L134.0 100.5 L131.5 101.0 L133.5 94.0 L121.0 84.5 L105.5 67.0 L97.0 59.5 L93.5 69.0 L91.5 86.0 L94.5 96.0 L99.5 104.0 L97.5 109.0 L100.5 117.0 L102.5 129.0 L100.5 167.0 L105.5 185.0 L105.5 206.0 L103.5 215.0 L103.5 230.0 L106.5 238.0 L102.0 239.5Z"/></svg>`;
 }
 
 function listSvg(w, h) {
@@ -120,7 +122,7 @@ function sideNav(path, zones) {
   return `<nav class="side" aria-label="${attr(T.menu)}">
     <div class="side-inner">
       <a class="nav-item nav-primary" href="/vybor/"${current("/vybor/", path)}>
-        <span class="fig">${figureSvg(44, 64)}</span>
+        <span class="fig">${figureSvg(40, 64)}</span>
         <span>
           <span class="t">${esc(T.navChoose)}</span>
           <span class="s">${esc(N.chooseSub)}</span>
@@ -218,7 +220,7 @@ function footer(path) {
   const f = T.footer;
   return `<footer class="bottom">
     <div class="footcol footbrand">
-      <p class="footname"><span class="fig">${figureSvg(22, 32)}</span> <strong>${esc(cfg.siteName)}</strong> — ${esc(cfg.tagline)}</p>
+      <p class="footname"><span class="fig">${figureSvg(20, 32)}</span> <strong>${esc(cfg.siteName)}</strong> — ${esc(cfg.tagline)}</p>
       <p>${esc(f.lead)}</p>
     </div>
     <div class="bottom-inner">
