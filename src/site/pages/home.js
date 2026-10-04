@@ -19,7 +19,6 @@ const D = require("../data");
 module.exports = function homePage(updated) {
   const m = meta.home();
   const H = T.hello;
-  const N = T.nav;
 
   const body = `<div class="home">
   <section class="hello">
@@ -30,7 +29,7 @@ module.exports = function homePage(updated) {
     <div class="cards">
       <a class="card" href="/vybor/">
         <span class="icon">${figureSvg(40, 58)}</span>
-        <span><span class="ct">${esc(H.modelTitle)} <span class="soon">${esc(N.soon)}</span></span>
+        <span><span class="ct">${esc(H.modelTitle)}</span>
           <span class="cs">${esc(H.modelSub)}</span></span>
       </a>
       <a class="card" href="/oblasti/">

@@ -123,7 +123,7 @@ function sideNav(path, zones) {
         <span class="fig">${figureSvg(44, 64)}</span>
         <span>
           <span class="t">${esc(T.navChoose)}</span>
-          <span class="s">${esc(N.chooseSub)} <span class="soon">${esc(N.soon)}</span></span>
+          <span class="s">${esc(N.chooseSub)}</span>
         </span>
       </a>
       <a class="nav-item" href="/oblasti/"${current("/oblasti/", path)}>

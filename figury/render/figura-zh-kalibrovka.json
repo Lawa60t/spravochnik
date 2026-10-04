@@ -1,0 +1,29 @@
+{
+  "blend": "figura-zh.blend",
+  "file_front": "figura-zh-speredi.png",
+  "file_back": "figura-zh-szadi.png",
+  "width_px": 3754,
+  "height_px": 6000,
+  "axisX": 1877.0,
+  "halfWidth": 1816.6230935505096,
+  "crownY": 37.046105921669906,
+  "soleY": 5990,
+  "topY": 10,
+  "px_per_unit": 3741.1028197438795,
+  "height_units": 1.591229693731293,
+  "height_with_hair_units": 1.5984591410961002,
+  "span_units": 0.9711698293685913,
+  "faces": "-Y",
+  "previews": [
+    "figura-zh-speredi-preview.png",
+    "figura-zh-szadi-preview.png"
+  ],
+  "diagnostika": [
+    "Тело: Human | ассеты: Human.ponytail01, Human.punkduck_bikini02_slip, Human.low-poly, Human.punkduck_bikini02_bra",
+    "Ассет: Human.ponytail01 | модификаторы: SUBSURF | материалы: Human.ponytail01",
+    "Ассет: Human.punkduck_bikini02_slip | модификаторы: SUBSURF | материалы: Human.punkduck_bikini02_slip",
+    "Ассет: Human.low-poly | модификаторы: SUBSURF | материалы: Human.low-poly",
+    "Ассет: Human.punkduck_bikini02_bra | модификаторы: SUBSURF | материалы: Human.punkduck_bikini02_bra",
+    "Модификаторы тела: MASK(body), MASK(Delete.punkduck_bikini02_bra инв), MASK(Delete.punkduck_bikini02_slip инв)"
+  ]
+}

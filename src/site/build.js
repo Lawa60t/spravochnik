@@ -5,7 +5,8 @@
    data/ только читается — сборка не имеет права ничего там менять.
 
    Первый этап: статьи, разделы, указатель, главная и две страницы слоя безопасности.
-   Фигуры и уточняющих шагов здесь нет — это второй и третий уровни доступа. */
+   Уточняющие шаги — второй уровень доступа, остров на странице раздела;
+   фигура тела — третий, на /vybor/, и она тоже собирается здесь. */
 const fs = require("fs");
 const path = require("path");
 
@@ -13,6 +14,8 @@ const cfg = require("./config");
 const D = require("./data");
 const meta = require("./meta");
 const A = require("./assets");
+const T = require("./text");
+const FIGURA = require("./figura");
 const PAYLOAD = require("./payload");
 const POISK = require("./poisk-index");
 const SEXQ = require("../questions-sex.json");
@@ -92,7 +95,7 @@ function assertSexQuestions() {
 /* Силуэт не убирает разделы никогда.
    Он вид, а не утверждение о человеке: скрыть раздел значит закрыть человеку
    текст, написанный в том числе для него. Скрытие участков с чужим sexOnly
-   стоило бы двух разделов из 110 на мужском силуэте — «уплотнение в молочной
+   стоило бы двух разделов из 124 на мужском силуэте — «уплотнение в молочной
    железе» и «боль в молочной железе», где лежат гинекомастия и рак молочной
    железы без ограничения по полу. */
 function assertSilhouettes() {
@@ -132,10 +135,19 @@ function verifyLinks() {
        в имени опечатка в шаблоне даёт молчаливый 404, которого раньше быть
        не могло — имена были постоянными. */
     (html.match(/(?:href|src|data-payload|data-engine)="([^"]+)"/g) || []).forEach(m => {
-      const url = m.slice(m.indexOf('"') + 1, -1);
-      if (!url.startsWith("/") || url.startsWith("//")) return;
+      const full = m.slice(m.indexOf('"') + 1, -1);
+      if (!full.startsWith("/") || full.startsWith("//")) return;
       total++;
-      if (targets.has(url)) return;
+      /* Ссылка с якорем: страница обязана существовать, а якорь — быть на ней
+         атрибутом id. Фигура ведёт на группу участка внутри страницы области. */
+      const [url, hash] = full.split("#");
+      if (targets.has(url)) {
+        if (hash === undefined) return;
+        const target = written.find(x => x.urlPath === url);
+        if (target && fs.readFileSync(target.file, "utf8").includes(`id="${hash}"`)) return;
+        broken.set(full, (broken.get(full) || []).concat(w.urlPath));
+        return;
+      }
       if (PLANNED.has(url)) planned.set(url, (planned.get(url) || 0) + 1);
       else broken.set(url, (broken.get(url) || []).concat(w.urlPath));
     });
@@ -184,7 +196,61 @@ function sitemap(origin, updated) {
 }
 
 function robots(origin) {
-  return `User-agent: *\nAllow: /\n\nSitemap: ${origin.replace(/\/$/, "")}/sitemap.xml\n`;
+  return `User-agent: *\nAllow: /\nDisallow: /_debug/\n\nSitemap: ${origin.replace(/\/$/, "")}/sitemap.xml\n`;
+}
+
+/* ---------- служебная страница наложения ----------
+   Четыре кадра, поверх каждого — прямоугольники всех участков с подписями,
+   по той же геометрии (src/site/figura.js), что и ссылки на /vybor/.
+   Сравнивается с эталоном figury/nalozhenie/*.png: совпали — формула,
+   зеркалирование и данные прочитаны верно. */
+function debugFiguraPage() {
+  const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const Td = T.debug;
+  const kadry = FIGURA.KADRY.map(k => {
+    const img = A.figury[k.frame];
+    const boxes = FIGURA.boxesOf(k)
+      .map(b => `<div class="b ${b.kind}" style="left:${(b.x0 * 100).toFixed(2)}%;top:${(b.y0 * 100).toFixed(2)}%;width:${((b.x1 - b.x0) * 100).toFixed(2)}%;height:${((b.y1 - b.y0) * 100).toFixed(2)}%"><i>${esc(b.id)}</i></div>`)
+      .join("\n      ");
+    return `<figure>
+    <figcaption>${esc(k.frame)}</figcaption>
+    <div class="k" style="aspect-ratio:${img.x1.width}/${img.x1.height}">
+      <img src="${esc(img.x2.url)}" width="${img.x1.width}" height="${img.x1.height}" alt="${esc(k.frame)}" decoding="async">
+      ${boxes}
+    </div>
+  </figure>`;
+  }).join("\n  ");
+  return `<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>${esc(Td.title)}</title>
+<meta name="description" content="${esc(Td.description)}">
+<link rel="canonical" href="${esc(cfg.origin.replace(/\/$/, "") + "/_debug/figura.html")}">
+<style>
+  body { margin: 1rem; font: 14px/1.4 system-ui, sans-serif; background: #fff; color: #222; }
+  .row { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; }
+  figure { margin: 0; }
+  figcaption { font-weight: 600; margin-bottom: .3rem; }
+  .k { position: relative; width: min(671px, 100vw - 2rem); }
+  .k img { display: block; width: inherit; height: auto; }
+  .b { position: absolute; box-sizing: border-box; border: 1px solid #c00; }
+  .b.zone { border: 2px solid #06c; }
+  .b i { position: absolute; left: 0; top: 0; font: 10px/1.2 system-ui, sans-serif; font-style: normal; background: rgba(255,255,255,.75); color: #900; padding: 0 2px; white-space: nowrap; }
+  .b.zone i { color: #036; }
+</style>
+</head>
+<body>
+<h1>${esc(Td.title)}</h1>
+<p>${esc(Td.lead)}</p>
+<div class="row">
+  ${kadry}
+</div>
+</body>
+</html>
+`;
 }
 
 /* ---------- сборка ---------- */
@@ -240,6 +306,19 @@ function build() {
     assetUrls.add(f.url);
   });
 
+  /* Кадры фигуры — так же. Полные рендеры из figury/ в dist не попадают:
+     сюда идут только два уменьшенных размера на кадр. */
+  fs.mkdirSync(path.join(dist, "figury"), { recursive: true });
+  Object.values(A.figury).forEach(k => [k.x1, k.x2].forEach(f => {
+    fs.writeFileSync(path.join(dist, f.file), f.content);
+    assetUrls.add(f.url);
+  }));
+
+  /* Служебная страница наложения: участки слоя якорей поверх кадров.
+     В sitemap её нет, в robots закрыта, из страниц сайта на неё ссылок нет. */
+  fs.mkdirSync(path.join(dist, "_debug"), { recursive: true });
+  fs.writeFileSync(path.join(dist, "_debug", "figura.html"), debugFiguraPage(), "utf8");
+
   /* Индекс поиска в шапке. Отдельным файлом и с отпечатком: он нужен всем
      страницам, но грузится только тому, кто начал набирать. */
   fs.writeFileSync(path.join(dist, POISK.file), POISK.content, "utf8");
@@ -281,6 +360,11 @@ function build() {
     console.log(`Уточнение начинается       с выбора ощущения в ${withFeel} разделах, с вопроса в ${D.syndromes.length - withFeel}`);
   }
   console.log(`Файлы с отпечатком         ${[A.style, A.search, A.poisk, A.profil, A.naverkh, A.utochnenie, A.engine].map(a => a.file).join(", ")}`);
+  {
+    const kadry = Object.values(A.figury).flatMap(k => [k.x1, k.x2]);
+    const kb = kadry.reduce((a, f) => a + f.content.length, 0) / 1024;
+    console.log(`Кадры фигуры               ${kadry.length} файлов, ${Math.round(kb)} КБ; наложение — /_debug/figura.html (не в sitemap, закрыто в robots)`);
+  }
   console.log(`Индекс поиска в шапке      ${POISK.file}, ${POISK.count} строк, ${(POISK.bytes / 1024).toFixed(1)} КБ; грузится по первому нажатию клавиши`);
   const scripted = written.filter(w => /<script\b/i.test(fs.readFileSync(w.file, "utf8")));
   const kinds = [...new Set(scripted.map(s => s.urlPath.split("/")[1] || "/"))];

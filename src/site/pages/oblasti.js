@@ -58,10 +58,11 @@ function addsNothing(explanation, name) {
 }
 
 /* ---------- /oblasti/ ---------- */
-function zonesPage(updated) {
-  const m = meta.zones(D.map.zones.length);
-
-  const items = D.map.zones
+/* Список областей: тот же на /oblasti/ и под фигурой на /vybor/ —
+   без JavaScript фигура остаётся картинкой с ссылками, а список
+   даёт тот же вход словами. */
+function zoneItems() {
+  return D.map.zones
     .map(z => {
       const n = D.syndromesOfZone(z.id).length;
       const az = D.anatomyZonesOf(z.id);
@@ -74,7 +75,11 @@ function zonesPage(updated) {
       </li>`;
     })
     .join("\n      ");
+}
 
+function zonesPage(updated) {
+  const m = meta.zones(D.map.zones.length);
+  const items = zoneItems();
   const sym = D.symptomList();
 
   const body = `<div class="zones">
@@ -115,7 +120,7 @@ function zonePage(zone, updated) {
 
   const groupsHtml = groups
     .map(
-      g => `<section class="block">
+      g => `<section class="block" id="${attr(D.slug(g.id))}">
     ${showGroupTitle(g) ? `<h2>${esc(g.label)}</h2>` : ""}
     ${g.landmark ? `<p class="note">${esc(g.landmark)}</p>` : ""}
     ${g.subzones
@@ -200,4 +205,4 @@ function zhalobyPage(updated) {
   });
 }
 
-module.exports = { zonesPage, zonePage, zhalobyPage };
+module.exports = { zonesPage, zonePage, zhalobyPage, zoneItems };

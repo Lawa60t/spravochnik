@@ -65,10 +65,26 @@ const fontPreload = fonts.filter(f =>
   f.name === "golos-text-cyrillic-400-normal.woff2" || f.name === "lora-cyrillic-600-normal.woff2"
 );
 
+/* Кадры фигуры тела для /vybor/: два размера на каждый из четырёх кадров,
+   высота 800 (1×) и 1600 (2×), делаются из figury/render скриптом
+   tools/figury-kadry.js. Имена с отпечатком, как у стилей и шрифтов;
+   ширина и высота читаются из заголовка PNG — для атрибутов img и srcset. */
+const figuryDir = path.join(assetsDir, "figury");
+const pngSize = buf => ({ width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) });
+const figury = {};
+["figura-m-speredi", "figura-m-szadi", "figura-zh-speredi", "figura-zh-szadi"].forEach(name => {
+  const one = h => {
+    const a = asset(`${name}-${h}.png`, path.join(figuryDir, `${name}-${h}.png`));
+    return { ...a, file: "figury/" + a.file, url: "/figury/" + a.file, ...pngSize(a.content) };
+  };
+  figury[name] = { x1: one(800), x2: one(1600) };
+});
+
 module.exports = {
   fingerprint,
   fonts,
   fontPreload,
+  figury,
   style: styleAsset(),
   search: asset("search.js", path.join(assetsDir, "search.js")),
   poisk: asset("poisk.js", path.join(assetsDir, "poisk.js")),

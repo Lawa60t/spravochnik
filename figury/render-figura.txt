@@ -1,0 +1,265 @@
+# render-figura v5 — четыре PNG фигуры тела по чек-листу приёмки. Рендер Cycles, материалы MPFB как есть.
+#
+# Как запускать:
+#   1) открыть в Blender файл .blend с ОДНОЙ фигурой MPFB (скин, глаза, одежда, волосы уже надеты) и сохранить его;
+#   2) вкладка Scripting → Текст → Открыть → этот файл → Alt+P;
+#   или в фоне, без окна:  blender -b figura-m.blend -P render-figura.txt
+#
+# Результат — папка render/ рядом с .blend:
+#   <имя>-speredi-preview.png, <имя>-szadi-preview.png — превью в масштабе сайта (700 px), считаются первыми
+#   <имя>-speredi.png, <имя>-szadi.png                 — полный кадр, прозрачный фон, высота 6000 px
+#   <имя>-kalibrovka.json                              — ось, полуширина, макушка, подошвы в пикселях + диагностика
+#
+# Скрипт НЕ трогает материалы, вырезы кожи и сглаживание — всё остаётся таким, каким его сделал MPFB.
+# Он только: прячет стартовый куб и чужой свет, ставит свой ровный свет без теней, ортографическую камеру
+# по габаритам, определяет, куда смотрит лицо, снимает спереди и сзади и считает числа калибровки.
+# Макушка для калибровки берётся по черепу (самому телу), волосы остаются выше неё.
+#
+# Версия 5 (05.10.2026): Cycles; убрано всё, что вмешивалось в сцену (материалы, вырезы, шапки, бельё-накладки).
+
+import bpy, os, json, math
+from mathutils import Vector
+
+# ---------- настройки ----------
+HEIGHT_PX = 6000          # высота полного кадра (чек-лист: не меньше 6000)
+MIN_WIDTH_PX = 2400       # ширина не меньше этого; реальная считается по размаху рук
+PAD_X_PX = 60             # поле слева и справа от кистей
+PAD_Y_PX = 10             # поле над макушкой (волосами) и под подошвами
+PREVIEW_PX = 700          # высота превью в масштабе сайта; 0 = не делать
+FULL_RENDER = True        # False = только превью (быстро, для проверки); True = превью и полный кадр
+SAMPLES = 32              # сэмплы Cycles; с шумоподавлением 32 хватает для ровного света
+AMBIENT = 0.45            # ровный рассеянный свет от «мира», 0..1
+SUN = 2.5                 # свет со стороны камеры, сила
+FORCE_FORWARD = None      # None = определить автоматически; +1 = лицо в +Y; -1 = лицо в −Y
+HIDE_WORDS = ('teeth', 'tooth', 'tongue', 'brow', 'lash')   # что не рендерить, по имени объекта
+# --------------------------------
+
+DIAG = []
+
+
+def diag(*parts):
+    msg = " ".join(str(p) for p in parts)
+    DIAG.append(msg)
+    print(msg)
+
+
+scene = bpy.context.scene
+blend = bpy.data.filepath
+if not blend:
+    raise RuntimeError("Сначала сохраните .blend: рендеры кладутся в папку render/ рядом с ним")
+base = os.path.splitext(os.path.basename(blend))[0]
+out_dir = os.path.join(os.path.dirname(blend), "render")
+os.makedirs(out_dir, exist_ok=True)
+
+
+def ancestors(o):
+    while o is not None:
+        yield o
+        o = o.parent
+
+
+def node_of(nodes, ntype, new_id):
+    # узлы ищем по типу: в русском интерфейсе Blender новые узлы получают русские имена
+    n = next((x for x in nodes if x.type == ntype), None)
+    return n if n is not None else nodes.new(new_id)
+
+
+# 1. Фигура = самый большой меш в сцене плюс всё, что к нему прикреплено (глаза, одежда, волосы)
+meshes = [o for o in scene.objects if o.type == 'MESH']
+if not meshes:
+    raise RuntimeError("В сцене нет мешей: создайте фигуру в MPFB (New human → Create human)")
+body = max(meshes, key=lambda o: len(o.data.vertices))
+root = body
+while root.parent is not None:
+    root = root.parent
+family = {o for o in scene.objects if root in ancestors(o)}
+
+for o in scene.objects:
+    if o.type in {'MESH', 'CURVE', 'SURFACE', 'META', 'FONT'}:
+        o.hide_render = (o not in family) or any(w in o.name.lower() for w in HIDE_WORDS)
+    elif o.type == 'LIGHT':
+        o.hide_render = True          # чужой свет выключаем, свой ставим ниже
+
+assets = [o for o in family if o is not body and o.type == 'MESH' and not o.hide_render]
+diag("Тело:", body.name, "| ассеты:", ", ".join(o.name for o in assets) or "нет")
+for o in assets:
+    diag("Ассет:", o.name, "| модификаторы:", ", ".join(f"{m.type}" for m in o.modifiers) or "нет",
+         "| материалы:", ", ".join((sl.material.name if sl.material else "—") for sl in o.material_slots) or "нет")
+diag("Модификаторы тела:", ", ".join(f"{m.type}({m.vertex_group or ''}{' инв' if getattr(m, 'invert_vertex_group', False) else ''})"
+                                     for m in body.modifiers) or "нет")
+
+bpy.context.view_layer.update()
+
+
+def world_points(o, deps):
+    oe = o.evaluated_get(deps)
+    me = oe.to_mesh()
+    mw = oe.matrix_world
+    pts = [mw @ v.co for v in me.vertices]
+    oe.to_mesh_clear()
+    return pts
+
+
+# 2. Габариты. Вырезы кожи под ассетами (Mask base mesh) на время измерения выключаем — нужна целая
+#    макушка; затем возвращаем ровно в то состояние, в каком их оставил MPFB.
+asset_masks = [m for m in body.modifiers if m.type == 'MASK' and m.invert_vertex_group]
+saved = [(m, m.show_viewport, m.show_render) for m in asset_masks]
+for m in asset_masks:
+    m.show_viewport = False
+bpy.context.view_layer.update()
+deps = bpy.context.evaluated_depsgraph_get()
+body_pts = world_points(body, deps)
+for m, sv, sr in saved:
+    m.show_viewport = sv
+    m.show_render = sr
+bpy.context.view_layer.update()
+deps = bpy.context.evaluated_depsgraph_get()
+
+all_pts = list(body_pts)
+for o in assets:
+    all_pts.extend(world_points(o, deps))
+if not body_pts:
+    raise RuntimeError("Нечего рендерить: у фигуры нет видимой геометрии")
+
+xs = [p.x for p in body_pts]
+ys = [p.y for p in body_pts]
+zs = [p.z for p in body_pts]
+zmin, zmax = min(zs), max(zs)         # подошвы и макушка черепа
+H = zmax - zmin                       # рост по черепу — база калибровки
+cx = (min(xs) + max(xs)) / 2          # ось тела
+cy = (min(ys) + max(ys)) / 2
+
+axs = [p.x for p in all_pts]
+azs = [p.z for p in all_pts]
+xmin, xmax = min(axs), max(axs)       # размах с руками, одеждой и волосами
+ztop = max(azs)                       # верх волос (или черепа, если волос нет)
+W = xmax - xmin
+H_all = ztop - zmin
+cz = (zmin + ztop) / 2
+
+# 3. Куда смотрит фигура: стопа длиннее к носкам, чем к пятке; опора — ось голени
+if FORCE_FORWARD in (1, -1):
+    forward = FORCE_FORWARD
+else:
+    shin = [y for y, z in zip(ys, zs) if zmin + 0.12 * H < z < zmin + 0.25 * H]
+    feet = [y for y, z in zip(ys, zs) if z < zmin + 0.04 * H]
+    sy = sum(shin) / len(shin)
+    forward = 1 if (max(feet) - sy) > (sy - min(feet)) else -1
+
+# 4. Кадр: высота задана, ширина по размаху, одна и та же для обоих видов
+px_per_unit = (HEIGHT_PX - 2 * PAD_Y_PX) / H_all
+width_px = int(math.ceil(W * px_per_unit)) + 2 * PAD_X_PX
+width_px = max(width_px, MIN_WIDTH_PX)
+width_px += width_px % 2
+
+r = scene.render
+r.engine = 'CYCLES'
+r.resolution_x = width_px
+r.resolution_y = HEIGHT_PX
+r.resolution_percentage = 100
+r.film_transparent = True
+r.use_border = False
+r.image_settings.file_format = 'PNG'
+r.image_settings.color_mode = 'RGBA'
+r.image_settings.color_depth = '8'
+r.image_settings.compression = 15
+cy_ = scene.cycles
+cy_.samples = SAMPLES
+cy_.use_denoising = True
+cy_.transparent_max_bounces = 64      # пряди волос — много прозрачных слоёв друг над другом
+try:
+    cy_.use_adaptive_sampling = True
+except Exception:
+    pass
+
+scene.view_settings.view_transform = 'Standard'
+scene.view_settings.look = 'None'
+scene.view_settings.exposure = 0.0
+scene.view_settings.gamma = 1.0
+
+# 5. Свет: ровный рассеянный от «мира» плюс «солнце» со стороны камеры, без теней
+world = scene.world
+if world is None:
+    world = bpy.data.worlds.new("MirFigury")
+    scene.world = world
+world.use_nodes = True
+wnodes = world.node_tree.nodes
+bg = node_of(wnodes, 'BACKGROUND', "ShaderNodeBackground")
+wout = node_of(wnodes, 'OUTPUT_WORLD', "ShaderNodeOutputWorld")
+wout.is_active_output = True
+world.node_tree.links.new(bg.outputs[0], wout.inputs[0])
+bg.inputs[0].default_value = (1.0, 1.0, 1.0, 1.0)
+bg.inputs[1].default_value = AMBIENT
+
+sun = scene.objects.get("SolnceFigury")
+if sun is None:
+    sun = bpy.data.objects.new("SolnceFigury", bpy.data.lights.new("SolnceFigury", 'SUN'))
+    scene.collection.objects.link(sun)
+sun.data.energy = SUN
+sun.data.angle = math.radians(15)
+sun.data.use_shadow = False
+sun.hide_render = False
+
+# 6. Ортографическая камера: верх фигуры у верхнего края, подошвы у нижнего, ось по центру
+cam = scene.objects.get("KameraFigury")
+if cam is None:
+    cam = bpy.data.objects.new("KameraFigury", bpy.data.cameras.new("KameraFigury"))
+    scene.collection.objects.link(cam)
+cd = cam.data
+cd.type = 'ORTHO'
+cd.sensor_fit = 'VERTICAL'
+cd.ortho_scale = HEIGHT_PX / px_per_unit
+cd.clip_start = 0.01
+cd.clip_end = 100000.0
+scene.camera = cam
+
+dist = max(10.0, 5.0 * H)
+if forward < 0:   # лицо в −Y: вид спереди снимаем из −Y
+    views = [("speredi", (cx, cy - dist, cz), 0.0), ("szadi", (cx, cy + dist, cz), math.pi)]
+else:
+    views = [("speredi", (cx, cy + dist, cz), math.pi), ("szadi", (cx, cy - dist, cz), 0.0)]
+
+# 7. Рендер: сначала оба превью (быстро), потом, если включено, оба полных кадра
+paths, previews = {}, {}
+passes = []
+if PREVIEW_PX > 0:
+    passes.append(("preview", max(1, round(100 * PREVIEW_PX / HEIGHT_PX))))
+if FULL_RENDER:
+    passes.append(("full", 100))
+for kind, pct in passes:
+    for tag, loc, rz in views:
+        cam.location = loc
+        cam.rotation_euler = (math.radians(90), 0.0, rz)
+        sun.rotation_euler = (math.radians(65), 0.0, rz)
+        r.resolution_percentage = pct
+        suffix = "-preview" if kind == "preview" else ""
+        path = os.path.join(out_dir, f"{base}-{tag}{suffix}.png")
+        r.filepath = path
+        bpy.ops.render.render(write_still=True)
+        (previews if kind == "preview" else paths)[tag] = path
+        print("Готов кадр:", os.path.basename(path))
+r.resolution_percentage = 100
+
+# 8. Числа калибровки: X = axisX + (u' − 0.5)·2·halfWidth; Y = crownY + v·(soleY − crownY)
+kal = {
+    "blend": os.path.basename(blend),
+    "file_front": os.path.basename(paths.get("speredi", "")),
+    "file_back": os.path.basename(paths.get("szadi", "")),
+    "width_px": width_px,
+    "height_px": HEIGHT_PX,
+    "axisX": width_px / 2,
+    "halfWidth": (W / 2) * px_per_unit,
+    "crownY": PAD_Y_PX + (ztop - zmax) * px_per_unit,   # макушка черепа; волосы выше неё
+    "soleY": HEIGHT_PX - PAD_Y_PX,
+    "topY": PAD_Y_PX,
+    "px_per_unit": px_per_unit,
+    "height_units": H,
+    "height_with_hair_units": H_all,
+    "span_units": W,
+    "faces": "+Y" if forward > 0 else "-Y",
+    "previews": [os.path.basename(p) for p in previews.values()],
+    "diagnostika": DIAG,
+}
+with open(os.path.join(out_dir, f"{base}-kalibrovka.json"), "w", encoding="utf-8") as f:
+    json.dump(kal, f, ensure_ascii=False, indent=2)
+print("Готово. Калибровка:", json.dumps(kal, ensure_ascii=False))

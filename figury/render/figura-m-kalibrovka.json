@@ -1,0 +1,27 @@
+{
+  "blend": "figura-m.blend",
+  "file_front": "figura-m-speredi.png",
+  "file_back": "figura-m-szadi.png",
+  "width_px": 4028,
+  "height_px": 6000,
+  "axisX": 2014.0,
+  "halfWidth": 1953.636294298625,
+  "crownY": 10.0,
+  "soleY": 5990,
+  "topY": 10,
+  "px_per_unit": 3458.430672422414,
+  "height_units": 1.7291079586138949,
+  "height_with_hair_units": 1.7291079586138949,
+  "span_units": 1.12978196144104,
+  "faces": "-Y",
+  "previews": [
+    "figura-m-speredi-preview.png",
+    "figura-m-szadi-preview.png"
+  ],
+  "diagnostika": [
+    "Тело: Human | ассеты: Human.low-poly, Human.mindfront_male_swimming_trunks_02",
+    "Ассет: Human.low-poly | модификаторы: SUBSURF | материалы: Human.low-poly.001",
+    "Ассет: Human.mindfront_male_swimming_trunks_02 | модификаторы: SUBSURF | материалы: Human.mindfront_male_swimming_trunks_02",
+    "Модификаторы тела: MASK(body), MASK(Delete.mindfront_male_swimming_trunks_02 инв)"
+  ]
+}

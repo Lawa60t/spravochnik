@@ -141,6 +141,7 @@
   --accent-d: #235744;
   --wash: #e9f1ea;
   --wash-line: #d0e1d5;
+  --veil: rgba(46, 107, 83, .22);
   --alarm-ink: #a63d2c;
   --alarm-bg: #fdf3f1;
   --alarm-line: #e0bdb4;
@@ -169,6 +170,7 @@
     --accent-d: #a8dcc4;
     --wash: #1c2823;
     --wash-line: #2c4036;
+    --veil: rgba(143, 203, 175, .3);
     --alarm-ink: #e0917f;
     --alarm-bg: #2a1f1c;
     --alarm-line: #5c3a32;
@@ -453,14 +455,6 @@ a.nav-item[aria-current] { border-color: var(--accent); }
 }
 
 /* Пометка «скоро» — у того, чего на сайте ещё нет. */
-.soon {
-  display: inline-block;
-  font-size: calc(var(--text) * .68); line-height: 1.5; font-weight: 600;
-  color: var(--card); background: var(--accent);
-  border-radius: 6px; padding: 0 .45rem;
-  margin-left: .25rem; vertical-align: middle;
-  letter-spacing: .02em;
-}
 
 /* Хаб: заливка мягче, чем у карточек, внутри заголовок-ссылка и пять ссылок. */
 .hub { background: var(--wash); border-color: var(--wash-line); padding: 0 0 .5rem; }
@@ -1036,9 +1030,6 @@ ul.dashed li::before { content: "— "; }
   .fork-half + .fork-half { border-left: 0; border-top: 1px solid var(--line); }
 }
 .fork h2 { margin: 0 0 .4rem; font-size: calc(var(--text) * 1.1); color: var(--ink); }
-.fork-off { background: var(--card); display: flex; flex-direction: column; align-items: center; text-align: center; gap: .8rem; }
-.fork-fig { display: block; color: var(--accent); opacity: .55; line-height: 0; }
-.fork-soon { color: var(--ink-3); font-size: calc(var(--text) * .92); margin: 0; max-width: 24ch; }
 .fork-note { color: var(--ink-3); font-size: calc(var(--text) * .88); margin: 0 0 .6rem; }
 .fork-on { display: block; text-decoration: none; background: var(--card); color: var(--ink); }
 .fork-on:hover { background: var(--wash); }
@@ -1049,3 +1040,58 @@ ul.dashed li::before { content: "— "; }
 .plain ul.big { padding-left: 1.1rem; }
 .plain ul.big li { margin-bottom: .45rem; }
 .alarmish h1 { color: var(--alarm-ink); }
+
+/* ---------- фигура тела, /vybor/ ----------
+   Переключатели пола и вида — переключатели формы, спрятанные с экрана,
+   но не от клавиатуры и читалки; подписи к ним выглядят кнопками.
+   Какой кадр показан, решают стили по :checked — без JavaScript.
+   Кадры, которых не видно, браузер не грузит: у картинок loading="lazy". */
+.figura { margin: 1.5rem 0 2rem; }
+.figura-radio { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); opacity: 0; }
+.figura-knopki { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 1.5rem; margin: 0 0 1rem; }
+.figura-knopki > span { display: inline-flex; gap: .4rem; }
+.figura-knopki label {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 1.1rem;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: var(--card); color: var(--ink); cursor: pointer;
+  font-size: calc(var(--text) * .92); line-height: 1.2;
+}
+.figura-knopki label:hover { border-color: var(--accent); }
+#figura-m:checked ~ .figura-knopki label[for="figura-m"],
+#figura-f:checked ~ .figura-knopki label[for="figura-f"],
+#figura-front:checked ~ .figura-knopki label[for="figura-front"],
+#figura-back:checked ~ .figura-knopki label[for="figura-back"] {
+  border-color: var(--accent); background: var(--wash); color: var(--accent-d); font-weight: 600;
+}
+#figura-m:focus-visible ~ .figura-knopki label[for="figura-m"],
+#figura-f:focus-visible ~ .figura-knopki label[for="figura-f"],
+#figura-front:focus-visible ~ .figura-knopki label[for="figura-front"],
+#figura-back:focus-visible ~ .figura-knopki label[for="figura-back"] { outline: 2px solid var(--accent); outline-offset: 2px; }
+.figura-kadry { position: relative; max-width: 26rem; margin: 0 auto; }
+.kadr { display: none; position: relative; }
+.kadr img { display: block; width: 100%; height: auto; }
+#figura-m:checked ~ #figura-front:checked ~ .figura-kadry .kadr-m-front,
+#figura-m:checked ~ #figura-back:checked ~ .figura-kadry .kadr-m-back,
+#figura-f:checked ~ #figura-front:checked ~ .figura-kadry .kadr-f-front,
+#figura-f:checked ~ #figura-back:checked ~ .figura-kadry .kadr-f-back { display: block; }
+/* Область на кадре: положение и размер — доли кадра из calibration.frames,
+   не меньше 44×44 точек, растёт от своего центра. Подпись появляется
+   при наведении и фокусе; для читалки она имя ссылки. */
+.uchastok {
+  position: absolute;
+  left: calc(var(--x) * 100%); top: calc(var(--y) * 100%);
+  width: calc(var(--w) * 100%); height: calc(var(--h) * 100%);
+  min-width: 44px; min-height: 44px;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+}
+.uchastok:hover, .uchastok:focus-visible { background: var(--veil); box-shadow: inset 0 0 0 2px var(--accent); outline: none; }
+.uchastok span {
+  position: absolute; left: 50%; top: 100%; transform: translate(-50%, .3rem);
+  padding: .15rem .6rem; border-radius: 6px; white-space: nowrap;
+  background: var(--ink); color: var(--bg);
+  font-size: calc(var(--text) * .8); line-height: 1.5;
+  opacity: 0; pointer-events: none; z-index: 2;
+}
+.uchastok:hover span, .uchastok:focus-visible span { opacity: 1; }
+.page-vybor .zonelist { margin-top: .5rem; }
