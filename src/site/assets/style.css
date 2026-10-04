@@ -141,7 +141,6 @@
   --accent-d: #235744;
   --wash: #e9f1ea;
   --wash-line: #d0e1d5;
-  --zona-tint: rgba(200, 40, 30, .42);
   --alarm-ink: #a63d2c;
   --alarm-bg: #fdf3f1;
   --alarm-line: #e0bdb4;
@@ -170,7 +169,6 @@
     --accent-d: #a8dcc4;
     --wash: #1c2823;
     --wash-line: #2c4036;
-    --zona-tint: rgba(255, 90, 70, .45);
     --alarm-ink: #e0917f;
     --alarm-bg: #2a1f1c;
     --alarm-line: #5c3a32;
@@ -1101,39 +1099,45 @@ ul.dashed li::before { content: "— "; }
 #figura-m:checked ~ #figura-back:checked ~ .figura-zona[id^="z-m-back-"],
 #figura-f:checked ~ #figura-front:checked ~ .figura-zona[id^="z-f-front-"],
 #figura-f:checked ~ #figura-back:checked ~ .figura-zona[id^="z-f-back-"] { display: block; }
-/* Зона на кадре — подпись к переключателю зоны: положение и размер — доли
-   кадра из calibration.frames; растёт от своего центра. Область нажатия
-   не меньше 44×44 — её даёт ::after. Подсветка — ::before, растянутый
-   на весь кадр, замаскированный самим кадром и обрезанный до своей зоны:
-   тонировка ложится только на тело, фон вокруг не красится. */
-.uchastok {
-  position: absolute; display: block; overflow: visible; cursor: pointer;
-  left: calc(var(--x) * 100%); top: calc(var(--y) * 100%);
-  width: calc(var(--w) * 100%); height: calc(var(--h) * 100%);
-  transform: translate(-50%, -50%);
+/* Зона на кадре — «прожектор». Обёртка .zona на весь кадр, внутри:
+   svg с путём контура в defs (clipPath в долях бокса); label — область
+   нажатия, обрезанная контуром; .sloy-obv > .sloy — тот же кадр, обрезанный
+   тем же контуром, виден у выбранной зоны поверх погашенного кадра;
+   обводка — тень вокруг обрезанного слоя: ложится по краю видимой зоны,
+   то есть по коже и по линии разреза, а не по опорному многоугольнику,
+   который у рук и ног захватывает воздух; .podpis — название у центроида.
+   Выбор (переключатель зоны :checked) включает всё через переменные --z-*,
+   которые ставят правила по зонам в конце файла. Наведение показывает
+   слой с обводкой и подпись; пока у кадра есть выбранная зона, слой
+   наведённой чужой зоны гасится вместе с кадром — наведение не спорит
+   с выбором, остаётся только обводка. */
+.zona { position: absolute; inset: 0; pointer-events: none; }
+.zona svg { position: absolute; width: 0; height: 0; }
+.zona .uchastok { position: absolute; inset: 0; display: block; cursor: pointer; pointer-events: auto; }
+.zona .sloy-obv {
+  position: absolute; inset: 0; display: var(--z-sloy, none); pointer-events: none;
+  filter: drop-shadow(1.5px 0 0 var(--accent)) drop-shadow(-1.5px 0 0 var(--accent)) drop-shadow(0 1.5px 0 var(--accent)) drop-shadow(0 -1.5px 0 var(--accent));
 }
-.uchastok::after {
-  content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  width: max(100%, 44px); height: max(100%, 44px);
-}
-.uchastok::before {
-  content: ""; position: absolute; pointer-events: none; background: transparent;
-  left: calc(-1 * (var(--x) - var(--w) / 2) / var(--w) * 100%);
-  top: calc(-1 * (var(--y) - var(--h) / 2) / var(--h) * 100%);
-  width: calc(100% / var(--w)); height: calc(100% / var(--h));
-  -webkit-mask: var(--kadr) 0 0 / 100% 100% no-repeat;
-  mask: var(--kadr) 0 0 / 100% 100% no-repeat;
-  clip-path: inset(calc((var(--y) - var(--h) / 2) * 100%) calc((1 - var(--x) - var(--w) / 2) * 100%) calc((1 - var(--y) - var(--h) / 2) * 100%) calc((var(--x) - var(--w) / 2) * 100%));
-}
-.uchastok:hover::before { background: var(--zona-tint); }
-.uchastok span {
-  position: absolute; left: 50%; top: 100%; transform: translate(-50%, .3rem);
+.zona .sloy { position: absolute; inset: 0; background: var(--kadr) 0 0 / 100% 100% no-repeat; }
+.zona:hover .sloy-obv { display: block; }
+.zona .podpis {
+  position: absolute; left: calc(var(--cx) * 100%); top: calc(var(--cy) * 100%); transform: translate(-50%, -50%);
   padding: .15rem .6rem; border-radius: 6px; white-space: nowrap;
   background: var(--ink); color: var(--bg);
   font-size: calc(var(--text) * .8); line-height: 1.5;
-  opacity: 0; pointer-events: none; z-index: 2;
+  opacity: var(--z-podpis, 0); pointer-events: none; z-index: 2;
 }
-.uchastok:hover span { opacity: 1; }
+.zona:hover .podpis { opacity: 1; }
+/* Гашение: пока у показанного кадра есть выбранная зона, сам кадр темнеет
+   и сереет, живой остаётся только слой зоны. */
+.figura-zona[id^="z-m-front-"]:checked ~ .figura-kadry .kadr-m-front > img,
+.figura-zona[id^="z-m-back-"]:checked ~ .figura-kadry .kadr-m-back > img,
+.figura-zona[id^="z-f-front-"]:checked ~ .figura-kadry .kadr-f-front > img,
+.figura-zona[id^="z-f-back-"]:checked ~ .figura-kadry .kadr-f-back > img,
+.figura-zona[id^="z-m-front-"]:checked ~ .figura-kadry .kadr-m-front .sloy,
+.figura-zona[id^="z-m-back-"]:checked ~ .figura-kadry .kadr-m-back .sloy,
+.figura-zona[id^="z-f-front-"]:checked ~ .figura-kadry .kadr-f-front .sloy,
+.figura-zona[id^="z-f-back-"]:checked ~ .figura-kadry .kadr-f-back .sloy { filter: var(--z-zhivoy, brightness(.72) saturate(.55)); }
 /* Второе нажатие: кнопка «Далее — …» под фигурой. Видна только для выбранной
    зоны и только пока показан её кадр; иначе подсказка. На телефоне липнет
    к низу окна, если фигура выше экрана. */
@@ -1148,52 +1152,30 @@ ul.dashed li::before { content: "— "; }
 .page-vybor .zonelist { margin-top: .5rem; }
 /* Правила по зонам. Сгенерированы из слоя якорей (anatomy.json) — по одному
    переключателю на зону каждого кадра; при смене набора зон перегенерировать:
-   см. zonesOf() в src/site/pages/vybor.js. */
-/* выбранная зона подсвечена и подписана */
-#z-m-front-head:checked ~ .figura-kadry label[for="z-m-front-head"]::before,
-#z-m-front-neck:checked ~ .figura-kadry label[for="z-m-front-neck"]::before,
-#z-m-front-chest:checked ~ .figura-kadry label[for="z-m-front-chest"]::before,
-#z-m-front-abd:checked ~ .figura-kadry label[for="z-m-front-abd"]::before,
-#z-m-front-arm:checked ~ .figura-kadry label[for="z-m-front-arm"]::before,
-#z-m-front-leg:checked ~ .figura-kadry label[for="z-m-front-leg"]::before,
-#z-m-front-pelv:checked ~ .figura-kadry label[for="z-m-front-pelv"]::before,
-#z-m-back-head-back:checked ~ .figura-kadry label[for="z-m-back-head-back"]::before,
-#z-m-back-neck-back:checked ~ .figura-kadry label[for="z-m-back-neck-back"]::before,
-#z-m-back-back:checked ~ .figura-kadry label[for="z-m-back-back"]::before,
-#z-m-back-pelv-back:checked ~ .figura-kadry label[for="z-m-back-pelv-back"]::before,
-#z-f-front-head:checked ~ .figura-kadry label[for="z-f-front-head"]::before,
-#z-f-front-neck:checked ~ .figura-kadry label[for="z-f-front-neck"]::before,
-#z-f-front-chest:checked ~ .figura-kadry label[for="z-f-front-chest"]::before,
-#z-f-front-abd:checked ~ .figura-kadry label[for="z-f-front-abd"]::before,
-#z-f-front-arm:checked ~ .figura-kadry label[for="z-f-front-arm"]::before,
-#z-f-front-leg:checked ~ .figura-kadry label[for="z-f-front-leg"]::before,
-#z-f-front-pelv:checked ~ .figura-kadry label[for="z-f-front-pelv"]::before,
-#z-f-back-head-back:checked ~ .figura-kadry label[for="z-f-back-head-back"]::before,
-#z-f-back-neck-back:checked ~ .figura-kadry label[for="z-f-back-neck-back"]::before,
-#z-f-back-back:checked ~ .figura-kadry label[for="z-f-back-back"]::before,
-#z-f-back-pelv-back:checked ~ .figura-kadry label[for="z-f-back-pelv-back"]::before { background: var(--zona-tint); }
-#z-m-front-head:checked ~ .figura-kadry label[for="z-m-front-head"] span,
-#z-m-front-neck:checked ~ .figura-kadry label[for="z-m-front-neck"] span,
-#z-m-front-chest:checked ~ .figura-kadry label[for="z-m-front-chest"] span,
-#z-m-front-abd:checked ~ .figura-kadry label[for="z-m-front-abd"] span,
-#z-m-front-arm:checked ~ .figura-kadry label[for="z-m-front-arm"] span,
-#z-m-front-leg:checked ~ .figura-kadry label[for="z-m-front-leg"] span,
-#z-m-front-pelv:checked ~ .figura-kadry label[for="z-m-front-pelv"] span,
-#z-m-back-head-back:checked ~ .figura-kadry label[for="z-m-back-head-back"] span,
-#z-m-back-neck-back:checked ~ .figura-kadry label[for="z-m-back-neck-back"] span,
-#z-m-back-back:checked ~ .figura-kadry label[for="z-m-back-back"] span,
-#z-m-back-pelv-back:checked ~ .figura-kadry label[for="z-m-back-pelv-back"] span,
-#z-f-front-head:checked ~ .figura-kadry label[for="z-f-front-head"] span,
-#z-f-front-neck:checked ~ .figura-kadry label[for="z-f-front-neck"] span,
-#z-f-front-chest:checked ~ .figura-kadry label[for="z-f-front-chest"] span,
-#z-f-front-abd:checked ~ .figura-kadry label[for="z-f-front-abd"] span,
-#z-f-front-arm:checked ~ .figura-kadry label[for="z-f-front-arm"] span,
-#z-f-front-leg:checked ~ .figura-kadry label[for="z-f-front-leg"] span,
-#z-f-front-pelv:checked ~ .figura-kadry label[for="z-f-front-pelv"] span,
-#z-f-back-head-back:checked ~ .figura-kadry label[for="z-f-back-head-back"] span,
-#z-f-back-neck-back:checked ~ .figura-kadry label[for="z-f-back-neck-back"] span,
-#z-f-back-back:checked ~ .figura-kadry label[for="z-f-back-back"] span,
-#z-f-back-pelv-back:checked ~ .figura-kadry label[for="z-f-back-pelv-back"] span { opacity: 1; }
+   см. zonesOf() в src/site/pages/vybor.js и contoursOf() в src/site/figura.js. */
+/* выбранная зона: слой-прожектор с обводкой живой, подпись (у отражённых копий — обе) */
+#z-m-front-head:checked ~ .figura-kadry .zona[data-z="m-front-head"],
+#z-m-front-neck:checked ~ .figura-kadry .zona[data-z="m-front-neck"],
+#z-m-front-chest:checked ~ .figura-kadry .zona[data-z="m-front-chest"],
+#z-m-front-abd:checked ~ .figura-kadry .zona[data-z="m-front-abd"],
+#z-m-front-arm:checked ~ .figura-kadry .zona[data-z="m-front-arm"],
+#z-m-front-leg:checked ~ .figura-kadry .zona[data-z="m-front-leg"],
+#z-m-front-pelv:checked ~ .figura-kadry .zona[data-z="m-front-pelv"],
+#z-m-back-head-back:checked ~ .figura-kadry .zona[data-z="m-back-head-back"],
+#z-m-back-neck-back:checked ~ .figura-kadry .zona[data-z="m-back-neck-back"],
+#z-m-back-back:checked ~ .figura-kadry .zona[data-z="m-back-back"],
+#z-m-back-pelv-back:checked ~ .figura-kadry .zona[data-z="m-back-pelv-back"],
+#z-f-front-head:checked ~ .figura-kadry .zona[data-z="f-front-head"],
+#z-f-front-neck:checked ~ .figura-kadry .zona[data-z="f-front-neck"],
+#z-f-front-chest:checked ~ .figura-kadry .zona[data-z="f-front-chest"],
+#z-f-front-abd:checked ~ .figura-kadry .zona[data-z="f-front-abd"],
+#z-f-front-arm:checked ~ .figura-kadry .zona[data-z="f-front-arm"],
+#z-f-front-leg:checked ~ .figura-kadry .zona[data-z="f-front-leg"],
+#z-f-front-pelv:checked ~ .figura-kadry .zona[data-z="f-front-pelv"],
+#z-f-back-head-back:checked ~ .figura-kadry .zona[data-z="f-back-head-back"],
+#z-f-back-neck-back:checked ~ .figura-kadry .zona[data-z="f-back-neck-back"],
+#z-f-back-back:checked ~ .figura-kadry .zona[data-z="f-back-back"],
+#z-f-back-pelv-back:checked ~ .figura-kadry .zona[data-z="f-back-pelv-back"] { --z-sloy: block; --z-zhivoy: none; --z-podpis: 1; }
 /* кнопка «Далее» выбранной зоны — пока показан её кадр */
 #figura-m:checked ~ #figura-front:checked ~ #z-m-front-head:checked ~ .figura-dalee a[data-z="m-front-head"],
 #figura-m:checked ~ #figura-front:checked ~ #z-m-front-neck:checked ~ .figura-dalee a[data-z="m-front-neck"],

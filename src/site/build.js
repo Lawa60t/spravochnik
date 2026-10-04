@@ -200,8 +200,8 @@ function robots(origin) {
 }
 
 /* ---------- служебная страница наложения ----------
-   Четыре кадра, поверх каждого — прямоугольники всех участков с подписями,
-   по той же геометрии (src/site/figura.js), что и ссылки на /vybor/.
+   Четыре кадра, поверх каждого — боксы участков и гладкие контуры зон,
+   по той же геометрии (src/site/figura.js), что и зоны на /vybor/.
    Сравнивается с эталоном figury/nalozhenie/*.png: совпали — формула,
    зеркалирование и данные прочитаны верно. */
 function debugFiguraPage() {
@@ -209,14 +209,20 @@ function debugFiguraPage() {
   const Td = T.debug;
   const kadry = FIGURA.KADRY.map(k => {
     const img = A.figury[k.frame];
-    const boxes = FIGURA.boxesOf(k)
-      .map(b => `<div class="b ${b.kind}" style="left:${(b.x0 * 100).toFixed(2)}%;top:${(b.y0 * 100).toFixed(2)}%;width:${((b.x1 - b.x0) * 100).toFixed(2)}%;height:${((b.y1 - b.y0) * 100).toFixed(2)}%"><i>${esc(b.id)}</i></div>`)
+    /* участки — боксами, зоны — гладкими контурами (тем же сплайном, что и на /vybor/) */
+    const boxes = FIGURA.boxesOf(k).filter(b => b.kind === "subzone")
+      .map(b => `<div class="b" style="left:${(b.x0 * 100).toFixed(2)}%;top:${(b.y0 * 100).toFixed(2)}%;width:${((b.x1 - b.x0) * 100).toFixed(2)}%;height:${((b.y1 - b.y0) * 100).toFixed(2)}%"><i>${esc(b.id)}</i></div>`)
       .join("\n      ");
+    const contours = FIGURA.contoursOf(k);
+    const paths = contours.map(c => `<path d="${c.path}" vector-effect="non-scaling-stroke"/>`).join("");
+    const labels = contours.map(c => `<b style="left:${(c.cx * 100).toFixed(2)}%;top:${(c.cy * 100).toFixed(2)}%">${esc(c.id)}</b>`).join("\n      ");
     return `<figure>
     <figcaption>${esc(k.frame)}</figcaption>
     <div class="k" style="aspect-ratio:${img.x1.width}/${img.x1.height}">
       <img src="${esc(img.x2.url)}" width="${img.x1.width}" height="${img.x1.height}" alt="${esc(k.frame)}" decoding="async">
       ${boxes}
+      <svg viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true">${paths}</svg>
+      ${labels}
     </div>
   </figure>`;
   }).join("\n  ");
@@ -237,9 +243,10 @@ function debugFiguraPage() {
   .k { position: relative; width: min(671px, 100vw - 2rem); }
   .k img { display: block; width: inherit; height: auto; }
   .b { position: absolute; box-sizing: border-box; border: 1px solid #c00; }
-  .b.zone { border: 2px solid #06c; }
   .b i { position: absolute; left: 0; top: 0; font: 10px/1.2 system-ui, sans-serif; font-style: normal; background: rgba(255,255,255,.75); color: #900; padding: 0 2px; white-space: nowrap; }
-  .b.zone i { color: #036; }
+  .k svg { position: absolute; left: 0; top: 0; width: inherit; height: auto; aspect-ratio: inherit; overflow: visible; pointer-events: none; }
+  .k svg path { fill: rgba(0,102,204,.08); stroke: #06c; stroke-width: 2; }
+  .k b { position: absolute; margin: -8px 0 0 -20px; font: 600 11px/1.2 system-ui, sans-serif; background: rgba(255,255,255,.8); color: #036; padding: 0 3px; border-radius: 3px; }
 </style>
 </head>
 <body>
